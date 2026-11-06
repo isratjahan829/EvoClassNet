@@ -153,8 +153,8 @@ NSEED = SUM2.get("seeds", {}).get("heldout_sites", 10)
 
 # ================================================================= TITLE
 doc.add_heading(
-    "A position-only baseline for deep mutational scanning benchmarks: what random-split "
-    "evaluation actually measures, and how to tell",
+    "Most supervised models on ProteinGym do not beat a baseline that cannot tell amino acids "
+    "apart: a position-only control for deep mutational scanning benchmarks",
     0)
 P("[Author names and affiliations]", al=WD_ALIGN_PARAGRAPH.CENTER)
 
@@ -248,6 +248,23 @@ if len(PGT0):
             f"first falls to {float(_pm_h):.3f}, which is an identity rather than a degradation, and "
             f"the second retains {float(_ch_h):.3f}. The standard evaluation rewards memorising per-position "
             f"means, and that capability is worth nothing at a position no experiment has probed.")
+
+AUDJ0 = J("position_only_audit.json")
+AUD0 = C("table_position_only_audit.csv")
+if AUDJ0.get("Random split") and len(AUD0):
+    _r, _m = AUDJ0["Random split"], AUDJ0.get("fold_modulo_5", {})
+    _rnd = AUD0[AUD0.scheme == "Random split"]
+    _below = int((_rnd.median_margin < 0).sum())
+    abs_bits.append(
+        f"Turning that baseline on the published leaderboard itself gives the sharpest statement. "
+        f"ProteinGym reports per-assay correlations for eleven supervised models under each "
+        f"scheme. Under the random split the position-only baseline reaches a median Spearman of "
+        f"{_rnd.position_only_median.iloc[0]:.3f}, and {_below} of the eleven published models "
+        f"have a median below it; the median model wins on only "
+        f"{100*_r['median_frac_beats']:.1f} % of assays, and the weakest is not beaten on "
+        f"{_r['worst']['n_not_beaten']} of 216. Under fold_modulo_5 the same models win on "
+        f"{100*_m.get('median_frac_beats', float('nan')):.1f} % of assays. The models are not "
+        f"weak; the conventional protocol simply does not show what separates them.")
 
 LBJ0 = J("leaderboard_comparison.json")
 if LBJ0.get("one_hot") and LBJ0.get("best_under_modulo"):
@@ -893,11 +910,69 @@ fig("fig9_proteingym.png", "Figure 7. ProteinGym: distribution of per-assay Spea
 fig("fig10_proteingym_scatter.png", "Figure 8. The position-mean model against the chemistry "
     "model, per assay. Which one wins is decided entirely by the split.", 6.0)
 
-H("3.12 Against the published supervised leaderboard", 2)
+H("3.12 Auditing the published leaderboard with a position-only control", 2)
+AUD = C("table_position_only_audit.csv")
+AUDJ = J("position_only_audit.json")
+if len(AUD):
+    P("The position-mean model can be turned on the published leaderboard itself. ProteinGym "
+      "reports per-assay Spearman correlations for eleven supervised models under each "
+      "cross-validation scheme. Comparing those published numbers, assay by assay, against a "
+      "ridge regression told only which position a variant mutates asks a question the "
+      "leaderboard does not: how often does a model that cannot distinguish an alanine from a "
+      "tryptophan nonetheless score higher?")
+    for sch in ("Random split", "fold_modulo_5", "fold_contiguous_5"):
+        d = AUD[AUD.scheme == sch]
+        if not len(d):
+            continue
+        table(d.sort_values("frac_assays_model_beats_position_only"),
+              f"Table 11{'abc'[('Random split','fold_modulo_5','fold_contiguous_5').index(sch)]}. "
+              f"Published ProteinGym supervised models against the position-only baseline under "
+              f"{sch}, assay by assay.",
+              cols=["model", "n_assays", "model_median", "position_only_median", "median_margin",
+                    "frac_assays_model_beats_position_only", "n_assays_not_beaten"],
+              rename={"model": "Published model", "n_assays": "Assays",
+                      "model_median": "Model median ρ",
+                      "position_only_median": "Position-only median ρ",
+                      "median_margin": "Median margin",
+                      "frac_assays_model_beats_position_only": "Frac assays model wins",
+                      "n_assays_not_beaten": "Assays not won"})
+    r = AUDJ.get("Random split", {})
+    m = AUDJ.get("fold_modulo_5", {})
+    if r and m:
+        rnd = AUD[AUD.scheme == "Random split"]
+        below = rnd[rnd.median_margin < 0]
+        P(f"Under the random split the answer is: often. The position-only baseline reaches a "
+          f"median Spearman of {rnd.position_only_median.iloc[0]:.3f} across assays, and "
+          f"{len(below)} of the {len(rnd)} published models have a median below it — including "
+          f"every model built on one-hot encodings, whether or not a language model is added to "
+          f"them. The median published model wins on "
+          f"{100*r['median_frac_beats']:.1f} % of assays. The weakest, "
+          f"{r['worst']['model']}, is not beaten on {r['worst']['n_not_beaten']} of them; the "
+          f"strongest, {r['best']['model']}, wins on {100*r['best']['frac_beats']:.0f} %.")
+        P(f"Under fold_modulo_5 the picture is completely different: the baseline is zero by "
+          f"construction and the median model now wins on {100*m['median_frac_beats']:.1f} % of "
+          f"assays, with {m['best']['model']} winning on all of them. The models are not weak. "
+          f"The point is narrower and, we think, more useful: on the protocol most of this "
+          f"literature reports, a large fraction of what separates models from each other and "
+          f"from zero is recoverable without knowing anything about the substitution, so a "
+          f"random-split score on its own does not establish that a model has learned about "
+          f"substitutions at all.")
+        P("Two caveats bound this. The published numbers come from ProteinGym's own five-fold "
+          "assignments for the random scheme, which we cannot reproduce exactly because they "
+          "are distributed separately; our baseline uses an independent 80/20 random split "
+          "averaged over five seeds, with comparable training-set size. And a position-only "
+          "model is favoured on assays where each position carries many measured substitutions, "
+          "which is most of ProteinGym by design. Neither affects the position-based comparisons, "
+          "where the baseline is identically zero.")
+fig("fig12_position_only_audit.png", "Figure 9. Fraction of assays on which each published "
+    "supervised model beats a baseline given only the mutated position, under each "
+    "cross-validation scheme.", 6.4)
+
+H("3.13 Our own baselines on the same axes", 2)
 LBP = C("table_leaderboard_pivot.csv")
 LBJ = J("leaderboard_comparison.json")
 if len(LBP):
-    table(LBP, "Table 11. This study's baselines placed on the published ProteinGym supervised "
+    table(LBP, "Table 12. This study's baselines placed on the published ProteinGym supervised "
           "leaderboard, which reports each model separately under the three cross-validation "
           "schemes. Values are mean Spearman ρ across assays.", maxrows=20)
     oh = LBJ.get("one_hot") or {}
@@ -926,12 +1001,12 @@ if len(LBP):
           f"representations — sequence embeddings, and structure in the case of the leading "
           f"model — which is the same account this paper gives, arrived at independently on the "
           f"receptor-binding domain and confirmed by their numbers rather than by ours.")
-fig("fig11_leaderboard.png", "Figure 9. Published ProteinGym supervised models and the baselines "
+fig("fig11_leaderboard.png", "Figure 10. Published ProteinGym supervised models and the baselines "
     "added here, under the random split and under fold_modulo_5.", 6.4)
 
-H("3.12 A second data type: coronavirus genomes", 2)
+H("3.14 A second data type: coronavirus genomes", 2)
 if len(GEN):
-    table(GEN, "Table 12. Coronavirus genus classification under both splits, mean ± SD across "
+    table(GEN, "Table 13. Coronavirus genus classification under both splits, mean ± SD across "
           "seeds.",
           cols=["split", "family", "model", "seeds", "accuracy", "balanced_accuracy", "macro_f1",
                 "weighted_f1", "mcc"] + [c for c in GEN.columns if c.startswith("f1_")],
@@ -952,7 +1027,7 @@ if len(GEN):
               f"{d[d.model == 'Majority class'].iloc[0].balanced_accuracy} for the majority "
               f"class.")
 if len(GENC):
-    table(GENC, "Table 13. Sequence models against the untrained length-and-composition control, "
+    table(GENC, "Table 14. Sequence models against the untrained length-and-composition control, "
           "paired over seeds.",
           cols=["split", "model", "reference", "n_seeds", "median_diff", "ci_lo", "ci_hi",
                 "p_fdr", "tost_p", "equivalent", "cliffs_delta"],
@@ -960,9 +1035,9 @@ if len(GENC):
                   "n_seeds": "Seeds", "median_diff": "Median Δ", "ci_lo": "CI low",
                   "ci_hi": "CI high", "p_fdr": "P (FDR)", "tost_p": "TOST P",
                   "equivalent": "Equivalent", "cliffs_delta": "Cliff's δ"})
-fig("fig6_genomes.png", "Figure 10. Balanced accuracy on coronavirus genus classification under "
+fig("fig6_genomes.png", "Figure 11. Balanced accuracy on coronavirus genus classification under "
     "both splits. The dotted line is chance for four classes.", 6.4)
-fig("fig7_genome_confusion.png", "Figure 11. Confusion matrices under the held-out-species split, "
+fig("fig7_genome_confusion.png", "Figure 12. Confusion matrices under the held-out-species split, "
     "pooled over seeds and row-normalised.", 6.4)
 P("The original project proposal reported this task as a five-way classification at 99.92 % "
   "accuracy, with no baseline. The lesson here is not that such a number must be wrong, but that "

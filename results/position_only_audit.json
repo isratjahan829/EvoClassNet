@@ -1,0 +1,44 @@
+{
+ "Random split": {
+  "n_models": 11,
+  "worst": {
+   "model": "One-Hot Encodings",
+   "frac_beats": 0.264,
+   "n_not_beaten": 159
+  },
+  "best": {
+   "model": "Kermut",
+   "frac_beats": 0.94,
+   "n_not_beaten": 13
+  },
+  "median_frac_beats": 0.352
+ },
+ "fold_modulo_5": {
+  "n_models": 11,
+  "worst": {
+   "model": "One-Hot Encodings",
+   "frac_beats": 0.603,
+   "n_not_beaten": 85
+  },
+  "best": {
+   "model": "Kermut",
+   "frac_beats": 1.0,
+   "n_not_beaten": 0
+  },
+  "median_frac_beats": 0.995
+ },
+ "fold_contiguous_5": {
+  "n_models": 11,
+  "worst": {
+   "model": "One-Hot Encodings",
+   "frac_beats": 0.601,
+   "n_not_beaten": 77
+  },
+  "best": {
+   "model": "ProteinNPT",
+   "frac_beats": 1.0,
+   "n_not_beaten": 0
+  },
+  "median_frac_beats": 0.995
+ }
+}
