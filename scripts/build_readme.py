@@ -62,7 +62,19 @@ w("* **Held-out-position split** — no training variant mutates any test positi
   "collapses, and once the trivial **mutation-count baseline** (`−n_substitutions`, untrained) is "
   "included in the comparison, no trained model in this study demonstrates position-level "
   "extrapolation on binding or expression.")
-w("")
+vb0 = hold.get("vs_blosum", {})
+if vb0.get("escape") and vb0.get("bind"):
+    e, b = vb0["escape"], vb0["bind"]
+    w(f"* **The one exception is antibody escape.** Every escape-labelled variant carries exactly one "
+      f"substitution, so the mutation-count baseline is constant there and cannot account for anything. "
+      f"At withheld positions EvoClassNet's median per-position ρ is {e['model_median']:.3f} against "
+      f"{e['blosum_median']:.3f} for BLOSUM62 exchangeability (paired Δ {e['median_diff']:+.3f}, "
+      f"P = {e['p']:.3g}, n = {e['n']}). For binding the ordering reverses: BLOSUM62 reaches "
+      f"{b['blosum_median']:.3f} against the model's {b['model_median']:.3f} (Δ {b['median_diff']:+.3f}, "
+      f"P = {b['p']:.3g}, n = {b['n']}). So an untrained substitution matrix beats the network at unseen "
+      f"positions on binding, and loses to it on escape — escape is the only place here where a trained "
+      f"model supplies something that neither the trivial baseline nor generic chemistry does.")
+    w("")
 w("The mutation-count baseline is decisive because held-out-position test sets contain variants with "
   "different numbers of substitutions, and fitness falls with substitution count. A model can score "
   "a respectable Spearman ρ there while having learned nothing position-specific. Papers that report "
@@ -134,14 +146,16 @@ if hold:
     w(f"VOC-defining substitutions appear in the escape training data, so ranking them with a model "
       f"that has seen them measures memorisation. Here each VOC substitution contributes only in the "
       f"seeds where its position was withheld"
-      + (f" ({nu} unique substitutions qualify)" if nu else "") + ":")
+      + (f". {nu} unique substitutions qualify; the n column counts position-seed instances, "
+         f"since a substitution scores once per seed in which its position was withheld" if nu else "")
+      + ":")
     w("")
     rows = [dict(scorer=k, auroc=f"{v['auroc']:.3f}",
                  ci=f"{v['ci95'][0]:.3f}–{v['ci95'][1]:.3f}", n=v["n_voc"])
             for k, v in hold.get("voc", {}).items()]
     if rows:
         md_table(pd.DataFrame(rows), ["scorer", "auroc", "ci", "n"],
-                 ["Scorer", "AUROC", "95% bootstrap CI", "n VOC"])
+                 ["Scorer", "AUROC", "95% bootstrap CI", "n positives"])
     vb = hold.get("vs_blosum", {})
     if vb:
         w("Against a hand-crafted chemistry prior, per-position rank accuracy at withheld positions:")

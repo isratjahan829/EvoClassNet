@@ -8,6 +8,7 @@ Two evaluation protocols on the same deep-mutational-scanning data rank models d
 
 * **Random genotype split** — a variant's own mutated positions are also mutated in the training set. All models do well; the neural model is not clearly better than a global-epistasis fit.
 * **Held-out-position split** — no training variant mutates any test position. Rank accuracy collapses, and once the trivial **mutation-count baseline** (`−n_substitutions`, untrained) is included in the comparison, no trained model in this study demonstrates position-level extrapolation on binding or expression.
+* **The one exception is antibody escape.** Every escape-labelled variant carries exactly one substitution, so the mutation-count baseline is constant there and cannot account for anything. At withheld positions EvoClassNet's median per-position ρ is 0.251 against -0.337 for BLOSUM62 exchangeability (paired Δ +0.598, P = 1.02e-15, n = 98). For binding the ordering reverses: BLOSUM62 reaches 0.538 against the model's 0.181 (Δ -0.269, P = 1.54e-14, n = 150). So an untrained substitution matrix beats the network at unseen positions on binding, and loses to it on escape — escape is the only place here where a trained model supplies something that neither the trivial baseline nor generic chemistry does.
 
 The mutation-count baseline is decisive because held-out-position test sets contain variants with different numbers of substitutions, and fitness falls with substitution count. A model can score a respectable Spearman ρ there while having learned nothing position-specific. Papers that report held-out-position performance without this control cannot distinguish the two cases.
 
@@ -15,9 +16,9 @@ Paired per-seed comparison, EvoClassNet minus baseline (median difference, Wilco
 
 | Task | vs mutation count | vs global epistasis | vs additive ridge | seeds |
 |---|---|---|---|---|
-| ACE2 binding | +0.012 (P = 0.557) | +0.707 (P = 0.00391) | +0.363 (P = 0.0371) | 10 |
-| Expression | -0.105 (P = 0.322) | +0.701 (P = 0.00195) | +0.307 (P = 0.0137) | 10 |
-| Antibody escape | +0.274 (P = 0.084) | +0.257 (P = 0.105) | +0.274 (P = 0.084) | 10 |
+| ACE2 binding | -0.022 (P = 0.275) | +0.704 (P = 0.00195) | +0.352 (P = 0.00195) | 10 |
+| Expression | -0.018 (P = 0.322) | +0.702 (P = 0.00195) | +0.329 (P = 0.00195) | 10 |
+| Antibody escape | +0.241 (P = 0.0273) | +0.241 (P = 0.0371) | +0.241 (P = 0.0273) | 10 |
 
 ## Main results
 
@@ -30,7 +31,7 @@ Test Spearman ρ, mean ± SD over independent seeds (`results/table_main.csv` ha
 | Mutation count (untrained) | 0.478 ± 0.006 | 0.390 ± 0.007 | 0.000 ± 0.000 |
 | Additive ridge | 0.874 ± 0.004 | 0.790 ± 0.003 | 0.000 ± 0.000 |
 | Global epistasis | 0.886 ± 0.004 | 0.799 ± 0.004 | 0.754 ± 0.025 |
-| EvoClassNet | 0.892 ± 0.009 | 0.852 ± 0.025 | 0.693 ± 0.140 |
+| EvoClassNet | 0.892 ± 0.008 | 0.855 ± 0.019 | 0.690 ± 0.104 |
 
 **Split: held-out positions** (median test-set size: ACE2 binding 1,386, Antibody escape 300, Expression 1,432)
 
@@ -39,7 +40,16 @@ Test Spearman ρ, mean ± SD over independent seeds (`results/table_main.csv` ha
 | Mutation count (untrained) | 0.386 ± 0.047 | 0.368 ± 0.049 | 0.000 ± 0.000 |
 | Additive ridge | 0.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 |
 | Global epistasis | -0.370 ± 0.042 | -0.354 ± 0.057 | 0.008 ± 0.016 |
-| EvoClassNet | 0.294 ± 0.265 | 0.271 ± 0.228 | 0.171 ± 0.281 |
+| EvoClassNet | 0.341 ± 0.118 | 0.323 ± 0.079 | 0.183 ± 0.200 |
+
+## Run-to-run instability
+
+Holding the data partition fixed and varying only the weight-initialisation seed (`scripts/stability_check.py`):
+
+* partition seed 0: binding ρ = +0.374, +0.423, +0.387  (val loss 0.470, 0.422, 0.488)
+* partition seed 2: binding ρ = +0.236, +0.558, +0.385  (val loss 0.418, 0.365, 0.426)
+
+Spread across all 6 runs: +0.236 to +0.558. A single-run number on this split is not a measurement, which is why every table here reports seed-level distributions.
 
 ## Amino-acid permutation ablation
 
@@ -47,19 +57,43 @@ A per-position permutation of the 20-letter alphabet destroys residue identity s
 
 | Split | Task | Intact | Permuted | Δ |
 |---|---|---|---|---|
-| random | ACE2 binding | 0.890 ± 0.012 | 0.886 ± 0.018 | -0.003 |
-| random | Expression | 0.845 ± 0.035 | 0.831 ± 0.037 | -0.013 |
-| random | Antibody escape | 0.638 ± 0.189 | 0.585 ± 0.127 | -0.054 |
-| heldout_sites | ACE2 binding | 0.171 ± 0.333 | 0.132 ± 0.227 | -0.039 |
-| heldout_sites | Expression | 0.158 ± 0.275 | 0.086 ± 0.170 | -0.073 |
-| heldout_sites | Antibody escape | 0.026 ± 0.266 | -0.034 ± 0.228 | -0.06 |
+| random | ACE2 binding | 0.890 ± 0.011 | 0.870 ± 0.054 | -0.02 |
+| random | Expression | 0.849 ± 0.026 | 0.808 ± 0.093 | -0.041 |
+| random | Antibody escape | 0.650 ± 0.135 | 0.553 ± 0.230 | -0.097 |
+| heldout_sites | ACE2 binding | 0.280 ± 0.118 | 0.260 ± 0.030 | -0.02 |
+| heldout_sites | Expression | 0.287 ± 0.070 | 0.223 ± 0.036 | -0.064 |
+| heldout_sites | Antibody escape | 0.161 ± 0.199 | 0.194 ± 0.306 | 0.033 |
 
 Read the Δ column against the seed-level SD in the same row, not on its own.
+
+## Leakage-free variant-of-concern ranking
+
+VOC-defining substitutions appear in the escape training data, so ranking them with a model that has seen them measures memorisation. Here each VOC substitution contributes only in the seeds where its position was withheld. 12 unique substitutions qualify; the n column counts position-seed instances, since a substitution scores once per seed in which its position was withheld:
+
+| Scorer | AUROC | 95% bootstrap CI | n positives |
+|---|---|---|---|
+| EvoClassNet predicted escape | 0.588 | 0.441–0.730 | 15 |
+| EvoClassNet predicted binding | 0.469 | 0.291–0.638 | 15 |
+| BLOSUM62 exchangeability | 0.718 | 0.602–0.820 | 15 |
+| Measured escape (held-out positions) | 0.749 | 0.636–0.856 | 14 |
+| Measured binding DMS (held-out positions) | 0.664 | 0.537–0.797 | 15 |
+
+Against a hand-crafted chemistry prior, per-position rank accuracy at withheld positions:
+
+| Task | Model median ρ | BLOSUM62 median ρ | Median Δ | P | n position–seed |
+|---|---|---|---|---|---|
+| bind | 0.181 | 0.538 | -0.269 | 1.54e-14 | 150 |
+| escape | 0.251 | -0.337 | +0.598 | 1.02e-15 | 98 |
+
+* **bind**: median per-position ρ +0.181, 76% of position–seed cells positive, ρ vs relative solvent accessibility -0.259 (P = 0.00168)
+* **escape**: median per-position ρ +0.251, 80% of position–seed cells positive, ρ vs relative solvent accessibility -0.098 (P = 0.351)
 
 ## In-silico variant evolution (a control, not a forecast)
 
 A genetic algorithm maximises the trained model's own predicted phenotype from wild type. This is reported to show what naive optimisation of a learned fitness surface produces:
 
+* **escape**: top-1% of a 7,714-variant archive carries 0.000 VOC substitutions per variant vs 0.062 for random archive variants (permutation P = 1.000); 35% of its top-20 mutations sit in the terminal residues (≥ spike 512), where the yeast-display assay is least informative. Top mutations: T478F, K528H, K417H, T531R, L452Y, S477H
+* **escape_and_binding**: top-1% of a 7,744-variant archive carries 0.000 VOC substitutions per variant vs 0.034 for random archive variants (permutation P = 1.000); 20% of its top-20 mutations sit in the terminal residues (≥ spike 512), where the yeast-display assay is least informative. Top mutations: T376H, K386N, S373R, K386D, A363F, D428N
 
 No enrichment. The GA exploits assay artefacts, which is the expected failure mode and the reason this is a control rather than a result.
 
@@ -118,4 +152,4 @@ python scripts/variant_analysis.py
 python scripts/analyze.py && python scripts/build_docx.py && python scripts/build_readme.py
 ```
 
-The study in this repository is 50 cached runs (`results/jobs/`, one JSON per run; re-running skips completed jobs). Median wall time per random-split run: 39 min on 4 CPU cores.
+The study in this repository is 50 cached runs (`results/jobs/`, one JSON per run; re-running skips completed jobs). Median wall time per random-split run: 38 min on 4 CPU cores.

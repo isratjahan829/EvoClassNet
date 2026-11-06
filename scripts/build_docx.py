@@ -1,6 +1,6 @@
 """Build the manuscript (.docx). Every number, and every comparative statement, is derived from
 results/*.json and results/*.csv — nothing is typed in by hand."""
-import json, sys
+import json, re, sys
 from pathlib import Path
 import numpy as np, pandas as pd
 from docx import Document
@@ -8,12 +8,16 @@ from docx.shared import Pt, Inches
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from evoclassnet import data
+from evoclassnet.baselines import add_mutation_count
 ROOT = Path(__file__).resolve().parents[1]; R = ROOT / "results"; FIG = R / "figures"
 J = lambda n: json.load(open(R / n)) if (R / n).exists() else {}
 C = lambda n: pd.read_csv(R / n) if (R / n).exists() else pd.DataFrame()
 TASKS = [("bind", "ACE2 binding"), ("expr", "expression"), ("escape", "antibody escape")]
 MODELS = [("ridge_additive", "Additive ridge"), ("global_epistasis", "Global epistasis"), ("evoclassnet", "EvoClassNet")]
 jobs = {f.stem: json.load(open(f)) for f in (R / "jobs").glob("*.json")} if (R / "jobs").exists() else {}
+# The job files hold only the trained models; the untrained mutation-count baseline is evaluated
+# here on the same partitions, exactly as scripts/analyze.py does for the tables.
+add_mutation_count(jobs)
 GA = J("ga_hyperparams.json"); HO = J("holdout_analysis.json"); VA = J("variant_analysis.json")
 main_df, stat_df, abl_df = C("table_main.csv"), C("table_stats.csv"), C("table_ablation.csv")
 hp = {k: (tuple(v) if isinstance(v, list) else v) for k, v in GA.get("best", {}).items()}
@@ -41,6 +45,28 @@ def stat(split, task_name, col="vs_global_epistasis"):
     if stat_df.empty: return "n/a"
     r = stat_df[(stat_df.split == split) & (stat_df.task == task_name)]
     return r.iloc[0][col] if len(r) else "n/a"
+
+
+def pval(split, task_name, col="vs_global_epistasis"):
+    """Pull the P value back out of the formatted cell in table_stats.csv."""
+    m = re.search(r"P = ([0-9.eE+-]+)", str(stat(split, task_name, col)))
+    return float(m.group(1)) if m else float("nan")
+
+
+def sig_clause(split, task_name, col="vs_global_epistasis", alpha=0.05, seeds=None):
+    """Wording for whether a paired comparison clears alpha, derived from the measured P value.
+
+    Written as a function so the sentence cannot contradict the table when the numbers change.
+    """
+    pv = pval(split, task_name, col)
+    at = f" at {seeds} seeds" if seeds else ""
+    if np.isnan(pv):
+        return f"its significance cannot be assessed{at}"
+    if pv >= alpha:
+        return f"it does not reach significance{at}"
+    if pv > alpha / 5:
+        return f"it clears P < {alpha}{at}, but only narrowly"
+    return f"it is significant{at}"
 
 
 def cmpword(a, b, tol=0.01):
@@ -81,7 +107,7 @@ def fig(name, cap, w=5.4):
     P(cap, it=True)
 
 # ---------------------------------------------------------------- front matter
-doc.add_heading("Apparent generalisation to unseen positions in deep mutational scanning models is explained by mutation count: a benchmark on the SARS-CoV-2 receptor-binding domain", 0)
+doc.add_heading("Apparent generalisation to unseen positions in deep mutational scanning models is largely explained by mutation count: a benchmark on the SARS-CoV-2 receptor-binding domain", 0)
 P("[Author names and affiliations]", al=WD_ALIGN_PARAGRAPH.CENTER)
 
 rb, gb = mean("main_random_s", "evoclassnet", "bind"), mean("main_random_s", "global_epistasis", "bind")
@@ -96,10 +122,17 @@ P(f"Models trained on deep mutational scanning (DMS) data are normally evaluated
   f"(EvoClassNet ρ = {ms('main_random_s','evoclassnet','bind')} versus {ms('main_random_s','mutation_count','bind')} for binding). "
   f"Under the held-out-position split the additive model became undefined and the global-epistasis model anti-correlated ({ms('main_heldout_sites_s','global_epistasis','bind')}), while a multi-task "
   f"convolutional–recurrent–attention network appeared to retain signal ({ms('main_heldout_sites_s','evoclassnet','bind')}). That appearance does not survive the right control: the untrained "
-  f"mutation-count baseline reached {ms('main_heldout_sites_s','mutation_count','bind')} on the same partitions, and the trained network was statistically indistinguishable from it on all three "
-  f"phenotypes (paired Wilcoxon over {nseed} seeds: {stat('heldout_sites','ACE2 binding','vs_mutation_count')} for binding). Permuting the amino-acid alphabet independently at every position, which "
-  f"destroys residue identity shared across positions but leaves mutation count untouched, changed nothing, as this account predicts. We conclude that none of the models tested demonstrates "
-  f"position-level extrapolation, and that held-out-position evaluation is interpretable only when reported against a mutation-count baseline.")
+  f"mutation-count baseline reached {ms('main_heldout_sites_s','mutation_count','bind')} on the same partitions, and the trained network was statistically indistinguishable from it on binding and "
+  f"expression (paired Wilcoxon over {nseed} seeds: {stat('heldout_sites','ACE2 binding','vs_mutation_count')} and {stat('heldout_sites','Expression','vs_mutation_count')}). Permuting the "
+  f"amino-acid alphabet independently at every position, which destroys residue identity shared across positions but leaves mutation count untouched, changed nothing, as this account predicts. "
+  f"Antibody escape is the exception, because every escape-labelled variant carries exactly one substitution and mutation count is constant: there the network was above both trained baselines "
+  f"({stat('heldout_sites','Antibody escape','vs_global_epistasis')} versus global epistasis) and was the only scorer with a positive median per-position correlation at withheld positions, where "
+  f"BLOSUM62 exchangeability was negative"
+  + (f" ({HO['vs_blosum']['escape']['model_median']:.3f} against {HO['vs_blosum']['escape']['blosum_median']:.3f}, P = {HO['vs_blosum']['escape']['p']:.3g})" if HO.get("vs_blosum", {}).get("escape") else "")
+  + f". For binding the ordering reverses and BLOSUM62 wins"
+  + (f" ({HO['vs_blosum']['bind']['blosum_median']:.3f} against {HO['vs_blosum']['bind']['model_median']:.3f}, P = {HO['vs_blosum']['bind']['p']:.3g})" if HO.get("vs_blosum", {}).get("bind") else "")
+  + f". We conclude that these models do not demonstrate position-level extrapolation for binding or expression, that the one candidate for genuine transfer is escape, and that held-out-position "
+    f"evaluation is interpretable only when reported against a mutation-count baseline and an untrained chemistry prior.")
 P("Keywords: deep mutational scanning; SARS-CoV-2; model evaluation; generalisation; baselines; variant effect prediction; negative result.", it=True)
 
 H("1. Introduction")
@@ -163,7 +196,7 @@ P(f"That reading is wrong. Ranking variants by the number of substitutions they 
   f"ρ = {ms('main_heldout_sites_s','mutation_count','bind')} for binding and {ms('main_heldout_sites_s','mutation_count','expr')} for expression on the same partitions, against "
   f"{ms('main_heldout_sites_s','evoclassnet','bind')} and {ms('main_heldout_sites_s','evoclassnet','expr')} for EvoClassNet. Paired over {nseed} seeds the differences are "
   f"{stat('heldout_sites','ACE2 binding','vs_mutation_count')} for binding, {stat('heldout_sites','Expression','vs_mutation_count')} for expression and "
-  f"{stat('heldout_sites','Antibody escape','vs_mutation_count')} for escape: the trained network is not distinguishable from the untrained baseline on any phenotype, and the baseline is far more "
+  f"{stat('heldout_sites','Antibody escape','vs_mutation_count')} for escape. On binding and expression the trained network is not distinguishable from the untrained baseline, and the baseline is far more "
   f"stable across partitions (SD {np.std(vals('main_heldout_sites_s','mutation_count','bind'), ddof=1):.3f} against {np.std(vals('main_heldout_sites_s','evoclassnet','bind'), ddof=1):.3f}).")
 table(stat_df, "Table 3. Paired differences in Spearman ρ (EvoClassNet minus comparator) with two-sided Wilcoxon signed-rank tests over seeds.",
       cols=["split", "task", "n_seeds", "vs_mutation_count", "vs_global_epistasis", "vs_additive"],
@@ -174,7 +207,9 @@ P("The interpretation is straightforward. In a combinatorial library a large par
   "responding to the overall amount of mutation. What Table 2 measures is therefore not transfer to unseen positions; it is the part of the signal that requires no knowledge of positions at all.")
 P(f"Escape is the exception that makes the point. Every escape-labelled variant carries exactly one substitution, so mutation count is constant and contributes nothing. There, EvoClassNet reached "
   f"{ms('main_heldout_sites_s','evoclassnet','escape')} against {ms('main_heldout_sites_s','global_epistasis','escape')} for global epistasis, a difference of "
-  f"{stat('heldout_sites','Antibody escape')}. This is the only measurement in our study that could constitute genuine position-level transfer, and at {nseed} seeds it does not reach significance.")
+  f"{stat('heldout_sites','Antibody escape')}. This is the only measurement in our study that could constitute genuine position-level transfer, and "
+  f"{sig_clause('heldout_sites','Antibody escape', seeds=nseed)}. The effect is small in absolute terms and the between-seed spread is wide, so we treat it as a direction worth "
+  f"following rather than an established capability.")
 
 H("3.4 Permuting the amino-acid alphabet changes nothing", 2)
 table(abl_df, "Table 4. Amino-acid permutation ablation: an independent random permutation of the alphabet at every position, applied consistently to all partitions.",
@@ -218,6 +253,26 @@ if HO.get("vs_blosum"):
                  EvoClassNet=f"{v['model_median']:.3f}", BLOSUM62=f"{v['blosum_median']:.3f}",
                  Difference=f"{v['median_diff']:+.3f}", P=f"{v['p']:.3g}", n=v["n"]) for k, v in HO["vs_blosum"].items()]
     table(pd.DataFrame(rows), "Table 5. Median per-position Spearman ρ over single substitutions at withheld positions (Wilcoxon signed-rank on paired per-position differences).")
+    vb = HO["vs_blosum"]
+    sent = []
+    for k, tname in (("bind", "binding"), ("escape", "escape")):
+        v = vb.get(k)
+        if not v: continue
+        win = "EvoClassNet" if v["median_diff"] > 0 else "BLOSUM62"
+        sent.append(f"for {tname}, {win} is ahead (model {v['model_median']:.3f} against BLOSUM62 "
+                    f"{v['blosum_median']:.3f}; median paired difference {v['median_diff']:+.3f}, "
+                    f"P = {v['p']:.3g}, n = {v['n']} position–seed pairs)")
+    if sent:
+        P("The comparison separates the two phenotypes: " + "; ".join(sent) + ". "
+          "The direction matters for what the model can be said to have learned. On binding, an untrained "
+          "substitution matrix orders substitutions at an unseen position better than the trained network, so "
+          "whatever the network transfers there is weaker than generic residue chemistry. On escape the matrix is "
+          "actively misleading — its median per-position correlation is negative, because the substitutions that "
+          "abolish antibody binding are not the chemically radical ones — and the network is the only scorer of the "
+          "two that is positive. Escape is also the phenotype on which mutation count is constant by construction "
+          "(Section 3.3). It is therefore the single place in this study where a trained model shows something at an "
+          "unseen position that neither the trivial baseline nor a chemistry prior supplies, and we regard it as the "
+          "one positive finding here, on the understanding that it rests on the smallest of our three label sets.")
 if HO.get("per_site"):
     for task, tname in (("bind", "binding"), ("escape", "escape")):
         d = HO["per_site"].get(task)
@@ -232,10 +287,25 @@ if HO.get("voc"):
     rows = [dict(Score=k, AUROC=f"{v['auroc']:.3f}", CI=f"{v['ci95'][0]:.3f}–{v['ci95'][1]:.3f}", n_VOC=v["n_voc"], n_scored=v["n_total"]) for k, v in HO["voc"].items()]
     table(pd.DataFrame(rows), "Table 6. Ranking Variant-of-Concern substitutions at withheld positions only (pooled over seeds; 95 % bootstrap intervals).")
     pe = HO["voc"].get("EvoClassNet predicted escape", {}); me = HO["voc"].get("Measured escape (held-out positions)", {})
+    bl = HO["voc"].get("BLOSUM62 exchangeability", {})
     P(f"Variant-of-Concern substitutions appear in the escape training data, so ranking them with a model that has seen them measures memorisation; restricting the comparison to withheld positions "
       f"removes that circularity. Predicted escape gave AUROC {pe.get('auroc',float('nan')):.3f} "
       f"(95 % CI {pe.get('ci95',[float('nan')]*2)[0]:.3f}–{pe.get('ci95',[float('nan')]*2)[1]:.3f}; {pe.get('n_voc','—')} positive instances), against "
       f"{me.get('auroc',float('nan')):.3f} for the measured values on the identical subset, which is the ceiling available to any model of this phenotype. The number of positives is small and the intervals are wide.")
+    if bl:
+        lo, hi = bl.get("ci95", [float("nan")] * 2)
+        above = pe.get("ci95", [0.0, 0.0])[0] > 0.5
+        P((f"The model's interval excludes 0.5. " if above else
+           f"The model's interval includes 0.5, so this analysis does not establish that it ranks lineage-defining "
+           f"substitutions above chance. ")
+          + f"BLOSUM62 exchangeability, which requires no training "
+          f"and no data, reached {bl['auroc']:.3f} (95 % CI {lo:.3f}–{hi:.3f}) on the same instances. We draw the "
+          f"narrow conclusion rather than the broad one: the measured phenotype carries real information about which "
+          f"substitutions went on to define lineages, and at positions it has never seen the trained model does not "
+          f"recover it, whereas a substitution matrix partly does. This is the same pattern as Table 5 for binding, "
+          f"and it is the reason we do not present the Variant-of-Concern ranking as a capability of the model. "
+          f"Note also that these positives are a small, non-random set chosen with hindsight; the comparison between "
+          f"scorers on identical instances is meaningful, the absolute AUROC values much less so.")
 if VA:
     for obj, lab in (("escape", "predicted escape"), ("escape_and_binding", "predicted escape plus binding")):
         v = VA.get(obj)
@@ -247,15 +317,18 @@ if VA:
 
 H("4. Discussion")
 P("Three evaluation designs applied to the same data support three different conclusions. A random split says the trained models work well and that the choice between them barely matters. A "
-  "held-out-position split says the neural model extrapolates where conventional models fail. Adding an untrained baseline to the held-out-position split says that none of them extrapolates at "
-  "all. Only the third conclusion survives, and the baseline that produces it costs nothing to compute.")
+  "held-out-position split says the neural model extrapolates where conventional models fail. Adding an untrained baseline to the held-out-position split says that, for binding and expression, "
+  "the apparent extrapolation was the baseline all along. Only the third conclusion survives, and the baseline that produces it costs nothing to compute. The exception is instructive rather than a "
+  "qualification to be buried: on antibody escape, where mutation count is constant by construction, the model retains a positive signal at unseen positions that neither mutation count nor a "
+  "substitution matrix provides.")
 P("We think the general lesson is about which control a hard evaluation requires. Making a split harder does not by itself make the resulting number meaningful: it changes what an uninformative "
   "model would score, and unless that value is measured it is easy to mistake a shift in the null for evidence of skill. On a combinatorial mutagenesis library the uninformative score is not zero, "
   "because the number of substitutions a variant carries is itself predictive. We report this partly as a cautionary note on our own process: we had written up the held-out-position result as "
   "evidence of transfer, and designed an ablation to explain a mechanism, before the baseline showed there was nothing to explain. The ablation's null result, which had looked like a failed "
   "experiment, was in fact the first symptom.")
 P("Whether position-level transfer exists at all in these models remains open, and our escape measurements are the place to look, since every escape-labelled variant carries a single substitution "
-  "and mutation count is therefore constant. The neural model was above the alternatives there but not significantly so at ten seeds. Settling that question needs either more seeds, more "
+  f"and mutation count is therefore constant. The neural model was above the alternatives there and {sig_clause('heldout_sites','Antibody escape', seeds=nseed)}, with a per-position median that "
+  f"also beats a substitution matrix. Settling the question needs either more seeds, more "
   "single-substitution phenotypes, or models with access to information beyond the training library — pretrained protein language models and structure being the obvious candidates, neither of which "
   "we could evaluate here.")
 P("The practical recommendations are narrow. First, report held-out-position performance alongside random splits for any predictor trained on a saturating scan, because the two designs can be "

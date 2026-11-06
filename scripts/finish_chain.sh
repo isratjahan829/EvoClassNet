@@ -8,4 +8,5 @@ python3 -u scripts/holdout_analysis.py 5          > results/holdout_log.txt   2>
 python3 -u scripts/variant_analysis.py            > results/variant_log.txt   2>&1
 python3 -u scripts/analyze.py                     > results/analyze_log.txt   2>&1
 python3 -u scripts/build_docx.py                  > results/docx_log.txt      2>&1
+python3 -u scripts/build_readme.py                > results/readme_log.txt    2>&1
 echo CHAIN_COMPLETE

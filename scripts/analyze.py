@@ -4,6 +4,8 @@ from pathlib import Path
 import numpy as np, pandas as pd
 from scipy.stats import wilcoxon
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from evoclassnet.baselines import add_mutation_count
 ROOT = Path(__file__).resolve().parents[1]; OUT = ROOT / "results"; JOBS = OUT / "jobs"; FIG = OUT / "figures"
 FIG.mkdir(exist_ok=True)
 TASKS = [("bind", "ACE2 binding"), ("expr", "Expression"), ("escape", "Antibody escape")]
@@ -18,37 +20,6 @@ def load(prefix):
     for f in sorted(JOBS.glob(f"{prefix}*.json")):
         out[f.stem] = json.load(open(f))
     return add_mutation_count(out)
-
-
-_CACHE = {}
-
-
-def add_mutation_count(runs):
-    """Evaluate the untrained mutation-count baseline on exactly the same partitions."""
-    if not runs: return runs
-    import sys as _s; _s.path.insert(0, str(ROOT))
-    from scipy.stats import spearmanr, pearsonr
-    from evoclassnet import data as _d, baselines as _b
-    if "g" not in _CACHE:
-        g = _d.load_genotypes(); _CACHE["g"] = g
-        _CACHE["Y"] = g[["bind", "expr", "escape"]].to_numpy(float)
-        _CACHE["n"] = g.n_sub.to_numpy()
-    g, Y, nsub = _CACHE["g"], _CACHE["Y"], _CACHE["n"]
-    for name, r in runs.items():
-        if "mutation_count" in r: continue
-        seed = int(name.split("_s")[-1]); frac = r.get("_test_frac", 0.15)
-        if "random" in name: _, _, te = _d.split_random(g, seed)
-        else: _, _, te = _d.split_heldout_sites(g, seed, test_site_frac=frac, val_site_frac=0.10)
-        p = _b.mutation_count_scores(nsub[te]); out = {}
-        for i, t in enumerate(["bind", "expr", "escape"]):
-            m = ~np.isnan(Y[te, i])
-            if m.sum() < 3 or np.ptp(p[m]) < 1e-9:
-                out[t] = dict(spearman=0.0, pearson=0.0, rmse=float("nan"), n=int(m.sum()), constant=True)
-            else:
-                out[t] = dict(spearman=float(spearmanr(Y[te, i][m], p[m])[0]),
-                              pearson=float(pearsonr(Y[te, i][m], p[m])[0]), rmse=float("nan"), n=int(m.sum()))
-        r["mutation_count"] = out
-    return runs
 
 
 def series(runs, mdl, task, metric="spearman"):
