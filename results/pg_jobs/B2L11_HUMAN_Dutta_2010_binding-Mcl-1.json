@@ -108,7 +108,109 @@
     "n_seeds": 5,
     "n_test": 34
    }
+  },
+  "pg_modulo_5": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 4,
+    "n_test": 34
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.388774659439437,
+    "spearman_sd": 0.1941457841816564,
+    "partial": NaN,
+    "n_seeds": 4,
+    "n_test": 34
+   },
+   "residue_only": {
+    "spearman": 0.10247305766797858,
+    "spearman_sd": 0.21349298129759556,
+    "partial": NaN,
+    "n_seeds": 4,
+    "n_test": 34
+   },
+   "physchem": {
+    "spearman": 0.6089475230651701,
+    "spearman_sd": 0.1576219084269398,
+    "partial": NaN,
+    "n_seeds": 4,
+    "n_test": 34
+   },
+   "chem_struct": {
+    "spearman": 0.5566636304871598,
+    "spearman_sd": 0.33023050317304303,
+    "partial": NaN,
+    "n_seeds": 4,
+    "n_test": 34
+   },
+   "position_mean": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 4,
+    "n_test": 34
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 4,
+    "n_test": 34
+   }
+  },
+  "pg_contiguous_5": {
+   "mutation_count": {
+    "spearman": NaN,
+    "spearman_sd": 0.0,
+    "partial": NaN,
+    "n_seeds": 0,
+    "n_test": 0
+   },
+   "blosum_zeroshot": {
+    "spearman": NaN,
+    "spearman_sd": 0.0,
+    "partial": NaN,
+    "n_seeds": 0,
+    "n_test": 0
+   },
+   "residue_only": {
+    "spearman": NaN,
+    "spearman_sd": 0.0,
+    "partial": NaN,
+    "n_seeds": 0,
+    "n_test": 0
+   },
+   "physchem": {
+    "spearman": NaN,
+    "spearman_sd": 0.0,
+    "partial": NaN,
+    "n_seeds": 0,
+    "n_test": 0
+   },
+   "chem_struct": {
+    "spearman": NaN,
+    "spearman_sd": 0.0,
+    "partial": NaN,
+    "n_seeds": 0,
+    "n_test": 0
+   },
+   "position_mean": {
+    "spearman": NaN,
+    "spearman_sd": 0.0,
+    "partial": NaN,
+    "n_seeds": 0,
+    "n_test": 0
+   },
+   "ridge_additive": {
+    "spearman": NaN,
+    "spearman_sd": 0.0,
+    "partial": NaN,
+    "n_seeds": 0,
+    "n_test": 0
+   }
   }
  },
- "_seconds": 5.4
+ "_seconds": 0.7
 }

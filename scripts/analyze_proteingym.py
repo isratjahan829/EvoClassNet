@@ -34,7 +34,10 @@ MODELS = [("mutation_count", "Mutation count", "untrained"),
 NAME = {k: n for k, n, _ in MODELS}
 FAM = {k: f for k, _, f in MODELS}
 COL = {"untrained": "#2e7d32", "position-indexed": "#d9541e", "transferable": "#8c62aa"}
-SPLITS = [("random", "Random split"), ("heldout_positions", "Held-out-position split")]
+SPLITS = [("random", "Random split"),
+          ("heldout_positions", "Held-out-position split"),
+          ("pg_modulo_5", "ProteinGym fold_modulo_5"),
+          ("pg_contiguous_5", "ProteinGym fold_contiguous_5")]
 MARGIN = 0.05
 plt.rcParams.update({"font.size": 9, "axes.spines.top": False, "axes.spines.right": False})
 
@@ -128,7 +131,9 @@ def main():
     json.dump(conf, open(OUT / "proteingym_confound.json", "w"), indent=1)
 
     # ---- Figure: distribution of rho per model, both splits
-    fig, axes = plt.subplots(1, 2, figsize=(10.2, 4.2), sharey=True)
+    n_sp = len(SPLITS)
+    fig, axes = plt.subplots(1, n_sp, figsize=(5.1 * n_sp, 4.2), sharey=True)
+    axes = np.atleast_1d(axes)
     for ax, (sp, spn) in zip(axes, SPLITS):
         d = D[D.split == sp]
         data, labs, cols = [], [], []
@@ -158,7 +163,8 @@ def main():
     plt.close(fig)
 
     # ---- Figure: per-assay scatter, position_mean vs chemistry, both splits
-    fig, axes = plt.subplots(1, 2, figsize=(8.6, 4.2))
+    fig, axes = plt.subplots(1, n_sp, figsize=(4.3 * n_sp, 4.2))
+    axes = np.atleast_1d(axes)
     for ax, (sp, spn) in zip(axes, SPLITS):
         d = D[D.split == sp].dropna(subset=["position_mean", "physchem"])
         ax.scatter(d.position_mean, d.physchem, s=16, alpha=0.6, color="#4c78a8",

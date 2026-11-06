@@ -1,7 +1,15 @@
 """The evaluation comparison, run across every ProteinGym substitution assay.
 
-For each assay and seed we build a random split and a held-out-position split and score four
-model families on both:
+For each assay and seed we build four splits and score six model families on each:
+
+  random             an 80/20 shuffle of variants, the conventional protocol
+  heldout_positions  a random 20 % of positions withheld
+  pg_modulo_5        ProteinGym's `fold_modulo_5`: positions assigned by position mod 5
+  pg_contiguous_5    ProteinGym's `fold_contiguous_5`: five consecutive blocks of positions
+
+The last two are reconstructions of the cross-validation schemes the supervised ProteinGym
+benchmark already defines, so nothing about withholding positions is proposed here; the point is
+what the comparison shows once an untrained control and a position-only model are included.
 
   mutation_count    untrained; ranks by -n_substitutions. Constant, and therefore uninformative,
                     on any assay containing only single mutants, which is itself worth counting.
@@ -142,13 +150,18 @@ def one_assay(dms_id, seeds, test_site_frac=0.2, max_variants=120_000):
                frac_multi=float((nsub > 1).mean()), max_nsub=int(nsub.max()),
                has_structure=bool(FS is not None), splits={})
 
-    for split in ("random", "heldout_positions"):
+    schemes = {
+        "random": lambda seed: PG.split_random(df, seed),
+        "heldout_positions": lambda seed: PG.split_heldout_positions(df, seed, test_site_frac),
+        # ProteinGym's own position-based cross-validation schemes, reconstructed exactly, so
+        # these numbers sit on the same footing as the published supervised leaderboard.
+        "pg_modulo_5": lambda seed: PG.fold_modulo(df, len(seq), test_fold=seed % PG.N_FOLDS),
+        "pg_contiguous_5": lambda seed: PG.fold_contiguous(df, len(seq), test_fold=seed % PG.N_FOLDS),
+    }
+    for split in schemes:
         per = {m: {"spearman": [], "spearman_partial": [], "n": []} for m in MODELS}
         for seed in range(seeds):
-            if split == "random":
-                tr, te = PG.split_random(df, seed)
-            else:
-                tr, te = PG.split_heldout_positions(df, seed, test_site_frac)
+            tr, te = schemes[split](seed)
             if len(tr) < 50 or len(te) < 30:
                 continue
             preds = {
