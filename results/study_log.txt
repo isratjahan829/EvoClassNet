@@ -12,3 +12,10 @@
   return dict(spearman=float(spearmanr(y[m], p[m])[0]), pearson=float(pearsonr(y[m], p[m])[0]),
 08:12:31 [9/50] main_heldout_sites_s1 bind=0.295 expr=0.217 esca=0.050
 08:12:40 [10/50] main_heldout_sites_s0 bind=0.386 expr=0.515 esca=0.327
+08:22:19 [11/50] main_heldout_sites_s2 bind=-0.418 expr=-0.252 esca=-0.322
+08:26:16 [12/50] main_random_s8 bind=0.891 expr=0.857 esca=0.703
+08:30:59 [13/50] main_heldout_sites_s3 bind=0.255 expr=0.197 esca=0.226
+08:30:59 [14/50] main_heldout_sites_s4 bind=0.339 expr=0.115 esca=-0.151
+08:33:02 [15/50] main_random_s9 bind=0.896 expr=0.857 esca=0.754
+/home/user/EvoClassNet/scripts/run_study.py:33: NearConstantInputWarning: An input array is nearly constant; the computed correlation coefficient may be inaccurate.
+  return dict(spearman=float(spearmanr(y[m], p[m])[0]), pearson=float(pearsonr(y[m], p[m])[0]),
