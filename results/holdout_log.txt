@@ -1,1 +1,4 @@
 15:53:49 seed 0: 30 held-out positions, 570 substitutions scored
+15:56:42 seed 1: 30 held-out positions, 570 substitutions scored
+15:59:55 seed 2: 30 held-out positions, 570 substitutions scored
+16:03:47 seed 3: 30 held-out positions, 570 substitutions scored
