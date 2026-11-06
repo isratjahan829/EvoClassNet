@@ -1,0 +1,5061 @@
+{
+ "meta": {
+  "n_genomes": 806,
+  "n_species": 287,
+  "k": 5,
+  "class_counts": {
+   "Alphacoronavirus": 285,
+   "Betacoronavirus": 371,
+   "Gammacoronavirus": 71,
+   "Deltacoronavirus": 79
+  },
+  "median_length": {
+   "Alphacoronavirus": 28141.0,
+   "Betacoronavirus": 30085.0,
+   "Gammacoronavirus": 27684.0,
+   "Deltacoronavirus": 25834.0
+  }
+ },
+ "runs": {
+  "random_s0": {
+   "_sizes": [
+    685,
+    121
+   ],
+   "majority_class": {
+    "accuracy": 0.4628099173553719,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.15819209039548024,
+    "weighted_f1": 0.2928514731288229,
+    "mcc": 0.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.632768361581921,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      42,
+      0,
+      0
+     ],
+     [
+      0,
+      56,
+      0,
+      0
+     ],
+     [
+      0,
+      10,
+      0,
+      0
+     ],
+     [
+      0,
+      13,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.9586776859504132,
+    "balanced_accuracy": 0.9717261904761905,
+    "macro_f1": 0.9560007974481659,
+    "weighted_f1": 0.9588925356215483,
+    "mcc": 0.9375556481421194,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.95,
+     "Betacoronavirus": 0.9649122807017544,
+     "Gammacoronavirus": 0.9090909090909091,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      38,
+      3,
+      1,
+      0
+     ],
+     [
+      0,
+      55,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      10,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      13
+     ]
+    ],
+    "log_loss": 0.20069700479507446
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      42,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      56,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      10,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      13
+     ]
+    ],
+    "log_loss": 0.0008742393110878766
+   },
+   "kmer5_gbm": {
+    "accuracy": 0.9917355371900827,
+    "balanced_accuracy": 0.9807692307692308,
+    "macro_f1": 0.987787610619469,
+    "weighted_f1": 0.9916068163533972,
+    "mcc": 0.9872827076495627,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 0.9911504424778761,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 0.96
+    },
+    "confusion": [
+     [
+      42,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      56,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      10,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      12
+     ]
+    ],
+    "log_loss": 0.0221390503763766
+   },
+   "kmer5_rf": {
+    "accuracy": 0.9834710743801653,
+    "balanced_accuracy": 0.9615384615384616,
+    "macro_f1": 0.9747807017543859,
+    "weighted_f1": 0.9829273597216182,
+    "mcc": 0.9746771217266345,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 0.9824561403508771,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 0.9166666666666666
+    },
+    "confusion": [
+     [
+      42,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      56,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      10,
+      0
+     ],
+     [
+      0,
+      2,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.0800300184298942
+   },
+   "cnn": {
+    "accuracy": 0.9917355371900827,
+    "balanced_accuracy": 0.9807692307692308,
+    "macro_f1": 0.9870588235294118,
+    "weighted_f1": 0.9916188624210015,
+    "mcc": 0.987295811696572,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9882352941176471,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 0.96
+    },
+    "confusion": [
+     [
+      42,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      56,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      10,
+      0
+     ],
+     [
+      1,
+      0,
+      0,
+      12
+     ]
+    ],
+    "log_loss": 0.03294668719172478
+   },
+   "_seconds": 197.8
+  },
+  "random_s1": {
+   "_sizes": [
+    685,
+    121
+   ],
+   "majority_class": {
+    "accuracy": 0.49586776859504134,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.16574585635359115,
+    "weighted_f1": 0.328752111775718,
+    "mcc": 0.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.6629834254143646,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      37,
+      0,
+      0
+     ],
+     [
+      0,
+      60,
+      0,
+      0
+     ],
+     [
+      0,
+      9,
+      0,
+      0
+     ],
+     [
+      0,
+      15,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.9421487603305785,
+    "balanced_accuracy": 0.939451951951952,
+    "macro_f1": 0.9321746169832295,
+    "weighted_f1": 0.9425811358074397,
+    "mcc": 0.9099060839302249,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9444444444444444,
+     "Betacoronavirus": 0.9421487603305785,
+     "Gammacoronavirus": 0.8421052631578947,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      34,
+      3,
+      0,
+      0
+     ],
+     [
+      1,
+      57,
+      2,
+      0
+     ],
+     [
+      0,
+      1,
+      8,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      15
+     ]
+    ],
+    "log_loss": 0.2517032027244568
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      37,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      60,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      9,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      15
+     ]
+    ],
+    "log_loss": 0.00045662387856282294
+   },
+   "kmer5_gbm": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      37,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      60,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      9,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      15
+     ]
+    ],
+    "log_loss": 1.7386436063078586e-05
+   },
+   "kmer5_rf": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      37,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      60,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      9,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      15
+     ]
+    ],
+    "log_loss": 0.07580210553012645
+   },
+   "cnn": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      37,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      60,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      9,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      15
+     ]
+    ],
+    "log_loss": 0.0005217952420935035
+   },
+   "_seconds": 101.0
+  },
+  "random_s2": {
+   "_sizes": [
+    685,
+    121
+   ],
+   "majority_class": {
+    "accuracy": 0.4380165289256198,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.15229885057471265,
+    "weighted_f1": 0.26683765555238914,
+    "mcc": 0.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.6091954022988506,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      46,
+      0,
+      0
+     ],
+     [
+      0,
+      53,
+      0,
+      0
+     ],
+     [
+      0,
+      11,
+      0,
+      0
+     ],
+     [
+      0,
+      11,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.9504132231404959,
+    "balanced_accuracy": 0.9508166157058692,
+    "macro_f1": 0.9445597780759328,
+    "weighted_f1": 0.950769550742519,
+    "mcc": 0.9247493455197296,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9545454545454546,
+     "Betacoronavirus": 0.9541284403669725,
+     "Gammacoronavirus": 0.8695652173913043,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      42,
+      3,
+      1,
+      0
+     ],
+     [
+      0,
+      52,
+      1,
+      0
+     ],
+     [
+      0,
+      1,
+      10,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.21202071011066437
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      46,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      53,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      11,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.0019121330697089434
+   },
+   "kmer5_gbm": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      46,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      53,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      11,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.010919910744701779
+   },
+   "kmer5_rf": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      46,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      53,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      11,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.09042722204604514
+   },
+   "cnn": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      46,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      53,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      11,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.0060724220238626
+   },
+   "_seconds": 103.4
+  },
+  "random_s3": {
+   "_sizes": [
+    685,
+    121
+   ],
+   "majority_class": {
+    "accuracy": 0.4462809917355372,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.15428571428571428,
+    "weighted_f1": 0.27541912632821725,
+    "mcc": 0.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.6171428571428571,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      40,
+      0,
+      0
+     ],
+     [
+      0,
+      54,
+      0,
+      0
+     ],
+     [
+      0,
+      14,
+      0,
+      0
+     ],
+     [
+      0,
+      13,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.9421487603305785,
+    "balanced_accuracy": 0.9446428571428571,
+    "macro_f1": 0.9428057138615576,
+    "weighted_f1": 0.9414801682951599,
+    "mcc": 0.9157734581652052,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.918918918918919,
+     "Betacoronavirus": 0.9557522123893806,
+     "Gammacoronavirus": 0.896551724137931,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      34,
+      4,
+      2,
+      0
+     ],
+     [
+      0,
+      54,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      13,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      13
+     ]
+    ],
+    "log_loss": 0.20710788667201996
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      40,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      54,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      14,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      13
+     ]
+    ],
+    "log_loss": 0.0009356995578855276
+   },
+   "kmer5_gbm": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      40,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      54,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      14,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      13
+     ]
+    ],
+    "log_loss": 0.00013276210059309538
+   },
+   "kmer5_rf": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      40,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      54,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      14,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      13
+     ]
+    ],
+    "log_loss": 0.0878696519731896
+   },
+   "cnn": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      40,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      54,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      14,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      13
+     ]
+    ],
+    "log_loss": 0.0002902322157751769
+   },
+   "_seconds": 107.8
+  },
+  "random_s4": {
+   "_sizes": [
+    685,
+    121
+   ],
+   "majority_class": {
+    "accuracy": 0.45454545454545453,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.15625,
+    "weighted_f1": 0.2840909090909091,
+    "mcc": 0.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.625,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      43,
+      0,
+      0
+     ],
+     [
+      0,
+      55,
+      0,
+      0
+     ],
+     [
+      0,
+      11,
+      0,
+      0
+     ],
+     [
+      0,
+      12,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.9421487603305785,
+    "balanced_accuracy": 0.9461945031712473,
+    "macro_f1": 0.9384815539744529,
+    "weighted_f1": 0.942498195136263,
+    "mcc": 0.9113764561164045,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9302325581395349,
+     "Betacoronavirus": 0.9541284403669725,
+     "Gammacoronavirus": 0.8695652173913043,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      40,
+      2,
+      1,
+      0
+     ],
+     [
+      2,
+      52,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      10,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      12
+     ]
+    ],
+    "log_loss": 0.2604610323905945
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      43,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      55,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      11,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      12
+     ]
+    ],
+    "log_loss": 0.0009661403601057827
+   },
+   "kmer5_gbm": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      43,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      55,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      11,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      12
+     ]
+    ],
+    "log_loss": 0.00012079699309002058
+   },
+   "kmer5_rf": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      43,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      55,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      11,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      12
+     ]
+    ],
+    "log_loss": 0.0990012690278464
+   },
+   "cnn": {
+    "accuracy": 0.9834710743801653,
+    "balanced_accuracy": 0.990909090909091,
+    "macro_f1": 0.9896885521885522,
+    "weighted_f1": 0.9835058574727996,
+    "mcc": 0.975007401708574,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9772727272727273,
+     "Betacoronavirus": 0.9814814814814815,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      43,
+      0,
+      0,
+      0
+     ],
+     [
+      2,
+      53,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      11,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      12
+     ]
+    ],
+    "log_loss": 0.034248556941747665
+   },
+   "_seconds": 103.7
+  },
+  "random_s5": {
+   "_sizes": [
+    685,
+    121
+   ],
+   "majority_class": {
+    "accuracy": 0.5206611570247934,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.17119565217391305,
+    "weighted_f1": 0.35653970535393464,
+    "mcc": 0.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.6847826086956522,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      36,
+      0,
+      0
+     ],
+     [
+      0,
+      63,
+      0,
+      0
+     ],
+     [
+      0,
+      11,
+      0,
+      0
+     ],
+     [
+      0,
+      11,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.9504132231404959,
+    "balanced_accuracy": 0.9642857142857143,
+    "macro_f1": 0.9374225195094761,
+    "weighted_f1": 0.9519586500456066,
+    "mcc": 0.9229723767819914,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.927536231884058,
+     "Betacoronavirus": 0.976,
+     "Gammacoronavirus": 0.8461538461538461,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      32,
+      1,
+      3,
+      0
+     ],
+     [
+      1,
+      61,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      11,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.3253079652786255
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      36,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      63,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      11,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.0009072335669770837
+   },
+   "kmer5_gbm": {
+    "accuracy": 0.9917355371900827,
+    "balanced_accuracy": 0.9772727272727273,
+    "macro_f1": 0.9861267341582303,
+    "weighted_f1": 0.9915713015211942,
+    "mcc": 0.9868024032260123,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 0.9921259842519685,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 0.9523809523809523
+    },
+    "confusion": [
+     [
+      36,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      63,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      11,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      10
+     ]
+    ],
+    "log_loss": 0.013720723722826195
+   },
+   "kmer5_rf": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      36,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      63,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      11,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.12515250282836826
+   },
+   "cnn": {
+    "accuracy": 0.9504132231404959,
+    "balanced_accuracy": 0.9761904761904762,
+    "macro_f1": 0.9682692307692308,
+    "weighted_f1": 0.9510807374443737,
+    "mcc": 0.925571648977469,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9230769230769231,
+     "Betacoronavirus": 0.95,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      36,
+      0,
+      0,
+      0
+     ],
+     [
+      6,
+      57,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      11,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.08246924728155136
+   },
+   "_seconds": 107.6
+  },
+  "random_s6": {
+   "_sizes": [
+    685,
+    121
+   ],
+   "majority_class": {
+    "accuracy": 0.36363636363636365,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.13333333333333333,
+    "weighted_f1": 0.19393939393939394,
+    "mcc": 0.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.5333333333333333,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      58,
+      0,
+      0
+     ],
+     [
+      0,
+      44,
+      0,
+      0
+     ],
+     [
+      0,
+      5,
+      0,
+      0
+     ],
+     [
+      0,
+      14,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.9421487603305785,
+    "balanced_accuracy": 0.9227664576802508,
+    "macro_f1": 0.904689060939061,
+    "weighted_f1": 0.9430713914184988,
+    "mcc": 0.9094036363928382,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9464285714285714,
+     "Betacoronavirus": 0.945054945054945,
+     "Gammacoronavirus": 0.7272727272727273,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      53,
+      4,
+      1,
+      0
+     ],
+     [
+      0,
+      43,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      4,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      14
+     ]
+    ],
+    "log_loss": 0.26179537177085876
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      58,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      44,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      5,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      14
+     ]
+    ],
+    "log_loss": 0.000573697907384485
+   },
+   "kmer5_gbm": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      58,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      44,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      5,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      14
+     ]
+    ],
+    "log_loss": 0.0009320170381259449
+   },
+   "kmer5_rf": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      58,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      44,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      5,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      14
+     ]
+    ],
+    "log_loss": 0.09661324046818882
+   },
+   "cnn": {
+    "accuracy": 0.9917355371900827,
+    "balanced_accuracy": 0.9956896551724138,
+    "macro_f1": 0.9950170981924769,
+    "weighted_f1": 0.9917460343094309,
+    "mcc": 0.9868618340754042,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.991304347826087,
+     "Betacoronavirus": 0.9887640449438202,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      57,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      44,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      5,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      14
+     ]
+    ],
+    "log_loss": 0.006837588734924793
+   },
+   "_seconds": 102.4
+  },
+  "random_s7": {
+   "_sizes": [
+    685,
+    121
+   ],
+   "majority_class": {
+    "accuracy": 0.49586776859504134,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.16574585635359115,
+    "weighted_f1": 0.328752111775718,
+    "mcc": 0.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.6629834254143646,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      38,
+      0,
+      0
+     ],
+     [
+      0,
+      60,
+      0,
+      0
+     ],
+     [
+      0,
+      12,
+      0,
+      0
+     ],
+     [
+      0,
+      11,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.9669421487603306,
+    "balanced_accuracy": 0.9642543859649123,
+    "macro_f1": 0.9631238859180036,
+    "weighted_f1": 0.9669989708881298,
+    "mcc": 0.9483612058110049,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.961038961038961,
+     "Betacoronavirus": 0.9747899159663865,
+     "Gammacoronavirus": 0.9166666666666666,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      37,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      58,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      11,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.21684901416301727
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      38,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      60,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      12,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.0023447959683835506
+   },
+   "kmer5_gbm": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      38,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      60,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      12,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.0012384869910758319
+   },
+   "kmer5_rf": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      38,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      60,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      12,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.09721360667348997
+   },
+   "cnn": {
+    "accuracy": 0.9917355371900827,
+    "balanced_accuracy": 0.993421052631579,
+    "macro_f1": 0.9946005509641873,
+    "weighted_f1": 0.9917145914441181,
+    "mcc": 0.9871122620283845,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9866666666666667,
+     "Betacoronavirus": 0.9917355371900827,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      37,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      60,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      12,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.012935295701026917
+   },
+   "_seconds": 99.0
+  },
+  "random_s8": {
+   "_sizes": [
+    685,
+    121
+   ],
+   "majority_class": {
+    "accuracy": 0.4297520661157025,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.15028901734104047,
+    "weighted_f1": 0.2583480628672431,
+    "mcc": 0.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.6011560693641619,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      48,
+      0,
+      0
+     ],
+     [
+      0,
+      52,
+      0,
+      0
+     ],
+     [
+      0,
+      7,
+      0,
+      0
+     ],
+     [
+      0,
+      14,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.9421487603305785,
+    "balanced_accuracy": 0.9647435897435898,
+    "macro_f1": 0.9386424731182796,
+    "weighted_f1": 0.9427908113391984,
+    "mcc": 0.9112213566706534,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.946236559139785,
+     "Betacoronavirus": 0.9333333333333333,
+     "Gammacoronavirus": 0.875,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      44,
+      4,
+      0,
+      0
+     ],
+     [
+      1,
+      49,
+      2,
+      0
+     ],
+     [
+      0,
+      0,
+      7,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      14
+     ]
+    ],
+    "log_loss": 0.39131972193717957
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      48,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      52,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      7,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      14
+     ]
+    ],
+    "log_loss": 0.0008550042985007167
+   },
+   "kmer5_gbm": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      48,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      52,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      7,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      14
+     ]
+    ],
+    "log_loss": 0.001539389332598593
+   },
+   "kmer5_rf": {
+    "accuracy": 0.9917355371900827,
+    "balanced_accuracy": 0.9821428571428572,
+    "macro_f1": 0.9883597883597883,
+    "weighted_f1": 0.9916218461673008,
+    "mcc": 0.9871729920341402,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 0.9904761904761905,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 0.9629629629629629
+    },
+    "confusion": [
+     [
+      48,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      52,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      7,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      13
+     ]
+    ],
+    "log_loss": 0.09982183609573318
+   },
+   "cnn": {
+    "accuracy": 0.9917355371900827,
+    "balanced_accuracy": 0.9821428571428572,
+    "macro_f1": 0.9881634211531118,
+    "weighted_f1": 0.991625091906254,
+    "mcc": 0.9871768039648324,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9896907216494846,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 0.9629629629629629
+    },
+    "confusion": [
+     [
+      48,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      52,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      7,
+      0
+     ],
+     [
+      1,
+      0,
+      0,
+      13
+     ]
+    ],
+    "log_loss": 0.04155328869819641
+   },
+   "_seconds": 101.1
+  },
+  "random_s9": {
+   "_sizes": [
+    685,
+    121
+   ],
+   "majority_class": {
+    "accuracy": 0.4628099173553719,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.15819209039548024,
+    "weighted_f1": 0.2928514731288229,
+    "mcc": 0.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.632768361581921,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      38,
+      0,
+      0
+     ],
+     [
+      0,
+      56,
+      0,
+      0
+     ],
+     [
+      0,
+      13,
+      0,
+      0
+     ],
+     [
+      0,
+      14,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.9669421487603306,
+    "balanced_accuracy": 0.9652617119722383,
+    "macro_f1": 0.9531613123718387,
+    "weighted_f1": 0.9679725233444242,
+    "mcc": 0.950943646108165,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9736842105263158,
+     "Betacoronavirus": 0.9818181818181818,
+     "Gammacoronavirus": 0.8571428571428571,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      37,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      54,
+      2,
+      0
+     ],
+     [
+      1,
+      0,
+      12,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      14
+     ]
+    ],
+    "log_loss": 0.2297452837228775
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      38,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      56,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      13,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      14
+     ]
+    ],
+    "log_loss": 0.0008301532943733037
+   },
+   "kmer5_gbm": {
+    "accuracy": 0.9917355371900827,
+    "balanced_accuracy": 0.993421052631579,
+    "macro_f1": 0.9944542772861357,
+    "weighted_f1": 0.9917170091908628,
+    "mcc": 0.9876013662527116,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9866666666666667,
+     "Betacoronavirus": 0.9911504424778761,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      37,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      56,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      13,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      14
+     ]
+    ],
+    "log_loss": 0.016351202170447204
+   },
+   "kmer5_rf": {
+    "accuracy": 0.9917355371900827,
+    "balanced_accuracy": 0.9821428571428572,
+    "macro_f1": 0.9885283513602097,
+    "weighted_f1": 0.9916190600020045,
+    "mcc": 0.9875784299335693,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 0.9911504424778761,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 0.9629629629629629
+    },
+    "confusion": [
+     [
+      38,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      56,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      13,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      13
+     ]
+    ],
+    "log_loss": 0.09543653813263993
+   },
+   "cnn": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 121,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      38,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      56,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      13,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      14
+     ]
+    ],
+    "log_loss": 7.076076872181147e-05
+   },
+   "_seconds": 102.9
+  },
+  "heldout_species_s0": {
+   "_sizes": [
+    666,
+    140
+   ],
+   "majority_class": {
+    "accuracy": 0.37857142857142856,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.13730569948186527,
+    "weighted_f1": 0.20792005921539597,
+    "mcc": 0.0,
+    "n": 140,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.5492227979274611,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      45,
+      0,
+      0
+     ],
+     [
+      0,
+      53,
+      0,
+      0
+     ],
+     [
+      0,
+      33,
+      0,
+      0
+     ],
+     [
+      0,
+      9,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.8428571428571429,
+    "balanced_accuracy": 0.8664951400800458,
+    "macro_f1": 0.8736875084676873,
+    "weighted_f1": 0.8394059554454487,
+    "mcc": 0.7808864000254021,
+    "n": 140,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.75,
+     "Betacoronavirus": 0.859504132231405,
+     "Gammacoronavirus": 0.8852459016393442,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      30,
+      14,
+      1,
+      0
+     ],
+     [
+      1,
+      52,
+      0,
+      0
+     ],
+     [
+      4,
+      2,
+      27,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.35966840386390686
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 140,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      45,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      53,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      33,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.0035524421837180853
+   },
+   "kmer5_gbm": {
+    "accuracy": 0.9571428571428572,
+    "balanced_accuracy": 0.9545454545454546,
+    "macro_f1": 0.959375,
+    "weighted_f1": 0.9563392857142856,
+    "mcc": 0.9404216066203298,
+    "n": 140,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9375,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 0.9,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      45,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      53,
+      0,
+      0
+     ],
+     [
+      6,
+      0,
+      27,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.15517472616441783
+   },
+   "kmer5_rf": {
+    "accuracy": 0.9714285714285714,
+    "balanced_accuracy": 0.9696969696969697,
+    "macro_f1": 0.9732326698695951,
+    "weighted_f1": 0.9711148151779586,
+    "mcc": 0.9598097297648228,
+    "n": 140,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9574468085106383,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 0.9354838709677419,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      45,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      53,
+      0,
+      0
+     ],
+     [
+      4,
+      0,
+      29,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.16511913263825587
+   },
+   "cnn": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 140,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      45,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      53,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      33,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.0013790460070595145
+   },
+   "_seconds": 95.7
+  },
+  "heldout_species_s1": {
+   "_sizes": [
+    657,
+    149
+   ],
+   "majority_class": {
+    "accuracy": 0.6241610738255033,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.1921487603305785,
+    "weighted_f1": 0.4797271063286927,
+    "mcc": 0.0,
+    "n": 149,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.768595041322314,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      28,
+      0,
+      0
+     ],
+     [
+      0,
+      93,
+      0,
+      0
+     ],
+     [
+      0,
+      22,
+      0,
+      0
+     ],
+     [
+      0,
+      6,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.9194630872483222,
+    "balanced_accuracy": 0.9330400782013686,
+    "macro_f1": 0.9132366192106687,
+    "weighted_f1": 0.9209016438054624,
+    "mcc": 0.8626995083469229,
+    "n": 149,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9032258064516129,
+     "Betacoronavirus": 0.9497206703910615,
+     "Gammacoronavirus": 0.8,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      28,
+      0,
+      0,
+      0
+     ],
+     [
+      3,
+      85,
+      5,
+      0
+     ],
+     [
+      3,
+      1,
+      18,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      6
+     ]
+    ],
+    "log_loss": 0.37053507566452026
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 149,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      28,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      93,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      22,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      6
+     ]
+    ],
+    "log_loss": 0.001041547511704266
+   },
+   "kmer5_gbm": {
+    "accuracy": 0.9731543624161074,
+    "balanced_accuracy": 0.9569805194805195,
+    "macro_f1": 0.9631290393671039,
+    "weighted_f1": 0.9728985450769922,
+    "mcc": 0.9515806044713894,
+    "n": 149,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9310344827586207,
+     "Betacoronavirus": 0.9946524064171123,
+     "Gammacoronavirus": 0.926829268292683,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      27,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      93,
+      0,
+      0
+     ],
+     [
+      3,
+      0,
+      19,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      6
+     ]
+    ],
+    "log_loss": 0.07756570940552328
+   },
+   "kmer5_rf": {
+    "accuracy": 0.9530201342281879,
+    "balanced_accuracy": 0.9291300097751711,
+    "macro_f1": 0.9313971866603445,
+    "weighted_f1": 0.9524328991655027,
+    "mcc": 0.9182611865047688,
+    "n": 149,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.8888888888888888,
+     "Betacoronavirus": 0.9945945945945946,
+     "Gammacoronavirus": 0.8421052631578947,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      28,
+      0,
+      0,
+      0
+     ],
+     [
+      1,
+      92,
+      0,
+      0
+     ],
+     [
+      6,
+      0,
+      16,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      6
+     ]
+    ],
+    "log_loss": 0.19144889308745214
+   },
+   "cnn": {
+    "accuracy": 0.9932885906040269,
+    "balanced_accuracy": 0.9973118279569892,
+    "macro_f1": 0.994262683736368,
+    "weighted_f1": 0.9933293236719589,
+    "mcc": 0.9879925556815236,
+    "n": 149,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9824561403508771,
+     "Betacoronavirus": 0.9945945945945946,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      28,
+      0,
+      0,
+      0
+     ],
+     [
+      1,
+      92,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      22,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      6
+     ]
+    ],
+    "log_loss": 0.01462631393224001
+   },
+   "_seconds": 105.4
+  },
+  "heldout_species_s2": {
+   "_sizes": [
+    678,
+    128
+   ],
+   "majority_class": {
+    "accuracy": 0.53125,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.17346938775510204,
+    "weighted_f1": 0.36862244897959184,
+    "mcc": 0.0,
+    "n": 128,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.6938775510204082,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      40,
+      0,
+      0
+     ],
+     [
+      0,
+      68,
+      0,
+      0
+     ],
+     [
+      0,
+      8,
+      0,
+      0
+     ],
+     [
+      0,
+      12,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.859375,
+    "balanced_accuracy": 0.8935049019607842,
+    "macro_f1": 0.8387141038666805,
+    "weighted_f1": 0.8655015386142545,
+    "mcc": 0.7781412563622166,
+    "n": 128,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.8493150684931506,
+     "Betacoronavirus": 0.8823529411764706,
+     "Gammacoronavirus": 0.6666666666666666,
+     "Deltacoronavirus": 0.9565217391304348
+    },
+    "confusion": [
+     [
+      31,
+      8,
+      1,
+      0
+     ],
+     [
+      1,
+      60,
+      7,
+      0
+     ],
+     [
+      0,
+      0,
+      8,
+      0
+     ],
+     [
+      1,
+      0,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.6224951148033142
+   },
+   "kmer5_logreg": {
+    "accuracy": 0.9921875,
+    "balanced_accuracy": 0.99375,
+    "macro_f1": 0.9821295606850335,
+    "weighted_f1": 0.9923678332092332,
+    "mcc": 0.987283133311897,
+    "n": 128,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9873417721518988,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 0.9411764705882353,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      39,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      68,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      8,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      12
+     ]
+    ],
+    "log_loss": 0.053090594708919525
+   },
+   "kmer5_gbm": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 128,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      40,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      68,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      8,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      12
+     ]
+    ],
+    "log_loss": 0.009163815947605522
+   },
+   "kmer5_rf": {
+    "accuracy": 0.984375,
+    "balanced_accuracy": 0.9729166666666667,
+    "macro_f1": 0.9823426894147862,
+    "weighted_f1": 0.9842689414786279,
+    "mcc": 0.9743916687442085,
+    "n": 128,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9873417721518988,
+     "Betacoronavirus": 0.9855072463768116,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 0.9565217391304348
+    },
+    "confusion": [
+     [
+      39,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      68,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      8,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.16787641402316258
+   },
+   "cnn": {
+    "accuracy": 0.9921875,
+    "balanced_accuracy": 0.9791666666666666,
+    "macro_f1": 0.9860440150295222,
+    "weighted_f1": 0.9920658883521203,
+    "mcc": 0.9872056670573777,
+    "n": 128,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9876543209876543,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 0.9565217391304348
+    },
+    "confusion": [
+     [
+      40,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      68,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      8,
+      0
+     ],
+     [
+      1,
+      0,
+      0,
+      11
+     ]
+    ],
+    "log_loss": 0.017719268798828125
+   },
+   "_seconds": 120.9
+  },
+  "heldout_species_s3": {
+   "_sizes": [
+    690,
+    116
+   ],
+   "majority_class": {
+    "accuracy": 0.45689655172413796,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.15680473372781065,
+    "weighted_f1": 0.2865741685370332,
+    "mcc": 0.0,
+    "n": 116,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.6272189349112426,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      37,
+      0,
+      0
+     ],
+     [
+      0,
+      53,
+      0,
+      0
+     ],
+     [
+      0,
+      17,
+      0,
+      0
+     ],
+     [
+      0,
+      9,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.9224137931034483,
+    "balanced_accuracy": 0.9253307136215017,
+    "macro_f1": 0.9242463958060289,
+    "weighted_f1": 0.9216522800198852,
+    "mcc": 0.8837356230354623,
+    "n": 116,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.8857142857142857,
+     "Betacoronavirus": 0.9541284403669725,
+     "Gammacoronavirus": 0.8571428571428571,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      31,
+      4,
+      2,
+      0
+     ],
+     [
+      0,
+      52,
+      1,
+      0
+     ],
+     [
+      2,
+      0,
+      15,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.37202975153923035
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 116,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      37,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      53,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      17,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.003906401805579662
+   },
+   "kmer5_gbm": {
+    "accuracy": 0.9913793103448276,
+    "balanced_accuracy": 0.9722222222222222,
+    "macro_f1": 0.9829576690489279,
+    "weighted_f1": 0.9911660442456067,
+    "mcc": 0.9870374318929553,
+    "n": 116,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 0.9906542056074766,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 0.9411764705882353
+    },
+    "confusion": [
+     [
+      37,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      53,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      17,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      8
+     ]
+    ],
+    "log_loss": 0.0386988550857809
+   },
+   "kmer5_rf": {
+    "accuracy": 0.9913793103448276,
+    "balanced_accuracy": 0.9722222222222222,
+    "macro_f1": 0.9829576690489279,
+    "weighted_f1": 0.9911660442456067,
+    "mcc": 0.9870374318929553,
+    "n": 116,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 0.9906542056074766,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 0.9411764705882353
+    },
+    "confusion": [
+     [
+      37,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      53,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      17,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      8
+     ]
+    ],
+    "log_loss": 0.17593554368474298
+   },
+   "cnn": {
+    "accuracy": 0.9827586206896551,
+    "balanced_accuracy": 0.9885262621111678,
+    "macro_f1": 0.969194390084801,
+    "weighted_f1": 0.9835205929324965,
+    "mcc": 0.9745191516699431,
+    "n": 116,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9863013698630136,
+     "Betacoronavirus": 0.9904761904761905,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 0.9
+    },
+    "confusion": [
+     [
+      36,
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      52,
+      0,
+      1
+     ],
+     [
+      0,
+      0,
+      17,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.025782957673072815
+   },
+   "_seconds": 152.6
+  },
+  "heldout_species_s4": {
+   "_sizes": [
+    645,
+    161
+   ],
+   "majority_class": {
+    "accuracy": 0.5838509316770186,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.1843137254901961,
+    "weighted_f1": 0.430446961393253,
+    "mcc": 0.0,
+    "n": 161,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.7372549019607844,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      20,
+      0,
+      0
+     ],
+     [
+      0,
+      94,
+      0,
+      0
+     ],
+     [
+      0,
+      18,
+      0,
+      0
+     ],
+     [
+      0,
+      29,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.968944099378882,
+    "balanced_accuracy": 0.9610601614086574,
+    "macro_f1": 0.9492801634298176,
+    "weighted_f1": 0.9695284631720923,
+    "mcc": 0.9490135659640505,
+    "n": 161,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.8780487804878049,
+     "Betacoronavirus": 0.989247311827957,
+     "Gammacoronavirus": 0.9473684210526315,
+     "Deltacoronavirus": 0.9824561403508771
+    },
+    "confusion": [
+     [
+      18,
+      0,
+      2,
+      0
+     ],
+     [
+      2,
+      92,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      18,
+      0
+     ],
+     [
+      1,
+      0,
+      0,
+      28
+     ]
+    ],
+    "log_loss": 0.21845754981040955
+   },
+   "kmer5_logreg": {
+    "accuracy": 0.9937888198757764,
+    "balanced_accuracy": 0.9875,
+    "macro_f1": 0.9868329868329868,
+    "weighted_f1": 0.9937931242279068,
+    "mcc": 0.9896913879184546,
+    "n": 161,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9743589743589743,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 0.972972972972973,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      19,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      94,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      18,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      29
+     ]
+    ],
+    "log_loss": 0.045498114079236984
+   },
+   "kmer5_gbm": {
+    "accuracy": 0.968944099378882,
+    "balanced_accuracy": 0.9372126436781609,
+    "macro_f1": 0.9545836806382472,
+    "weighted_f1": 0.968338056926696,
+    "mcc": 0.9480116359109179,
+    "n": 161,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9743589743589743,
+     "Betacoronavirus": 0.9791666666666666,
+     "Gammacoronavirus": 0.8823529411764706,
+     "Deltacoronavirus": 0.9824561403508771
+    },
+    "confusion": [
+     [
+      19,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      94,
+      0,
+      0
+     ],
+     [
+      0,
+      3,
+      15,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      28
+     ]
+    ],
+    "log_loss": 0.08247735452944575
+   },
+   "kmer5_rf": {
+    "accuracy": 0.9875776397515528,
+    "balanced_accuracy": 0.9788793103448277,
+    "macro_f1": 0.9865721997300945,
+    "weighted_f1": 0.9875089060443751,
+    "mcc": 0.9792978315132972,
+    "n": 161,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9743589743589743,
+     "Betacoronavirus": 0.9894736842105263,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 0.9824561403508771
+    },
+    "confusion": [
+     [
+      19,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      94,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      18,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      28
+     ]
+    ],
+    "log_loss": 0.16504513240124863
+   },
+   "cnn": {
+    "accuracy": 0.9875776397515528,
+    "balanced_accuracy": 0.9946808510638298,
+    "macro_f1": 0.9854070660522274,
+    "weighted_f1": 0.9878066233506025,
+    "mcc": 0.9797400730053727,
+    "n": 161,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9523809523809523,
+     "Betacoronavirus": 0.989247311827957,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      20,
+      0,
+      0,
+      0
+     ],
+     [
+      2,
+      92,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      18,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      29
+     ]
+    ],
+    "log_loss": 0.028477659448981285
+   },
+   "_seconds": 101.4
+  },
+  "heldout_species_s5": {
+   "_sizes": [
+    712,
+    94
+   ],
+   "majority_class": {
+    "accuracy": 0.44680851063829785,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.15441176470588236,
+    "weighted_f1": 0.2759699624530663,
+    "mcc": 0.0,
+    "n": 94,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.6176470588235294,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      37,
+      0,
+      0
+     ],
+     [
+      0,
+      42,
+      0,
+      0
+     ],
+     [
+      0,
+      6,
+      0,
+      0
+     ],
+     [
+      0,
+      9,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.8723404255319149,
+    "balanced_accuracy": 0.9261583011583012,
+    "macro_f1": 0.893890977443609,
+    "weighted_f1": 0.8730483122700368,
+    "mcc": 0.8091162981233422,
+    "n": 94,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.85,
+     "Betacoronavirus": 0.868421052631579,
+     "Gammacoronavirus": 0.8571428571428571,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      34,
+      1,
+      2,
+      0
+     ],
+     [
+      9,
+      33,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      6,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.33805063366889954
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 94,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      37,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      42,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      6,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.006269135512411594
+   },
+   "kmer5_gbm": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 94,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      37,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      42,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      6,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.003535222706255867
+   },
+   "kmer5_rf": {
+    "accuracy": 0.8723404255319149,
+    "balanced_accuracy": 0.9285714285714286,
+    "macro_f1": 0.9234496124031008,
+    "weighted_f1": 0.8706086095992083,
+    "mcc": 0.8212516602703945,
+    "n": 94,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.8604651162790697,
+     "Betacoronavirus": 0.8333333333333334,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      37,
+      0,
+      0,
+      0
+     ],
+     [
+      12,
+      30,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      6,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.2656148703310081
+   },
+   "cnn": {
+    "accuracy": 0.9680851063829787,
+    "balanced_accuracy": 0.9821428571428572,
+    "macro_f1": 0.981000481000481,
+    "weighted_f1": 0.9681158085413404,
+    "mcc": 0.9511808050324875,
+    "n": 94,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.961038961038961,
+     "Betacoronavirus": 0.9629629629629629,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      37,
+      0,
+      0,
+      0
+     ],
+     [
+      3,
+      39,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      6,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.0765298455953598
+   },
+   "_seconds": 104.7
+  },
+  "heldout_species_s6": {
+   "_sizes": [
+    643,
+    163
+   ],
+   "majority_class": {
+    "accuracy": 0.48466257668711654,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.16322314049586778,
+    "weighted_f1": 0.3164325913907621,
+    "mcc": 0.0,
+    "n": 163,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.6528925619834711,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      53,
+      0,
+      0
+     ],
+     [
+      0,
+      79,
+      0,
+      0
+     ],
+     [
+      0,
+      22,
+      0,
+      0
+     ],
+     [
+      0,
+      9,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.8650306748466258,
+    "balanced_accuracy": 0.8574619493236642,
+    "macro_f1": 0.8444167563504671,
+    "weighted_f1": 0.8651527946813705,
+    "mcc": 0.7895642078009544,
+    "n": 163,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.8269230769230769,
+     "Betacoronavirus": 0.9367088607594937,
+     "Gammacoronavirus": 0.6666666666666666,
+     "Deltacoronavirus": 0.9473684210526315
+    },
+    "confusion": [
+     [
+      43,
+      3,
+      7,
+      0
+     ],
+     [
+      3,
+      74,
+      1,
+      1
+     ],
+     [
+      5,
+      2,
+      15,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.4210616648197174
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 163,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      53,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      79,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      22,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.003108234377577901
+   },
+   "kmer5_gbm": {
+    "accuracy": 0.9693251533742331,
+    "balanced_accuracy": 0.9431818181818181,
+    "macro_f1": 0.9566874566874567,
+    "weighted_f1": 0.9680496919760724,
+    "mcc": 0.9529581718610066,
+    "n": 163,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.954954954954955,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 0.8717948717948718,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      53,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      79,
+      0,
+      0
+     ],
+     [
+      5,
+      0,
+      17,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.06726448754271319
+   },
+   "kmer5_rf": {
+    "accuracy": 0.950920245398773,
+    "balanced_accuracy": 0.8926767676767676,
+    "macro_f1": 0.9209377676420196,
+    "weighted_f1": 0.9480269011442457,
+    "mcc": 0.9247253021417648,
+    "n": 163,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9380530973451328,
+     "Betacoronavirus": 0.9937106918238994,
+     "Gammacoronavirus": 0.8108108108108109,
+     "Deltacoronavirus": 0.9411764705882353
+    },
+    "confusion": [
+     [
+      53,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      79,
+      0,
+      0
+     ],
+     [
+      7,
+      0,
+      15,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      8
+     ]
+    ],
+    "log_loss": 0.17076535084752978
+   },
+   "cnn": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 163,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      53,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      79,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      22,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.006668043322861195
+   },
+   "_seconds": 99.0
+  },
+  "heldout_species_s7": {
+   "_sizes": [
+    673,
+    133
+   ],
+   "majority_class": {
+    "accuracy": 0.40601503759398494,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.1443850267379679,
+    "weighted_f1": 0.23448996823609827,
+    "mcc": 0.0,
+    "n": 133,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.5775401069518716,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      54,
+      0,
+      0
+     ],
+     [
+      0,
+      54,
+      0,
+      0
+     ],
+     [
+      0,
+      16,
+      0,
+      0
+     ],
+     [
+      0,
+      9,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.9473684210526315,
+    "balanced_accuracy": 0.9565972222222222,
+    "macro_f1": 0.935943177181495,
+    "weighted_f1": 0.9500219207548278,
+    "mcc": 0.9222454247552748,
+    "n": 133,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9423076923076923,
+     "Betacoronavirus": 0.9906542056074766,
+     "Gammacoronavirus": 0.8108108108108109,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      49,
+      0,
+      5,
+      0
+     ],
+     [
+      0,
+      53,
+      1,
+      0
+     ],
+     [
+      1,
+      0,
+      15,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.3433714509010315
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 133,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      54,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      54,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      16,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.0019839585293084383
+   },
+   "kmer5_gbm": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 133,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      54,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      54,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      16,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.0005240895269021648
+   },
+   "kmer5_rf": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 133,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      54,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      54,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      16,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.13835044998825846
+   },
+   "cnn": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 133,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      54,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      54,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      16,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      9
+     ]
+    ],
+    "log_loss": 0.003064892254769802
+   },
+   "_seconds": 103.0
+  },
+  "heldout_species_s8": {
+   "_sizes": [
+    717,
+    89
+   ],
+   "majority_class": {
+    "accuracy": 0.5393258426966292,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.17518248175182483,
+    "weighted_f1": 0.37792175838595915,
+    "mcc": 0.0,
+    "n": 89,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.7007299270072993,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      20,
+      0,
+      0
+     ],
+     [
+      0,
+      48,
+      0,
+      0
+     ],
+     [
+      0,
+      5,
+      0,
+      0
+     ],
+     [
+      0,
+      16,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.8426966292134831,
+    "balanced_accuracy": 0.8822916666666667,
+    "macro_f1": 0.8682507809013833,
+    "weighted_f1": 0.8510245726977824,
+    "mcc": 0.7920696899633987,
+    "n": 89,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.7407407407407407,
+     "Betacoronavirus": 0.8433734939759037,
+     "Gammacoronavirus": 0.8888888888888888,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      20,
+      0,
+      0,
+      0
+     ],
+     [
+      13,
+      35,
+      0,
+      0
+     ],
+     [
+      1,
+      0,
+      4,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      16
+     ]
+    ],
+    "log_loss": 0.22541236877441406
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 89,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      20,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      48,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      5,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      16
+     ]
+    ],
+    "log_loss": 0.007187040522694588
+   },
+   "kmer5_gbm": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 89,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      20,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      48,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      5,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      16
+     ]
+    ],
+    "log_loss": 0.010457026830858161
+   },
+   "kmer5_rf": {
+    "accuracy": 0.9887640449438202,
+    "balanced_accuracy": 0.9947916666666666,
+    "macro_f1": 0.9912708600770218,
+    "weighted_f1": 0.9888419321804098,
+    "mcc": 0.982283325174547,
+    "n": 89,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.975609756097561,
+     "Betacoronavirus": 0.9894736842105263,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      20,
+      0,
+      0,
+      0
+     ],
+     [
+      1,
+      47,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      5,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      16
+     ]
+    ],
+    "log_loss": 0.2813076424415369
+   },
+   "cnn": {
+    "accuracy": 0.9887640449438202,
+    "balanced_accuracy": 0.9947916666666666,
+    "macro_f1": 0.9912708600770218,
+    "weighted_f1": 0.9888419321804098,
+    "mcc": 0.982283325174547,
+    "n": 89,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.975609756097561,
+     "Betacoronavirus": 0.9894736842105263,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      20,
+      0,
+      0,
+      0
+     ],
+     [
+      1,
+      47,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      5,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      16
+     ]
+    ],
+    "log_loss": 0.02217555232346058
+   },
+   "_seconds": 105.8
+  },
+  "heldout_species_s9": {
+   "_sizes": [
+    718,
+    88
+   ],
+   "majority_class": {
+    "accuracy": 0.5227272727272727,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.17164179104477612,
+    "weighted_f1": 0.35888738127544095,
+    "mcc": 0.0,
+    "n": 88,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.0,
+     "Betacoronavirus": 0.6865671641791045,
+     "Gammacoronavirus": 0.0,
+     "Deltacoronavirus": 0.0
+    },
+    "confusion": [
+     [
+      0,
+      18,
+      0,
+      0
+     ],
+     [
+      0,
+      46,
+      0,
+      0
+     ],
+     [
+      0,
+      7,
+      0,
+      0
+     ],
+     [
+      0,
+      17,
+      0,
+      0
+     ]
+    ]
+   },
+   "length_gc_logreg": {
+    "accuracy": 0.8977272727272727,
+    "balanced_accuracy": 0.9426328502415459,
+    "macro_f1": 0.8712215320910973,
+    "weighted_f1": 0.9132458121588556,
+    "mcc": 0.8631469023433896,
+    "n": 88,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.9714285714285714,
+     "Betacoronavirus": 0.9047619047619048,
+     "Gammacoronavirus": 0.6086956521739131,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      17,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      38,
+      8,
+      0
+     ],
+     [
+      0,
+      0,
+      7,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      17
+     ]
+    ],
+    "log_loss": 0.438041090965271
+   },
+   "kmer5_logreg": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 88,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      18,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      46,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      7,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      17
+     ]
+    ],
+    "log_loss": 0.001739667379297316
+   },
+   "kmer5_gbm": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "mcc": 1.0,
+    "n": 88,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 1.0,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 1.0
+    },
+    "confusion": [
+     [
+      18,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      46,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      7,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      17
+     ]
+    ],
+    "log_loss": 0.011948910154359317
+   },
+   "kmer5_rf": {
+    "accuracy": 0.9886363636363636,
+    "balanced_accuracy": 0.9852941176470589,
+    "macro_f1": 0.9897360703812317,
+    "weighted_f1": 0.988525282146983,
+    "mcc": 0.982392536982462,
+    "n": 88,
+    "per_class_f1": {
+     "Alphacoronavirus": 1.0,
+     "Betacoronavirus": 0.989247311827957,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 0.9696969696969697
+    },
+    "confusion": [
+     [
+      18,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      46,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      7,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      16
+     ]
+    ],
+    "log_loss": 0.20869155248293444
+   },
+   "cnn": {
+    "accuracy": 0.9431818181818182,
+    "balanced_accuracy": 0.945012787723785,
+    "macro_f1": 0.9397630911792989,
+    "weighted_f1": 0.9447442560935873,
+    "mcc": 0.9158211740303183,
+    "n": 88,
+    "per_class_f1": {
+     "Alphacoronavirus": 0.8780487804878049,
+     "Betacoronavirus": 0.9777777777777777,
+     "Gammacoronavirus": 1.0,
+     "Deltacoronavirus": 0.9032258064516129
+    },
+    "confusion": [
+     [
+      18,
+      0,
+      0,
+      0
+     ],
+     [
+      2,
+      44,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      7,
+      0
+     ],
+     [
+      3,
+      0,
+      0,
+      14
+     ]
+    ],
+    "log_loss": 0.16224929690361023
+   },
+   "_seconds": 109.6
+  }
+ }
+}

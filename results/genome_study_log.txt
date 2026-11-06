@@ -22,3 +22,8 @@
 17:59:22 heldout_species s3: majority_class=0.250  length_gc_logreg=0.925  kmer5_logreg=1.000  kmer5_gbm=0.972  kmer5_rf=0.972  cnn=0.989
 18:01:03 heldout_species s4: majority_class=0.250  length_gc_logreg=0.961  kmer5_logreg=0.988  kmer5_gbm=0.937  kmer5_rf=0.979  cnn=0.995
 18:02:48 heldout_species s5: majority_class=0.250  length_gc_logreg=0.926  kmer5_logreg=1.000  kmer5_gbm=1.000  kmer5_rf=0.929  cnn=0.982
+18:04:27 heldout_species s6: majority_class=0.250  length_gc_logreg=0.857  kmer5_logreg=1.000  kmer5_gbm=0.943  kmer5_rf=0.893  cnn=1.000
+18:06:10 heldout_species s7: majority_class=0.250  length_gc_logreg=0.957  kmer5_logreg=1.000  kmer5_gbm=1.000  kmer5_rf=1.000  cnn=1.000
+18:07:56 heldout_species s8: majority_class=0.250  length_gc_logreg=0.882  kmer5_logreg=1.000  kmer5_gbm=1.000  kmer5_rf=0.995  cnn=0.995
+18:09:46 heldout_species s9: majority_class=0.250  length_gc_logreg=0.943  kmer5_logreg=1.000  kmer5_gbm=1.000  kmer5_rf=0.985  cnn=0.945
+18:09:46 saved results/genome_study.json

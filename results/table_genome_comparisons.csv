@@ -1,0 +1,17 @@
+split,model,reference,n_seeds,median_diff,p_raw,ci_lo,ci_hi,tost_p,equivalent,cliffs_delta,effect,p_fdr,significant_fdr
+random,5-mer + logistic regression,Genome length + base composition,10,0.0425,0.001953125,0.0382,0.056,0.9962195228420556,False,1.0,large,0.0024,True
+random,5-mer + random forest,Genome length + base composition,10,0.0425,0.00390625,0.0235,0.0536,0.8563707454400075,False,0.9,large,0.00417,True
+random,5-mer + gradient boosting,Genome length + base composition,10,0.0425,0.001953125,0.029,0.0545,0.9407861863966481,False,1.0,large,0.0024,True
+random,1D CNN on nucleotides,Genome length + base composition,10,0.0397,0.001953125,0.0258,0.0514,0.8767656463820934,False,1.0,large,0.0024,True
+random,5-mer + logistic regression,Majority class,10,0.75,0.001953125,0.75,0.75,,False,1.0,large,0.0024,True
+random,5-mer + random forest,Majority class,10,0.75,0.001953125,0.7334,0.75,1.0,False,1.0,large,0.0024,True
+random,5-mer + gradient boosting,Majority class,10,0.75,0.001953125,0.7393,0.75,1.0,False,1.0,large,0.0024,True
+random,1D CNN on nucleotides,Majority class,10,0.7446,0.001953125,0.7363,0.7469,1.0,False,1.0,large,0.0024,True
+heldout_species,5-mer + logistic regression,Genome length + base composition,10,0.0743,0.001953125,0.0617,0.1069,0.9991319386515816,False,1.0,large,0.0024,True
+heldout_species,5-mer + random forest,Genome length + base composition,10,0.043,0.005859375,0.0255,0.0717,0.9074907782169517,False,0.7,large,0.00586,True
+heldout_species,5-mer + gradient boosting,Genome length + base composition,10,0.0656,0.00390625,0.0366,0.0856,0.9802436647065402,False,0.84,large,0.00417,True
+heldout_species,1D CNN on nucleotides,Genome length + base composition,10,0.0637,0.001953125,0.0477,0.1007,0.9934615381173169,False,0.96,large,0.0024,True
+heldout_species,5-mer + logistic regression,Majority class,10,0.75,0.001953125,0.7456,0.75,1.0,False,1.0,large,0.0024,True
+heldout_species,5-mer + random forest,Majority class,10,0.7226,0.001953125,0.6909,0.7307,0.9999999999998337,False,1.0,large,0.0024,True
+heldout_species,5-mer + gradient boosting,Majority class,10,0.7361,0.001953125,0.7108,0.7412,0.9999999999999868,False,1.0,large,0.0024,True
+heldout_species,1D CNN on nucleotides,Majority class,10,0.7447,0.001953125,0.7268,0.7463,0.9999999999999998,False,1.0,large,0.0024,True
