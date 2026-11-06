@@ -1,0 +1,4 @@
+[escape] archive 7714, top-1% VOC subs/variant 0.000 vs random 0.062 (P=1.000)
+  top mutations: T478F, K528H, K417H, T531R, L452Y, S477H, N460K, Q414I
+[escape_and_binding] archive 7744, top-1% VOC subs/variant 0.000 vs random 0.034 (P=1.000)
+  top mutations: T376H, K386N, S373R, K386D, A363F, D428N, N440S, Y369W

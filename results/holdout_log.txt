@@ -2,3 +2,14 @@
 15:56:42 seed 1: 30 held-out positions, 570 substitutions scored
 15:59:55 seed 2: 30 held-out positions, 570 substitutions scored
 16:03:47 seed 3: 30 held-out positions, 570 substitutions scored
+16:08:06 seed 4: 30 held-out positions, 570 substitutions scored
+16:08:07 VOC AUROC EvoClassNet predicted escape               0.588 [0.441,0.730] (n_VOC=15)
+16:08:08 VOC AUROC EvoClassNet predicted binding              0.469 [0.291,0.638] (n_VOC=15)
+16:08:08 VOC AUROC BLOSUM62 exchangeability                   0.718 [0.602,0.820] (n_VOC=15)
+16:08:09 VOC AUROC Measured escape (held-out positions)       0.749 [0.636,0.856] (n_VOC=14)
+16:08:10 VOC AUROC Measured binding DMS (held-out positions)  0.664 [0.537,0.797] (n_VOC=15)
+16:08:10 vs BLOSUM62 [bind]: model 0.181 vs BLOSUM 0.538 (median diff -0.269, P=1.54e-14, n=150)
+16:08:10 vs BLOSUM62 [escape]: model 0.251 vs BLOSUM -0.337 (median diff +0.598, P=1.02e-15, n=98)
+16:08:10 per-position bind: median rho 0.181, 76% positive, rho~RSA -0.259 (P=0.00168)
+16:08:10 per-position escape: median rho 0.251, 80% positive, rho~RSA -0.098 (P=0.351)
+16:08:11 saved results/holdout_analysis.json
