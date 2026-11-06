@@ -19,7 +19,7 @@ if __name__ == "__main__":
     wt, off = data.wildtype()
     voc = {(v[0], int(v[1:-1]) - off, v[-1]) for v in VOC}
     hp = {k: (tuple(v) if isinstance(v, list) else v) for k, v in json.load(open(OUT / "ga_hyperparams.json"))["best"].items()}
-    net = M.EvoClassNetLite(n_tasks=3, **{k: hp[k] for k in ("emb", "ch", "ks", "lstm", "dropout")})
+    net = M.build(M.EvoClassNetLite, 0, n_tasks=3, **{k: hp[k] for k in ("emb", "ch", "ks", "lstm", "dropout")})
     net.load_state_dict(torch.load(OUT / "evoclassnet_seed0.pt")); net.eval()
     wt_i = np.array([data.AA2I[a] for a in wt])
     res = {}

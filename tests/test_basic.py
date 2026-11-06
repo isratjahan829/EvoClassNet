@@ -27,3 +27,14 @@ def test_variant_ga_improves():
     f = lambda X: -(X != target).sum(1).astype(float)
     arch = ga.VariantGA(wt, f, pop=100, gens=15, max_muts=20, seed=0, log=lambda *a: None).run()
     assert max(v[0] for v in arch.values()) > f(np.array([[data.AA2I[a] for a in wt]]))[0]
+
+
+def test_build_is_reproducible_and_seed_controls_weights():
+    """Model weights must depend on the seed and nothing else (regression test: torch.manual_seed
+    inside fit() runs after construction, so it cannot control initialisation)."""
+    a = M.build(M.EvoClassNetLite, 7, n_tasks=3)
+    torch.randn(1000)                     # disturb the global RNG
+    b = M.build(M.EvoClassNetLite, 7, n_tasks=3)
+    c = M.build(M.EvoClassNetLite, 8, n_tasks=3)
+    assert torch.equal(a.emb.weight, b.emb.weight)
+    assert not torch.equal(a.emb.weight, c.emb.weight)

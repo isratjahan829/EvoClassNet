@@ -72,9 +72,9 @@ def one_run(split_name, seed, hp, epochs, kind="main", test_frac=0.15, permute=F
         if m.sum() < 10: res.setdefault("ridge_additive", {})[task] = metrics(Y[te, t], np.zeros(len(te))); continue
         r = Ridge(alpha=1.0).fit(S[tr][m], Y[tr, t][m])
         res.setdefault("ridge_additive", {})[task] = metrics(Y[te, t], r.predict(S[te]))
-    ge = M.fit(M.GlobalEpistasis(n_tasks=3), X[tr], Y[tr], X[va], Y[va], epochs=15, bs=512, lr=1e-2, seed=seed, log=lambda *a: None)
+    ge = M.fit(M.build(M.GlobalEpistasis, seed, n_tasks=3), X[tr], Y[tr], X[va], Y[va], epochs=15, bs=512, lr=1e-2, seed=seed, log=lambda *a: None)
     P = M.predict(ge, X[te]); res["global_epistasis"] = {t: metrics(Y[te, i], P[:, i]) for i, t in enumerate(TASKS)}
-    net = M.EvoClassNetLite(n_tasks=3, **{k: hp[k] for k in ("emb", "ch", "ks", "lstm", "dropout")})
+    net = M.build(M.EvoClassNetLite, seed, n_tasks=3, **{k: hp[k] for k in ("emb", "ch", "ks", "lstm", "dropout")})
     net = M.fit(net, X[tr], Y[tr], X[va], Y[va], epochs=epochs, bs=256, lr=hp["lr"], wd=hp["wd"], seed=seed, log=lambda *a: None)
     P = M.predict(net, X[te]); res["evoclassnet"] = {t: metrics(Y[te, i], P[:, i]) for i, t in enumerate(TASKS)}
     if kind == "main" and split_name == "random" and seed == 0:

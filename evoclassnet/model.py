@@ -77,6 +77,17 @@ class GlobalEpistasis(nn.Module):
     loss = EvoClassNetLite.loss
 
 
+def build(cls, seed, **kw):
+    """Construct a model with weight initialisation controlled by `seed`.
+
+    torch.manual_seed inside fit() is too late: the weights already exist by then, so their values
+    depend on whatever consumed the global RNG earlier in the process. Every model in this package
+    must be built through this function for a run to be reproducible from its seed.
+    """
+    torch.manual_seed(seed); np.random.seed(seed)
+    return cls(**kw)
+
+
 def fit(model, X, Y, Xva, Yva, epochs=8, bs=256, lr=2e-3, wd=1e-4, seed=0, log=print, patience=3):
     torch.manual_seed(seed); np.random.seed(seed)
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=wd)

@@ -62,7 +62,7 @@ if __name__ == "__main__":
     for seed in range(nseeds):
         tr, va, te = data.split_heldout_sites(g, seed)
         test_sites = sorted(set().union(*[g.sites.iloc[i] for i in te])) if len(te) else []
-        net = M.EvoClassNetLite(n_tasks=3, **{k: hp[k] for k in ("emb", "ch", "ks", "lstm", "dropout")})
+        net = M.build(M.EvoClassNetLite, seed, n_tasks=3, **{k: hp[k] for k in ("emb", "ch", "ks", "lstm", "dropout")})
         net = M.fit(net, X[tr], Y[tr], X[va], Y[va], epochs=8, bs=256, lr=hp["lr"], wd=hp["wd"], seed=seed, log=lambda *a: None)
         P = M.predict(net, Xs)
         ts = set(test_sites)

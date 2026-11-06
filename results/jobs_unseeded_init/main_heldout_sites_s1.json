@@ -1,0 +1,73 @@
+{
+ "_sizes": [
+  47234,
+  942,
+  1659
+ ],
+ "_test_frac": 0.15,
+ "ridge_additive": {
+  "bind": {
+   "spearman": 0.0,
+   "pearson": 0.0,
+   "rmse": 2.121583295448545,
+   "n": 1533,
+   "constant": true
+  },
+  "expr": {
+   "spearman": 0.0,
+   "pearson": 0.0,
+   "rmse": 1.2814159673319407,
+   "n": 1566,
+   "constant": true
+  },
+  "escape": {
+   "spearman": 0.0,
+   "pearson": 0.0,
+   "rmse": 0.38987763022719213,
+   "n": 301,
+   "constant": true
+  }
+ },
+ "global_epistasis": {
+  "bind": {
+   "spearman": -0.301984892181685,
+   "pearson": -0.3464150130748749,
+   "rmse": 1.7599754333496094,
+   "n": 1533
+  },
+  "expr": {
+   "spearman": -0.3237458573728372,
+   "pearson": -0.35020115971565247,
+   "rmse": 1.142956256866455,
+   "n": 1566
+  },
+  "escape": {
+   "spearman": 0.0,
+   "pearson": 0.0,
+   "rmse": 0.4689592123031616,
+   "n": 301,
+   "constant": true
+  }
+ },
+ "evoclassnet": {
+  "bind": {
+   "spearman": 0.294784002360115,
+   "pearson": 0.24750542640686035,
+   "rmse": 1.9320956468582153,
+   "n": 1533
+  },
+  "expr": {
+   "spearman": 0.2170488308361506,
+   "pearson": 0.22884812951087952,
+   "rmse": 1.245940923690796,
+   "n": 1566
+  },
+  "escape": {
+   "spearman": 0.05032804558755583,
+   "pearson": 0.06489425152540207,
+   "rmse": 0.3994443416595459,
+   "n": 301
+  }
+ },
+ "_seconds": 1050.6
+}

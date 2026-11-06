@@ -24,7 +24,7 @@ if __name__ == "__main__":
     for ss in split_seeds:
         tr, va, te = data.split_heldout_sites(g, ss)
         for init in init_seeds:
-            net = M.EvoClassNetLite(n_tasks=3, **{k: hp[k] for k in ("emb", "ch", "ks", "lstm", "dropout")})
+            net = M.build(M.EvoClassNetLite, init, n_tasks=3, **{k: hp[k] for k in ("emb", "ch", "ks", "lstm", "dropout")})
             net = M.fit(net, X[tr], Y[tr], X[va], Y[va], epochs=8, bs=256, lr=hp["lr"], wd=hp["wd"], seed=init, log=lambda *a: None)
             P = M.predict(net, X[te])
             r = {}
