@@ -1,0 +1,1841 @@
+[
+ {
+  "dms_id": "A0A140D2T1_ZIKV_Sourisseau_2019",
+  "acc": "A0A140D2T1",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "A0A192B1T2_9HIV1_Haddox_2018",
+  "acc": "A0A192B1T2",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "A0A1I9GEU1_NEIME_Kennouche_2019",
+  "acc": "A0A1I9GEU1",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 92.31,
+  "model_len": 161,
+  "target_len": 161
+ },
+ {
+  "dms_id": "A0A247D711_LISMN_Stadelmann_2021",
+  "acc": "A0A247D711",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 85.62,
+  "model_len": 87,
+  "target_len": 87
+ },
+ {
+  "dms_id": "A0A2Z5U3Z0_9INFA_Doud_2016",
+  "acc": "A0A2Z5U3Z0",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "A0A2Z5U3Z0_9INFA_Wu_2014",
+  "acc": "A0A2Z5U3Z0",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "A4_HUMAN_Seuma_2022",
+  "acc": "P05067",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 67.38,
+  "model_len": 770,
+  "target_len": 770
+ },
+ {
+  "dms_id": "A4D664_9INFA_Soh_2019",
+  "acc": "A4D664",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "A4GRB6_PSEAI_Chen_2020",
+  "acc": "A4GRB6",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 91.0,
+  "model_len": 266,
+  "target_len": 266
+ },
+ {
+  "dms_id": "AACC1_PSEAI_Dandage_2018",
+  "acc": "P23181",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 88.94,
+  "model_len": 177,
+  "target_len": 177
+ },
+ {
+  "dms_id": "ACE2_HUMAN_Chan_2020",
+  "acc": "Q9BYF1",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 90.69,
+  "model_len": 805,
+  "target_len": 805
+ },
+ {
+  "dms_id": "ADRB2_HUMAN_Jones_2020",
+  "acc": "P07550",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 79.12,
+  "model_len": 413,
+  "target_len": 413
+ },
+ {
+  "dms_id": "AICDA_HUMAN_Gajula_2014_3cycles",
+  "acc": "Q9GZX7",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 88.19,
+  "model_len": 198,
+  "target_len": 198
+ },
+ {
+  "dms_id": "AMFR_HUMAN_Tsuboyama_2023_4G3O",
+  "acc": "Q9UKV5",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 72.75,
+  "model_len": 643,
+  "target_len": 47
+ },
+ {
+  "dms_id": "AMIE_PSEAE_Wrenbeck_2017",
+  "acc": "P11436",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 98.06,
+  "model_len": 346,
+  "target_len": 346
+ },
+ {
+  "dms_id": "ANCSZ_Hobbs_2022",
+  "acc": null,
+  "status": "unresolved_id",
+  "offset": null
+ },
+ {
+  "dms_id": "ARGR_ECOLI_Tsuboyama_2023_1AOY",
+  "acc": "P0A6D0",
+  "status": "matched",
+  "offset": 6,
+  "plddt": 87.94,
+  "model_len": 156,
+  "target_len": 69
+ },
+ {
+  "dms_id": "B2L11_HUMAN_Dutta_2010_binding-Mcl-1",
+  "acc": "O43521",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 60.06,
+  "model_len": 198,
+  "target_len": 198
+ },
+ {
+  "dms_id": "BBC1_YEAST_Tsuboyama_2023_1TG0",
+  "acc": "P47068",
+  "status": "matched",
+  "offset": 4,
+  "plddt": 57.44,
+  "model_len": 1157,
+  "target_len": 64
+ },
+ {
+  "dms_id": "BCHB_CHLTE_Tsuboyama_2023_2KRU",
+  "acc": "Q9F715",
+  "status": "matched",
+  "offset": 484,
+  "plddt": 88.31,
+  "model_len": 537,
+  "target_len": 52
+ },
+ {
+  "dms_id": "BLAT_ECOLX_Deng_2012",
+  "acc": "P62593",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 94.88,
+  "model_len": 286,
+  "target_len": 286
+ },
+ {
+  "dms_id": "BLAT_ECOLX_Firnberg_2014",
+  "acc": "P62593",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 94.88,
+  "model_len": 286,
+  "target_len": 286
+ },
+ {
+  "dms_id": "BLAT_ECOLX_Jacquier_2013",
+  "acc": "P62593",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 94.88,
+  "model_len": 286,
+  "target_len": 286
+ },
+ {
+  "dms_id": "BLAT_ECOLX_Stiffler_2015",
+  "acc": "P62593",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 94.88,
+  "model_len": 286,
+  "target_len": 286
+ },
+ {
+  "dms_id": "BRCA1_HUMAN_Findlay_2018",
+  "acc": "P38398",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 41.59,
+  "model_len": 1863,
+  "target_len": 1863
+ },
+ {
+  "dms_id": "BRCA2_HUMAN_Erwood_2022_HEK293T",
+  "acc": "P51587",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "C6KNH7_9INFA_Lee_2018",
+  "acc": "C6KNH7",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "CALM1_HUMAN_Weile_2017",
+  "acc": "P0DP23",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 85.25,
+  "model_len": 149,
+  "target_len": 149
+ },
+ {
+  "dms_id": "CAPSD_AAV2S_Sinai_2021",
+  "acc": "P03135",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 80.55,
+  "model_len": 735,
+  "target_len": 735
+ },
+ {
+  "dms_id": "CAR11_HUMAN_Meitlis_2020_gof",
+  "acc": "Q9BXL7",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 71.19,
+  "model_len": 1154,
+  "target_len": 1154
+ },
+ {
+  "dms_id": "CAR11_HUMAN_Meitlis_2020_lof",
+  "acc": "Q9BXL7",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 71.19,
+  "model_len": 1154,
+  "target_len": 1154
+ },
+ {
+  "dms_id": "CAS9_STRP1_Spencer_2017_positive",
+  "acc": "Q99ZW2",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 88.38,
+  "model_len": 1368,
+  "target_len": 1368
+ },
+ {
+  "dms_id": "CASP3_HUMAN_Roychowdhury_2020",
+  "acc": "P42574",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 85.81,
+  "model_len": 277,
+  "target_len": 258
+ },
+ {
+  "dms_id": "CASP7_HUMAN_Roychowdhury_2020",
+  "acc": "P55210",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 81.69,
+  "model_len": 303,
+  "target_len": 281
+ },
+ {
+  "dms_id": "CATR_CHLRE_Tsuboyama_2023_2AMI",
+  "acc": "P05434",
+  "status": "matched",
+  "offset": 20,
+  "plddt": 83.69,
+  "model_len": 169,
+  "target_len": 72
+ },
+ {
+  "dms_id": "CBPA2_HUMAN_Tsuboyama_2023_1O6X",
+  "acc": "P48052",
+  "status": "matched",
+  "offset": 22,
+  "plddt": 95.06,
+  "model_len": 419,
+  "target_len": 72
+ },
+ {
+  "dms_id": "CBS_HUMAN_Sun_2020",
+  "acc": "P35520",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 90.06,
+  "model_len": 551,
+  "target_len": 551
+ },
+ {
+  "dms_id": "CBX4_HUMAN_Tsuboyama_2023_2K28",
+  "acc": "O00257",
+  "status": "matched",
+  "offset": 11,
+  "plddt": 54.03,
+  "model_len": 560,
+  "target_len": 50
+ },
+ {
+  "dms_id": "CCDB_ECOLI_Adkar_2012",
+  "acc": "P05703",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "CCDB_ECOLI_Tripathi_2016",
+  "acc": "P05703",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "CCR5_HUMAN_Gill_2023",
+  "acc": "P51681",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 85.38,
+  "model_len": 352,
+  "target_len": 352
+ },
+ {
+  "dms_id": "CD19_HUMAN_Klesmith_2019_FMC_singles",
+  "acc": "P15391",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 62.22,
+  "model_len": 556,
+  "target_len": 556
+ },
+ {
+  "dms_id": "CP2C9_HUMAN_Amorosi_2021_abundance",
+  "acc": "P11712",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 92.94,
+  "model_len": 490,
+  "target_len": 490
+ },
+ {
+  "dms_id": "CP2C9_HUMAN_Amorosi_2021_activity",
+  "acc": "P11712",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 92.94,
+  "model_len": 490,
+  "target_len": 490
+ },
+ {
+  "dms_id": "CSN4_MOUSE_Tsuboyama_2023_1UFM",
+  "acc": "O88544",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 94.5,
+  "model_len": 406,
+  "target_len": 72
+ },
+ {
+  "dms_id": "CUE1_YEAST_Tsuboyama_2023_2MYX",
+  "acc": "P38428",
+  "status": "matched",
+  "offset": 60,
+  "plddt": 76.5,
+  "model_len": 203,
+  "target_len": 52
+ },
+ {
+  "dms_id": "D7PM05_CLYGR_Somermeyer_2022",
+  "acc": "D7PM05",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 96.88,
+  "model_len": 235,
+  "target_len": 235
+ },
+ {
+  "dms_id": "DLG4_HUMAN_Faure_2021",
+  "acc": "P78352",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 77.56,
+  "model_len": 724,
+  "target_len": 724
+ },
+ {
+  "dms_id": "DLG4_RAT_McLaughlin_2012",
+  "acc": "P31016",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 77.69,
+  "model_len": 724,
+  "target_len": 724
+ },
+ {
+  "dms_id": "DN7A_SACS2_Tsuboyama_2023_1JIC",
+  "acc": "P61991",
+  "status": "matched",
+  "offset": 2,
+  "plddt": 91.38,
+  "model_len": 64,
+  "target_len": 55
+ },
+ {
+  "dms_id": "DNJA1_HUMAN_Tsuboyama_2023_2LO1",
+  "acc": "P31689",
+  "status": "matched",
+  "offset": 4,
+  "plddt": 83.25,
+  "model_len": 397,
+  "target_len": 65
+ },
+ {
+  "dms_id": "DOCK1_MOUSE_Tsuboyama_2023_2M0Y",
+  "acc": "Q8BUR4",
+  "status": "matched",
+  "offset": 3,
+  "plddt": 79.31,
+  "model_len": 1865,
+  "target_len": 66
+ },
+ {
+  "dms_id": "DYR_ECOLI_Nguyen_2023",
+  "acc": "P00379",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "DYR_ECOLI_Thompson_2019",
+  "acc": "P00379",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "ENV_HV1B9_DuenasDecamp_2016",
+  "acc": "Q73372",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "ENV_HV1BR_Haddox_2016",
+  "acc": "P03377",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "ENVZ_ECOLI_Ghose_2023",
+  "acc": "P02933",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "EPHB2_HUMAN_Tsuboyama_2023_1F0M",
+  "acc": "P29323",
+  "status": "matched",
+  "offset": 913,
+  "plddt": 80.0,
+  "model_len": 1055,
+  "target_len": 66
+ },
+ {
+  "dms_id": "ERBB2_HUMAN_Elazar_2016",
+  "acc": "P04626",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 74.0,
+  "model_len": 1255,
+  "target_len": 1255
+ },
+ {
+  "dms_id": "ESTA_BACSU_Nutschel_2020",
+  "acc": "P37957",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 91.88,
+  "model_len": 212,
+  "target_len": 212
+ },
+ {
+  "dms_id": "F7YBW8_MESOW_Ding_2023",
+  "acc": "F7YBW8",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 92.38,
+  "model_len": 93,
+  "target_len": 93
+ },
+ {
+  "dms_id": "F7YBW8_MESOW_Aakre_2015",
+  "acc": "F7YBW8",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 92.38,
+  "model_len": 93,
+  "target_len": 93
+ },
+ {
+  "dms_id": "FECA_ECOLI_Tsuboyama_2023_2D1U",
+  "acc": "P13036",
+  "status": "matched",
+  "offset": 34,
+  "plddt": 89.69,
+  "model_len": 774,
+  "target_len": 72
+ },
+ {
+  "dms_id": "FKBP3_HUMAN_Tsuboyama_2023_2KFV",
+  "acc": "Q00688",
+  "status": "matched",
+  "offset": 4,
+  "plddt": 77.06,
+  "model_len": 224,
+  "target_len": 69
+ },
+ {
+  "dms_id": "GAL4_YEAST_Kitzman_2015",
+  "acc": "P04386",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 66.0,
+  "model_len": 881,
+  "target_len": 881
+ },
+ {
+  "dms_id": "GCN4_YEAST_Staller_2018",
+  "acc": "P03069",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 66.69,
+  "model_len": 281,
+  "target_len": 281
+ },
+ {
+  "dms_id": "GDIA_HUMAN_Silverstein_2021",
+  "acc": "P31150",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 93.38,
+  "model_len": 447,
+  "target_len": 447
+ },
+ {
+  "dms_id": "GFP_AEQVI_Sarkisyan_2016",
+  "acc": "P42212",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 96.62,
+  "model_len": 238,
+  "target_len": 238
+ },
+ {
+  "dms_id": "GLPA_HUMAN_Elazar_2016",
+  "acc": "P02724",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 59.41,
+  "model_len": 150,
+  "target_len": 150
+ },
+ {
+  "dms_id": "GRB2_HUMAN_Faure_2021",
+  "acc": "P62993",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 88.69,
+  "model_len": 217,
+  "target_len": 217
+ },
+ {
+  "dms_id": "HCP_LAMBD_Tsuboyama_2023_2L6Q",
+  "acc": "P68660",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "HECD1_HUMAN_Tsuboyama_2023_3DKM",
+  "acc": "Q9ULT8",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 68.06,
+  "model_len": 2610,
+  "target_len": 72
+ },
+ {
+  "dms_id": "HEM3_HUMAN_Loggerenberg_2023",
+  "acc": "P08397",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 90.06,
+  "model_len": 361,
+  "target_len": 361
+ },
+ {
+  "dms_id": "HIS7_YEAST_Pokusaeva_2019",
+  "acc": "P06633",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 95.56,
+  "model_len": 220,
+  "target_len": 220
+ },
+ {
+  "dms_id": "HMDH_HUMAN_Jiang_2019",
+  "acc": "P04035",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 75.31,
+  "model_len": 888,
+  "target_len": 888
+ },
+ {
+  "dms_id": "HSP82_YEAST_Cote-Hammarlof_2020_growth-H2O2",
+  "acc": "P02829",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 84.94,
+  "model_len": 709,
+  "target_len": 709
+ },
+ {
+  "dms_id": "HSP82_YEAST_Flynn_2019",
+  "acc": "P02829",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 84.94,
+  "model_len": 709,
+  "target_len": 709
+ },
+ {
+  "dms_id": "HSP82_YEAST_Mishra_2016",
+  "acc": "P02829",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 84.94,
+  "model_len": 709,
+  "target_len": 709
+ },
+ {
+  "dms_id": "HXK4_HUMAN_Gersing_2022_activity",
+  "acc": "P35557",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 93.69,
+  "model_len": 465,
+  "target_len": 465
+ },
+ {
+  "dms_id": "HXK4_HUMAN_Gersing_2023_abundance",
+  "acc": "P35557",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 93.69,
+  "model_len": 465,
+  "target_len": 465
+ },
+ {
+  "dms_id": "I6TAH8_I68A0_Doud_2015",
+  "acc": "I6TAH8",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "IF1_ECOLI_Kelsic_2016",
+  "acc": "P69222",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 86.88,
+  "model_len": 72,
+  "target_len": 72
+ },
+ {
+  "dms_id": "ILF3_HUMAN_Tsuboyama_2023_2L33",
+  "acc": "Q12906",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 66.81,
+  "model_len": 894,
+  "target_len": 71
+ },
+ {
+  "dms_id": "ISDH_STAAW_Tsuboyama_2023_2LHR",
+  "acc": "Q8NW39",
+  "status": "matched",
+  "offset": 474,
+  "plddt": 65.81,
+  "model_len": 895,
+  "target_len": 55
+ },
+ {
+  "dms_id": "KCNE1_HUMAN_Muhammad_2023_expression",
+  "acc": "P15382",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 70.62,
+  "model_len": 129,
+  "target_len": 129
+ },
+ {
+  "dms_id": "KCNE1_HUMAN_Muhammad_2023_function",
+  "acc": "P15382",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 70.62,
+  "model_len": 129,
+  "target_len": 129
+ },
+ {
+  "dms_id": "KCNH2_HUMAN_Kozek_2020",
+  "acc": "Q12809",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 62.75,
+  "model_len": 1159,
+  "target_len": 1159
+ },
+ {
+  "dms_id": "KCNJ2_MOUSE_Coyote-Maestas_2022_function",
+  "acc": "P35561",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 81.0,
+  "model_len": 428,
+  "target_len": 428
+ },
+ {
+  "dms_id": "KCNJ2_MOUSE_Coyote-Maestas_2022_surface",
+  "acc": "P35561",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 81.0,
+  "model_len": 428,
+  "target_len": 428
+ },
+ {
+  "dms_id": "KKA2_KLEPN_Melnikov_2014",
+  "acc": "P00552",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 93.81,
+  "model_len": 264,
+  "target_len": 264
+ },
+ {
+  "dms_id": "LGK_LIPST_Klesmith_2015",
+  "acc": "B3VI55",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 95.44,
+  "model_len": 439,
+  "target_len": 439
+ },
+ {
+  "dms_id": "LYAM1_HUMAN_Elazar_2016",
+  "acc": "P14151",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 85.31,
+  "model_len": 372,
+  "target_len": 372
+ },
+ {
+  "dms_id": "MAFG_MOUSE_Tsuboyama_2023_1K1V",
+  "acc": "O54790",
+  "status": "matched",
+  "offset": 23,
+  "plddt": 79.69,
+  "model_len": 162,
+  "target_len": 41
+ },
+ {
+  "dms_id": "MBD11_ARATH_Tsuboyama_2023_6ACV",
+  "acc": "Q9LW00",
+  "status": "matched",
+  "offset": 7,
+  "plddt": 58.72,
+  "model_len": 254,
+  "target_len": 66
+ },
+ {
+  "dms_id": "MET_HUMAN_Estevam_2023",
+  "acc": "P08581",
+  "status": "matched",
+  "offset": 1058,
+  "plddt": 79.25,
+  "model_len": 1390,
+  "target_len": 287
+ },
+ {
+  "dms_id": "MK01_HUMAN_Brenan_2016",
+  "acc": "P28482",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 90.38,
+  "model_len": 360,
+  "target_len": 360
+ },
+ {
+  "dms_id": "MLAC_ECOLI_MacRae_2023",
+  "acc": "P0ADV7",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 91.94,
+  "model_len": 211,
+  "target_len": 211
+ },
+ {
+  "dms_id": "MSH2_HUMAN_Jia_2020",
+  "acc": "P43246",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 85.31,
+  "model_len": 934,
+  "target_len": 934
+ },
+ {
+  "dms_id": "MTH3_HAEAE_RockahShmuel_2015",
+  "acc": "P20589",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 93.62,
+  "model_len": 330,
+  "target_len": 330
+ },
+ {
+  "dms_id": "MTHR_HUMAN_Weile_2021",
+  "acc": "P42898",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 88.62,
+  "model_len": 656,
+  "target_len": 656
+ },
+ {
+  "dms_id": "MYO3_YEAST_Tsuboyama_2023_2BTT",
+  "acc": "P36006",
+  "status": "matched",
+  "offset": 1120,
+  "plddt": 74.5,
+  "model_len": 1272,
+  "target_len": 61
+ },
+ {
+  "dms_id": "NCAP_I34A1_Doud_2015",
+  "acc": "P03466",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 77.49,
+  "model_len": 498,
+  "target_len": 498
+ },
+ {
+  "dms_id": "NKX31_HUMAN_Tsuboyama_2023_2L9R",
+  "acc": "Q99801",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 65.81,
+  "model_len": 234,
+  "target_len": 61
+ },
+ {
+  "dms_id": "NPC1_HUMAN_Erwood_2022_HEK293T",
+  "acc": "O15118",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 85.12,
+  "model_len": 1278,
+  "target_len": 1278
+ },
+ {
+  "dms_id": "NPC1_HUMAN_Erwood_2022_RPE1",
+  "acc": "O15118",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 85.12,
+  "model_len": 1278,
+  "target_len": 1278
+ },
+ {
+  "dms_id": "NRAM_I33A0_Jiang_2016",
+  "acc": "P03470",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "NUD15_HUMAN_Suiter_2020",
+  "acc": "Q9NV35",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 92.75,
+  "model_len": 164,
+  "target_len": 164
+ },
+ {
+  "dms_id": "NUSA_ECOLI_Tsuboyama_2023_1WCL",
+  "acc": "P0AFF6",
+  "status": "matched",
+  "offset": 350,
+  "plddt": 86.44,
+  "model_len": 495,
+  "target_len": 69
+ },
+ {
+  "dms_id": "NUSG_MYCTU_Tsuboyama_2023_2MI6",
+  "acc": "P96930",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "OBSCN_HUMAN_Tsuboyama_2023_1V1C",
+  "acc": "Q5VST9",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "ODP2_GEOSE_Tsuboyama_2023_1W4G",
+  "acc": "P11961",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 80.06,
+  "model_len": 428,
+  "target_len": 44
+ },
+ {
+  "dms_id": "OPSD_HUMAN_Wan_2019",
+  "acc": "P08100",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 88.75,
+  "model_len": 348,
+  "target_len": 348
+ },
+ {
+  "dms_id": "OTC_HUMAN_Lo_2023",
+  "acc": "P00480",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 92.19,
+  "model_len": 354,
+  "target_len": 354
+ },
+ {
+  "dms_id": "OTU7A_HUMAN_Tsuboyama_2023_2L2D",
+  "acc": "Q8TE49",
+  "status": "matched",
+  "offset": 23,
+  "plddt": 64.81,
+  "model_len": 926,
+  "target_len": 42
+ },
+ {
+  "dms_id": "OXDA_RHOTO_Vanella_2023_activity",
+  "acc": "P80324",
+  "status": "matched",
+  "offset": 1,
+  "plddt": 93.0,
+  "model_len": 368,
+  "target_len": 364
+ },
+ {
+  "dms_id": "OXDA_RHOTO_Vanella_2023_expression",
+  "acc": "P80324",
+  "status": "matched",
+  "offset": 1,
+  "plddt": 93.0,
+  "model_len": 368,
+  "target_len": 364
+ },
+ {
+  "dms_id": "P53_HUMAN_Giacomelli_2018_Null_Etoposide",
+  "acc": "P04637",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 75.06,
+  "model_len": 393,
+  "target_len": 393
+ },
+ {
+  "dms_id": "P53_HUMAN_Giacomelli_2018_Null_Nutlin",
+  "acc": "P04637",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 75.06,
+  "model_len": 393,
+  "target_len": 393
+ },
+ {
+  "dms_id": "P53_HUMAN_Giacomelli_2018_WT_Nutlin",
+  "acc": "P04637",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 75.06,
+  "model_len": 393,
+  "target_len": 393
+ },
+ {
+  "dms_id": "P53_HUMAN_Kotler_2018",
+  "acc": "P04637",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 75.06,
+  "model_len": 393,
+  "target_len": 393
+ },
+ {
+  "dms_id": "P84126_THETH_Chan_2017",
+  "acc": "P84126",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 95.69,
+  "model_len": 254,
+  "target_len": 254
+ },
+ {
+  "dms_id": "PA_I34A1_Wu_2015",
+  "acc": "P03433",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 83.64,
+  "model_len": 716,
+  "target_len": 716
+ },
+ {
+  "dms_id": "PABP_YEAST_Melamed_2013",
+  "acc": "P04147",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 81.25,
+  "model_len": 577,
+  "target_len": 577
+ },
+ {
+  "dms_id": "PAI1_HUMAN_Huttinger_2021",
+  "acc": "P05121",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 88.88,
+  "model_len": 402,
+  "target_len": 402
+ },
+ {
+  "dms_id": "PHOT_CHLRE_Chen_2023",
+  "acc": "Q8LPD9",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 75.25,
+  "model_len": 749,
+  "target_len": 118
+ },
+ {
+  "dms_id": "PIN1_HUMAN_Tsuboyama_2023_1I6C",
+  "acc": "Q13526",
+  "status": "matched",
+  "offset": 5,
+  "plddt": 91.62,
+  "model_len": 163,
+  "target_len": 39
+ },
+ {
+  "dms_id": "PITX2_HUMAN_Tsuboyama_2023_2L7M",
+  "acc": "Q99697",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 61.31,
+  "model_len": 317,
+  "target_len": 52
+ },
+ {
+  "dms_id": "PKN1_HUMAN_Tsuboyama_2023_1URF",
+  "acc": "Q16512",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 72.0,
+  "model_len": 942,
+  "target_len": 71
+ },
+ {
+  "dms_id": "POLG_CXB3N_Mattenberger_2021",
+  "acc": "P03313",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "POLG_DEN26_Suphatrakul_2023",
+  "acc": "P29990",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "POLG_HCVJF_Qi_2014",
+  "acc": "Q99IB8",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "POLG_PESV_Tsuboyama_2023_2MXD",
+  "acc": "Q9QEJ5",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 80.65,
+  "model_len": 277,
+  "target_len": 53
+ },
+ {
+  "dms_id": "PPARG_HUMAN_Majithia_2016",
+  "acc": "P37231",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 76.12,
+  "model_len": 505,
+  "target_len": 505
+ },
+ {
+  "dms_id": "PPM1D_HUMAN_Miller_2022",
+  "acc": "O15297",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 67.88,
+  "model_len": 605,
+  "target_len": 605
+ },
+ {
+  "dms_id": "PR40A_HUMAN_Tsuboyama_2023_1UZC",
+  "acc": "O75400",
+  "status": "matched",
+  "offset": 386,
+  "plddt": 66.5,
+  "model_len": 957,
+  "target_len": 63
+ },
+ {
+  "dms_id": "PRKN_HUMAN_Clausen_2023",
+  "acc": "O60260",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 78.06,
+  "model_len": 465,
+  "target_len": 465
+ },
+ {
+  "dms_id": "PSAE_PICP2_Tsuboyama_2023_1PSE",
+  "acc": "P31969",
+  "status": "matched",
+  "offset": 1,
+  "plddt": 94.12,
+  "model_len": 70,
+  "target_len": 68
+ },
+ {
+  "dms_id": "PTEN_HUMAN_Matreyek_2021",
+  "acc": "O00633",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "PTEN_HUMAN_Mighell_2018",
+  "acc": "O00633",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "Q2N0S5_9HIV1_Haddox_2018",
+  "acc": "Q2N0S5",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "Q53Z42_HUMAN_McShan_2019_binding-TAPBPR",
+  "acc": "Q53Z42",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 85.25,
+  "model_len": 365,
+  "target_len": 365
+ },
+ {
+  "dms_id": "Q53Z42_HUMAN_McShan_2019_expression",
+  "acc": "Q53Z42",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 85.25,
+  "model_len": 365,
+  "target_len": 365
+ },
+ {
+  "dms_id": "Q59976_STRSQ_Romero_2015",
+  "acc": "Q59976",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 95.75,
+  "model_len": 479,
+  "target_len": 501
+ },
+ {
+  "dms_id": "Q6WV12_9MAXI_Somermeyer_2022",
+  "acc": "Q6WV12",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 96.62,
+  "model_len": 222,
+  "target_len": 222
+ },
+ {
+  "dms_id": "Q837P4_ENTFA_Meier_2023",
+  "acc": "Q837P4",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 90.5,
+  "model_len": 589,
+  "target_len": 589
+ },
+ {
+  "dms_id": "Q837P5_ENTFA_Meier_2023",
+  "acc": "Q837P5",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 91.12,
+  "model_len": 571,
+  "target_len": 571
+ },
+ {
+  "dms_id": "Q8WTC7_9CNID_Somermeyer_2022",
+  "acc": "Q8WTC7",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 96.5,
+  "model_len": 238,
+  "target_len": 238
+ },
+ {
+  "dms_id": "R1AB_SARS2_Flynn_2022",
+  "acc": "P0DTD1",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 96.08,
+  "model_len": 126,
+  "target_len": 306
+ },
+ {
+  "dms_id": "RAD_ANTMA_Tsuboyama_2023_2CJJ",
+  "acc": "Q58FS3",
+  "status": "matched",
+  "offset": 9,
+  "plddt": 82.56,
+  "model_len": 93,
+  "target_len": 54
+ },
+ {
+  "dms_id": "RAF1_HUMAN_Zinkus-Boltz_2019",
+  "acc": "P04049",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 67.5,
+  "model_len": 648,
+  "target_len": 648
+ },
+ {
+  "dms_id": "RASH_HUMAN_Bandaru_2017",
+  "acc": "P01112",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 91.94,
+  "model_len": 189,
+  "target_len": 189
+ },
+ {
+  "dms_id": "RASK_HUMAN_Weng_2022_abundance",
+  "acc": "P01116",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 91.5,
+  "model_len": 189,
+  "target_len": 188
+ },
+ {
+  "dms_id": "RASK_HUMAN_Weng_2022_binding-DARPin_K55",
+  "acc": "P01116",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 91.5,
+  "model_len": 189,
+  "target_len": 188
+ },
+ {
+  "dms_id": "RBP1_HUMAN_Tsuboyama_2023_2KWH",
+  "acc": "Q15311",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 65.06,
+  "model_len": 655,
+  "target_len": 52
+ },
+ {
+  "dms_id": "RCD1_ARATH_Tsuboyama_2023_5OAO",
+  "acc": "Q8RY59",
+  "status": "matched",
+  "offset": 510,
+  "plddt": 66.19,
+  "model_len": 589,
+  "target_len": 57
+ },
+ {
+  "dms_id": "RCRO_LAMBD_Tsuboyama_2023_1ORC",
+  "acc": "P03040",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "RD23A_HUMAN_Tsuboyama_2023_1IFY",
+  "acc": "P54725",
+  "status": "matched",
+  "offset": 160,
+  "plddt": 69.38,
+  "model_len": 363,
+  "target_len": 44
+ },
+ {
+  "dms_id": "RDRP_I33A0_Li_2023",
+  "acc": "P03430",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "REV_HV1H2_Fernandes_2016",
+  "acc": "P04618",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "RFAH_ECOLI_Tsuboyama_2023_2LCL",
+  "acc": "P26614",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "RL20_AQUAE_Tsuboyama_2023_1GYZ",
+  "acc": "O67086",
+  "status": "matched",
+  "offset": 58,
+  "plddt": 93.44,
+  "model_len": 118,
+  "target_len": 59
+ },
+ {
+  "dms_id": "RL40A_YEAST_Mavor_2016",
+  "acc": "P0CH08",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 93.75,
+  "model_len": 128,
+  "target_len": 128
+ },
+ {
+  "dms_id": "RL40A_YEAST_Roscoe_2013",
+  "acc": "P0CH08",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 93.75,
+  "model_len": 128,
+  "target_len": 128
+ },
+ {
+  "dms_id": "RL40A_YEAST_Roscoe_2014",
+  "acc": "P0CH08",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 93.75,
+  "model_len": 128,
+  "target_len": 128
+ },
+ {
+  "dms_id": "RNC_ECOLI_Weeks_2023",
+  "acc": "P05797",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "RPC1_BP434_Tsuboyama_2023_1R69",
+  "acc": "P16117",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "RPC1_LAMBD_Li_2019_high-expression",
+  "acc": "P03034",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "RPC1_LAMBD_Li_2019_low-expression",
+  "acc": "P03034",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "RS15_GEOSE_Tsuboyama_2023_1A32",
+  "acc": "P05766",
+  "status": "matched",
+  "offset": 23,
+  "plddt": 95.12,
+  "model_len": 89,
+  "target_len": 63
+ },
+ {
+  "dms_id": "S22A1_HUMAN_Yee_2023_abundance",
+  "acc": "O15245",
+  "status": "matched",
+  "offset": 1,
+  "plddt": 84.25,
+  "model_len": 554,
+  "target_len": 553
+ },
+ {
+  "dms_id": "S22A1_HUMAN_Yee_2023_activity",
+  "acc": "O15245",
+  "status": "matched",
+  "offset": 1,
+  "plddt": 84.25,
+  "model_len": 554,
+  "target_len": 553
+ },
+ {
+  "dms_id": "SAV1_MOUSE_Tsuboyama_2023_2YSB",
+  "acc": "Q8VEB2",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 59.47,
+  "model_len": 386,
+  "target_len": 43
+ },
+ {
+  "dms_id": "SBI_STAAM_Tsuboyama_2023_2JVG",
+  "acc": "Q931F4",
+  "status": "matched",
+  "offset": 204,
+  "plddt": 71.06,
+  "model_len": 426,
+  "target_len": 56
+ },
+ {
+  "dms_id": "SC6A4_HUMAN_Young_2021",
+  "acc": "P31645",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 84.69,
+  "model_len": 630,
+  "target_len": 630
+ },
+ {
+  "dms_id": "SCIN_STAAR_Tsuboyama_2023_2QFF",
+  "acc": "Q6GFB4",
+  "status": "matched",
+  "offset": 41,
+  "plddt": 81.69,
+  "model_len": 116,
+  "target_len": 70
+ },
+ {
+  "dms_id": "SCN5A_HUMAN_Glazer_2019",
+  "acc": "Q14524",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 67.25,
+  "model_len": 2016,
+  "target_len": 2016
+ },
+ {
+  "dms_id": "SDA_BACSU_Tsuboyama_2023_1PV0",
+  "acc": "Q7WY62",
+  "status": "matched",
+  "offset": 6,
+  "plddt": 90.94,
+  "model_len": 52,
+  "target_len": 44
+ },
+ {
+  "dms_id": "SERC_HUMAN_Xie_2023",
+  "acc": "Q9Y617",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 97.06,
+  "model_len": 370,
+  "target_len": 370
+ },
+ {
+  "dms_id": "SHOC2_HUMAN_Kwon_2022",
+  "acc": "Q9UQ13",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 87.5,
+  "model_len": 582,
+  "target_len": 582
+ },
+ {
+  "dms_id": "SOX30_HUMAN_Tsuboyama_2023_7JJK",
+  "acc": "O94993",
+  "status": "matched",
+  "offset": 338,
+  "plddt": 49.81,
+  "model_len": 753,
+  "target_len": 57
+ },
+ {
+  "dms_id": "SPA_STAAU_Tsuboyama_2023_1LP1",
+  "acc": "P38507",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 69.88,
+  "model_len": 508,
+  "target_len": 55
+ },
+ {
+  "dms_id": "SPG1_STRSG_Olson_2014",
+  "acc": "P06654",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 70.81,
+  "model_len": 448,
+  "target_len": 448
+ },
+ {
+  "dms_id": "SPG1_STRSG_Wu_2016",
+  "acc": "P06654",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 70.81,
+  "model_len": 448,
+  "target_len": 448
+ },
+ {
+  "dms_id": "SPG2_STRSG_Tsuboyama_2023_5UBS",
+  "acc": "P19909",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 72.81,
+  "model_len": 593,
+  "target_len": 56
+ },
+ {
+  "dms_id": "SPIKE_SARS2_Starr_2020_binding",
+  "acc": "P0DTC2",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 67.14,
+  "model_len": 1273,
+  "target_len": 1273
+ },
+ {
+  "dms_id": "SPIKE_SARS2_Starr_2020_expression",
+  "acc": "P0DTC2",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 67.14,
+  "model_len": 1273,
+  "target_len": 1273
+ },
+ {
+  "dms_id": "SPTN1_CHICK_Tsuboyama_2023_1TUD",
+  "acc": "P07751",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 75.62,
+  "model_len": 2477,
+  "target_len": 60
+ },
+ {
+  "dms_id": "SQSTM_MOUSE_Tsuboyama_2023_2RRU",
+  "acc": "Q64337",
+  "status": "matched",
+  "offset": 394,
+  "plddt": 66.94,
+  "model_len": 442,
+  "target_len": 40
+ },
+ {
+  "dms_id": "SR43C_ARATH_Tsuboyama_2023_2N88",
+  "acc": "O22265",
+  "status": "matched",
+  "offset": 319,
+  "plddt": 79.0,
+  "model_len": 373,
+  "target_len": 48
+ },
+ {
+  "dms_id": "SRBS1_HUMAN_Tsuboyama_2023_2O2W",
+  "acc": "Q9BX66",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 46.94,
+  "model_len": 1292,
+  "target_len": 67
+ },
+ {
+  "dms_id": "SRC_HUMAN_Ahler_2019",
+  "acc": "P12931",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 83.44,
+  "model_len": 536,
+  "target_len": 536
+ },
+ {
+  "dms_id": "SRC_HUMAN_Chakraborty_2023_binding-DAS_25uM",
+  "acc": "P12931",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 83.44,
+  "model_len": 536,
+  "target_len": 536
+ },
+ {
+  "dms_id": "SRC_HUMAN_Nguyen_2022",
+  "acc": "P12931",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 83.44,
+  "model_len": 536,
+  "target_len": 536
+ },
+ {
+  "dms_id": "SUMO1_HUMAN_Weile_2017",
+  "acc": "P63165",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 78.31,
+  "model_len": 101,
+  "target_len": 101
+ },
+ {
+  "dms_id": "SYUA_HUMAN_Newberry_2020",
+  "acc": "P37840",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 75.19,
+  "model_len": 140,
+  "target_len": 140
+ },
+ {
+  "dms_id": "TADBP_HUMAN_Bolognesi_2019",
+  "acc": "Q13148",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 65.19,
+  "model_len": 414,
+  "target_len": 414
+ },
+ {
+  "dms_id": "TAT_HV1BR_Fernandes_2016",
+  "acc": "P04610",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "TCRG1_MOUSE_Tsuboyama_2023_1E0L",
+  "acc": "Q8CGF7",
+  "status": "matched",
+  "offset": 429,
+  "plddt": 69.25,
+  "model_len": 1100,
+  "target_len": 37
+ },
+ {
+  "dms_id": "THO1_YEAST_Tsuboyama_2023_2WQG",
+  "acc": "P40040",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 71.06,
+  "model_len": 218,
+  "target_len": 41
+ },
+ {
+  "dms_id": "TNKS2_HUMAN_Tsuboyama_2023_5JRT",
+  "acc": "Q9H2K2",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 83.81,
+  "model_len": 1166,
+  "target_len": 59
+ },
+ {
+  "dms_id": "TPK1_HUMAN_Weile_2017",
+  "acc": "Q9H3S4",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 97.94,
+  "model_len": 243,
+  "target_len": 243
+ },
+ {
+  "dms_id": "TPMT_HUMAN_Matreyek_2018",
+  "acc": "P51580",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 94.94,
+  "model_len": 245,
+  "target_len": 245
+ },
+ {
+  "dms_id": "TPOR_HUMAN_Bridgford_2020",
+  "acc": "P40238",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 72.69,
+  "model_len": 635,
+  "target_len": 635
+ },
+ {
+  "dms_id": "TRPC_SACS2_Chan_2017",
+  "acc": "Q06121",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 96.31,
+  "model_len": 248,
+  "target_len": 248
+ },
+ {
+  "dms_id": "TRPC_THEMA_Chan_2017",
+  "acc": "Q56319",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 95.56,
+  "model_len": 252,
+  "target_len": 252
+ },
+ {
+  "dms_id": "UBC9_HUMAN_Weile_2017",
+  "acc": "P63279",
+  "status": "seq_mismatch",
+  "offset": null,
+  "plddt": 97.31,
+  "model_len": 158,
+  "target_len": 159
+ },
+ {
+  "dms_id": "UBE4B_HUMAN_Tsuboyama_2023_3L1X",
+  "acc": "O95155",
+  "status": "matched",
+  "offset": 1226,
+  "plddt": 75.0,
+  "model_len": 1302,
+  "target_len": 69
+ },
+ {
+  "dms_id": "UBE4B_MOUSE_Starita_2013",
+  "acc": "Q9ES00",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 79.56,
+  "model_len": 1173,
+  "target_len": 1173
+ },
+ {
+  "dms_id": "UBR5_HUMAN_Tsuboyama_2023_1I2T",
+  "acc": "O95071",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "VG08_BPP22_Tsuboyama_2023_2GP8",
+  "acc": "P26748",
+  "status": "matched",
+  "offset": 263,
+  "plddt": 77.24,
+  "model_len": 303,
+  "target_len": 40
+ },
+ {
+  "dms_id": "VILI_CHICK_Tsuboyama_2023_1YU5",
+  "acc": "P02640",
+  "status": "matched",
+  "offset": 761,
+  "plddt": 77.31,
+  "model_len": 826,
+  "target_len": 65
+ },
+ {
+  "dms_id": "VKOR1_HUMAN_Chiasson_2020_abundance",
+  "acc": "Q9BQB6",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 91.56,
+  "model_len": 163,
+  "target_len": 163
+ },
+ {
+  "dms_id": "VKOR1_HUMAN_Chiasson_2020_activity",
+  "acc": "Q9BQB6",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 91.56,
+  "model_len": 163,
+  "target_len": 163
+ },
+ {
+  "dms_id": "VRPI_BPT7_Tsuboyama_2023_2WNM",
+  "acc": "P03704",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "YAIA_ECOLI_Tsuboyama_2023_2KVT",
+  "acc": "P08366",
+  "status": "no_model",
+  "offset": null
+ },
+ {
+  "dms_id": "YAP1_HUMAN_Araya_2012",
+  "acc": "P46937",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 57.41,
+  "model_len": 504,
+  "target_len": 504
+ },
+ {
+  "dms_id": "YNZC_BACSU_Tsuboyama_2023_2JVD",
+  "acc": "O31818",
+  "status": "matched",
+  "offset": 0,
+  "plddt": 85.44,
+  "model_len": 77,
+  "target_len": 39
+ }
+]

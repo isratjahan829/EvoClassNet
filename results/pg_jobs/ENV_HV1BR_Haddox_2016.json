@@ -1,0 +1,99 @@
+{
+ "dms_id": "ENV_HV1BR_Haddox_2016",
+ "n_variants": 12863,
+ "seq_len": 861,
+ "n_positions": 677,
+ "frac_multi": 0.0,
+ "max_nsub": 1,
+ "splits": {
+  "random": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 2573
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.24783657570146128,
+    "spearman_sd": 0.01453692623993449,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 2573
+   },
+   "residue_only": {
+    "spearman": 0.22266053683852838,
+    "spearman_sd": 0.015249968175616897,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 2573
+   },
+   "physchem": {
+    "spearman": 0.3110333387677507,
+    "spearman_sd": 0.01522118250814424,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 2573
+   },
+   "position_mean": {
+    "spearman": 0.04983974508350519,
+    "spearman_sd": 0.027797951187086445,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 2573
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 2573
+   }
+  },
+  "heldout_positions": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 2565
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.2505108380840381,
+    "spearman_sd": 0.029213391061792035,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 2565
+   },
+   "residue_only": {
+    "spearman": 0.2178716652161258,
+    "spearman_sd": 0.026524618228678222,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 2565
+   },
+   "physchem": {
+    "spearman": 0.31077848669540387,
+    "spearman_sd": 0.020463503059925687,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 2565
+   },
+   "position_mean": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 2565
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 2565
+   }
+  }
+ },
+ "_seconds": 25.1
+}

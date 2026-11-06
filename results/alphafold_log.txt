@@ -29,3 +29,16 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 18:50:12 [90/185] P26614: no_model (api 404)
 18:50:15 [94/185] P29990: no_model (api 404)
 18:50:21 [100/185] ...
+18:50:38 [120/185] P51587: no_model (api 404)
+18:50:45 [129/185] P68660: no_model (api 404)
+18:50:48 [134/185] P96930: no_model (api 404)
+18:50:54 [140/185] ...
+18:50:57 [144/185] Q2N0S5: no_model (api 404)
+18:50:59 [149/185] Q5VST9: no_model (api 404)
+18:51:02 [153/185] Q73372: no_model (api 404)
+18:51:06 [160/185] ...
+18:51:13 [168/185] Q99IB8: no_model (api 404)
+18:51:25 [180/185] ...
+18:51:30 models downloaded for 153/185 accessions
+18:51:30 assays whose target sequence maps onto its model: 138/217
+18:51:30 status: no_model=37, matched=138, seq_mismatch=41, unresolved_id=1

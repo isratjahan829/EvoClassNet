@@ -1,0 +1,99 @@
+{
+ "dms_id": "CCR5_HUMAN_Gill_2023",
+ "n_variants": 6137,
+ "seq_len": 352,
+ "n_positions": 323,
+ "frac_multi": 0.0,
+ "max_nsub": 1,
+ "splits": {
+  "random": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1228
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.15993636239467182,
+    "spearman_sd": 0.007155724256689002,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1228
+   },
+   "residue_only": {
+    "spearman": 0.2247270802331795,
+    "spearman_sd": 0.01104538085604097,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1228
+   },
+   "physchem": {
+    "spearman": 0.25635926807013065,
+    "spearman_sd": 0.010763678120898212,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1228
+   },
+   "position_mean": {
+    "spearman": 0.4414880631950927,
+    "spearman_sd": 0.015055979840992155,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1228
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1228
+   }
+  },
+  "heldout_positions": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1216
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.127584759159938,
+    "spearman_sd": 0.03342622269338706,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1216
+   },
+   "residue_only": {
+    "spearman": 0.17044131703940002,
+    "spearman_sd": 0.04370844692848144,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1216
+   },
+   "physchem": {
+    "spearman": 0.19923915487745256,
+    "spearman_sd": 0.0418253414293879,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1216
+   },
+   "position_mean": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1216
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1216
+   }
+  }
+ },
+ "_seconds": 10.8
+}
