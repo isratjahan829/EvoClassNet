@@ -1,2 +1,6 @@
 16:50:26 model=facebook/esm2_t33_650M_UR50D  RBD length=201  offset=330
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/539 [00:00<?, ?it/s]Loading weights:   3%|▎         | 16/539 [00:00<00:03, 147.22it/s]Loading weights: 100%|██████████| 539/539 [00:00<00:00, 4247.39it/s]
+16:52:18 embeddings (201, 1280) -> esm2_t33_650M_UR50D_embeddings.npz
+16:52:21 masked marginals 4/201
+16:52:53 masked marginals 44/201
