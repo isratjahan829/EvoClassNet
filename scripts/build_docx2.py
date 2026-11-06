@@ -268,6 +268,13 @@ P("How such models are validated has received less scrutiny than how they are bu
   "substitutions fall. A model can therefore score well by learning a per-position, per-residue "
   "effect table together with a link function, without any capacity to speak about a position it "
   "has never seen mutated. That capacity is what surveillance requires.")
+P("Position-based evaluation is not a new proposal, and we are not making one. The supervised "
+  "ProteinGym benchmark already defines two position-based cross-validation schemes alongside a "
+  "random one: fold_modulo_5, which assigns positions to folds by position modulo five, and "
+  "fold_contiguous_5, which cuts the sequence into five consecutive blocks [10,11]. Both are "
+  "used below, reconstructed exactly, so that the numbers here sit on the same footing as the "
+  "published leaderboard. What this paper contributes is not the split but the diagnostics "
+  "evaluated on it, and what they reveal.")
 P("This paper makes three points, and the second corrects the first. First, held-out-position "
   "evaluation is uninterpretable without an untrained control: on a combinatorial library a "
   "model that has learned nothing about the withheld positions still orders test variants "
@@ -283,6 +290,14 @@ P("We report the correction explicitly rather than presenting only the final res
   "sequence of errors is the methodological content of the paper: a confounded metric produced "
   "an inflated number, the right control removed it, and an over-general conclusion drawn from "
   "that control was itself wrong for a reason the control could not reveal.")
+P("Stated precisely, the contributions are: a position-mean baseline, which uses only which "
+  "position a variant mutates and nothing about which substitution is made, and which turns out "
+  "to be the strongest model under a random split and identically zero under every "
+  "position-based one; an untrained mutation-count control and a partial rank correlation that "
+  "removes the same confound directly and validates itself; the observation that the collapse "
+  "of conventional models is representational rather than a property of the measurements; and "
+  "an evaluation of all of this across every substitution assay in ProteinGym rather than on a "
+  "single protein.")
 
 # ================================================================= METHODS
 H("2. Materials and methods")
@@ -369,6 +384,13 @@ fig("schema3_plm.png",
 
 H("2.4 Evaluation designs", 2)
 P("Random split. Genotypes are divided 80/10/10 % into training, validation and test sets.")
+P("Two further designs, used for the ProteinGym analysis in Section 3.11, are the position-based "
+  "cross-validation schemes the supervised ProteinGym benchmark already defines [10,11]: "
+  "fold_modulo_5 assigns a position to fold p mod 5, and fold_contiguous_5 cuts the sequence "
+  "into five consecutive blocks of positions. The published fold assignments are distributed in "
+  "an archive that was not reachable from this compute environment, but both are deterministic "
+  "functions of residue position and were reconstructed exactly; a variant joins the test fold "
+  "only if every position it mutates does.")
 P("Held-out-position split. The 201 positions are partitioned at random into training (75 %), "
   "validation (10 %) and test (15 %) sets. A genotype joins a partition only if every position it "
   "mutates lies in that partition's position set; genotypes spanning partitions are discarded. No "
@@ -905,13 +927,17 @@ P("That this is a negative result about architectures rather than about proteins
   "and for SARS-CoV-2 they were available from early 2020. The protein language model, which is "
   "the component usually expected to provide this, supplied nothing measurable on this protein, "
   "and we are careful to scope that claim to this protein.")
-P("The practical recommendations are narrow. Report held-out-position performance alongside "
-  "random splits for any predictor trained on a saturating scan, because the designs rank models "
-  "differently. Report an untrained baseline on every split, or better, report the partial "
-  "correlation that removes the confound outright. Before concluding that a phenotype cannot be "
-  "extrapolated, check whether the models tested have any parameter that applies to the held-out "
-  "condition. And report a seed distribution: initialisation alone moved held-out binding ρ "
-  "across a range wide enough to reverse conclusions.")
+P("The practical recommendations are narrow, and the first of them is already available. "
+  "Position-based cross-validation schemes exist in the benchmark most of this field reports "
+  "against; use them, and report them alongside the random split rather than instead of it, "
+  "because the two rank models differently and the comparison is the informative part. Second, "
+  "report an untrained baseline on every split, or better, the partial correlation that removes "
+  "the confound outright. Third, include a model that uses only the position: if it beats the "
+  "model under evaluation on a random split, the random split is not measuring what the paper "
+  "says it is. Fourth, before concluding that a phenotype cannot be extrapolated, check whether "
+  "the models tested hold any parameter that applies to the held-out condition. And report a "
+  "seed distribution: initialisation alone moved held-out binding ρ across a range wide enough "
+  "to reverse conclusions.")
 
 H("4.1 Limitations", 2)
 for t in [
@@ -969,7 +995,10 @@ for r in [
     "Shrake A, Rupley JA. Environment and exposure to solvent of protein atoms. Lysozyme and "
     "insulin. J Mol Biol 1973;79:351–371.",
     "Notin P, Kollasch AW, Ritter D, et al. ProteinGym: large-scale benchmarks for protein "
-    "fitness prediction and design. NeurIPS 2023.",
+    "fitness prediction and design. NeurIPS Datasets and Benchmarks 2023.",
+    "Notin P, Weitzman R, Marks DS, Gal Y. ProteinNPT: improving protein property prediction and "
+    "design with non-parametric transformers. NeurIPS 2023. (Defines the fold_random_5, "
+    "fold_contiguous_5 and fold_modulo_5 cross-validation schemes used here.)",
 ]:
     doc.add_paragraph(r, style="List Number")
 
