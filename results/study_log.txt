@@ -35,3 +35,12 @@
 05:38:18   ep6/8 train -1.4669 val 0.8960
 05:39:00   ep7/8 train -1.6734 val 0.8096
 05:39:01 [heldout_sites seed0] {"ridge_additive": {"bind": 0.0, "expr": 0.0}, "global_epistasis": {"bind": -0.279, "expr": -0.345}, "evoclassnet_lite": {"bind": 0.378, "expr": 0.531}}
+05:39:45   ep1/8 train 1.5520 val 1.7185
+05:40:28   ep2/8 train 0.5424 val 1.3086
+05:41:10   ep3/8 train -0.2792 val 1.3002
+05:41:52   ep4/8 train -0.8235 val 1.3439
+05:42:34   ep5/8 train -1.2149 val 1.4103
+05:43:15   ep6/8 train -1.5161 val 0.9642
+05:43:56   ep7/8 train -1.7398 val 1.1876
+05:44:38   ep8/8 train -1.8517 val 1.2173
+05:44:38 [heldout_sites seed1] {"ridge_additive": {"bind": 0.0, "expr": 0.0}, "global_epistasis": {"bind": -0.379, "expr": -0.327}, "evoclassnet_lite": {"bind": 0.317, "expr": 0.215}}
