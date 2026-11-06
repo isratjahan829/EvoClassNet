@@ -3,3 +3,9 @@
 04:59:18 [GA-hp] gen1 best=0.6863 mean=0.6497 best={'lr': 0.002, 'emb': 16, 'lstm': 32, 'dropout': 0.1, 'ch': (64, 96, 64), 'ks': (3, 5, 3), 'wd': 1e-05}
 05:00:43 [GA-hp] gen2 best=0.6892 mean=0.6807 best={'lr': 0.002, 'emb': 16, 'lstm': 32, 'dropout': 0.0, 'ch': (64, 96, 64), 'ks': (3, 5, 3), 'wd': 0.0001}
 05:02:07 GA best hyper-parameters {'lr': 0.002, 'emb': 48, 'lstm': 96, 'dropout': 0.0, 'ch': (64, 96, 64), 'ks': (5, 7, 5), 'wd': 0.0001} val spearman 0.7054
+05:03:49   ep1/8 train 1.1384 val 0.9601
+05:05:21   ep2/8 train -0.0105 val 0.2976
+05:06:50   ep3/8 train -0.9502 val 0.9786
+05:08:16   ep4/8 train -1.5596 val 0.3745
+05:09:51   ep5/8 train -1.9672 val 0.7562
+05:09:55 [random seed0] {"ridge_additive": {"bind": 0.875, "expr": 0.789}, "global_epistasis": {"bind": 0.887, "expr": 0.794}, "evoclassnet_lite": {"bind": 0.856, "expr": 0.766}}
