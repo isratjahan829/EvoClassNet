@@ -5,3 +5,8 @@
 07:16:09 [3/50] main_random_s2 bind=0.891 expr=0.861 esca=0.758
 07:16:12 [4/50] main_random_s1 bind=0.896 expr=0.861 esca=0.695
 07:46:44 [5/50] main_random_s4 bind=0.900 expr=0.862 esca=0.741
+07:54:22 [6/50] main_random_s5 bind=0.897 expr=0.864 esca=0.752
+07:54:56 [7/50] main_random_s6 bind=0.899 expr=0.865 esca=0.755
+07:55:00 [8/50] main_random_s7 bind=0.892 expr=0.858 esca=0.773
+/home/user/EvoClassNet/scripts/run_study.py:33: NearConstantInputWarning: An input array is nearly constant; the computed correlation coefficient may be inaccurate.
+  return dict(spearman=float(spearmanr(y[m], p[m])[0]), pearson=float(pearsonr(y[m], p[m])[0]),
