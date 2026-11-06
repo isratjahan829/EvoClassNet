@@ -1,0 +1,5 @@
+04:54:53 124197 genotypes; bind NaN 15.03% expr NaN 6.39%
+04:57:58 [GA-hp] gen0 best=0.6863 mean=0.6512 best={'lr': 0.002, 'emb': 16, 'lstm': 32, 'dropout': 0.1, 'ch': (64, 96, 64), 'ks': (3, 5, 3), 'wd': 1e-05}
+04:59:18 [GA-hp] gen1 best=0.6863 mean=0.6497 best={'lr': 0.002, 'emb': 16, 'lstm': 32, 'dropout': 0.1, 'ch': (64, 96, 64), 'ks': (3, 5, 3), 'wd': 1e-05}
+05:00:43 [GA-hp] gen2 best=0.6892 mean=0.6807 best={'lr': 0.002, 'emb': 16, 'lstm': 32, 'dropout': 0.0, 'ch': (64, 96, 64), 'ks': (3, 5, 3), 'wd': 0.0001}
+05:02:07 GA best hyper-parameters {'lr': 0.002, 'emb': 48, 'lstm': 96, 'dropout': 0.0, 'ch': (64, 96, 64), 'ks': (5, 7, 5), 'wd': 0.0001} val spearman 0.7054
