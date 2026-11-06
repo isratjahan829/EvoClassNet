@@ -7,3 +7,4 @@
 20:25:11 [2/10] main_heldout_sites_s0 bind=0.284 expr=0.367 esca=0.406
 20:25:56 [3/10] main_heldout_sites_s2 bind=0.416 expr=0.336 esca=0.287
 20:26:24 [4/10] main_heldout_sites_s3 bind=0.096 expr=0.202 esca=0.167
+20:35:10 [5/10] main_heldout_sites_s4 bind=0.265 expr=0.301 esca=-0.100

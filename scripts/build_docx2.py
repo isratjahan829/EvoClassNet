@@ -510,6 +510,13 @@ P("The primary metric is Spearman's ρ on the test partition, computed per task 
   "the calibration slope, and correlations within fixed substitution-count strata.")
 
 H("2.7 Statistics", 2)
+P("A note on power before any of these are read. A two-sided Wilcoxon signed-rank test over n "
+  "seeds cannot return a P value below 2^-n+1: with five seeds the floor is 0.031, and after "
+  "false-discovery-rate correction across a family of twenty or more model-by-task comparisons "
+  "nothing can reach significance however large the effect. Where the seed count is small we "
+  "therefore treat the bootstrap confidence interval as the primary inference and report the "
+  "rank test alongside it, rather than describing a clearly separated effect as "
+  "non-significant because the test has no resolution left.")
 P(f"Models are compared on per-seed paired differences with a two-sided Wilcoxon signed-rank "
   f"test, bootstrap percentile intervals, and Cliff's δ as a scale-free effect size. Because the "
   f"central claim about the position-indexed models is a negative one, and failing to reject a "

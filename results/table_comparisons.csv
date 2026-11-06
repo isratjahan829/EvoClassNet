@@ -1,0 +1,104 @@
+split,task,metric,model,reference,n_seeds,median_diff,p_raw,ci_lo,ci_hi,tost_p,equivalent,cliffs_delta,effect,p_fdr,significant_fdr
+heldout_sites,ACE2 binding,spearman,Physicochemical ridge,Mutation count,5,0.2595,0.0625,0.2387,0.4136,0.9972465746056145,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,k-NN (features),Mutation count,5,0.1646,0.0625,0.1552,0.2807,0.9944689313817833,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,Gradient boosting,Mutation count,5,0.266,0.0625,0.2472,0.3893,0.998540278689411,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,Structure GNN,Mutation count,5,-0.1576,0.1875,-0.2649,-0.0291,0.8768635704675389,False,-0.68,large,0.23672,False
+heldout_sites,ACE2 binding,spearman,Additive ridge,Mutation count,5,-0.3787,0.0625,-0.4139,-0.325,0.9998861249534189,False,-1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,Global epistasis,Mutation count,5,-0.7075,0.0625,-0.7996,-0.6467,0.9999384044020903,False,-1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,EvoClassNet,Mutation count,5,-0.041,0.0625,-0.205,-0.0256,0.7565479302579322,False,-0.6,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,EvoClassNet + ESM/str,Mutation count,5,0.0694,0.625,-0.0767,0.104,0.293048505425511,False,0.04,negligible,0.70139,False
+heldout_sites,ACE2 binding,spearman,Physicochemical ridge,BLOSUM62,5,0.2877,0.0625,0.2002,0.3706,0.9957940913576815,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman_partial,Physicochemical ridge,BLOSUM62,5,0.2998,0.0625,0.2026,0.4118,0.9935914379612144,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,k-NN (features),BLOSUM62,5,0.1849,0.0625,0.1183,0.2468,0.9885779461507397,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman_partial,k-NN (features),BLOSUM62,5,0.1933,0.0625,0.1183,0.2712,0.9852751453974995,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,Gradient boosting,BLOSUM62,5,0.2942,0.0625,0.208,0.3547,0.9970655885568157,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman_partial,Gradient boosting,BLOSUM62,5,0.3108,0.0625,0.2142,0.396,0.9957796968360361,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,Structure GNN,BLOSUM62,5,-0.1294,0.0625,-0.3071,-0.0691,0.9381053850508192,False,-0.76,large,0.08891,False
+heldout_sites,ACE2 binding,spearman_partial,Structure GNN,BLOSUM62,5,-0.1542,0.0625,-0.2527,-0.0757,0.9471788951671626,False,-0.76,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,Additive ridge,BLOSUM62,5,-0.4079,0.0625,-0.4396,-0.3748,0.9999783196842958,False,-1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman_partial,Additive ridge,BLOSUM62,5,-0.3064,0.0625,-0.3449,-0.2915,0.9999690002075955,False,-1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,Global epistasis,BLOSUM62,5,-0.7478,0.0625,-0.8202,-0.6982,0.999982974047666,False,-1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman_partial,Global epistasis,BLOSUM62,5,-0.3505,0.0625,-0.3687,-0.2761,0.9997341352372192,False,-1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,EvoClassNet,BLOSUM62,5,-0.0948,0.125,-0.2507,-0.0356,0.8663130412876028,False,-0.76,large,0.16396,False
+heldout_sites,ACE2 binding,spearman_partial,EvoClassNet,BLOSUM62,5,-0.1401,0.0625,-0.3252,-0.1057,0.9525385888758697,False,-1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,EvoClassNet + ESM/str,BLOSUM62,5,0.0,1.0,-0.1237,0.0909,0.3050263000117515,False,-0.12,negligible,1.0,False
+heldout_sites,ACE2 binding,spearman_partial,EvoClassNet + ESM/str,BLOSUM62,5,0.0241,0.8125,-0.1691,0.0855,0.42352636460841736,False,0.04,negligible,0.82891,False
+heldout_sites,ACE2 binding,spearman,Physicochemical ridge,ESM-2 zero-shot,5,0.6813,0.0625,0.6384,0.7509,0.9999808665006165,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman_partial,Physicochemical ridge,ESM-2 zero-shot,5,0.6449,0.0625,0.5646,0.7273,0.9999062295167334,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,k-NN (features),ESM-2 zero-shot,5,0.5778,0.0625,0.5362,0.6504,0.9999592721063578,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman_partial,k-NN (features),ESM-2 zero-shot,5,0.5319,0.0625,0.4708,0.6046,0.9998705512588861,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,Gradient boosting,ESM-2 zero-shot,5,0.6636,0.0625,0.619,0.7651,0.9999481847399405,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman_partial,Gradient boosting,ESM-2 zero-shot,5,0.6197,0.0625,0.5614,0.7352,0.9998449237735808,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,Structure GNN,ESM-2 zero-shot,5,0.1788,0.0625,0.1072,0.3641,0.9638782083751626,False,0.84,large,0.08891,False
+heldout_sites,ACE2 binding,spearman_partial,Structure GNN,ESM-2 zero-shot,5,0.1794,0.0625,0.0752,0.2886,0.9517728553023413,False,0.84,large,0.08891,False
+heldout_sites,ACE2 binding,spearman,Additive ridge,ESM-2 zero-shot,5,0.0195,0.625,-0.0469,0.0286,0.05115764107323398,False,0.6,large,0.70139,False
+heldout_sites,ACE2 binding,spearman_partial,Additive ridge,ESM-2 zero-shot,5,0.0621,0.625,-0.0451,0.0682,0.2177217455553779,False,0.6,large,0.70139,False
+heldout_sites,ACE2 binding,spearman,Global epistasis,ESM-2 zero-shot,5,-0.364,0.0625,-0.3831,-0.3201,0.9999620491492069,False,-1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman_partial,Global epistasis,ESM-2 zero-shot,5,0.0734,0.8125,-0.0921,0.1041,0.2951244441638287,False,-0.04,negligible,0.82891,False
+heldout_sites,ACE2 binding,spearman,EvoClassNet,ESM-2 zero-shot,5,0.3193,0.0625,0.1724,0.3779,0.9908808799892413,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman_partial,EvoClassNet,ESM-2 zero-shot,5,0.1786,0.125,0.0409,0.2344,0.9212851624327572,False,0.6,large,0.16396,False
+heldout_sites,ACE2 binding,spearman,EvoClassNet + ESM/str,ESM-2 zero-shot,5,0.3219,0.0625,0.2881,0.4926,0.9976465387653224,False,1.0,large,0.08891,False
+heldout_sites,ACE2 binding,spearman_partial,EvoClassNet + ESM/str,ESM-2 zero-shot,5,0.2182,0.0625,0.1958,0.4218,0.9912107267995254,False,0.92,large,0.08891,False
+heldout_sites,Expression,spearman,Physicochemical ridge,Mutation count,5,0.2233,0.0625,0.1821,0.3207,0.9962741255642215,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman,k-NN (features),Mutation count,5,0.1795,0.0625,0.1314,0.261,0.9909743072336783,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman,Gradient boosting,Mutation count,5,0.2708,0.0625,0.2347,0.3522,0.9986398389034039,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman,Structure GNN,Mutation count,5,0.0562,0.8125,-0.2318,0.11,0.47489312456160404,False,0.04,negligible,0.82891,False
+heldout_sites,Expression,spearman,Additive ridge,Mutation count,5,-0.351,0.0625,-0.3758,-0.296,0.999875015127286,False,-1.0,large,0.08891,False
+heldout_sites,Expression,spearman,Global epistasis,Mutation count,5,-0.6642,0.0625,-0.7443,-0.5829,0.999894740780016,False,-1.0,large,0.08891,False
+heldout_sites,Expression,spearman,EvoClassNet,Mutation count,5,-0.0448,0.4375,-0.1265,0.017,0.5425358977592492,False,-0.6,large,0.51985,False
+heldout_sites,Expression,spearman,EvoClassNet + ESM/str,Mutation count,5,-0.0534,0.625,-0.1499,0.0759,0.4570913627406894,False,-0.12,negligible,0.70139,False
+heldout_sites,Expression,spearman,Physicochemical ridge,BLOSUM62,5,0.256,0.0625,0.1432,0.2991,0.9906064847687848,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman_partial,Physicochemical ridge,BLOSUM62,5,0.2887,0.0625,0.1322,0.3329,0.9837350108150588,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman,k-NN (features),BLOSUM62,5,0.147,0.0625,0.0823,0.2459,0.9660293988182632,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman_partial,k-NN (features),BLOSUM62,5,0.1553,0.0625,0.0724,0.2728,0.9526528325996468,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman,Gradient boosting,BLOSUM62,5,0.2383,0.0625,0.1856,0.3285,0.9962944316083276,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman_partial,Gradient boosting,BLOSUM62,5,0.2623,0.0625,0.1939,0.3673,0.9949547420438544,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman,Structure GNN,BLOSUM62,5,0.0178,0.8125,-0.274,0.1025,0.5781444949535881,False,-0.04,negligible,0.82891,False
+heldout_sites,Expression,spearman_partial,Structure GNN,BLOSUM62,5,-0.0044,0.8125,-0.22,0.117,0.4665963352036659,False,0.04,negligible,0.82891,False
+heldout_sites,Expression,spearman,Additive ridge,BLOSUM62,5,-0.3887,0.0625,-0.4083,-0.3251,0.9998994009793399,False,-1.0,large,0.08891,False
+heldout_sites,Expression,spearman_partial,Additive ridge,BLOSUM62,5,-0.3,0.0625,-0.3173,-0.2419,0.9997701685772853,False,-1.0,large,0.08891,False
+heldout_sites,Expression,spearman,Global epistasis,BLOSUM62,5,-0.7294,0.0625,-0.7633,-0.6153,0.9999340205383349,False,-1.0,large,0.08891,False
+heldout_sites,Expression,spearman,EvoClassNet,BLOSUM62,5,-0.0213,0.1875,-0.1648,-0.0027,0.7369052892525487,False,-0.68,large,0.23672,False
+heldout_sites,Expression,spearman_partial,EvoClassNet,BLOSUM62,5,-0.0881,0.125,-0.2137,-0.0343,0.8820008324850609,False,-0.76,large,0.16396,False
+heldout_sites,Expression,spearman,EvoClassNet + ESM/str,BLOSUM62,5,-0.1217,0.4375,-0.1919,0.0533,0.6115682277830348,False,-0.28,small,0.51985,False
+heldout_sites,Expression,spearman_partial,EvoClassNet + ESM/str,BLOSUM62,5,-0.1347,0.4375,-0.2246,0.0565,0.6758065080100817,False,-0.44,medium,0.51985,False
+heldout_sites,Expression,spearman,Physicochemical ridge,ESM-2 zero-shot,5,0.535,0.0625,0.484,0.7059,0.9993858327505216,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman_partial,Physicochemical ridge,ESM-2 zero-shot,5,0.4905,0.0625,0.4063,0.674,0.9981905338513343,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman,k-NN (features),ESM-2 zero-shot,5,0.4244,0.0625,0.4028,0.6771,0.9982447791619304,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman_partial,k-NN (features),ESM-2 zero-shot,5,0.3525,0.0625,0.3266,0.6336,0.9954689463233203,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman,Gradient boosting,ESM-2 zero-shot,5,0.549,0.0625,0.5007,0.7652,0.999166652770938,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman_partial,Gradient boosting,ESM-2 zero-shot,5,0.4998,0.0625,0.4393,0.7397,0.9981738105866628,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman,Structure GNN,ESM-2 zero-shot,5,0.3228,0.0625,0.1536,0.428,0.9794459114207495,False,0.68,large,0.08891,False
+heldout_sites,Expression,spearman_partial,Structure GNN,ESM-2 zero-shot,5,0.2709,0.0625,0.1354,0.3766,0.9772196697685993,False,0.76,large,0.08891,False
+heldout_sites,Expression,spearman,Additive ridge,ESM-2 zero-shot,5,-0.055,0.8125,-0.0592,0.0613,0.13864057511902728,False,-0.2,small,0.82891,False
+heldout_sites,Expression,spearman_partial,Additive ridge,ESM-2 zero-shot,5,-0.0151,0.8125,-0.0486,0.0868,0.20923424610656868,False,-0.2,small,0.82891,False
+heldout_sites,Expression,spearman,Global epistasis,ESM-2 zero-shot,5,-0.353,0.0625,-0.4051,-0.2443,0.9982320657203628,False,-1.0,large,0.08891,False
+heldout_sites,Expression,spearman,EvoClassNet,ESM-2 zero-shot,5,0.2463,0.0625,0.1729,0.3945,0.9889702816387181,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman_partial,EvoClassNet,ESM-2 zero-shot,5,0.1637,0.125,0.0708,0.2978,0.9333672536611414,False,0.84,large,0.16396,False
+heldout_sites,Expression,spearman,EvoClassNet + ESM/str,ESM-2 zero-shot,5,0.2284,0.0625,0.1141,0.4874,0.9577933917835493,False,1.0,large,0.08891,False
+heldout_sites,Expression,spearman_partial,EvoClassNet + ESM/str,ESM-2 zero-shot,5,0.1324,0.3125,0.0131,0.4163,0.8746537058126941,False,0.6,large,0.38966,False
+heldout_sites,Antibody escape,spearman,Physicochemical ridge,Mutation count,5,0.5755,0.0625,0.5491,0.6959,0.9999154397427731,False,1.0,large,0.08891,False
+heldout_sites,Antibody escape,spearman,k-NN (features),Mutation count,5,0.393,0.0625,0.3024,0.444,0.9992606603382022,False,1.0,large,0.08891,False
+heldout_sites,Antibody escape,spearman,Gradient boosting,Mutation count,5,0.5353,0.0625,0.4992,0.5785,0.9999851729375742,False,1.0,large,0.08891,False
+heldout_sites,Antibody escape,spearman,Structure GNN,Mutation count,5,0.2597,0.125,0.0111,0.2818,0.8999727252785661,False,0.6,large,0.16396,False
+heldout_sites,Antibody escape,spearman,Additive ridge,Mutation count,5,0.0,,0.0,0.0,,False,0.0,negligible,,False
+heldout_sites,Antibody escape,spearman_partial,Additive ridge,Mutation count,5,0.0,,0.0,0.0,,False,0.0,negligible,,False
+heldout_sites,Antibody escape,spearman,Global epistasis,Mutation count,5,0.0,1.0,0.0,0.0237,0.0030091104816333176,True,0.2,small,1.0,False
+heldout_sites,Antibody escape,spearman,EvoClassNet,Mutation count,5,0.1673,0.1875,0.0067,0.3109,0.8605732081316432,False,0.6,large,0.23672,False
+heldout_sites,Antibody escape,spearman,EvoClassNet + ESM/str,Mutation count,5,0.3857,0.4375,-0.1095,0.4457,0.8181351048948347,False,0.6,large,0.51985,False
+heldout_sites,Antibody escape,spearman,Physicochemical ridge,BLOSUM62,5,0.8363,0.0625,0.8232,1.0304,0.9999399222589619,False,1.0,large,0.08891,False
+heldout_sites,Antibody escape,spearman,k-NN (features),BLOSUM62,5,0.6831,0.0625,0.5817,0.7683,0.9998236794301676,False,1.0,large,0.08891,False
+heldout_sites,Antibody escape,spearman,Gradient boosting,BLOSUM62,5,0.8563,0.0625,0.7978,0.8783,0.9999978664949736,False,1.0,large,0.08891,False
+heldout_sites,Antibody escape,spearman,Structure GNN,BLOSUM62,5,0.5438,0.0625,0.2884,0.5938,0.9948095893707136,False,1.0,large,0.08891,False
+heldout_sites,Antibody escape,spearman,Additive ridge,BLOSUM62,5,0.2885,0.0625,0.2686,0.3325,0.9999181233272423,False,1.0,large,0.08891,False
+heldout_sites,Antibody escape,spearman,Global epistasis,BLOSUM62,5,0.2982,0.0625,0.2825,0.3349,0.999965084641222,False,1.0,large,0.08891,False
+heldout_sites,Antibody escape,spearman,EvoClassNet,BLOSUM62,5,0.5049,0.0625,0.3007,0.6216,0.9940953677490397,False,1.0,large,0.08891,False
+heldout_sites,Antibody escape,spearman,EvoClassNet + ESM/str,BLOSUM62,5,0.6484,0.125,0.1709,0.7798,0.9704606128969647,False,0.6,large,0.16396,False
+heldout_sites,Antibody escape,spearman,Physicochemical ridge,ESM-2 zero-shot,5,0.4764,0.0625,0.4352,0.5807,0.9997790656719651,False,1.0,large,0.08891,False
+heldout_sites,Antibody escape,spearman,k-NN (features),ESM-2 zero-shot,5,0.2332,0.0625,0.1696,0.3451,0.9927013298906852,False,1.0,large,0.08891,False
+heldout_sites,Antibody escape,spearman,Gradient boosting,ESM-2 zero-shot,5,0.4399,0.0625,0.3342,0.4898,0.9994323886398255,False,1.0,large,0.08891,False
+heldout_sites,Antibody escape,spearman,Structure GNN,ESM-2 zero-shot,5,0.1654,0.8125,-0.0931,0.1797,0.5519113041771877,False,0.52,large,0.82891,False
+heldout_sites,Antibody escape,spearman,Additive ridge,ESM-2 zero-shot,5,-0.1069,0.0625,-0.1693,-0.0722,0.9612294135356709,False,-1.0,large,0.08891,False
+heldout_sites,Antibody escape,spearman,Global epistasis,ESM-2 zero-shot,5,-0.1069,0.0625,-0.1677,-0.0551,0.927610432592665,False,-1.0,large,0.08891,False
+heldout_sites,Antibody escape,spearman,EvoClassNet,ESM-2 zero-shot,5,-0.0496,0.8125,-0.1101,0.2221,0.4762060423154563,False,0.12,negligible,0.82891,False
+heldout_sites,Antibody escape,spearman,EvoClassNet + ESM/str,ESM-2 zero-shot,5,0.1687,0.625,-0.2026,0.3414,0.6324397908862345,False,0.6,large,0.70139,False

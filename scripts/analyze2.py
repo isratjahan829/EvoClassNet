@@ -136,6 +136,32 @@ def main():
         cdf["significant_fdr"] = rej
         cdf.to_csv(OUT / "table_comparisons.csv", index=False)
 
+    # -------- Table 2b: is the partial correlation different from zero? ----------
+    # The partial correlation already removes the substitution-count confound, so the
+    # informative question is not whether a model beats the untrained baseline on it - the
+    # baseline's own partial correlation is undefined, being a function of the variable that was
+    # partialled out - but whether the model's exceeds zero at all.
+    zrows = []
+    for sp, runs in main_runs.items():
+        for mdl, nm, fam in MODELS:
+            for t, tn in TASKS:
+                v = np.array(vals(runs, mdl, t, "spearman_partial"), float)
+                v = v[~np.isnan(v)]
+                if len(v) < 5:
+                    continue
+                from scipy.stats import wilcoxon as _w
+                pval = float(_w(v).pvalue) if not np.allclose(v, 0) else float("nan")
+                lo, hi = ST.bootstrap_ci(v)
+                zrows.append(dict(split=sp, family=fam, model=nm, task=tn, n_seeds=len(v),
+                                  mean_partial=round(float(v.mean()), 4),
+                                  ci_lo=round(lo, 4), ci_hi=round(hi, 4), p_raw=pval))
+    zdf = pd.DataFrame(zrows)
+    if len(zdf):
+        q, rej = ST.benjamini_hochberg(zdf.p_raw.to_numpy())
+        zdf["p_fdr"] = np.round(q, 5)
+        zdf["nonzero_fdr"] = rej
+        zdf.to_csv(OUT / "table_partial_vs_zero.csv", index=False)
+
     # ---------------- Table 3: permutation ablation -----------------------------
     arows = []
     for sp in ("random", "heldout_sites"):
@@ -218,10 +244,15 @@ def main():
     print("\n=== headline: Spearman and partial Spearman, held-out positions ===")
     h = panel[(panel.split == "heldout_sites")]
     print(h[["family", "model", "task", "spearman", "spearman_partial", "n"]].to_string(index=False))
+    if len(zdf):
+        print("\n=== partial Spearman against zero, held-out positions ===")
+        print(zdf[(zdf.split == "heldout_sites")]
+              [["family", "model", "task", "n_seeds", "mean_partial", "ci_lo", "ci_hi",
+                "p_fdr", "nonzero_fdr"]].to_string(index=False))
     if len(cdf):
-        print("\n=== equivalence vs mutation count (held-out positions, partial Spearman) ===")
+        print("\n=== equivalence vs mutation count (held-out positions, raw Spearman) ===")
         sel = cdf[(cdf.split == "heldout_sites") & (cdf.reference == "Mutation count")
-                  & (cdf.metric == "spearman_partial")]
+                  & (cdf.metric == "spearman")]
         print(sel[["task", "model", "median_diff", "ci_lo", "ci_hi", "p_fdr", "tost_p",
                    "equivalent", "effect"]].to_string(index=False))
 
