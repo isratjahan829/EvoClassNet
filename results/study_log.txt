@@ -18,3 +18,5 @@
 05:20:14   ep7/8 train -2.5578 val 0.0994
 05:21:44   ep8/8 train -2.7074 val 0.0851
 05:21:49 [random seed1] {"ridge_additive": {"bind": 0.874, "expr": 0.788}, "global_epistasis": {"bind": 0.887, "expr": 0.795}, "evoclassnet_lite": {"bind": 0.898, "expr": 0.87}}
+05:23:37   ep1/8 train 1.1634 val 1.0004
+05:25:09   ep2/8 train 0.0591 val 1.1479
