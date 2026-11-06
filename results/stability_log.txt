@@ -3,3 +3,6 @@
 15:31:21 split 2 init 2: bind=+0.385 expr=+0.267 escape=+0.334  val_loss=0.4265
 15:37:10 split 0 init 0: bind=+0.374 expr=+0.502 escape=+0.379  val_loss=0.4702
 15:41:42 split 0 init 1: bind=+0.423 expr=+0.448 escape=+0.310  val_loss=0.4222
+15:47:54 split 0 init 2: bind=+0.387 expr=+0.351 escape=+0.483  val_loss=0.4884
+15:47:54 split 2: binding rho over 3 inits = +0.236, +0.558, +0.385
+15:47:54 split 0: binding rho over 3 inits = +0.374, +0.423, +0.387
