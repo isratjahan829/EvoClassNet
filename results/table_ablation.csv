@@ -1,7 +1,7 @@
 split,task,intact,permuted,delta
-random,ACE2 binding,0.890 ± 0.012,0.886 ± 0.018,-0.003
-random,Expression,0.845 ± 0.035,0.831 ± 0.037,-0.013
-random,Antibody escape,0.638 ± 0.189,0.585 ± 0.127,-0.054
-heldout_sites,ACE2 binding,0.171 ± 0.333,0.132 ± 0.227,-0.039
-heldout_sites,Expression,0.158 ± 0.275,0.086 ± 0.170,-0.073
-heldout_sites,Antibody escape,0.026 ± 0.266,-0.034 ± 0.228,-0.060
+random,ACE2 binding,0.890 ± 0.011,0.870 ± 0.054,-0.020
+random,Expression,0.849 ± 0.026,0.808 ± 0.093,-0.041
+random,Antibody escape,0.650 ± 0.135,0.553 ± 0.230,-0.097
+heldout_sites,ACE2 binding,0.280 ± 0.118,0.260 ± 0.030,-0.020
+heldout_sites,Expression,0.287 ± 0.070,0.223 ± 0.036,-0.064
+heldout_sites,Antibody escape,0.161 ± 0.199,0.194 ± 0.306,+0.033

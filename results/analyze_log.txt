@@ -1,0 +1,45 @@
+
+=== Main results ===
+        split                      model            task  seeds  n_test       spearman        pearson          rmse
+       random Mutation count (untrained)    ACE2 binding     10   10540  0.478 ± 0.006  0.468 ± 0.005           n/a
+       random Mutation count (untrained)      Expression     10   11641  0.390 ± 0.007  0.384 ± 0.007           n/a
+       random Mutation count (untrained) Antibody escape     10     202  0.000 ± 0.000  0.000 ± 0.000           n/a
+       random             Additive ridge    ACE2 binding     10   10540  0.874 ± 0.004  0.805 ± 0.004 1.134 ± 0.011
+       random             Additive ridge      Expression     10   11641  0.790 ± 0.003  0.728 ± 0.003 0.710 ± 0.005
+       random             Additive ridge Antibody escape     10     202  0.000 ± 0.000  0.000 ± 0.000 0.413 ± 0.013
+       random           Global epistasis    ACE2 binding     10   10540  0.886 ± 0.004  0.935 ± 0.002 0.678 ± 0.008
+       random           Global epistasis      Expression     10   11641  0.799 ± 0.004  0.846 ± 0.004 0.553 ± 0.007
+       random           Global epistasis Antibody escape     10     202  0.754 ± 0.025  0.741 ± 0.028 0.354 ± 0.012
+       random                EvoClassNet    ACE2 binding     10   10540  0.892 ± 0.008  0.962 ± 0.014 0.526 ± 0.113
+       random                EvoClassNet      Expression     10   11641  0.855 ± 0.019  0.895 ± 0.019 0.474 ± 0.074
+       random                EvoClassNet Antibody escape     10     202  0.690 ± 0.104  0.688 ± 0.095 0.300 ± 0.037
+heldout_sites Mutation count (untrained)    ACE2 binding     10    1386  0.386 ± 0.047  0.350 ± 0.044           n/a
+heldout_sites Mutation count (untrained)      Expression     10    1432  0.368 ± 0.049  0.367 ± 0.044           n/a
+heldout_sites Mutation count (untrained) Antibody escape     10     300  0.000 ± 0.000  0.000 ± 0.000           n/a
+heldout_sites             Additive ridge    ACE2 binding     10    1386  0.000 ± 0.000  0.000 ± 0.000 2.017 ± 0.241
+heldout_sites             Additive ridge      Expression     10    1432  0.000 ± 0.000  0.000 ± 0.000 1.244 ± 0.080
+heldout_sites             Additive ridge Antibody escape     10     300  0.000 ± 0.000  0.000 ± 0.000 0.420 ± 0.025
+heldout_sites           Global epistasis    ACE2 binding     10    1386 -0.370 ± 0.042 -0.350 ± 0.045 1.849 ± 0.259
+heldout_sites           Global epistasis      Expression     10    1432 -0.354 ± 0.057 -0.367 ± 0.045 1.250 ± 0.180
+heldout_sites           Global epistasis Antibody escape     10     300  0.008 ± 0.016  0.009 ± 0.019 0.488 ± 0.071
+heldout_sites                EvoClassNet    ACE2 binding     10    1386  0.341 ± 0.118  0.293 ± 0.129 1.860 ± 0.219
+heldout_sites                EvoClassNet      Expression     10    1432  0.323 ± 0.079  0.312 ± 0.086 1.331 ± 0.245
+heldout_sites                EvoClassNet Antibody escape     10     300  0.183 ± 0.200  0.173 ± 0.181 0.472 ± 0.110
+
+=== Paired tests ===
+        split            task  n_seeds  vs_global_epistasis          vs_additive    vs_mutation_count
+       random    ACE2 binding       10   +0.008 (P = 0.084) +0.021 (P = 0.00391) +0.414 (P = 0.00195)
+       random      Expression       10 +0.061 (P = 0.00195) +0.069 (P = 0.00195) +0.467 (P = 0.00195)
+       random Antibody escape       10  -0.045 (P = 0.0137) +0.704 (P = 0.00195) +0.704 (P = 0.00195)
+heldout_sites    ACE2 binding       10 +0.704 (P = 0.00195) +0.352 (P = 0.00195)   -0.022 (P = 0.275)
+heldout_sites      Expression       10 +0.702 (P = 0.00195) +0.329 (P = 0.00195)   -0.018 (P = 0.322)
+heldout_sites Antibody escape       10  +0.241 (P = 0.0371)  +0.241 (P = 0.0273)  +0.241 (P = 0.0273)
+
+=== AA-permutation ablation ===
+        split            task        intact      permuted  delta
+       random    ACE2 binding 0.890 ± 0.011 0.870 ± 0.054 -0.020
+       random      Expression 0.849 ± 0.026 0.808 ± 0.093 -0.041
+       random Antibody escape 0.650 ± 0.135 0.553 ± 0.230 -0.097
+heldout_sites    ACE2 binding 0.280 ± 0.118 0.260 ± 0.030 -0.020
+heldout_sites      Expression 0.287 ± 0.070 0.223 ± 0.036 -0.064
+heldout_sites Antibody escape 0.161 ± 0.199 0.194 ± 0.306 +0.033
