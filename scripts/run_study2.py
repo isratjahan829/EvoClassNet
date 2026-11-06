@@ -174,6 +174,8 @@ if __name__ == "__main__":
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--torch_threads", type=int, default=1)
     ap.add_argument("--jobs", nargs="+", default=["main", "sweep", "ablation"])
+    ap.add_argument("--splits", nargs="+", default=["heldout_sites", "random"],
+                    help="order matters: the first split's jobs are queued first")
     a = ap.parse_args()
     JOBS.mkdir(parents=True, exist_ok=True)
     os.environ["TORCH_THREADS"] = str(a.torch_threads)
@@ -186,7 +188,7 @@ if __name__ == "__main__":
 
     specs = []
     if "main" in a.jobs:
-        for sp in ("random", "heldout_sites"):
+        for sp in a.splits:
             for s in range(a.seeds):
                 specs.append((f"main_{sp}_s{s}", dict(split_name=sp, seed=s, hp=hp, epochs=a.epochs)))
     if "sweep" in a.jobs:
@@ -196,7 +198,7 @@ if __name__ == "__main__":
                               dict(split_name="heldout_sites", seed=s, hp=hp, epochs=a.epochs,
                                    test_frac=fr)))
     if "ablation" in a.jobs:
-        for sp in ("random", "heldout_sites"):
+        for sp in a.splits:
             for s in range(a.sweep_seeds):
                 specs.append((f"abl_perm_{sp}_s{s}",
                               dict(split_name=sp, seed=s, hp=hp, epochs=a.epochs, permute=True)))
