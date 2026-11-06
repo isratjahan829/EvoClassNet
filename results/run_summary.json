@@ -1,0 +1,8 @@
+{
+ "n_runs": 25,
+ "seeds_main": {
+  "random": 10,
+  "heldout_sites": 10
+ },
+ "median_seconds": 2327.95
+}

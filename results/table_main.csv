@@ -1,0 +1,19 @@
+split,model,task,seeds,n_test,spearman,pearson,rmse
+random,Additive ridge,ACE2 binding,10,10540,0.874 ± 0.004,0.805 ± 0.004,1.134 ± 0.011
+random,Additive ridge,Expression,10,11641,0.790 ± 0.003,0.728 ± 0.003,0.710 ± 0.005
+random,Additive ridge,Antibody escape,10,202,0.000 ± 0.000,0.000 ± 0.000,0.413 ± 0.013
+random,Global epistasis,ACE2 binding,10,10540,0.886 ± 0.004,0.935 ± 0.002,0.678 ± 0.008
+random,Global epistasis,Expression,10,11641,0.799 ± 0.004,0.846 ± 0.004,0.553 ± 0.007
+random,Global epistasis,Antibody escape,10,202,0.754 ± 0.025,0.741 ± 0.028,0.354 ± 0.012
+random,EvoClassNet,ACE2 binding,10,10540,0.892 ± 0.009,0.961 ± 0.020,0.527 ± 0.122
+random,EvoClassNet,Expression,10,11641,0.852 ± 0.025,0.893 ± 0.023,0.475 ± 0.077
+random,EvoClassNet,Antibody escape,10,202,0.693 ± 0.140,0.693 ± 0.122,0.294 ± 0.035
+heldout_sites,Additive ridge,ACE2 binding,10,1386,0.000 ± 0.000,0.000 ± 0.000,2.017 ± 0.241
+heldout_sites,Additive ridge,Expression,10,1432,0.000 ± 0.000,0.000 ± 0.000,1.244 ± 0.080
+heldout_sites,Additive ridge,Antibody escape,10,300,0.000 ± 0.000,0.000 ± 0.000,0.420 ± 0.025
+heldout_sites,Global epistasis,ACE2 binding,10,1386,-0.370 ± 0.042,-0.350 ± 0.045,1.849 ± 0.259
+heldout_sites,Global epistasis,Expression,10,1432,-0.354 ± 0.057,-0.367 ± 0.045,1.250 ± 0.180
+heldout_sites,Global epistasis,Antibody escape,10,300,0.008 ± 0.016,0.009 ± 0.019,0.488 ± 0.071
+heldout_sites,EvoClassNet,ACE2 binding,10,1386,0.294 ± 0.265,0.258 ± 0.247,1.940 ± 0.273
+heldout_sites,EvoClassNet,Expression,10,1432,0.271 ± 0.228,0.266 ± 0.219,1.266 ± 0.205
+heldout_sites,EvoClassNet,Antibody escape,10,300,0.171 ± 0.281,0.168 ± 0.278,0.442 ± 0.065

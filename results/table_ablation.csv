@@ -1,0 +1,7 @@
+split,task,intact,permuted,delta
+random,ACE2 binding,n/a,n/a,n/a
+random,Expression,n/a,n/a,n/a
+random,Antibody escape,n/a,n/a,n/a
+heldout_sites,ACE2 binding,n/a,n/a,n/a
+heldout_sites,Expression,n/a,n/a,n/a
+heldout_sites,Antibody escape,n/a,n/a,n/a

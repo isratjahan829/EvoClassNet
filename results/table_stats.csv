@@ -1,0 +1,7 @@
+split,task,n_seeds,vs_global_epistasis,vs_additive
+random,ACE2 binding,10,+0.009 (P = 0.084),+0.022 (P = 0.00391)
+random,Expression,10,+0.062 (P = 0.00391),+0.069 (P = 0.00391)
+random,Antibody escape,10,-0.021 (P = 0.00195),+0.746 (P = 0.00195)
+heldout_sites,ACE2 binding,10,+0.707 (P = 0.00391),+0.363 (P = 0.0371)
+heldout_sites,Expression,10,+0.701 (P = 0.00195),+0.307 (P = 0.0137)
+heldout_sites,Antibody escape,10,+0.257 (P = 0.105),+0.274 (P = 0.084)
