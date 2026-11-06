@@ -1,0 +1,1 @@
+17:31:50 feature block (124197, 67); structural columns start at 58, names ['rsa_unbound', 'rsa_bound', 'd_rsa', 'min_dist_ace2', 'contact_number', 'depth', 'bfactor', 'is_interface']

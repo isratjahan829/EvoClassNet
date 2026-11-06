@@ -1,0 +1,5 @@
+cache built in 9s  F=(124197, 67) side=(201, 24)
+TIMING mutation_count          1s  bind=+0.350  expr=+0.351  escape=+0.000
+TIMING blosum_zeroshot         0s  bind=+0.374  expr=+0.389  escape=-0.259
+TIMING esm_zeroshot            0s  bind=-0.035  expr=-0.112  escape=+0.066
+TIMING physchem                3s  bind=+0.759  expr=+0.704  escape=+0.576
