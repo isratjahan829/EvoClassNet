@@ -4,3 +4,4 @@
 07:15:59 [2/50] main_random_s0 bind=0.893 expr=0.858 esca=0.694
 07:16:09 [3/50] main_random_s2 bind=0.891 expr=0.861 esca=0.758
 07:16:12 [4/50] main_random_s1 bind=0.896 expr=0.861 esca=0.695
+07:46:44 [5/50] main_random_s4 bind=0.900 expr=0.862 esca=0.741
