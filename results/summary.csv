@@ -1,0 +1,13 @@
+split,model,task,spearman,pearson,rmse
+random,ridge_additive,bind,0.872 ± 0.004,0.803 ± 0.003,1.138 ± 0.006
+random,ridge_additive,expr,0.790 ± 0.002,0.728 ± 0.002,0.710 ± 0.004
+random,global_epistasis,bind,0.885 ± 0.003,0.940 ± 0.001,0.652 ± 0.001
+random,global_epistasis,expr,0.797 ± 0.003,0.865 ± 0.003,0.520 ± 0.005
+random,evoclassnet_lite,bind,0.883 ± 0.019,0.930 ± 0.053,0.682 ± 0.286
+random,evoclassnet_lite,expr,0.836 ± 0.049,0.876 ± 0.045,0.510 ± 0.107
+heldout_sites,ridge_additive,bind,0.000 ± 0.000,0.000 ± 0.000,2.199 ± 0.056
+heldout_sites,ridge_additive,expr,0.000 ± 0.000,0.000 ± 0.000,1.289 ± 0.042
+heldout_sites,global_epistasis,bind,-0.353 ± 0.053,-0.353 ± 0.031,1.917 ± 0.123
+heldout_sites,global_epistasis,expr,-0.342 ± 0.011,-0.360 ± 0.014,1.281 ± 0.126
+heldout_sites,evoclassnet_lite,bind,0.394 ± 0.071,0.324 ± 0.104,1.974 ± 0.195
+heldout_sites,evoclassnet_lite,expr,0.379 ± 0.129,0.362 ± 0.103,1.199 ± 0.071
