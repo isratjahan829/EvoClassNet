@@ -441,7 +441,7 @@ fig("schema3_plm.png",
 
 H("2.4 Evaluation designs", 2)
 P("Random split. Genotypes are divided 80/10/10 % into training, validation and test sets.")
-P("Two further designs, used for the ProteinGym analysis in Section 3.11, are the position-based "
+P("Two further designs, used for the ProteinGym analysis in Sections 3.1 to 3.3, are the position-based "
   "cross-validation schemes the supervised ProteinGym benchmark already defines [10,11]: "
   "fold_modulo_5 assigns a position to fold p mod 5, and fold_contiguous_5 cuts the sequence "
   "into five consecutive blocks of positions. The published fold assignments are distributed in "
@@ -452,7 +452,7 @@ P("Held-out-position split. The 201 positions are partitioned at random into tra
   "validation (10 %) and test (15 %) sets. A genotype joins a partition only if every position it "
   "mutates lies in that partition's position set; genotypes spanning partitions are discarded. No "
   "training genotype therefore mutates any validation or test position, a property asserted "
-  "directly in the test suite rather than assumed. Section 3.7 repeats the design with 5, 15, 30 "
+  "directly in the test suite rather than assumed. Section 3.11 repeats the design with 5, 15, 30 "
   "and 50 % of positions withheld. Both designs were run over "
   f"{NSEED} seeds, and all models within a seed see the identical partition, so every model "
   "comparison is paired.")
@@ -542,306 +542,14 @@ if GMETA:
 
 # ================================================================= RESULTS
 H("3. Results")
+P("The benchmark-wide analysis comes first, because it is what the title claims and because it "
+  "bounds how the case study that follows should be read. Sections 3.1 to 3.3 cover all 217 "
+  "ProteinGym substitution assays and the published supervised leaderboard. Sections 3.4 to "
+  "3.13 are a case study on the SARS-CoV-2 receptor-binding domain, where the data are rich "
+  "enough to decompose where transferable signal comes from. Section 3.14 repeats the "
+  "evaluation question on an unrelated data type.")
 
-H("3.1 Under random splits every trained model performs well", 2)
-if len(PANEL):
-    rnd = PANEL[PANEL.split == "random"]
-    table(rnd, "Table 1. Random genotype split: full metric panel, mean ± SD across seeds.",
-          cols=["family", "model", "task", "seeds", "spearman", "spearman_partial", "pearson",
-                "kendall", "r2", "rmse", "auroc_deleterious", "precision_at_50", "ndcg_at_100",
-                "calibration_slope", "n"],
-          rename={"family": "Family", "model": "Model", "task": "Phenotype", "seeds": "Seeds",
-                  "spearman": "Spearman ρ", "spearman_partial": "Partial ρ", "pearson": "Pearson r",
-                  "kendall": "Kendall τ", "r2": "R²", "rmse": "RMSE",
-                  "auroc_deleterious": "AUROC", "precision_at_50": "Prec@k",
-                  "ndcg_at_100": "NDCG", "calibration_slope": "Calib.", "n": "n"})
-if rb_ec and rb_ge:
-    r = cmp_row("random", "ACE2 binding", "EvoClassNet", "Mutation count")
-    P(f"On the conventional design the trained models behave as expected. EvoClassNet reached "
-      f"ρ = {rb_ec} for binding and the global-epistasis baseline {rb_ge}, against "
-      f"{pv('random','ACE2 binding','Mutation count')} for mutation count alone "
-      f"({say_cmp(r)}). The differences among trained families are small; the design does not "
-      f"discriminate between them.")
-P("Two entries are zero by construction rather than by failure. The additive ridge model scores "
-  "zero on escape because escape labels exist only for single substitutions, so each "
-  "(position, residue) indicator occurs in exactly one training row and the regularised fit "
-  "collapses to the intercept. Mutation count scores zero on escape for the same reason: every "
-  "labelled variant carries exactly one substitution, so the baseline is constant. This makes "
-  "escape the one phenotype on which mutation count cannot masquerade as skill.")
-fig("fig1_panel_spearman.png", "Figure 1. Test Spearman ρ for every model family under both "
-    "evaluation designs. Bars are means over seeds, whiskers one standard deviation. Colour "
-    "denotes how a model represents a substitution.", 6.6)
-
-H("3.2 At held-out positions the position-indexed models fall to the untrained baseline", 2)
-if len(PANEL):
-    hld = PANEL[PANEL.split == "heldout_sites"]
-    table(hld, "Table 2. Held-out-position split: test variants mutate only positions absent from "
-          "training.",
-          cols=["family", "model", "task", "seeds", "spearman", "spearman_partial", "pearson",
-                "kendall", "r2", "rmse", "auroc_deleterious", "precision_at_50", "ndcg_at_100",
-                "calibration_slope", "n"],
-          rename={"family": "Family", "model": "Model", "task": "Phenotype", "seeds": "Seeds",
-                  "spearman": "Spearman ρ", "spearman_partial": "Partial ρ", "pearson": "Pearson r",
-                  "kendall": "Kendall τ", "r2": "R²", "rmse": "RMSE",
-                  "auroc_deleterious": "AUROC", "precision_at_50": "Prec@k",
-                  "ndcg_at_100": "NDCG", "calibration_slope": "Calib.", "n": "n"})
-P("When every test variant mutates positions never mutated in training, the additive model has "
-  "no applicable parameter and emits a constant. The global-epistasis model does worse than "
-  "nothing, its predictions anti-correlated with measurement, because latent effects for unseen "
-  "substitutions are shrunk towards zero and then passed through a link fitted to the training "
-  "distribution. EvoClassNet stays positive. Read on its own, the table says the network "
-  "extrapolates where the conventional models cannot.")
-
-H("3.3 The mutation-count control, and a metric that makes it unnecessary", 2)
-mc_part = pv("heldout_sites", "ACE2 binding", "Mutation count", "spearman_partial")
-if HAVE_PANEL and hb_mc and hb_ec and mc_part:
-  P(f"That reading is wrong, and the reason is visible in a single column. Ranking variants by the "
-  f"number of substitutions they carry — no training, no parameters, no knowledge of which "
-  f"positions or residues are involved — reaches ρ = {hb_mc} for binding at held-out positions, "
-  f"against {hb_ec} for EvoClassNet. In a combinatorial library most substitutions are "
-  f"deleterious and their effects accumulate, so a large part of the rank variance is carried by "
-  f"substitution count alone, and a model that has learned nothing about the withheld positions "
-  f"still orders the test set to that extent.")
-  P(f"Rather than argue from the baseline comparison, we measure the quantity directly. The "
-  f"partial Spearman correlation removes substitution count from the ranks of both prediction "
-  f"and measurement. It validates itself: the mutation-count baseline scores {mc_part} on it, as "
-  f"it must. On the same partitions EvoClassNet retains "
-  f"{pv('heldout_sites','ACE2 binding','EvoClassNet','spearman_partial')} for binding and "
-  f"{pv('heldout_sites','Expression','EvoClassNet','spearman_partial')} for expression.")
-mc_part = mc_part if mc_part else "—"
-if len(COMPAR):
-    sel = COMPAR[(COMPAR.split == "heldout_sites") & (COMPAR.reference == "Mutation count")
-                 & (COMPAR.metric == "spearman")]
-    table(sel, "Table 3. Held-out-position split: every trained model against the untrained "
-          "mutation-count baseline, paired over seeds. Equivalence is a two one-sided test at the "
-          f"±{SUM2.get('margin', 0.05)} margin; a true value there is positive evidence of no "
-          "practical difference, not merely absence of a significant one.",
-          cols=["task", "model", "n_seeds", "median_diff", "ci_lo", "ci_hi", "p_fdr", "tost_p",
-                "equivalent", "cliffs_delta", "effect"],
-          rename={"task": "Phenotype", "model": "Model", "n_seeds": "Seeds",
-                  "median_diff": "Median Δρ", "ci_lo": "CI low", "ci_hi": "CI high",
-                  "p_fdr": "P (FDR)", "tost_p": "TOST P", "equivalent": "Equivalent",
-                  "cliffs_delta": "Cliff's δ", "effect": "Effect"})
-fig("fig2_panel_partial.png", "Figure 2. The same comparison in partial Spearman ρ, with "
-    "substitution count removed from both prediction and measurement. The untrained "
-    "mutation-count baseline sits at zero by construction, which is what makes this panel "
-    "readable.", 6.6)
-
-H("3.4 Extrapolation is possible; the earlier conclusion was about representations", 2)
-P("Our first analysis stopped here and concluded that none of the models extrapolates across "
-  "positions. That conclusion does not follow from the evidence, and it is wrong. Every model "
-  "compared above encodes a substitution by the position it occupies: the additive model by a "
-  "(position, residue) indicator, the global-epistasis model by a per-position latent effect, "
-  "the networks by a position embedding. For a position absent from training, none of them holds "
-  "a parameter that was ever updated. Their collapse measures that fact, not a limit on what the "
-  "data support.")
-if FEAT:
-    rows = []
-    order = [("nsub_only", "Substitution count only"),
-             ("esm_only", "ESM-2 score only"),
-             ("chem_only", "Residue chemistry only"),
-             ("struct_only", "Structure only"),
-             ("struct_nointerface", "Structure, interface descriptors removed"),
-             ("chem+struct_nointerface", "Chemistry + structure, interface removed"),
-             ("chem+struct", "Chemistry + structure"),
-             ("chem+struct+esm", "Chemistry + structure + ESM-2")]
-    for arm, lab in order:
-        if arm not in FEAT.get("summary", {}):
-            continue
-        row = dict(Features=lab)
-        for t, tn in (("bind", "ACE2 binding"), ("expr", "Expression"), ("escape", "Antibody escape")):
-            row[f"{tn} ρ"] = feat_pm(arm, t, "spearman")
-            row[f"{tn} partial"] = feat_pm(arm, t, "partial")
-        rows.append(row)
-    table(pd.DataFrame(rows),
-          "Table 4. Held-out-position split: a ridge regression on position-transferable "
-          "features, by feature block. Partial ρ removes the substitution-count confound. "
-          "Antibody escape has no partial column because every escape-labelled variant carries "
-          "one substitution, so the confound is absent there by construction.")
-    P(f"Given features that remain defined at an unseen position, extrapolation is substantial. "
-      f"Chemistry alone reaches a partial correlation of {feat_pm('chem_only','bind')} for "
-      f"binding, structure alone {feat_pm('struct_only','bind')}, and the combination "
-      f"{feat_pm('chem+struct+esm','bind')} — against {mc_part} for the untrained baseline and "
-      f"{pv('heldout_sites','ACE2 binding','EvoClassNet','spearman_partial') or 'not yet measured'} "
-      f"for the sequence network on the identical partitions. The information needed to predict the effect of a "
-      f"substitution at an unseen position is present in the data; the earlier models simply had "
-      f"no way to express it.")
-    P(f"One component of that signal needs separating out before it is believed. Two of the "
-      f"structural descriptors, the change in solvent accessibility on binding and the interface "
-      f"indicator, are derived from the RBD bound to ACE2 and therefore mark precisely the "
-      f"residues that touch the receptor, which for the binding task is close to being told the "
-      f"answer. Dropping both leaves {feat_pm('struct_nointerface','bind')}, against "
-      f"{feat_pm('struct_only','bind')} with them, so the structural contribution does not rest "
-      f"on them. The remaining descriptors — solvent accessibility of the unbound domain, "
-      f"contact number, burial, B-factor — describe the folded domain alone.")
-
-H("3.5 Where the transfer comes from: positions, not substitutions", 2)
-TBP = J("transfer_by_position.json")
-if TBP:
-    rows = []
-    for t, tn in (("bind", "ACE2 binding"), ("expr", "Expression"), ("escape", "Antibody escape")):
-        v = TBP.get(t)
-        if not v:
-            continue
-        vb, me = v["vs_blosum"], v["mixed_effects"]
-        rows.append({"Phenotype": tn,
-                     "Median ρ": f"{v['median_rho']:+.3f}",
-                     "% positive": f"{100*v['frac_positive']:.0f}",
-                     "Random-intercept P": f"{me.get('p', float('nan')):.3g}",
-                     "BLOSUM62 median ρ": f"{vb['blosum_median']:+.3f}",
-                     "Difference": f"{vb['median_diff']:+.3f}",
-                     "P": f"{vb['p']:.3g}",
-                     "n position–seed": vb["n"]})
-    table(pd.DataFrame(rows),
-          "Table 5. Per-position rank accuracy of the transferable model at withheld positions: "
-          "within each withheld position, how well it orders the 19 possible substitutions. "
-          "Compared against BLOSUM62 exchangeability on identical instances. The P value for the "
-          "median comes from a random-intercept model over positions, because positions recur "
-          "across seeds.")
-    b, e = TBP.get("bind", {}), TBP.get("escape", {})
-    if b and e:
-        P(f"Restricting to single substitutions and asking a narrower question — within one "
-          f"withheld position, can the model order the nineteen substitutions available there — "
-          f"separates two components of the transfer. For binding the model reaches a median "
-          f"per-position ρ of {b['median_rho']:+.3f}, positive at "
-          f"{100*b['frac_positive']:.0f} % of position–seed cells, but BLOSUM62 reaches "
-          f"{b['vs_blosum']['blosum_median']:+.3f} on the same instances and the difference is "
-          f"{b['vs_blosum']['median_diff']:+.3f} (P = {b['vs_blosum']['p']:.3g}). Within a "
-          f"position, in other words, the ordering is chemistry, and an untrained substitution "
-          f"matrix already supplies it.")
-        P(f"The model's advantage therefore lies in discriminating between positions — which "
-          f"positions tolerate substitution at all — and that is precisely what the structural "
-          f"descriptors provide and what a substitution matrix, being position-independent, "
-          f"cannot. It is consistent with the whole-test-set result: summed BLOSUM62 scores reach "
-          f"{pv('heldout_sites','ACE2 binding','BLOSUM62') or 'n/a'} there, against "
-          f"{feat_pm('chem+struct+esm','bind','spearman')} for the full feature block.")
-        P(f"Escape is the exception in the opposite direction. BLOSUM62 is not merely uninformative "
-          f"but anti-correlated ({e['vs_blosum']['blosum_median']:+.3f}), because the "
-          f"substitutions that abolish antibody binding are not the chemically radical ones, "
-          f"while the model reaches {e['median_rho']:+.3f} "
-          f"(difference {e['vs_blosum']['median_diff']:+.3f}, P = {e['vs_blosum']['p']:.3g}). "
-          f"There the within-position ordering is genuinely learned.")
-    for t, tn in (("bind", "binding"), ("escape", "escape")):
-        v = TBP.get(t)
-        if not v:
-            continue
-        cs = sorted(v["rho_vs_structure"].items(), key=lambda kv: -abs(kv[1][0]))[:3]
-        P(f"Per-position accuracy for {tn} is associated with " + ", ".join(
-            f"{k} (ρ = {r:+.2f}, P = {pp:.2g})" for k, (r, pp) in cs) + ".")
-fig("fig8_transfer_by_position.png",
-    "Figure 6. Per-position rank accuracy at withheld positions against solvent accessibility and "
-    "distance to ACE2.", 6.6)
-
-H("3.6 The protein language model contributes nothing here", 2)
-if FEAT:
-    P(f"ESM-2 is the component most often expected to supply exactly this kind of "
-      f"position-independent knowledge, and on this protein it does not. Its zero-shot scores "
-      f"reach {feat_pm('esm_only','bind','spearman')} for binding at held-out positions, of which "
-      f"{feat_pm('esm_only','bind')} survives the substitution-count control: the raw figure is "
-      f"the confound in full. Added to chemistry and structure it moves the partial correlation "
-      f"from {feat_pm('chem+struct','bind')} to {feat_pm('chem+struct+esm','bind')}.")
-if ESMC:
-    u, rf2, rs2 = ESMC.get("ubiquitin", {}), ESMC.get("rbd_fragment", {}), ESMC.get("rbd_in_spike", {})
-    ur, fr, sr = u.get("recovery", float("nan")), rf2.get("recovery", float("nan")), rs2.get("recovery", float("nan"))
-    verdict = ("the model is working and the RBD is genuinely hard for it"
-               if ur > 0.3 and fr < 0.3 else
-               "the model recovers little anywhere in this run, so the negative result should be "
-               "treated as unresolved rather than as a property of the protein")
-    ctx = ("supplying the full spike context does not rescue it"
-           if not np.isnan(sr) and sr < fr + 0.1 else
-           "supplying the full spike context improves it substantially, so the isolated-domain "
-           "figure understates what the model can do")
-    P(f"Because a null result from a large pretrained model invites the suspicion of a broken "
-      f"pipeline, we checked. Wild-type recovery was {ur:.1%} on human ubiquitin against "
-      f"{fr:.1%} on the isolated RBD and {sr:.1%} on the same positions scored inside the full "
-      f"spike protein: {verdict}, and {ctx}. No weights were missing at load time. We therefore "
-      f"report the absence of a contribution as a result about this protein, which is consistent "
-      f"with SARS-CoV-2 ranking among the harder entries in published zero-shot benchmarks, and "
-      f"not as a general statement about protein language models.")
-
-H("3.7 Permuting the amino-acid alphabet", 2)
-if len(ABL2):
-    table(ABL2, "Table 6. Amino-acid permutation ablation: an independent random permutation of "
-          "the alphabet at every position, applied consistently to all partitions.",
-          cols=["split", "model", "task", "intact", "permuted", "delta"],
-          rename={"split": "Split", "model": "Model", "task": "Phenotype", "intact": "Intact",
-                  "permuted": "Permuted", "delta": "Δ"})
-    P("Permuting the alphabet independently at each position preserves every position's own "
-      "information while destroying any correspondence between the same residue at different "
-      "positions. For the sequence models the manipulation changes little, which is what the "
-      "mutation-count account predicts, since substitution count is invariant to relabelling. "
-      "The feature-based models are destroyed by it, as they must be: their entire "
-      "representation is residue identity and its chemical correlates.")
-
-H("3.8 Withholding more positions", 2)
-fig("fig3_sweep_v2.png", "Figure 3. Performance against the fraction of positions withheld "
-    "(5–50 %). Points are means over seeds, whiskers one standard deviation.", 6.6)
-
-H("3.9 Run-to-run instability", 2)
-if STAB:
-    byss = {}
-    for r in STAB:
-        byss.setdefault(r["split_seed"], []).append(r)
-    for ss, rs in sorted(byss.items()):
-        v = [r["bind"] for r in rs]
-        P(f"Holding partition {ss} fixed and varying only the weight initialisation gave binding "
-          f"ρ of " + ", ".join(f"{x:+.3f}" for x in v) + f" (range {max(v)-min(v):.3f}).")
-    allv = [r["bind"] for r in STAB]
-    P(f"Across all {len(allv)} runs the spread was {min(allv):+.3f} to {max(allv):+.3f}. "
-      f"Initialisation alone accounts for a substantial part of it, and on some partitions the "
-      f"spread exceeds the differences being discussed, so a single run on this benchmark is not "
-      f"a measurement. Every table here reports a seed distribution for that reason.")
-
-H("3.10 Variant-of-Concern ranking without leakage", 2)
-if HO.get("voc"):
-    rows = [dict(Score=k, AUROC=f"{v['auroc']:.3f}",
-                 CI=f"{v['ci95'][0]:.3f}–{v['ci95'][1]:.3f}", n_positives=v["n_voc"])
-            for k, v in HO["voc"].items()]
-    table(pd.DataFrame(rows),
-          "Table 7. Ranking Variant-of-Concern substitutions at withheld positions only, pooled "
-          "over seeds, with 95 % bootstrap intervals.")
-    pe = HO["voc"].get("EvoClassNet predicted escape", {})
-    me = HO["voc"].get("Measured escape (held-out positions)", {})
-    bl = HO["voc"].get("BLOSUM62 exchangeability", {})
-    P(f"Variant-of-Concern substitutions are present in the escape training data, so ranking them "
-      f"with a model that has seen them measures memorisation; restricting to withheld positions "
-      f"removes that circularity. Predicted escape gave AUROC {pe.get('auroc', float('nan')):.3f} "
-      f"(95 % CI {pe.get('ci95',[np.nan]*2)[0]:.3f}–{pe.get('ci95',[np.nan]*2)[1]:.3f}), an "
-      f"interval that includes 0.5. The measured values on the identical subset gave "
-      f"{me.get('auroc', float('nan')):.3f}, which is the ceiling available to any model of this "
-      f"phenotype, and BLOSUM62 exchangeability, which requires no training at all, gave "
-      f"{bl.get('auroc', float('nan')):.3f}. The assay carries real information about which "
-      f"substitutions went on to define lineages; at positions it never saw, the trained "
-      f"sequence model does not recover it. The positives are a small set chosen with hindsight, "
-      f"so the comparison between scorers on identical instances is meaningful while the absolute "
-      f"values are not.")
-if HO.get("vs_blosum"):
-    rows = [dict(Phenotype={"bind": "ACE2 binding", "escape": "Antibody escape"}.get(k, k),
-                 EvoClassNet=f"{v['model_median']:.3f}", BLOSUM62=f"{v['blosum_median']:.3f}",
-                 Difference=f"{v['median_diff']:+.3f}", P=f"{v['p']:.3g}", n=v["n"])
-            for k, v in HO["vs_blosum"].items()]
-    table(pd.DataFrame(rows), "Table 8. Median per-position Spearman ρ over single substitutions "
-          "at withheld positions, against a substitution matrix.")
-    vb = HO["vs_blosum"]
-    if "bind" in vb and "escape" in vb:
-        P(f"Per-position rank accuracy separates the phenotypes. For binding an untrained "
-          f"substitution matrix beats the network ({vb['bind']['blosum_median']:.3f} against "
-          f"{vb['bind']['model_median']:.3f}, P = {vb['bind']['p']:.3g}); for escape the matrix is "
-          f"actively misleading, its median correlation negative "
-          f"({vb['escape']['blosum_median']:.3f}) where the network is positive "
-          f"({vb['escape']['model_median']:.3f}, P = {vb['escape']['p']:.3g}), because the "
-          f"substitutions that abolish antibody binding are not the chemically radical ones.")
-if VA:
-    for obj, v in VA.items():
-        if not (isinstance(v, dict) and "archive" in v):
-            continue
-        P(f"Maximising {obj.replace('_', ' ')} with a genetic algorithm visited {v['archive']:,} "
-          f"distinct sequences. The top 1 % carried {v['top_mean_voc']:.3f} Variant-of-Concern "
-          f"substitutions per variant against {v['random_mean_voc']:.3f} for size-matched random "
-          f"samples of the same archive (permutation P = {v['perm_p']:.3f}). A learned fitness "
-          f"surface is constrained only where it was fitted, and an optimiser leaves that region.")
-
-H("3.11 Does it hold across proteins? 217 ProteinGym assays", 2)
+H("3.1 A position-only control across 217 ProteinGym assays", 2)
 PGT, PGC = C("table_proteingym.csv"), C("table_proteingym_comparisons.csv")
 PGA, PGCONF = C("proteingym_per_assay.csv"), J("proteingym_confound.json")
 if len(PGT):
@@ -910,7 +618,7 @@ fig("fig9_proteingym.png", "Figure 7. ProteinGym: distribution of per-assay Spea
 fig("fig10_proteingym_scatter.png", "Figure 8. The position-mean model against the chemistry "
     "model, per assay. Which one wins is decided entirely by the split.", 6.0)
 
-H("3.12 Auditing the published leaderboard with a position-only control", 2)
+H("3.2 Auditing the published leaderboard", 2)
 AUD = C("table_position_only_audit.csv")
 AUDJ = J("position_only_audit.json")
 if len(AUD):
@@ -968,7 +676,7 @@ fig("fig12_position_only_audit.png", "Figure 9. Fraction of assays on which each
     "supervised model beats a baseline given only the mutated position, under each "
     "cross-validation scheme.", 6.4)
 
-H("3.13 Our own baselines on the same axes", 2)
+H("3.3 Our own baselines on the same axes", 2)
 LBP = C("table_leaderboard_pivot.csv")
 LBJ = J("leaderboard_comparison.json")
 if len(LBP):
@@ -984,7 +692,7 @@ if len(LBP):
           f"{oh['random']:.3f} under fold_random_5 to {oh['modulo']:.3f} under fold_modulo_5 and "
           f"{oh['contiguous']:.3f} under fold_contiguous_5. The collapse of position-indexed "
           f"models is therefore already in the published record, and nothing in Sections 3.1 to "
-          f"3.11 should be read as discovering it.")
+          f"3.3 should be read as discovering it.")
     if ours and bm:
         P(f"Two things remain. First, the position-mean model is a sharper instrument than the "
           f"one-hot baseline: it is given no residue identity whatsoever, reaches "
@@ -1003,6 +711,305 @@ if len(LBP):
           f"receptor-binding domain and confirmed by their numbers rather than by ours.")
 fig("fig11_leaderboard.png", "Figure 10. Published ProteinGym supervised models and the baselines "
     "added here, under the random split and under fold_modulo_5.", 6.4)
+
+
+H("3.4 Under random splits every trained model performs well", 2)
+if len(PANEL):
+    rnd = PANEL[PANEL.split == "random"]
+    table(rnd, "Table 1. Random genotype split: full metric panel, mean ± SD across seeds.",
+          cols=["family", "model", "task", "seeds", "spearman", "spearman_partial", "pearson",
+                "kendall", "r2", "rmse", "auroc_deleterious", "precision_at_50", "ndcg_at_100",
+                "calibration_slope", "n"],
+          rename={"family": "Family", "model": "Model", "task": "Phenotype", "seeds": "Seeds",
+                  "spearman": "Spearman ρ", "spearman_partial": "Partial ρ", "pearson": "Pearson r",
+                  "kendall": "Kendall τ", "r2": "R²", "rmse": "RMSE",
+                  "auroc_deleterious": "AUROC", "precision_at_50": "Prec@k",
+                  "ndcg_at_100": "NDCG", "calibration_slope": "Calib.", "n": "n"})
+if rb_ec and rb_ge:
+    r = cmp_row("random", "ACE2 binding", "EvoClassNet", "Mutation count")
+    P(f"On the conventional design the trained models behave as expected. EvoClassNet reached "
+      f"ρ = {rb_ec} for binding and the global-epistasis baseline {rb_ge}, against "
+      f"{pv('random','ACE2 binding','Mutation count')} for mutation count alone "
+      f"({say_cmp(r)}). The differences among trained families are small; the design does not "
+      f"discriminate between them.")
+P("Two entries are zero by construction rather than by failure. The additive ridge model scores "
+  "zero on escape because escape labels exist only for single substitutions, so each "
+  "(position, residue) indicator occurs in exactly one training row and the regularised fit "
+  "collapses to the intercept. Mutation count scores zero on escape for the same reason: every "
+  "labelled variant carries exactly one substitution, so the baseline is constant. This makes "
+  "escape the one phenotype on which mutation count cannot masquerade as skill.")
+fig("fig1_panel_spearman.png", "Figure 1. Test Spearman ρ for every model family under both "
+    "evaluation designs. Bars are means over seeds, whiskers one standard deviation. Colour "
+    "denotes how a model represents a substitution.", 6.6)
+
+H("3.5 At held-out positions the position-indexed models fall to the untrained baseline", 2)
+if len(PANEL):
+    hld = PANEL[PANEL.split == "heldout_sites"]
+    table(hld, "Table 2. Held-out-position split: test variants mutate only positions absent from "
+          "training.",
+          cols=["family", "model", "task", "seeds", "spearman", "spearman_partial", "pearson",
+                "kendall", "r2", "rmse", "auroc_deleterious", "precision_at_50", "ndcg_at_100",
+                "calibration_slope", "n"],
+          rename={"family": "Family", "model": "Model", "task": "Phenotype", "seeds": "Seeds",
+                  "spearman": "Spearman ρ", "spearman_partial": "Partial ρ", "pearson": "Pearson r",
+                  "kendall": "Kendall τ", "r2": "R²", "rmse": "RMSE",
+                  "auroc_deleterious": "AUROC", "precision_at_50": "Prec@k",
+                  "ndcg_at_100": "NDCG", "calibration_slope": "Calib.", "n": "n"})
+P("When every test variant mutates positions never mutated in training, the additive model has "
+  "no applicable parameter and emits a constant. The global-epistasis model does worse than "
+  "nothing, its predictions anti-correlated with measurement, because latent effects for unseen "
+  "substitutions are shrunk towards zero and then passed through a link fitted to the training "
+  "distribution. EvoClassNet stays positive. Read on its own, the table says the network "
+  "extrapolates where the conventional models cannot.")
+
+H("3.6 The mutation-count control, and a metric that makes it unnecessary", 2)
+mc_part = pv("heldout_sites", "ACE2 binding", "Mutation count", "spearman_partial")
+if HAVE_PANEL and hb_mc and hb_ec and mc_part:
+  P(f"That reading is wrong, and the reason is visible in a single column. Ranking variants by the "
+  f"number of substitutions they carry — no training, no parameters, no knowledge of which "
+  f"positions or residues are involved — reaches ρ = {hb_mc} for binding at held-out positions, "
+  f"against {hb_ec} for EvoClassNet. In a combinatorial library most substitutions are "
+  f"deleterious and their effects accumulate, so a large part of the rank variance is carried by "
+  f"substitution count alone, and a model that has learned nothing about the withheld positions "
+  f"still orders the test set to that extent.")
+  P(f"Rather than argue from the baseline comparison, we measure the quantity directly. The "
+  f"partial Spearman correlation removes substitution count from the ranks of both prediction "
+  f"and measurement. It validates itself: the mutation-count baseline scores {mc_part} on it, as "
+  f"it must. On the same partitions EvoClassNet retains "
+  f"{pv('heldout_sites','ACE2 binding','EvoClassNet','spearman_partial')} for binding and "
+  f"{pv('heldout_sites','Expression','EvoClassNet','spearman_partial')} for expression.")
+mc_part = mc_part if mc_part else "—"
+if len(COMPAR):
+    sel = COMPAR[(COMPAR.split == "heldout_sites") & (COMPAR.reference == "Mutation count")
+                 & (COMPAR.metric == "spearman")]
+    table(sel, "Table 3. Held-out-position split: every trained model against the untrained "
+          "mutation-count baseline, paired over seeds. Equivalence is a two one-sided test at the "
+          f"±{SUM2.get('margin', 0.05)} margin; a true value there is positive evidence of no "
+          "practical difference, not merely absence of a significant one.",
+          cols=["task", "model", "n_seeds", "median_diff", "ci_lo", "ci_hi", "p_fdr", "tost_p",
+                "equivalent", "cliffs_delta", "effect"],
+          rename={"task": "Phenotype", "model": "Model", "n_seeds": "Seeds",
+                  "median_diff": "Median Δρ", "ci_lo": "CI low", "ci_hi": "CI high",
+                  "p_fdr": "P (FDR)", "tost_p": "TOST P", "equivalent": "Equivalent",
+                  "cliffs_delta": "Cliff's δ", "effect": "Effect"})
+fig("fig2_panel_partial.png", "Figure 2. The same comparison in partial Spearman ρ, with "
+    "substitution count removed from both prediction and measurement. The untrained "
+    "mutation-count baseline sits at zero by construction, which is what makes this panel "
+    "readable.", 6.6)
+
+H("3.7 Extrapolation is possible; the earlier conclusion was about representations", 2)
+P("Our first analysis stopped here and concluded that none of the models extrapolates across "
+  "positions. That conclusion does not follow from the evidence, and it is wrong. Every model "
+  "compared above encodes a substitution by the position it occupies: the additive model by a "
+  "(position, residue) indicator, the global-epistasis model by a per-position latent effect, "
+  "the networks by a position embedding. For a position absent from training, none of them holds "
+  "a parameter that was ever updated. Their collapse measures that fact, not a limit on what the "
+  "data support.")
+if FEAT:
+    rows = []
+    order = [("nsub_only", "Substitution count only"),
+             ("esm_only", "ESM-2 score only"),
+             ("chem_only", "Residue chemistry only"),
+             ("struct_only", "Structure only"),
+             ("struct_nointerface", "Structure, interface descriptors removed"),
+             ("chem+struct_nointerface", "Chemistry + structure, interface removed"),
+             ("chem+struct", "Chemistry + structure"),
+             ("chem+struct+esm", "Chemistry + structure + ESM-2")]
+    for arm, lab in order:
+        if arm not in FEAT.get("summary", {}):
+            continue
+        row = dict(Features=lab)
+        for t, tn in (("bind", "ACE2 binding"), ("expr", "Expression"), ("escape", "Antibody escape")):
+            row[f"{tn} ρ"] = feat_pm(arm, t, "spearman")
+            row[f"{tn} partial"] = feat_pm(arm, t, "partial")
+        rows.append(row)
+    table(pd.DataFrame(rows),
+          "Table 4. Held-out-position split: a ridge regression on position-transferable "
+          "features, by feature block. Partial ρ removes the substitution-count confound. "
+          "Antibody escape has no partial column because every escape-labelled variant carries "
+          "one substitution, so the confound is absent there by construction.")
+    P(f"Given features that remain defined at an unseen position, extrapolation is substantial. "
+      f"Chemistry alone reaches a partial correlation of {feat_pm('chem_only','bind')} for "
+      f"binding, structure alone {feat_pm('struct_only','bind')}, and the combination "
+      f"{feat_pm('chem+struct+esm','bind')} — against {mc_part} for the untrained baseline and "
+      f"{pv('heldout_sites','ACE2 binding','EvoClassNet','spearman_partial') or 'not yet measured'} "
+      f"for the sequence network on the identical partitions. The information needed to predict the effect of a "
+      f"substitution at an unseen position is present in the data; the earlier models simply had "
+      f"no way to express it.")
+    P(f"One component of that signal needs separating out before it is believed. Two of the "
+      f"structural descriptors, the change in solvent accessibility on binding and the interface "
+      f"indicator, are derived from the RBD bound to ACE2 and therefore mark precisely the "
+      f"residues that touch the receptor, which for the binding task is close to being told the "
+      f"answer. Dropping both leaves {feat_pm('struct_nointerface','bind')}, against "
+      f"{feat_pm('struct_only','bind')} with them, so the structural contribution does not rest "
+      f"on them. The remaining descriptors — solvent accessibility of the unbound domain, "
+      f"contact number, burial, B-factor — describe the folded domain alone.")
+
+H("3.8 Where the transfer comes from: positions, not substitutions", 2)
+TBP = J("transfer_by_position.json")
+if TBP:
+    rows = []
+    for t, tn in (("bind", "ACE2 binding"), ("expr", "Expression"), ("escape", "Antibody escape")):
+        v = TBP.get(t)
+        if not v:
+            continue
+        vb, me = v["vs_blosum"], v["mixed_effects"]
+        rows.append({"Phenotype": tn,
+                     "Median ρ": f"{v['median_rho']:+.3f}",
+                     "% positive": f"{100*v['frac_positive']:.0f}",
+                     "Random-intercept P": f"{me.get('p', float('nan')):.3g}",
+                     "BLOSUM62 median ρ": f"{vb['blosum_median']:+.3f}",
+                     "Difference": f"{vb['median_diff']:+.3f}",
+                     "P": f"{vb['p']:.3g}",
+                     "n position–seed": vb["n"]})
+    table(pd.DataFrame(rows),
+          "Table 5. Per-position rank accuracy of the transferable model at withheld positions: "
+          "within each withheld position, how well it orders the 19 possible substitutions. "
+          "Compared against BLOSUM62 exchangeability on identical instances. The P value for the "
+          "median comes from a random-intercept model over positions, because positions recur "
+          "across seeds.")
+    b, e = TBP.get("bind", {}), TBP.get("escape", {})
+    if b and e:
+        P(f"Restricting to single substitutions and asking a narrower question — within one "
+          f"withheld position, can the model order the nineteen substitutions available there — "
+          f"separates two components of the transfer. For binding the model reaches a median "
+          f"per-position ρ of {b['median_rho']:+.3f}, positive at "
+          f"{100*b['frac_positive']:.0f} % of position–seed cells, but BLOSUM62 reaches "
+          f"{b['vs_blosum']['blosum_median']:+.3f} on the same instances and the difference is "
+          f"{b['vs_blosum']['median_diff']:+.3f} (P = {b['vs_blosum']['p']:.3g}). Within a "
+          f"position, in other words, the ordering is chemistry, and an untrained substitution "
+          f"matrix already supplies it.")
+        P(f"The model's advantage therefore lies in discriminating between positions — which "
+          f"positions tolerate substitution at all — and that is precisely what the structural "
+          f"descriptors provide and what a substitution matrix, being position-independent, "
+          f"cannot. It is consistent with the whole-test-set result: summed BLOSUM62 scores reach "
+          f"{pv('heldout_sites','ACE2 binding','BLOSUM62') or 'n/a'} there, against "
+          f"{feat_pm('chem+struct+esm','bind','spearman')} for the full feature block.")
+        P(f"Escape is the exception in the opposite direction. BLOSUM62 is not merely uninformative "
+          f"but anti-correlated ({e['vs_blosum']['blosum_median']:+.3f}), because the "
+          f"substitutions that abolish antibody binding are not the chemically radical ones, "
+          f"while the model reaches {e['median_rho']:+.3f} "
+          f"(difference {e['vs_blosum']['median_diff']:+.3f}, P = {e['vs_blosum']['p']:.3g}). "
+          f"There the within-position ordering is genuinely learned.")
+    for t, tn in (("bind", "binding"), ("escape", "escape")):
+        v = TBP.get(t)
+        if not v:
+            continue
+        cs = sorted(v["rho_vs_structure"].items(), key=lambda kv: -abs(kv[1][0]))[:3]
+        P(f"Per-position accuracy for {tn} is associated with " + ", ".join(
+            f"{k} (ρ = {r:+.2f}, P = {pp:.2g})" for k, (r, pp) in cs) + ".")
+fig("fig8_transfer_by_position.png",
+    "Figure 6. Per-position rank accuracy at withheld positions against solvent accessibility and "
+    "distance to ACE2.", 6.6)
+
+H("3.9 The protein language model contributes nothing here", 2)
+if FEAT:
+    P(f"ESM-2 is the component most often expected to supply exactly this kind of "
+      f"position-independent knowledge, and on this protein it does not. Its zero-shot scores "
+      f"reach {feat_pm('esm_only','bind','spearman')} for binding at held-out positions, of which "
+      f"{feat_pm('esm_only','bind')} survives the substitution-count control: the raw figure is "
+      f"the confound in full. Added to chemistry and structure it moves the partial correlation "
+      f"from {feat_pm('chem+struct','bind')} to {feat_pm('chem+struct+esm','bind')}.")
+if ESMC:
+    u, rf2, rs2 = ESMC.get("ubiquitin", {}), ESMC.get("rbd_fragment", {}), ESMC.get("rbd_in_spike", {})
+    ur, fr, sr = u.get("recovery", float("nan")), rf2.get("recovery", float("nan")), rs2.get("recovery", float("nan"))
+    verdict = ("the model is working and the RBD is genuinely hard for it"
+               if ur > 0.3 and fr < 0.3 else
+               "the model recovers little anywhere in this run, so the negative result should be "
+               "treated as unresolved rather than as a property of the protein")
+    ctx = ("supplying the full spike context does not rescue it"
+           if not np.isnan(sr) and sr < fr + 0.1 else
+           "supplying the full spike context improves it substantially, so the isolated-domain "
+           "figure understates what the model can do")
+    P(f"Because a null result from a large pretrained model invites the suspicion of a broken "
+      f"pipeline, we checked. Wild-type recovery was {ur:.1%} on human ubiquitin against "
+      f"{fr:.1%} on the isolated RBD and {sr:.1%} on the same positions scored inside the full "
+      f"spike protein: {verdict}, and {ctx}. No weights were missing at load time. We therefore "
+      f"report the absence of a contribution as a result about this protein, which is consistent "
+      f"with SARS-CoV-2 ranking among the harder entries in published zero-shot benchmarks, and "
+      f"not as a general statement about protein language models.")
+
+H("3.10 Permuting the amino-acid alphabet", 2)
+if len(ABL2):
+    table(ABL2, "Table 6. Amino-acid permutation ablation: an independent random permutation of "
+          "the alphabet at every position, applied consistently to all partitions.",
+          cols=["split", "model", "task", "intact", "permuted", "delta"],
+          rename={"split": "Split", "model": "Model", "task": "Phenotype", "intact": "Intact",
+                  "permuted": "Permuted", "delta": "Δ"})
+    P("Permuting the alphabet independently at each position preserves every position's own "
+      "information while destroying any correspondence between the same residue at different "
+      "positions. For the sequence models the manipulation changes little, which is what the "
+      "mutation-count account predicts, since substitution count is invariant to relabelling. "
+      "The feature-based models are destroyed by it, as they must be: their entire "
+      "representation is residue identity and its chemical correlates.")
+
+H("3.11 Withholding more positions", 2)
+fig("fig3_sweep_v2.png", "Figure 3. Performance against the fraction of positions withheld "
+    "(5–50 %). Points are means over seeds, whiskers one standard deviation.", 6.6)
+
+H("3.12 Run-to-run instability", 2)
+if STAB:
+    byss = {}
+    for r in STAB:
+        byss.setdefault(r["split_seed"], []).append(r)
+    for ss, rs in sorted(byss.items()):
+        v = [r["bind"] for r in rs]
+        P(f"Holding partition {ss} fixed and varying only the weight initialisation gave binding "
+          f"ρ of " + ", ".join(f"{x:+.3f}" for x in v) + f" (range {max(v)-min(v):.3f}).")
+    allv = [r["bind"] for r in STAB]
+    P(f"Across all {len(allv)} runs the spread was {min(allv):+.3f} to {max(allv):+.3f}. "
+      f"Initialisation alone accounts for a substantial part of it, and on some partitions the "
+      f"spread exceeds the differences being discussed, so a single run on this benchmark is not "
+      f"a measurement. Every table here reports a seed distribution for that reason.")
+
+H("3.13 Variant-of-Concern ranking without leakage", 2)
+if HO.get("voc"):
+    rows = [dict(Score=k, AUROC=f"{v['auroc']:.3f}",
+                 CI=f"{v['ci95'][0]:.3f}–{v['ci95'][1]:.3f}", n_positives=v["n_voc"])
+            for k, v in HO["voc"].items()]
+    table(pd.DataFrame(rows),
+          "Table 7. Ranking Variant-of-Concern substitutions at withheld positions only, pooled "
+          "over seeds, with 95 % bootstrap intervals.")
+    pe = HO["voc"].get("EvoClassNet predicted escape", {})
+    me = HO["voc"].get("Measured escape (held-out positions)", {})
+    bl = HO["voc"].get("BLOSUM62 exchangeability", {})
+    P(f"Variant-of-Concern substitutions are present in the escape training data, so ranking them "
+      f"with a model that has seen them measures memorisation; restricting to withheld positions "
+      f"removes that circularity. Predicted escape gave AUROC {pe.get('auroc', float('nan')):.3f} "
+      f"(95 % CI {pe.get('ci95',[np.nan]*2)[0]:.3f}–{pe.get('ci95',[np.nan]*2)[1]:.3f}), an "
+      f"interval that includes 0.5. The measured values on the identical subset gave "
+      f"{me.get('auroc', float('nan')):.3f}, which is the ceiling available to any model of this "
+      f"phenotype, and BLOSUM62 exchangeability, which requires no training at all, gave "
+      f"{bl.get('auroc', float('nan')):.3f}. The assay carries real information about which "
+      f"substitutions went on to define lineages; at positions it never saw, the trained "
+      f"sequence model does not recover it. The positives are a small set chosen with hindsight, "
+      f"so the comparison between scorers on identical instances is meaningful while the absolute "
+      f"values are not.")
+if HO.get("vs_blosum"):
+    rows = [dict(Phenotype={"bind": "ACE2 binding", "escape": "Antibody escape"}.get(k, k),
+                 EvoClassNet=f"{v['model_median']:.3f}", BLOSUM62=f"{v['blosum_median']:.3f}",
+                 Difference=f"{v['median_diff']:+.3f}", P=f"{v['p']:.3g}", n=v["n"])
+            for k, v in HO["vs_blosum"].items()]
+    table(pd.DataFrame(rows), "Table 8. Median per-position Spearman ρ over single substitutions "
+          "at withheld positions, against a substitution matrix.")
+    vb = HO["vs_blosum"]
+    if "bind" in vb and "escape" in vb:
+        P(f"Per-position rank accuracy separates the phenotypes. For binding an untrained "
+          f"substitution matrix beats the network ({vb['bind']['blosum_median']:.3f} against "
+          f"{vb['bind']['model_median']:.3f}, P = {vb['bind']['p']:.3g}); for escape the matrix is "
+          f"actively misleading, its median correlation negative "
+          f"({vb['escape']['blosum_median']:.3f}) where the network is positive "
+          f"({vb['escape']['model_median']:.3f}, P = {vb['escape']['p']:.3g}), because the "
+          f"substitutions that abolish antibody binding are not the chemically radical ones.")
+if VA:
+    for obj, v in VA.items():
+        if not (isinstance(v, dict) and "archive" in v):
+            continue
+        P(f"Maximising {obj.replace('_', ' ')} with a genetic algorithm visited {v['archive']:,} "
+          f"distinct sequences. The top 1 % carried {v['top_mean_voc']:.3f} Variant-of-Concern "
+          f"substitutions per variant against {v['random_mean_voc']:.3f} for size-matched random "
+          f"samples of the same archive (permutation P = {v['perm_p']:.3f}). A learned fitness "
+          f"surface is constrained only where it was fitted, and an optimiser leaves that region.")
 
 H("3.14 A second data type: coronavirus genomes", 2)
 if len(GEN):
