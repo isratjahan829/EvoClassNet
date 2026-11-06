@@ -3,3 +3,4 @@
 19:43:55 10 runs, 0 already cached
 /home/user/EvoClassNet/evoclassnet/metrics.py:83: NearConstantInputWarning: An input array is nearly constant; the computed correlation coefficient may be inaccurate.
   out["pearson"] = float(pearsonr(yy, pp)[0])
+20:10:19 [1/10] main_heldout_sites_s1 bind=0.338 expr=0.228 esca=0.046

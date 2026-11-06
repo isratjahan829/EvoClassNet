@@ -1055,7 +1055,30 @@ P("The original project proposal reported this task as a five-way classification
 
 # ================================================================= DISCUSSION
 H("4. Discussion")
-P("Four evaluation designs applied to the same library support four different conclusions. A "
+_AJ, _AT = J("position_only_audit.json"), C("table_position_only_audit.csv")
+if _AJ.get("Random split") and len(_AT):
+    _r = _AJ["Random split"]; _m = _AJ.get("fold_modulo_5", {})
+    _rn = _AT[_AT.scheme == "Random split"]
+    _nb = int((_rn.median_margin < 0).sum())
+    P(f"The result we would ask a reader to take away is the simplest one in the paper, and it is "
+      f"computed from numbers someone else published. A ridge regression told only which position "
+      f"a variant mutates — a model that cannot distinguish a conservative substitution from a "
+      f"catastrophic one — reaches a median Spearman of "
+      f"{_rn.position_only_median.iloc[0]:.3f} across 216 ProteinGym assays under a random split, "
+      f"and {_nb} of the eleven published supervised models score below it. The median published "
+      f"model beats it on {100*_r['median_frac_beats']:.1f} % of assays. Under fold_modulo_5, "
+      f"where the baseline is zero by construction, the same models beat it on "
+      f"{100*_m.get('median_frac_beats', float('nan')):.1f} %.")
+    P("This is not a claim that those models are weak, and the second set of numbers shows they "
+      "are not. It is a claim about what a random split on a saturating mutational scan can and "
+      "cannot establish. Most of the rank variance such a split rewards is per-position variance, "
+      "and a model needs no concept of an amino acid to capture it. A reported random-split "
+      "correlation therefore does not, on its own, demonstrate that a predictor has learned "
+      "anything about substitutions — and the cost of checking is one ridge regression on a "
+      "one-hot position matrix.")
+P("The receptor-binding-domain case study makes the same point in more detail, and records how we "
+  "got it wrong first. Four evaluation designs applied to the same library support four different "
+  "conclusions. A "
   "random split says the trained models work well and that the choice between them hardly "
   "matters. A held-out-position split says a sequence network extrapolates where conventional "
   "models fail. Adding an untrained baseline to that split says the network does nothing of the "
