@@ -845,6 +845,27 @@ if FEAT:
       f"on them. The remaining descriptors — solvent accessibility of the unbound domain, "
       f"contact number, burial, B-factor — describe the folded domain alone.")
 
+_ec = pv("heldout_sites", "ACE2 binding", "EvoClassNet", "spearman_partial")
+_ecp = pv("heldout_sites", "ACE2 binding", "EvoClassNet + ESM/str", "spearman_partial")
+_gnn = pv("heldout_sites", "ACE2 binding", "Structure GNN", "spearman_partial")
+_gbm = pv("heldout_sites", "ACE2 binding", "Gradient boosting", "spearman_partial")
+if _ec and _ecp:
+    P(f"One comparison isolates the effect cleanly, because nothing else differs. EvoClassNet and "
+      f"EvoClassNet + ESM/str are the same architecture with the same hyper-parameters, the same "
+      f"optimiser and the same seeds; the second is additionally given, at each of the 201 "
+      f"positions, the structural descriptors of that position and a sixteen-dimensional "
+      f"projection of the language model's representation of it. That input alone moves the "
+      f"partial correlation for binding from {_ec} to {_ecp}. The architecture did not change, "
+      f"the training data did not change, and what improved is exactly the quantity that "
+      f"measures position-level transfer.")
+if _gnn and _gbm:
+    P(f"Two results in the same table are worth reporting against our own expectations. The "
+      f"graph network over the residue contact graph, which was built specifically to exploit "
+      f"structure, reaches {_gnn} — below the plain feature models that use the same structural "
+      f"descriptors without any message passing. And the best model on this split is gradient "
+      f"boosting on the transferable feature block, at {_gbm}. Neither is the architecture we "
+      f"would have predicted, and we report them rather than the model we set out to build.")
+
 H("3.8 Where the transfer comes from: positions, not substitutions", 2)
 TBP = J("transfer_by_position.json")
 if TBP:
