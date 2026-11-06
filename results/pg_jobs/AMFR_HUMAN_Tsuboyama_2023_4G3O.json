@@ -1,0 +1,71 @@
+{
+ "dms_id": "AMFR_HUMAN_Tsuboyama_2023_4G3O",
+ "n_variants": 2972,
+ "seq_len": 47,
+ "n_positions": 47,
+ "frac_multi": 0.7240915208613729,
+ "max_nsub": 2,
+ "splits": {
+  "random": {
+   "mutation_count": {
+    "spearman": 0.4157381845631975,
+    "spearman_sd": 0.018366910395777983,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 595
+   },
+   "blosum_zeroshot": {
+    "spearman": -0.19076767288019997,
+    "spearman_sd": 0.040462981929085796,
+    "partial": -0.3662064937248818,
+    "n_seeds": 5,
+    "n_test": 595
+   },
+   "physchem": {
+    "spearman": 0.813903021739917,
+    "spearman_sd": 0.022123980964998798,
+    "partial": 0.7688707254712348,
+    "n_seeds": 5,
+    "n_test": 595
+   },
+   "ridge_additive": {
+    "spearman": 0.8292379289932267,
+    "spearman_sd": 0.02010182605746963,
+    "partial": 0.7898806943909372,
+    "n_seeds": 5,
+    "n_test": 595
+   }
+  },
+  "heldout_positions": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 159
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.1621078755527236,
+    "spearman_sd": 0.1377684676937171,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 159
+   },
+   "physchem": {
+    "spearman": 0.3444923386342835,
+    "spearman_sd": 0.13262880702578692,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 159
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 159
+   }
+  }
+ },
+ "_seconds": 5.8
+}

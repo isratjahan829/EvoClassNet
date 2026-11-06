@@ -1,0 +1,71 @@
+{
+ "dms_id": "BLAT_ECOLX_Stiffler_2015",
+ "n_variants": 4996,
+ "seq_len": 286,
+ "n_positions": 263,
+ "frac_multi": 0.0,
+ "max_nsub": 1,
+ "splits": {
+  "random": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1000
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.33494982149488345,
+    "spearman_sd": 0.012618317217293964,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1000
+   },
+   "physchem": {
+    "spearman": 0.4853233116348533,
+    "spearman_sd": 0.013441681243807277,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1000
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1000
+   }
+  },
+  "heldout_positions": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 988
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.3430027539479691,
+    "spearman_sd": 0.05705536420398729,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 988
+   },
+   "physchem": {
+    "spearman": 0.42017983982873774,
+    "spearman_sd": 0.0573461792933979,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 988
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 988
+   }
+  }
+ },
+ "_seconds": 5.7
+}

@@ -1,0 +1,71 @@
+{
+ "dms_id": "CP2C9_HUMAN_Amorosi_2021_activity",
+ "n_variants": 6142,
+ "seq_len": 490,
+ "n_positions": 477,
+ "frac_multi": 0.0,
+ "max_nsub": 1,
+ "splits": {
+  "random": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1229
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.3240027957880488,
+    "spearman_sd": 0.023086443093217127,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1229
+   },
+   "physchem": {
+    "spearman": 0.40741711052902146,
+    "spearman_sd": 0.025184937023913362,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1229
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1229
+   }
+  },
+  "heldout_positions": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1241
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.3257521495032025,
+    "spearman_sd": 0.012775625721859633,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1241
+   },
+   "physchem": {
+    "spearman": 0.40084469286869384,
+    "spearman_sd": 0.0473200304224303,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1241
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1241
+   }
+  }
+ },
+ "_seconds": 5.2
+}

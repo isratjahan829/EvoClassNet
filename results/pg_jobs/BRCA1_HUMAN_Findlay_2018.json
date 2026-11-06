@@ -1,0 +1,71 @@
+{
+ "dms_id": "BRCA1_HUMAN_Findlay_2018",
+ "n_variants": 1837,
+ "seq_len": 1863,
+ "n_positions": 326,
+ "frac_multi": 0.0,
+ "max_nsub": 1,
+ "splits": {
+  "random": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 368
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.23646705105925414,
+    "spearman_sd": 0.06076886517838473,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 368
+   },
+   "physchem": {
+    "spearman": 0.3403934074089149,
+    "spearman_sd": 0.05925955813385001,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 368
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 368
+   }
+  },
+  "heldout_positions": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 368
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.2801773886773347,
+    "spearman_sd": 0.03752212626758612,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 368
+   },
+   "physchem": {
+    "spearman": 0.37946334989678815,
+    "spearman_sd": 0.037691926319039296,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 368
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 368
+   }
+  }
+ },
+ "_seconds": 5.0
+}

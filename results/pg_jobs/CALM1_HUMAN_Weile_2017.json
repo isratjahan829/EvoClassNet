@@ -1,0 +1,71 @@
+{
+ "dms_id": "CALM1_HUMAN_Weile_2017",
+ "n_variants": 1813,
+ "seq_len": 149,
+ "n_positions": 148,
+ "frac_multi": 0.0,
+ "max_nsub": 1,
+ "splits": {
+  "random": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 363
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.2015067773969777,
+    "spearman_sd": 0.05937481103074033,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 363
+   },
+   "physchem": {
+    "spearman": 0.20543301797496794,
+    "spearman_sd": 0.052014468940725325,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 363
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 363
+   }
+  },
+  "heldout_positions": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 351
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.21339784431216008,
+    "spearman_sd": 0.04079071557185872,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 351
+   },
+   "physchem": {
+    "spearman": 0.18728709578051778,
+    "spearman_sd": 0.032934537867437406,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 351
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 351
+   }
+  }
+ },
+ "_seconds": 5.1
+}

@@ -1,0 +1,71 @@
+{
+ "dms_id": "CAR11_HUMAN_Meitlis_2020_lof",
+ "n_variants": 2395,
+ "seq_len": 1154,
+ "n_positions": 141,
+ "frac_multi": 0.0,
+ "max_nsub": 1,
+ "splits": {
+  "random": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 479
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.13450100647994118,
+    "spearman_sd": 0.04316696579206076,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 479
+   },
+   "physchem": {
+    "spearman": 0.29912125779645604,
+    "spearman_sd": 0.07325949283080714,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 479
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 479
+   }
+  },
+  "heldout_positions": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 480
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.11006587304669897,
+    "spearman_sd": 0.09456170580426139,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 480
+   },
+   "physchem": {
+    "spearman": 0.15196961102457057,
+    "spearman_sd": 0.06418016551941488,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 480
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 480
+   }
+  }
+ },
+ "_seconds": 6.0
+}

@@ -1,0 +1,71 @@
+{
+ "dms_id": "CBS_HUMAN_Sun_2020",
+ "n_variants": 7217,
+ "seq_len": 551,
+ "n_positions": 549,
+ "frac_multi": 0.0,
+ "max_nsub": 1,
+ "splits": {
+  "random": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1444
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.147241792664158,
+    "spearman_sd": 0.02730494880683154,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1444
+   },
+   "physchem": {
+    "spearman": 0.19950555841742879,
+    "spearman_sd": 0.02124231770645699,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1444
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1444
+   }
+  },
+  "heldout_positions": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1415
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.151039121210487,
+    "spearman_sd": 0.041947972971081195,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1415
+   },
+   "physchem": {
+    "spearman": 0.1700142083440686,
+    "spearman_sd": 0.02463903479440967,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1415
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1415
+   }
+  }
+ },
+ "_seconds": 7.2
+}
