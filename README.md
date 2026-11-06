@@ -35,11 +35,15 @@ Seed variance of EvoClassNet-lite is large (random split, binding: 0.856 / 0.898
 * **GA variant generation shows no enrichment**: top-1 % GA variants carry 0.013 VOC substitutions/variant vs 0.042 for random archive variants (permutation p = 0.95). The GA mostly exploits terminal residues (P527C, S530N, K529I) — likely a DMS artefact. The draft's "14.7 % of GA variants later observed" has no counterpart here.
 * Caveat: this analysis used the seed-0 random-split model, the weakest seed.
 
+## Deliverables
+* `EvoClassNet_manuscript.docx` — revised manuscript; every number is generated from `results/*.json` by `scripts/build_docx.py`.
+* `results/figures/` — figures used in the manuscript.
+* `run_all.sh` — one-command reproduction (install, download data, unit tests, study, variant analysis, figures, docx).
+
 ## Reproduce
 ```bash
-pip install -r requirements.txt
-# download DMS tables (git-LFS, via media.githubusercontent.com) into data/raw/bloom_rbd_dms/ :
-#   binding_Kds.csv expression_meanFs.csv  (+ RBD_sites.csv, single_mut_effects.csv are in the repo)
+./run_all.sh          # ~1 h on 4 CPU cores; or step by step:
+python scripts/download_data.py
 python scripts/run_study.py --seeds 3 --epochs 8
-python scripts/variant_analysis.py
+python scripts/variant_analysis.py && python scripts/make_figures.py && python scripts/build_docx.py
 ```
