@@ -1,0 +1,5 @@
+__pycache__/
+*.pt
+data/raw/bloom_rbd_dms/binding_Kds.csv
+data/raw/bloom_rbd_dms/expression_meanFs.csv
+data/raw/bloom_rbd_dms/codon_variant_table.csv
