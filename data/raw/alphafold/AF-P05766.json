@@ -1,0 +1,9 @@
+{
+ "uniprotAccession": "P05766",
+ "uniprotSequence": "MALTQERKREIIEQFKVHENDTGSPEVQIAILTEQINNLNEHLRVHKKDHHSRRGLLKMVGKRRRLLAYLRNKDVARYREIVEKLGLRR",
+ "uniprotStart": 1,
+ "uniprotEnd": 89,
+ "globalMetricValue": 95.12,
+ "latestVersion": 6,
+ "modelEntityId": "AF-P05766-F1"
+}

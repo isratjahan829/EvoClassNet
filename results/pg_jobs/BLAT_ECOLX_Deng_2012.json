@@ -1,0 +1,99 @@
+{
+ "dms_id": "BLAT_ECOLX_Deng_2012",
+ "n_variants": 4996,
+ "seq_len": 286,
+ "n_positions": 263,
+ "frac_multi": 0.0,
+ "max_nsub": 1,
+ "splits": {
+  "random": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1000
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.28251956408314716,
+    "spearman_sd": 0.021425554557922562,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1000
+   },
+   "residue_only": {
+    "spearman": 0.29560456081905134,
+    "spearman_sd": 0.03131016135760431,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1000
+   },
+   "physchem": {
+    "spearman": 0.36202206770791534,
+    "spearman_sd": 0.02119470599330425,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1000
+   },
+   "position_mean": {
+    "spearman": 0.7476886207886524,
+    "spearman_sd": 0.015050085098743391,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1000
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1000
+   }
+  },
+  "heldout_positions": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 988
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.2792240123277554,
+    "spearman_sd": 0.044235335759801965,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 988
+   },
+   "residue_only": {
+    "spearman": 0.17375755038224727,
+    "spearman_sd": 0.10363401571383384,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 988
+   },
+   "physchem": {
+    "spearman": 0.2584816694180474,
+    "spearman_sd": 0.09244143638103226,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 988
+   },
+   "position_mean": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 988
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 988
+   }
+  }
+ },
+ "_seconds": 8.3
+}

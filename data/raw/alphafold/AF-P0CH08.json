@@ -1,0 +1,9 @@
+{
+ "uniprotAccession": "P0CH08",
+ "uniprotSequence": "MQIFVKTLTGKTITLEVESSDTIDNVKSKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGGIIEPSLKALASKYNCDKSVCRKCYARLPPRATNCRKRKCGHTNQLRPKKKLK",
+ "uniprotStart": 1,
+ "uniprotEnd": 128,
+ "globalMetricValue": 93.75,
+ "latestVersion": 6,
+ "modelEntityId": "AF-P0CH08-F1"
+}

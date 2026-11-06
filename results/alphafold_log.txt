@@ -1,5 +1,31 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Traceback (most recent call last):
-  File "/home/user/EvoClassNet/scripts/download_alphafold.py", line 92, in <module>
-    accs = sorted({a for a in ref.acc if a})
-TypeError: '<' not supported between instances of 'float' and 'str'
+18:49:06 185 UniProt accessions resolved across 217 assays (1 entry names could not be resolved)
+18:49:06 [1/185] A0A140D2T1: no_model (api 404)
+18:49:06 [2/185] A0A192B1T2: no_model (api 404)
+18:49:07 [5/185] A0A2Z5U3Z0: no_model (api 404)
+18:49:07 [6/185] A4D664: no_model (api 404)
+18:49:09 [9/185] C6KNH7: no_model (api 404)
+18:49:09 [12/185] I6TAH8: no_model (api 404)
+18:49:10 [14/185] O00633: no_model (api 404)
+18:49:16 [20/185] ...
+18:49:22 [27/185] O95071: no_model (api 404)
+18:49:24 [29/185] P00379: no_model (api 404)
+18:49:30 [37/185] P02933: no_model (api 404)
+18:49:30 [38/185] P03034: no_model (api 404)
+18:49:31 [39/185] P03040: no_model (api 404)
+18:49:32 [40/185] ...
+18:49:33 [42/185] P03313: no_model (api 404)
+18:49:34 [43/185] P03377: no_model (api 404)
+18:49:34 [44/185] P03430: no_model (api 404)
+18:49:36 [47/185] P03470: no_model (api 404)
+18:49:36 [48/185] P03704: no_model (api 404)
+18:49:41 [53/185] P04610: no_model (api 404)
+18:49:41 [54/185] P04618: no_model (api 404)
+18:49:46 [60/185] P05703: no_model (api 404)
+18:49:47 [62/185] P05797: no_model (api 404)
+18:49:52 [68/185] P08366: no_model (api 404)
+18:50:03 [80/185] ...
+18:50:09 [86/185] P16117: no_model (api 404)
+18:50:12 [90/185] P26614: no_model (api 404)
+18:50:15 [94/185] P29990: no_model (api 404)
+18:50:21 [100/185] ...

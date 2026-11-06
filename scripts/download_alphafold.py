@@ -88,8 +88,8 @@ if __name__ == "__main__":
         accs_col.append(a)
     cpath.write_text(json.dumps(cache, indent=1))
     ref = ref.assign(acc=accs_col)
-    unresolved = int(ref.acc.isna().sum())
-    accs = sorted({a for a in ref.acc if a})
+    unresolved = int(sum(not isinstance(a, str) or not a for a in ref.acc))
+    accs = sorted({a for a in ref.acc if isinstance(a, str) and a})
     log(f"{len(accs)} UniProt accessions resolved across {len(ref)} assays "
         f"({unresolved} entry names could not be resolved)")
 
@@ -106,15 +106,16 @@ if __name__ == "__main__":
     # map each assay's target sequence onto its model
     cover = []
     for r in ref.itertuples():
-        j = OUT / f"AF-{r.acc}.json" if r.acc else None
+        acc = r.acc if isinstance(r.acc, str) and r.acc else None
+        j = OUT / f"AF-{acc}.json" if acc else None
         if j is None or not j.exists():
-            cover.append(dict(dms_id=r.dms_id, acc=r.acc,
-                              status="unresolved_id" if not r.acc else status.get(r.acc, "missing"),
+            cover.append(dict(dms_id=r.dms_id, acc=acc,
+                              status="unresolved_id" if not acc else status.get(acc, "missing"),
                               offset=None)); continue
         m = json.loads(j.read_text())
         useq = m.get("uniprotSequence") or ""
         off = useq.find(r.target_seq)
-        cover.append(dict(dms_id=r.dms_id, acc=r.acc,
+        cover.append(dict(dms_id=r.dms_id, acc=acc,
                           status="matched" if off >= 0 else "seq_mismatch",
                           offset=off if off >= 0 else None,
                           plddt=m.get("globalMetricValue"),

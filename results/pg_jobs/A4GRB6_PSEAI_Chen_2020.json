@@ -1,0 +1,99 @@
+{
+ "dms_id": "A4GRB6_PSEAI_Chen_2020",
+ "n_variants": 5004,
+ "seq_len": 266,
+ "n_positions": 266,
+ "frac_multi": 0.0,
+ "max_nsub": 1,
+ "splits": {
+  "random": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1001
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.3020981475440691,
+    "spearman_sd": 0.0206212364380843,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1001
+   },
+   "residue_only": {
+    "spearman": 0.398997304042446,
+    "spearman_sd": 0.027845359579524397,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1001
+   },
+   "physchem": {
+    "spearman": 0.4536826828273511,
+    "spearman_sd": 0.020766665576141936,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1001
+   },
+   "position_mean": {
+    "spearman": 0.8073204060069461,
+    "spearman_sd": 0.016710574192147516,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1001
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1001
+   }
+  },
+  "heldout_positions": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 992
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.3009583675260822,
+    "spearman_sd": 0.048313901529060815,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 992
+   },
+   "residue_only": {
+    "spearman": 0.3224794850472814,
+    "spearman_sd": 0.06245615685016463,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 992
+   },
+   "physchem": {
+    "spearman": 0.38664727434697116,
+    "spearman_sd": 0.0652863023823481,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 992
+   },
+   "position_mean": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 992
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 992
+   }
+  }
+ },
+ "_seconds": 9.1
+}
