@@ -24,6 +24,8 @@ Held-out-position split, 10 seeds. Escape has no partial column: every escape-la
 
 Two things to note. **Structure carries most of it** (+0.554 ± 0.112 partial for binding against +0.371 ± 0.060 for chemistry), and it is not an artefact of knowing the receptor interface: the two descriptors derived from the ACE2-bound complex mark exactly the contact residues, which is nearly circular for binding, and dropping them leaves +0.518 ± 0.095. **ESM-2 contributes nothing on this protein** — its raw +0.340 ± 0.067 is the substitution-count effect in full, with -0.004 ± 0.091 surviving the control.
 
+That null result was checked rather than assumed: ESM-2 wild-type recovery was 80.3% on human ubiquitin, 11.8% on the isolated RBD and 17.6% on the same positions inside the full spike protein, with no weights missing at load time.
+
 ## It is not one protein: 217 ProteinGym assays
 
 Two baselines make the point unambiguous. A **position-mean** model is a ridge regression on position indicators alone — it knows which position a variant mutates and nothing at all about which substitution is made. A **residue-identity** model is its mirror image.

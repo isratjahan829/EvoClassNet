@@ -185,6 +185,13 @@ if hb_mc and hb_ec and _ab_p1 and _ab_p2:
         f"{_ab_p1} of genuine "
         f"position-level signal, and the untrained baseline, as it must, retains "
         f"{_ab_p2}.")
+if not (hb_mc and hb_ec and _ab_p1 and _ab_p2):
+    # The panel sentence above was skipped; without it the next one has no antecedent.
+    abs_bits.append(
+        "Under the held-out-position split the conventional models collapse: an additive model "
+        "has no applicable parameter and emits a constant, a global-epistasis fit becomes "
+        "anti-correlated with measurement, and a sequence network retains only what an untrained "
+        "baseline that counts substitutions already achieves.")
 if FEAT:
     abs_bits.append(
         f"That failure is a property of the representation rather than of the data. Every model "
@@ -237,10 +244,10 @@ if len(PGT0):
             f"Repeating the comparison over all {_na} substitution assays in ProteinGym shows "
             f"this is a property of the benchmark and not of one protein. A model given only "
             f"position indicators, which knows nothing about which substitution is made, has a "
-            f"median per-assay rho of {_pm_r} under a random split against {_ch_r} for a model "
+            f"median per-assay rho of {float(_pm_r):.3f} under a random split against {float(_ch_r):.3f} for a model "
             f"given only the chemistry of the substitution; under a held-out-position split the "
-            f"first falls to {_pm_h}, which is an identity rather than a degradation, and the "
-            f"second retains {_ch_h}. The standard evaluation rewards memorising per-position "
+            f"first falls to {float(_pm_h):.3f}, which is an identity rather than a degradation, and "
+            f"the second retains {float(_ch_h):.3f}. The standard evaluation rewards memorising per-position "
             f"means, and that capability is worth nothing at a position no experiment has probed.")
 
 abs_bits.append(

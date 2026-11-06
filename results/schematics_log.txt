@@ -1,0 +1,6 @@
+wrote schema1_design.png
+wrote schema2_backbone.png
+wrote schema3_plm.png
+wrote schema4_structure_gnn.png
+wrote schema5_genome_task.png
+schematics done

@@ -1,0 +1,14 @@
+{
+ "ubiquitin": {
+  "recovery": 0.8026315789473685,
+  "median_top_prob": 0.7960261702537537
+ },
+ "rbd_fragment": {
+  "recovery": 0.11764705882352941,
+  "median_top_prob": 0.09583120793104172
+ },
+ "rbd_in_spike": {
+  "recovery": 0.17647058823529413,
+  "median_top_prob": 0.09900349378585815
+ }
+}

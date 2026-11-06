@@ -8,3 +8,5 @@
 18:15:44 RBD alone (fragment): recovery 11.8% over 51 positions, median top probability 0.096
 18:34:54   RBD in full spike: 20/51  running recovery 30.0%
 19:14:39   RBD in full spike: 40/51  running recovery 22.5%
+19:31:49 RBD in full spike: recovery 17.6% over 51 positions, median top probability 0.099
+19:31:49 saved results/esm_control.json

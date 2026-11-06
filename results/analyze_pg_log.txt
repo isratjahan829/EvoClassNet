@@ -1,0 +1,37 @@
+217 assays
+
+                       split           family            model  n_assays  median  mean   q25   q75  frac_above_0_2  frac_at_zero
+                Random split        untrained   Mutation count       216   0.000 0.120 0.000 0.178           0.245         0.681
+                Random split        untrained         BLOSUM62       216   0.220 0.209 0.134 0.284           0.546         0.000
+                Random split position-indexed    Position mean       216   0.665 0.630 0.564 0.732           0.968         0.000
+                Random split position-indexed   Additive ridge       216   0.000 0.220 0.000 0.546           0.319         0.681
+                Random split     transferable Residue identity       216   0.402 0.455 0.293 0.632           0.944         0.000
+                Random split     transferable  Chemistry ridge       216   0.455 0.493 0.344 0.650           0.972         0.000
+     Held-out-position split        untrained   Mutation count       212   0.000 0.024 0.000 0.000           0.042         0.830
+     Held-out-position split        untrained         BLOSUM62       212   0.198 0.200 0.123 0.270           0.486         0.000
+     Held-out-position split position-indexed    Position mean       212   0.000 0.000 0.000 0.000           0.000         1.000
+     Held-out-position split position-indexed   Additive ridge       212   0.000 0.000 0.000 0.000           0.000         1.000
+     Held-out-position split     transferable Residue identity       212   0.253 0.273 0.189 0.352           0.712         0.000
+     Held-out-position split     transferable  Chemistry ridge       212   0.313 0.322 0.240 0.405           0.840         0.000
+    ProteinGym fold_modulo_5        untrained   Mutation count       214   0.000 0.030 0.000 0.000           0.061         0.818
+    ProteinGym fold_modulo_5        untrained         BLOSUM62       214   0.203 0.202 0.126 0.273           0.514         0.000
+    ProteinGym fold_modulo_5 position-indexed    Position mean       214   0.000 0.000 0.000 0.000           0.000         1.000
+    ProteinGym fold_modulo_5 position-indexed   Additive ridge       214   0.000 0.000 0.000 0.000           0.000         1.000
+    ProteinGym fold_modulo_5     transferable Residue identity       214   0.252 0.269 0.184 0.352           0.701         0.000
+    ProteinGym fold_modulo_5     transferable  Chemistry ridge       214   0.309 0.318 0.237 0.411           0.827         0.000
+ProteinGym fold_contiguous_5        untrained   Mutation count       193   0.000 0.031 0.000 0.000           0.057         0.782
+ProteinGym fold_contiguous_5        untrained         BLOSUM62       193   0.207 0.201 0.132 0.268           0.523         0.000
+ProteinGym fold_contiguous_5 position-indexed    Position mean       193   0.000 0.000 0.000 0.000           0.000         1.000
+ProteinGym fold_contiguous_5 position-indexed   Additive ridge       193   0.000 0.000 0.000 0.000           0.000         1.000
+ProteinGym fold_contiguous_5     transferable Residue identity       193   0.251 0.260 0.165 0.339           0.668         0.000
+ProteinGym fold_contiguous_5     transferable  Chemistry ridge       193   0.314 0.306 0.228 0.386           0.788         0.000
+
+=== held-out positions, against the position-mean model ===
+           model  n_assays  median_diff  ci_lo  ci_hi    p_fdr  frac_model_better     effect
+  Mutation count       212       0.0000 0.0146 0.0334 0.000001              0.156 negligible
+        BLOSUM62       212       0.1983 0.1864 0.2129 0.000000              0.995      large
+  Additive ridge       212       0.0000 0.0000 0.0000      NaN              0.000 negligible
+Residue identity       212       0.2531 0.2545 0.2925 0.000000              0.976      large
+ Chemistry ridge       212       0.3127 0.3032 0.3410 0.000000              0.991      large
+
+confound: {"n_assays": 217, "n_with_multi_mutants": 69, "frac_with_multi_mutants": 0.318, "n_count_above_0_2": 9, "median_count_rho_where_multi": 0.012}

@@ -1,0 +1,25 @@
+806 genomes, 287 species, k=5
+          split    family                            model      accuracy balanced_accuracy      macro_f1
+         random untrained                   Majority class 0.457 ± 0.044     0.250 ± 0.000 0.157 ± 0.010
+         random   trivial Genome length + base composition 0.950 ± 0.010     0.953 ± 0.015 0.941 ± 0.016
+         random  sequence      5-mer + logistic regression 1.000 ± 0.000     1.000 ± 0.000 1.000 ± 0.000
+         random  sequence            5-mer + random forest 0.997 ± 0.006     0.993 ± 0.013 0.995 ± 0.009
+         random  sequence        5-mer + gradient boosting 0.998 ± 0.004     0.995 ± 0.009 0.997 ± 0.006
+         random  sequence            1D CNN on nucleotides 0.990 ± 0.015     0.992 ± 0.009 0.992 ± 0.010
+heldout_species untrained                   Majority class 0.497 ± 0.077     0.250 ± 0.000 0.165 ± 0.017
+heldout_species   trivial Genome length + base composition 0.894 ± 0.044     0.914 ± 0.037 0.891 ± 0.038
+heldout_species  sequence      5-mer + logistic regression 0.999 ± 0.003     0.998 ± 0.004 0.997 ± 0.007
+heldout_species  sequence            5-mer + random forest 0.969 ± 0.038     0.962 ± 0.034 0.968 ± 0.031
+heldout_species  sequence        5-mer + gradient boosting 0.986 ± 0.017     0.976 ± 0.026 0.982 ± 0.021
+heldout_species  sequence            1D CNN on nucleotides 0.986 ± 0.018     0.988 ± 0.017 0.985 ± 0.019
+
+=== vs the trivial length + composition model ===
+          split                       model  median_diff  ci_lo  ci_hi   p_fdr   tost_p  equivalent
+         random 5-mer + logistic regression       0.0425 0.0382 0.0560 0.00240 0.996220       False
+         random       5-mer + random forest       0.0425 0.0235 0.0536 0.00417 0.856371       False
+         random   5-mer + gradient boosting       0.0425 0.0290 0.0545 0.00240 0.940786       False
+         random       1D CNN on nucleotides       0.0397 0.0258 0.0514 0.00240 0.876766       False
+heldout_species 5-mer + logistic regression       0.0743 0.0617 0.1069 0.00240 0.999132       False
+heldout_species       5-mer + random forest       0.0430 0.0255 0.0717 0.00586 0.907491       False
+heldout_species   5-mer + gradient boosting       0.0656 0.0366 0.0856 0.00417 0.980244       False
+heldout_species       1D CNN on nucleotides       0.0637 0.0477 0.1007 0.00240 0.993462       False

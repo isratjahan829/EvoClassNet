@@ -6,3 +6,27 @@
 + for proc in run_genome_study.py esm_control.py run_proteingym.py download_alphafold.py
 + pgrep -f esm_control.py
 + sleep 60
++ pgrep -f esm_control.py
++ sleep 60
++ pgrep -f esm_control.py
++ sleep 60
++ pgrep -f esm_control.py
++ sleep 60
++ pgrep -f esm_control.py
++ sleep 60
++ pgrep -f esm_control.py
++ for proc in run_genome_study.py esm_control.py run_proteingym.py download_alphafold.py
++ pgrep -f run_proteingym.py
++ for proc in run_genome_study.py esm_control.py run_proteingym.py download_alphafold.py
++ pgrep -f download_alphafold.py
++ python3 -u scripts/analyze2.py
++ python3 -u scripts/analyze_genomes.py
++ python3 -u scripts/analyze_proteingym.py
++ python3 -u scripts/make_schematics.py
++ python3 -u scripts/build_docx2.py
++ python3 -u scripts/build_readme2.py
++ python3 -u scripts/build_notebook.py
++ python3 -
++ python3 -u scripts/package_deliverables.py
++ echo CHAIN2_COMPLETE
+CHAIN2_COMPLETE

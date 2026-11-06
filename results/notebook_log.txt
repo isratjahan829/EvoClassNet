@@ -1,0 +1,3 @@
+wrote /home/user/EvoClassNet/EvoClassNet_report.ipynb (30 cells)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+notebook executed, error cells: 0
