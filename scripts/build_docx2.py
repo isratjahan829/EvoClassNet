@@ -98,6 +98,14 @@ def table(df, caption, cols=None, rename=None, maxrows=60):
 
 
 # ---------------------------------------------------------------- value helpers
+def num(txt):
+    """First number in a 'mean ± sd' cell."""
+    if txt is None or (isinstance(txt, float) and np.isnan(txt)):
+        return float("nan")
+    m = re.match(r"\s*([+-]?[0-9.]+)", str(txt))
+    return float(m.group(1)) if m else float("nan")
+
+
 HAVE_PANEL = len(PANEL) > 0
 
 
@@ -110,14 +118,6 @@ def pv(split, task, model, metric="spearman"):
         return None
     v = s.iloc[0].get(metric)
     return None if v is None or (isinstance(v, float) and np.isnan(v)) else v
-
-
-def num(txt):
-    """First number in a 'mean ± sd' cell."""
-    if txt is None or (isinstance(txt, float) and np.isnan(txt)):
-        return float("nan")
-    m = re.match(r"\s*([+-]?[0-9.]+)", str(txt))
-    return float(m.group(1)) if m else float("nan")
 
 
 def cmp_row(split, task, model, reference, metric="spearman"):
@@ -203,14 +203,26 @@ if FEAT:
         f"{feat_pm('esm_only','bind')} survives the substitution-count control.")
 if len(GEN):
     g_triv = GEN[(GEN.split == "heldout_species") & (GEN.model.str.startswith("Genome length"))]
-    g_best = GEN[(GEN.split == "heldout_species") & (GEN.family == "sequence")]
-    if len(g_triv) and len(g_best):
+    g_seq = GEN[(GEN.split == "heldout_species") & (GEN.family == "sequence")]
+    if len(g_triv) and len(g_seq):
+        _t = num(g_triv.iloc[0].balanced_accuracy)
+        _bestrow = g_seq.loc[g_seq.balanced_accuracy.map(num).idxmax()]
+        _b = num(_bestrow.balanced_accuracy)
+        # Say what the numbers show, not what the first task showed.
+        if _b - _t < 0.03:
+            _verdict = ("the sequence models add nothing over it, so the same reading applies as "
+                        "for the assay data")
+        else:
+            _verdict = (f"the sequence models do add a real increment here ({_bestrow.model} "
+                        f"reaches {_bestrow.balanced_accuracy}), so on this task the control "
+                        f"bounds how much of a headline accuracy is informative rather than "
+                        f"explaining all of it")
         abs_bits.append(
             f"A second task on {GMETA.get('n_genomes','?')} coronavirus genomes from "
-            f"{GMETA.get('n_species','?')} species reproduces the pattern: under a "
-            f"held-out-species split, genome length and base composition alone reach balanced "
-            f"accuracy {g_triv.iloc[0].balanced_accuracy}, against "
-            f"{g_best.balanced_accuracy.iloc[0]} for the best sequence model.")
+            f"{GMETA.get('n_species','?')} species shows how much of a headline number a control "
+            f"can account for even when the models are genuinely good: under a held-out-species "
+            f"split, genome length and base composition alone reach balanced accuracy "
+            f"{g_triv.iloc[0].balanced_accuracy}, and {_verdict}.")
 abs_bits.append(
     "We conclude that a hard evaluation split is interpretable only against an untrained "
     "baseline computed on the same partition, that the apparent inability of sequence models to "
@@ -707,10 +719,12 @@ fig("fig6_genomes.png", "Figure 4. Balanced accuracy on coronavirus genus classi
     "both splits. The dotted line is chance for four classes.", 6.4)
 fig("fig7_genome_confusion.png", "Figure 5. Confusion matrices under the held-out-species split, "
     "pooled over seeds and row-normalised.", 6.4)
-P("The genome task was in the original project proposal as a five-way classification reported at "
-  "99.92 % accuracy. The number here is lower, and the reason the original figure carried no "
-  "information is visible in the table: an untrained control that looks only at how long a "
-  "genome is and what fraction of it is G or C already reaches most of it.")
+P("The original project proposal reported this task as a five-way classification at 99.92 % "
+  "accuracy, with no baseline. The lesson here is not that such a number must be wrong, but that "
+  "it is uninterpretable on its own: an untrained control looking only at genome length and base "
+  "composition already reaches most of it, so the reported figure conveys almost none of the "
+  "information it appears to. Where the sequence models do beat that control, as they do here, "
+  "the control is what makes the increment visible and worth reporting.")
 
 # ================================================================= DISCUSSION
 H("4. Discussion")
