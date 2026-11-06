@@ -11,3 +11,5 @@
 17:39:23 random s2: majority_class=0.250  length_gc_logreg=0.951  kmer5_logreg=1.000  kmer5_gbm=1.000  kmer5_rf=1.000  cnn=1.000
 17:41:11 random s3: majority_class=0.250  length_gc_logreg=0.945  kmer5_logreg=1.000  kmer5_gbm=1.000  kmer5_rf=1.000  cnn=1.000
 17:42:55 random s4: majority_class=0.250  length_gc_logreg=0.946  kmer5_logreg=1.000  kmer5_gbm=1.000  kmer5_rf=1.000  cnn=0.991
+17:44:42 random s5: majority_class=0.250  length_gc_logreg=0.964  kmer5_logreg=1.000  kmer5_gbm=0.977  kmer5_rf=1.000  cnn=0.976
+17:46:25 random s6: majority_class=0.250  length_gc_logreg=0.923  kmer5_logreg=1.000  kmer5_gbm=1.000  kmer5_rf=1.000  cnn=0.996

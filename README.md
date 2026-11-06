@@ -1,137 +1,74 @@
-# EvoClassNet — a leakage-controlled benchmark of sequence models for SARS-CoV-2 RBD phenotypes
+# EvoClassNet — what a held-out-position split actually measures
 
-Every number in this file is read out of `results/` by `scripts/build_readme.py`. Nothing is carried over from the original manuscript draft.
+Every number here is read out of `results/` by `scripts/build_readme2.py`.
 
-## The finding
+## The finding, in three steps
 
-Two evaluation protocols on the same deep-mutational-scanning data rank models differently:
+**1. A hard split needs an untrained control.** On a combinatorial mutagenesis library, ranking variants by `−n_substitutions` — no training, no parameters, no idea which positions are involved — already scores well, because most substitutions are deleterious and their effects accumulate. A model that learned nothing about the withheld positions inherits that score. Better still, report the **partial Spearman** correlation, which removes substitution count from both sides: it measures position-level signal directly, and it validates itself, because the trivial baseline must score exactly zero on it. It does: -0.000.
 
-* **Random genotype split** — a variant's own mutated positions are also mutated in the training set. All models do well; the neural model is not clearly better than a global-epistasis fit.
-* **Held-out-position split** — no training variant mutates any test position. Rank accuracy collapses, and once the trivial **mutation-count baseline** (`−n_substitutions`, untrained) is included in the comparison, no trained model in this study demonstrates position-level extrapolation on binding or expression.
-* **The one exception is antibody escape.** Every escape-labelled variant carries exactly one substitution, so the mutation-count baseline is constant there and cannot account for anything. At withheld positions EvoClassNet's median per-position ρ is 0.251 against -0.337 for BLOSUM62 exchangeability (paired Δ +0.598, P = 1.02e-15, n = 98). For binding the ordering reverses: BLOSUM62 reaches 0.538 against the model's 0.181 (Δ -0.269, P = 1.54e-14, n = 150). So an untrained substitution matrix beats the network at unseen positions on binding, and loses to it on escape — escape is the only place here where a trained model supplies something that neither the trivial baseline nor generic chemistry does.
+**2. Sequence models indexed by position collapse there.** The additive model has no parameter for an unseen position and emits a constant; global epistasis goes anti-correlated; the neural network keeps a positive raw ρ that is almost entirely the substitution-count effect.
 
-The mutation-count baseline is decisive because held-out-position test sets contain variants with different numbers of substitutions, and fitness falls with substitution count. A model can score a respectable Spearman ρ there while having learned nothing position-specific. Papers that report held-out-position performance without this control cannot distinguish the two cases.
+**3. But that is a fact about the representation, not about the data — and this corrects an earlier version of this repository.** Every model in step 2 encodes a substitution by *where* it occurs, so none holds a parameter that applies to a held-out position. Give a plain ridge regression features that survive at an unseen position — how the residue changes chemically, and descriptors of the position taken from the crystal structure — and extrapolation is substantial:
 
-Paired per-seed comparison, EvoClassNet minus baseline (median difference, Wilcoxon signed-rank), held-out-position split:
-
-| Task | vs mutation count | vs global epistasis | vs additive ridge | seeds |
+| Features | binding ρ | binding partial ρ | expression partial ρ | escape ρ |
 |---|---|---|---|---|
-| ACE2 binding | -0.022 (P = 0.275) | +0.704 (P = 0.00195) | +0.352 (P = 0.00195) | 10 |
-| Expression | -0.018 (P = 0.322) | +0.702 (P = 0.00195) | +0.329 (P = 0.00195) | 10 |
-| Antibody escape | +0.241 (P = 0.0273) | +0.241 (P = 0.0371) | +0.241 (P = 0.0273) | 10 |
+| Substitution count only (untrained) | +0.386 ± 0.047 | -0.000 ± 0.001 | +0.000 ± 0.001 | +0.000 ± 0.000 |
+| ESM-2 zero-shot only | +0.340 ± 0.067 | -0.004 ± 0.091 | -0.058 ± 0.097 | +0.108 ± 0.050 |
+| Residue chemistry only | +0.508 ± 0.046 | +0.371 ± 0.060 | +0.257 ± 0.091 | +0.340 ± 0.123 |
+| Structure only | +0.644 ± 0.075 | +0.554 ± 0.112 | +0.485 ± 0.101 | +0.470 ± 0.079 |
+| Structure, interface descriptors dropped | +0.615 ± 0.061 | +0.518 ± 0.095 | +0.477 ± 0.094 | +0.361 ± 0.148 |
+| Chemistry + structure | +0.706 ± 0.059 | +0.642 ± 0.085 | +0.494 ± 0.088 | +0.597 ± 0.071 |
+| Chemistry + structure + ESM-2 | +0.712 ± 0.051 | +0.650 ± 0.074 | +0.506 ± 0.082 | +0.600 ± 0.069 |
 
-## Main results
+Held-out-position split, 10 seeds. Escape has no partial column: every escape-labelled variant carries one substitution, so the confound is absent there by construction.
 
-Test Spearman ρ, mean ± SD over independent seeds (`results/table_main.csv` has Pearson and RMSE).
-
-**Split: random genotypes** (median test-set size: ACE2 binding 10,540, Antibody escape 202, Expression 11,641)
-
-| Model | ACE2 binding | Expression | Antibody escape |
-|---|---|---|---|
-| Mutation count (untrained) | 0.478 ± 0.006 | 0.390 ± 0.007 | 0.000 ± 0.000 |
-| Additive ridge | 0.874 ± 0.004 | 0.790 ± 0.003 | 0.000 ± 0.000 |
-| Global epistasis | 0.886 ± 0.004 | 0.799 ± 0.004 | 0.754 ± 0.025 |
-| EvoClassNet | 0.892 ± 0.008 | 0.855 ± 0.019 | 0.690 ± 0.104 |
-
-**Split: held-out positions** (median test-set size: ACE2 binding 1,386, Antibody escape 300, Expression 1,432)
-
-| Model | ACE2 binding | Expression | Antibody escape |
-|---|---|---|---|
-| Mutation count (untrained) | 0.386 ± 0.047 | 0.368 ± 0.049 | 0.000 ± 0.000 |
-| Additive ridge | 0.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 |
-| Global epistasis | -0.370 ± 0.042 | -0.354 ± 0.057 | 0.008 ± 0.016 |
-| EvoClassNet | 0.341 ± 0.118 | 0.323 ± 0.079 | 0.183 ± 0.200 |
+Two things to note. **Structure carries most of it** (+0.554 ± 0.112 partial for binding against +0.371 ± 0.060 for chemistry), and it is not an artefact of knowing the receptor interface: the two descriptors derived from the ACE2-bound complex mark exactly the contact residues, which is nearly circular for binding, and dropping them leaves +0.518 ± 0.095. **ESM-2 contributes nothing on this protein** — its raw +0.340 ± 0.067 is the substitution-count effect in full, with -0.004 ± 0.091 surviving the control.
 
 ## Run-to-run instability
 
-Holding the data partition fixed and varying only the weight-initialisation seed (`scripts/stability_check.py`):
+* partition seed 0, varying only the weight initialisation: +0.374, +0.423, +0.387  (range 0.050)
+* partition seed 2, varying only the weight initialisation: +0.236, +0.558, +0.385  (range 0.322)
 
-* partition seed 0: binding ρ = +0.374, +0.423, +0.387  (val loss 0.470, 0.422, 0.488)
-* partition seed 2: binding ρ = +0.236, +0.558, +0.385  (val loss 0.418, 0.365, 0.426)
-
-Spread across all 6 runs: +0.236 to +0.558. A single-run number on this split is not a measurement, which is why every table here reports seed-level distributions.
-
-## Amino-acid permutation ablation
-
-A per-position permutation of the 20-letter alphabet destroys residue identity shared across positions while leaving substitution counts untouched. If transfer to unseen positions were carried by chemistry, permuting should hurt.
-
-| Split | Task | Intact | Permuted | Δ |
-|---|---|---|---|---|
-| random | ACE2 binding | 0.890 ± 0.011 | 0.870 ± 0.054 | -0.02 |
-| random | Expression | 0.849 ± 0.026 | 0.808 ± 0.093 | -0.041 |
-| random | Antibody escape | 0.650 ± 0.135 | 0.553 ± 0.230 | -0.097 |
-| heldout_sites | ACE2 binding | 0.280 ± 0.118 | 0.260 ± 0.030 | -0.02 |
-| heldout_sites | Expression | 0.287 ± 0.070 | 0.223 ± 0.036 | -0.064 |
-| heldout_sites | Antibody escape | 0.161 ± 0.199 | 0.194 ± 0.306 | 0.033 |
-
-Read the Δ column against the seed-level SD in the same row, not on its own.
-
-## Leakage-free variant-of-concern ranking
-
-VOC-defining substitutions appear in the escape training data, so ranking them with a model that has seen them measures memorisation. Here each VOC substitution contributes only in the seeds where its position was withheld. 12 unique substitutions qualify; the n column counts position-seed instances, since a substitution scores once per seed in which its position was withheld:
-
-| Scorer | AUROC | 95% bootstrap CI | n positives |
-|---|---|---|---|
-| EvoClassNet predicted escape | 0.588 | 0.441–0.730 | 15 |
-| EvoClassNet predicted binding | 0.469 | 0.291–0.638 | 15 |
-| BLOSUM62 exchangeability | 0.718 | 0.602–0.820 | 15 |
-| Measured escape (held-out positions) | 0.749 | 0.636–0.856 | 14 |
-| Measured binding DMS (held-out positions) | 0.664 | 0.537–0.797 | 15 |
-
-Against a hand-crafted chemistry prior, per-position rank accuracy at withheld positions:
-
-| Task | Model median ρ | BLOSUM62 median ρ | Median Δ | P | n position–seed |
-|---|---|---|---|---|---|
-| bind | 0.181 | 0.538 | -0.269 | 1.54e-14 | 150 |
-| escape | 0.251 | -0.337 | +0.598 | 1.02e-15 | 98 |
-
-* **bind**: median per-position ρ +0.181, 76% of position–seed cells positive, ρ vs relative solvent accessibility -0.259 (P = 0.00168)
-* **escape**: median per-position ρ +0.251, 80% of position–seed cells positive, ρ vs relative solvent accessibility -0.098 (P = 0.351)
-
-## In-silico variant evolution (a control, not a forecast)
-
-A genetic algorithm maximises the trained model's own predicted phenotype from wild type. This is reported to show what naive optimisation of a learned fitness surface produces:
-
-* **escape**: top-1% of a 7,714-variant archive carries 0.000 VOC substitutions per variant vs 0.062 for random archive variants (permutation P = 1.000); 35% of its top-20 mutations sit in the terminal residues (≥ spike 512), where the yeast-display assay is least informative. Top mutations: T478F, K528H, K417H, T531R, L452Y, S477H
-* **escape_and_binding**: top-1% of a 7,744-variant archive carries 0.000 VOC substitutions per variant vs 0.034 for random archive variants (permutation P = 1.000); 20% of its top-20 mutations sit in the terminal residues (≥ spike 512), where the yeast-display assay is least informative. Top mutations: T376H, K386N, S373R, K386D, A363F, D428N
-
-No enrichment. The GA exploits assay artefacts, which is the expected failure mode and the reason this is a control rather than a result.
+Spread across all 6 runs: +0.236 to +0.558. A single run on this benchmark is not a measurement.
 
 ## Data
 
 | Source | Use |
 |---|---|
-| Starr et al. 2020, SARS-CoV-2 RBD yeast-display DMS (Wuhan-Hu-1, spike 331–531) | ACE2 binding and expression labels; barcodes sharing a genotype are collapsed to the mean so identical sequences cannot straddle a split |
-| Aggregated RBD antibody-escape maps (Bloom lab, 13 studies) | per-substitution escape labels, averaged over ≥ 20 monoclonal antibodies, log10 |
-| `RBD_sites.csv` structural annotations | relative solvent accessibility, evolutionary entropy, receptor-binding-motif membership |
+| Starr et al. 2020 RBD yeast-display DMS | binding and expression; barcodes sharing a genotype collapsed to the mean so one sequence cannot straddle a split |
+| Bloom lab aggregated RBD escape maps | per-substitution escape over ≥ 20 antibodies, log10; rows measured in a non-Wuhan background dropped, since those positions are exactly the VOC ones |
+| PDB 6M0J (RBD–ACE2 complex) | solvent accessibility bound and unbound, interface burial, distance to ACE2, contact number, burial, B-factor, contact graph |
+| UniProt P0DTC2 | full spike sequence, for scoring the RBD in its native context |
+| NCBI nucleotide | coronavirus genomes for the classification task |
+| facebook/esm2_t33_650M_UR50D | masked-marginal substitution scores and per-residue embeddings |
 
-Escape rows whose listed wild-type residue disagrees with the Wuhan-Hu-1 background are dropped (~1.5% of rows, measured in Omicron backgrounds, at exactly the VOC positions — keeping them would contaminate the VOC analysis).
+## What is still missing
 
-## What this study does not contain
-
-| Original draft claim | Status |
-|---|---|
-| 48,891 genomes, 5-species classification (NCBI/GISAID/ENA) | **Not run.** Those hosts are unreachable from this environment; GISAID additionally requires a data-access agreement. |
-| ESM-1b embeddings, GNN over PDB/AlphaFold structures | **Not run.** No GPU and no access to weights or structures. `EvoClassNetLite` keeps an `extra_dim` hook for precomputed per-residue features. |
-| 99.92% accuracy, 14.7% of GA variants later observed, 2.48M seq/h | **No supporting experiment exists.** These numbers were not reproduced and are not claimed anywhere in this repository. |
-
-Before submission this needs: real genomic data for the classification task, a GPU ablation against a protein language model and a structure-aware baseline, and more seeds on the held-out-position split.
+* One protein, one genetic background, two assay platforms. The evaluation lesson is general; that structure carries the transfer is shown only here.
+* The structural descriptors come from a solved complex. For a target without one they would have to be predicted, and that substitution is untested.
+* One language model at one size with one scoring scheme. Fine-tuning on viral sequences was not tried.
+* Hyper-parameters were tuned on random-split validation, which if anything understates the trained models at held-out positions.
+* The genome task is a demonstration that the lesson transfers, not a competitive classifier.
 
 ## Layout
 
 ```
 evoclassnet/data.py        genotype loading, encoding, both split protocols
-evoclassnet/escape.py      per-substitution escape labels + background filtering
+evoclassnet/escape.py      per-substitution escape labels and background filtering
+evoclassnet/structure.py   per-residue features and contact graph from PDB 6M0J
+evoclassnet/plm.py         ESM-2 masked marginals and per-residue embeddings
+evoclassnet/zoo.py         transferable feature block, untrained scorers, GNN
+evoclassnet/genomes.py     genome loading, k-mer features, species-aware splits
 evoclassnet/model.py       EvoClassNetLite, GlobalEpistasis, seeded build(), fit()
 evoclassnet/baselines.py   the mutation-count baseline
-evoclassnet/ga.py          GA hyper-parameter search and GA variant evolution
-scripts/run_study.py       main / sweep / ablation jobs, cached and restartable
-scripts/analyze.py         tables, paired tests, figures 1/2/4
-scripts/holdout_analysis.py  leakage-free VOC ranking, BLOSUM62 control, per-position transfer
-scripts/stability_check.py   partition fixed, init seed varied
-scripts/variant_analysis.py  GA variant evolution control
-scripts/build_docx.py      manuscript, generated from results/
-scripts/build_readme.py    this file, generated from results/
+evoclassnet/metrics.py     twelve-metric panel including the partial correlation
+evoclassnet/stats.py       TOST equivalence, FDR, bootstrap, Cliff's delta, mixed effects
+scripts/run_study2.py      eleven models x two splits, cached per run
+scripts/feature_ablation.py  which feature block carries the transfer
+scripts/analyze2.py        tables, statistics, figures
+scripts/make_schematics.py architecture figures drawn from the real configuration
+scripts/build_docx2.py     manuscript, generated from results/
+scripts/build_readme2.py   this file, generated from results/
 ```
 
 ## Reproduce
@@ -139,17 +76,3 @@ scripts/build_readme.py    this file, generated from results/
 ```bash
 ./run_all.sh
 ```
-
-Or step by step:
-
-```bash
-pip install -r requirements.txt
-python scripts/download_data.py
-python -m pytest tests -q
-python scripts/run_study.py --jobs main sweep ablation --seeds 10 --sweep_seeds 5 --workers 4
-python scripts/stability_check.py && python scripts/holdout_analysis.py
-python scripts/variant_analysis.py
-python scripts/analyze.py && python scripts/build_docx.py && python scripts/build_readme.py
-```
-
-The study in this repository is 50 cached runs (`results/jobs/`, one JSON per run; re-running skips completed jobs). Median wall time per random-split run: 38 min on 4 CPU cores.
