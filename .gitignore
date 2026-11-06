@@ -10,3 +10,4 @@ data/raw/structure/*.pdb
 data/plm/
 data/raw/genomes/*.fasta
 results/genome_kmer_k*.npy
+data/raw/proteingym/

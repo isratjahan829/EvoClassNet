@@ -1,0 +1,8 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+18:42:49 217 assays, 0 cached, 5 seeds, 2 workers
+18:42:56 [1/217] A0A140D2T1_ZIKV_Sourisseau_2019            heldout: count=+0.000 additive=+0.000 physchem=+0.290
+18:43:01 [2/217] A0A1I9GEU1_NEIME_Kennouche_2019            heldout: count=+0.000 additive=+0.000 physchem=+0.125
+18:43:06 [3/217] A0A247D711_LISMN_Stadelmann_2021           heldout: count=+0.000 additive=+0.000 physchem=+0.409
+18:43:07 [4/217] A0A192B1T2_9HIV1_Haddox_2018               heldout: count=+0.000 additive=+0.000 physchem=+0.397
+18:43:12 [5/217] A0A2Z5U3Z0_9INFA_Wu_2014                   heldout: count=+0.000 additive=+0.000 physchem=+0.278
+18:43:19 [6/217] A0A2Z5U3Z0_9INFA_Doud_2016                 heldout: count=+0.000 additive=+0.000 physchem=+0.394
