@@ -24,4 +24,5 @@ errs = sum(1 for c in nb.cells if c.cell_type == "code"
            for o in c.get("outputs", []) if o.get("output_type") == "error")
 print("notebook executed, error cells:", errs)
 PY
+python3 -u scripts/package_deliverables.py   > results/package_log.txt          2>&1
 echo CHAIN2_COMPLETE
