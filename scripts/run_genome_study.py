@@ -42,8 +42,13 @@ def scores(y, pred, proba=None, n_class=4):
     return out
 
 
-def cnn_fit_predict(seqs_tr, y_tr, seqs_te, seed, max_len=6000, epochs=12):
-    """Small 1D CNN over the nucleotide sequence, the genome-level analogue of EvoClassNet."""
+def cnn_fit_predict(seqs_tr, y_tr, seqs_te, seed, max_len=4000, epochs=10):
+    """Small 1D CNN over the nucleotide sequence, the genome-level analogue of EvoClassNet.
+
+    Genomes are truncated to the first `max_len` nucleotides, which keeps the run affordable on
+    CPU and covers the 5' end of ORF1ab. Truncation is applied identically to every class, so it
+    cannot favour one genus, but it does mean the CNN sees roughly an eighth of each genome.
+    """
     import torch
     import torch.nn as nn
     torch.manual_seed(seed); np.random.seed(seed)
@@ -136,8 +141,14 @@ if __name__ == "__main__":
     df = G.load()
     log(f"{len(df)} genomes, {df.species.nunique()} species, classes "
         + ", ".join(f"{g}={int((df.genus == g).sum())}" for g in G.GENERA))
-    log("building k-mer features")
-    Xk = G.kmer_features(df.seq.tolist(), k=a.k, log=log)
+    cache = OUT / f"genome_kmer_k{a.k}.npy"
+    if cache.exists():
+        Xk = np.load(cache)
+        log(f"loaded cached k-mer features {Xk.shape}")
+    else:
+        log("building k-mer features")
+        Xk = G.kmer_features(df.seq.tolist(), k=a.k, log=log)
+        np.save(cache, Xk)
     Xt = G.trivial_features(df)
     log(f"k-mer matrix {Xk.shape}")
 

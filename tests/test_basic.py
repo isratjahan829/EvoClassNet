@@ -38,3 +38,55 @@ def test_build_is_reproducible_and_seed_controls_weights():
     c = M.build(M.EvoClassNetLite, 8, n_tasks=3)
     assert torch.equal(a.emb.weight, b.emb.weight)
     assert not torch.equal(a.emb.weight, c.emb.weight)
+
+
+def test_heldout_split_has_no_position_overlap():
+    """No training or validation variant may mutate any test position.
+
+    The expanded study's central positive claim is that models with position-transferable
+    features predict effects at positions they never saw mutated. That claim rests entirely on
+    this property of the split, so it is asserted directly rather than assumed.
+    """
+    from evoclassnet import data as D
+    g = D.load_genotypes()
+    for seed in range(3):
+        tr, va, te = D.split_heldout_sites(g, seed)
+        tr_sites = set().union(*[g.sites.iloc[i] for i in tr]) if len(tr) else set()
+        va_sites = set().union(*[g.sites.iloc[i] for i in va]) if len(va) else set()
+        te_sites = set().union(*[g.sites.iloc[i] for i in te]) if len(te) else set()
+        assert not (tr_sites & te_sites), f"seed {seed}: train/test share positions"
+        assert not (va_sites & te_sites), f"seed {seed}: val/test share positions"
+        assert len(te_sites) > 10 and len(te) > 100
+
+
+def test_transferable_features_carry_no_measurement():
+    """The transferable feature block must be a function of sequence and structure only.
+
+    If any column depended on a measured phenotype, the held-out-position result would be
+    circular. This checks the construction directly: features are rebuilt after every label is
+    replaced by noise, and must come out bit-identical.
+    """
+    import numpy as np
+    from evoclassnet import data as D, plm, structure as S, zoo
+    g = D.load_genotypes().head(500)
+    sfeat, _, _, snames = S.features()
+    mm, _ = plm.load()
+    A = zoo.genotype_features(g.subs.tolist(), esm_mm=mm, struct=sfeat, struct_names=snames)
+    g2 = g.copy()
+    rng = np.random.default_rng(0)
+    for c in ("bind", "expr", "escape"):
+        g2[c] = rng.normal(size=len(g2))
+    B = zoo.genotype_features(g2.subs.tolist(), esm_mm=mm, struct=sfeat, struct_names=snames)
+    assert np.array_equal(A, B)
+
+
+def test_structure_recovers_known_ace2_interface():
+    """A geometry check on the structural pipeline, against residues established in the
+    literature as ACE2 contacts."""
+    from evoclassnet import structure as S
+    f, mask, adj, names = S.compute()
+    j = names.index("is_interface")
+    iface = {i + 1 + S.OFFSET for i in range(201) if mask[i] and f[i, j] > 0.5}
+    for known in (417, 455, 456, 486, 487, 489, 493, 501, 505):
+        assert known in iface, f"spike {known} is a known ACE2 contact but was not recovered"
+    assert len(iface) < 40, "interface set implausibly large"

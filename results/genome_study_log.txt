@@ -1,0 +1,8 @@
+17:32:37 806 genomes, 287 species, classes Alphacoronavirus=285, Betacoronavirus=371, Gammacoronavirus=71, Deltacoronavirus=79
+17:32:37 building k-mer features
+17:32:37   k-mers 0/806
+17:32:38   k-mers 200/806
+17:32:39   k-mers 400/806
+17:32:40   k-mers 600/806
+17:32:41   k-mers 800/806
+17:32:41 k-mer matrix (806, 1024)
