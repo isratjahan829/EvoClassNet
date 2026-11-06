@@ -34,6 +34,13 @@ directly rather than inferred from a baseline comparison.
 import argparse, json, os, sys, time, warnings
 from pathlib import Path
 
+# Must precede the numpy and sklearn imports: each worker is single-threaded so that the pool
+# size, not the BLAS library, decides how many cores are used. Without this the machine ends up
+# heavily oversubscribed and every job on it slows down.
+for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
+           "NUMEXPR_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"):
+    os.environ.setdefault(_v, "1")
+
 import numpy as np
 import pandas as pd
 from scipy import sparse
@@ -200,7 +207,6 @@ if __name__ == "__main__":
     ap.add_argument("--limit", type=int, default=0)
     a = ap.parse_args()
     JOBS.mkdir(parents=True, exist_ok=True)
-    os.environ.setdefault("OMP_NUM_THREADS", "1")
 
     ids = PG.assay_ids()
     if a.limit:
