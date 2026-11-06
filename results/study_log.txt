@@ -69,3 +69,4 @@
 10:23:52 [45/50] abl_perm_heldout_sites_s0 bind=-0.249 expr=0.032 esca=-0.313
 /home/user/EvoClassNet/scripts/run_study.py:33: NearConstantInputWarning: An input array is nearly constant; the computed correlation coefficient may be inaccurate.
   return dict(spearman=float(spearmanr(y[m], p[m])[0]), pearson=float(pearsonr(y[m], p[m])[0]),
+10:29:31 [46/50] abl_perm_heldout_sites_s2 bind=0.247 expr=-0.175 esca=-0.128
