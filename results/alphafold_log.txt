@@ -1,1 +1,5 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "/home/user/EvoClassNet/scripts/download_alphafold.py", line 92, in <module>
+    accs = sorted({a for a in ref.acc if a})
+TypeError: '<' not supported between instances of 'float' and 'str'

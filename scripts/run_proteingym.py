@@ -9,9 +9,17 @@ model families on both:
   physchem          ridge on position-transferable features: how the residue changes chemically,
                     its BLOSUM score, wild-type and mutant identity, and the substitution count.
                     Defined at a position the training set never touched.
-  ridge_additive    one-hot (position, residue) indicators. Has no parameter for an unseen
-                    position, and is the stand-in here for the whole family of position-indexed
-                    models that the RBD study examines in depth.
+  residue_only      ridge on wild-type and mutant residue identity alone, with no position
+                    information at all. The minimal transferable model.
+  position_mean     ridge on one-hot position indicators: the mean effect of mutating each
+                    position, learning nothing about which substitution is made. This is the
+                    cleanest representative of the position-indexed family, because it is
+                    exactly what a random split rewards and exactly what cannot survive a
+                    held-out-position split.
+  ridge_additive    one-hot (position, residue) indicators. On the many ProteinGym assays that
+                    contain only single mutants each indicator occurs in a single row, so the
+                    regularised fit collapses to the intercept even under a random split; that
+                    degenerate behaviour is itself worth recording.
 
 Both the raw and the partial Spearman correlation are recorded, the latter removing the
 substitution count from prediction and measurement so that position-level signal is measured
@@ -36,7 +44,8 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "results"
 JOBS = OUT / "pg_jobs"
 log = lambda *a: print(time.strftime("%H:%M:%S"), *a, flush=True)
-MODELS = ["mutation_count", "blosum_zeroshot", "physchem", "ridge_additive"]
+MODELS = ["mutation_count", "blosum_zeroshot", "residue_only", "physchem",
+          "position_mean", "ridge_additive"]
 
 
 def _nanmean(xs):
@@ -48,6 +57,27 @@ def _nanmean(xs):
     """
     v = [x for x in xs if x is not None and not np.isnan(x)]
     return float(np.mean(v)) if v else float("nan")
+
+
+def onehot_position(subs_list, L):
+    r, c = [], []
+    for i, s in enumerate(subs_list):
+        for _, p, _ in s:
+            r.append(i); c.append(p - 1)
+    return sparse.csr_matrix((np.ones(len(r)), (r, c)), shape=(len(subs_list), L))
+
+
+def residue_identity(subs_list):
+    """Wild-type and mutant residue indicators, summed over a genotype. No position information."""
+    X = np.zeros((len(subs_list), 41), dtype=np.float32)
+    for i, s in enumerate(subs_list):
+        for w, _, m in s:
+            if w in zoo.AA2I:
+                X[i, zoo.AA2I[w]] += 1
+            if m in zoo.AA2I:
+                X[i, 20 + zoo.AA2I[m]] += 1
+        X[i, 40] = len(s)
+    return X
 
 
 def onehot(subs_list, L):
@@ -67,7 +97,9 @@ def one_assay(dms_id, seeds, test_site_frac=0.2, max_variants=120_000):
     nsub = df.n_sub.to_numpy()
     subs = df.subs.tolist()
     F = zoo.genotype_features(subs)                  # chemistry only: no structure, no PLM
+    R = residue_identity(subs)
     S = onehot(subs, len(seq))
+    Pm = onehot_position(subs, len(seq))
     out = dict(dms_id=dms_id, n_variants=int(len(df)), seq_len=int(len(seq)),
                n_positions=int(len({p for s in df.sites for p in s})),
                frac_multi=float((nsub > 1).mean()), max_nsub=int(nsub.max()),
@@ -89,6 +121,10 @@ def one_assay(dms_id, seeds, test_site_frac=0.2, max_variants=120_000):
             sc = StandardScaler().fit(F[tr])
             preds["physchem"] = RidgeCV(alphas=np.logspace(-2, 3, 10)).fit(
                 sc.transform(F[tr]), y[tr]).predict(sc.transform(F[te]))
+            sr = StandardScaler().fit(R[tr])
+            preds["residue_only"] = RidgeCV(alphas=np.logspace(-2, 3, 10)).fit(
+                sr.transform(R[tr]), y[tr]).predict(sr.transform(R[te]))
+            preds["position_mean"] = Ridge(alpha=1.0).fit(Pm[tr], y[tr]).predict(Pm[te])
             preds["ridge_additive"] = Ridge(alpha=1.0).fit(S[tr], y[tr]).predict(S[te])
             for m, p in preds.items():
                 r = evaluate(y[te], np.asarray(p, float), nsub[te])
@@ -146,10 +182,11 @@ if __name__ == "__main__":
                 log(f"[{i}/{len(ids)}] {d} FAILED {r['error'][:70]}")
             else:
                 h = r["splits"].get("heldout_positions", {})
-                mc = h.get("mutation_count", {}).get("spearman", float("nan"))
-                pc = h.get("physchem", {}).get("spearman", float("nan"))
-                ra = h.get("ridge_additive", {}).get("spearman", float("nan"))
-                log(f"[{i}/{len(ids)}] {d[:42]:42s} heldout: count={mc:+.3f} "
-                    f"additive={ra:+.3f} physchem={pc:+.3f}")
+                rnd = r["splits"].get("random", {})
+                gv = lambda blk, m: blk.get(m, {}).get("spearman", float("nan"))
+                log(f"[{i}/{len(ids)}] {d[:38]:38s} "
+                    f"random: pos={gv(rnd,'position_mean'):+.3f} chem={gv(rnd,'physchem'):+.3f} | "
+                    f"heldout: pos={gv(h,'position_mean'):+.3f} res={gv(h,'residue_only'):+.3f} "
+                    f"chem={gv(h,'physchem'):+.3f}")
     json.dump(results, open(OUT / "proteingym_study.json", "w"), indent=1, default=float)
     log("saved results/proteingym_study.json")

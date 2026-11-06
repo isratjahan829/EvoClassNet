@@ -21,9 +21,23 @@
     "n_seeds": 5,
     "n_test": 185
    },
+   "residue_only": {
+    "spearman": 0.15901549927949118,
+    "spearman_sd": 0.09206444617974284,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 185
+   },
    "physchem": {
     "spearman": 0.16353362837885094,
     "spearman_sd": 0.0809213948433687,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 185
+   },
+   "position_mean": {
+    "spearman": 0.14292920949285623,
+    "spearman_sd": 0.010604854188522465,
     "partial": NaN,
     "n_seeds": 5,
     "n_test": 185
@@ -51,10 +65,24 @@
     "n_seeds": 5,
     "n_test": 187
    },
+   "residue_only": {
+    "spearman": 0.1144587282225259,
+    "spearman_sd": 0.06987995513575726,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 187
+   },
    "physchem": {
     "spearman": 0.1246353004058806,
     "spearman_sd": 0.06745252802979812,
     "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 187
+   },
+   "position_mean": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
     "n_seeds": 5,
     "n_test": 187
    },
@@ -67,5 +95,5 @@
    }
   }
  },
- "_seconds": 5.0
+ "_seconds": 7.6
 }
