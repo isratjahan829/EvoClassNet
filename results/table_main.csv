@@ -1,4 +1,7 @@
 split,model,task,seeds,n_test,spearman,pearson,rmse
+random,Mutation count (untrained),ACE2 binding,10,10540,0.478 ± 0.006,0.468 ± 0.005,n/a
+random,Mutation count (untrained),Expression,10,11641,0.390 ± 0.007,0.384 ± 0.007,n/a
+random,Mutation count (untrained),Antibody escape,10,202,0.000 ± 0.000,0.000 ± 0.000,n/a
 random,Additive ridge,ACE2 binding,10,10540,0.874 ± 0.004,0.805 ± 0.004,1.134 ± 0.011
 random,Additive ridge,Expression,10,11641,0.790 ± 0.003,0.728 ± 0.003,0.710 ± 0.005
 random,Additive ridge,Antibody escape,10,202,0.000 ± 0.000,0.000 ± 0.000,0.413 ± 0.013
@@ -8,6 +11,9 @@ random,Global epistasis,Antibody escape,10,202,0.754 ± 0.025,0.741 ± 0.028,0.3
 random,EvoClassNet,ACE2 binding,10,10540,0.892 ± 0.009,0.961 ± 0.020,0.527 ± 0.122
 random,EvoClassNet,Expression,10,11641,0.852 ± 0.025,0.893 ± 0.023,0.475 ± 0.077
 random,EvoClassNet,Antibody escape,10,202,0.693 ± 0.140,0.693 ± 0.122,0.294 ± 0.035
+heldout_sites,Mutation count (untrained),ACE2 binding,10,1386,0.386 ± 0.047,0.350 ± 0.044,n/a
+heldout_sites,Mutation count (untrained),Expression,10,1432,0.368 ± 0.049,0.367 ± 0.044,n/a
+heldout_sites,Mutation count (untrained),Antibody escape,10,300,0.000 ± 0.000,0.000 ± 0.000,n/a
 heldout_sites,Additive ridge,ACE2 binding,10,1386,0.000 ± 0.000,0.000 ± 0.000,2.017 ± 0.241
 heldout_sites,Additive ridge,Expression,10,1432,0.000 ± 0.000,0.000 ± 0.000,1.244 ± 0.080
 heldout_sites,Additive ridge,Antibody escape,10,300,0.000 ± 0.000,0.000 ± 0.000,0.420 ± 0.025

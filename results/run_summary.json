@@ -1,5 +1,5 @@
 {
- "n_runs": 25,
+ "n_runs": 50,
  "seeds_main": {
   "random": 10,
   "heldout_sites": 10

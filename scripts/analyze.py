@@ -7,8 +7,9 @@ import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 ROOT = Path(__file__).resolve().parents[1]; OUT = ROOT / "results"; JOBS = OUT / "jobs"; FIG = OUT / "figures"
 FIG.mkdir(exist_ok=True)
 TASKS = [("bind", "ACE2 binding"), ("expr", "Expression"), ("escape", "Antibody escape")]
-MODELS = [("ridge_additive", "Additive ridge"), ("global_epistasis", "Global epistasis"), ("evoclassnet", "EvoClassNet")]
-COL = {"ridge_additive": "#8a8a8a", "global_epistasis": "#4c78a8", "evoclassnet": "#d9541e"}
+MODELS = [("mutation_count", "Mutation count (untrained)"), ("ridge_additive", "Additive ridge"),
+          ("global_epistasis", "Global epistasis"), ("evoclassnet", "EvoClassNet")]
+COL = {"mutation_count": "#2e7d32", "ridge_additive": "#8a8a8a", "global_epistasis": "#4c78a8", "evoclassnet": "#d9541e"}
 plt.rcParams.update({"font.size": 9.5, "axes.spines.top": False, "axes.spines.right": False})
 
 
@@ -16,7 +17,38 @@ def load(prefix):
     out = {}
     for f in sorted(JOBS.glob(f"{prefix}*.json")):
         out[f.stem] = json.load(open(f))
-    return out
+    return add_mutation_count(out)
+
+
+_CACHE = {}
+
+
+def add_mutation_count(runs):
+    """Evaluate the untrained mutation-count baseline on exactly the same partitions."""
+    if not runs: return runs
+    import sys as _s; _s.path.insert(0, str(ROOT))
+    from scipy.stats import spearmanr, pearsonr
+    from evoclassnet import data as _d, baselines as _b
+    if "g" not in _CACHE:
+        g = _d.load_genotypes(); _CACHE["g"] = g
+        _CACHE["Y"] = g[["bind", "expr", "escape"]].to_numpy(float)
+        _CACHE["n"] = g.n_sub.to_numpy()
+    g, Y, nsub = _CACHE["g"], _CACHE["Y"], _CACHE["n"]
+    for name, r in runs.items():
+        if "mutation_count" in r: continue
+        seed = int(name.split("_s")[-1]); frac = r.get("_test_frac", 0.15)
+        if "random" in name: _, _, te = _d.split_random(g, seed)
+        else: _, _, te = _d.split_heldout_sites(g, seed, test_site_frac=frac, val_site_frac=0.10)
+        p = _b.mutation_count_scores(nsub[te]); out = {}
+        for i, t in enumerate(["bind", "expr", "escape"]):
+            m = ~np.isnan(Y[te, i])
+            if m.sum() < 3 or np.ptp(p[m]) < 1e-9:
+                out[t] = dict(spearman=0.0, pearson=0.0, rmse=float("nan"), n=int(m.sum()), constant=True)
+            else:
+                out[t] = dict(spearman=float(spearmanr(Y[te, i][m], p[m])[0]),
+                              pearson=float(pearsonr(Y[te, i][m], p[m])[0]), rmse=float("nan"), n=int(m.sum()))
+        r["mutation_count"] = out
+    return runs
 
 
 def series(runs, mdl, task, metric="spearman"):
@@ -56,11 +88,12 @@ main_df = pd.DataFrame(rows); main_df.to_csv(OUT / "table_main.csv", index=False
 rows = []
 for sp, runs in main.items():
     for t, tname in TASKS:
-        d, p, n = paired(runs, "evoclassnet", "global_epistasis", t)
-        d2, p2, _ = paired(runs, "evoclassnet", "ridge_additive", t)
-        rows.append(dict(split=sp, task=tname, n_seeds=n,
-                         vs_global_epistasis=f"{d:+.3f} (P = {p:.3g})" if not np.isnan(p) else f"{d:+.3f} (n/a)",
-                         vs_additive=f"{d2:+.3f} (P = {p2:.3g})" if not np.isnan(p2) else f"{d2:+.3f} (n/a)"))
+        cells = {}
+        for other, lab in (("global_epistasis", "vs_global_epistasis"), ("ridge_additive", "vs_additive"),
+                           ("mutation_count", "vs_mutation_count")):
+            d, p, n = paired(runs, "evoclassnet", other, t)
+            cells[lab] = f"{d:+.3f} (P = {p:.3g})" if not np.isnan(p) else f"{d:+.3f} (n/a)"
+        rows.append(dict(split=sp, task=tname, n_seeds=n, **cells))
 stat_df = pd.DataFrame(rows); stat_df.to_csv(OUT / "table_stats.csv", index=False)
 
 # ---------------- Table 4: amino-acid permutation ablation ----------------
@@ -76,14 +109,14 @@ abl_df = pd.DataFrame(rows); abl_df.to_csv(OUT / "table_ablation.csv", index=Fal
 # ---------------- Figures ----------------
 for sp, title, fn in (("random", "Random genotype split", "fig1_random_split.png"),
                       ("heldout_sites", "Held-out-site split (unseen positions)", "fig2_heldout_sites.png")):
-    runs = main[sp]; fig, ax = plt.subplots(figsize=(5.8, 3.3)); w = 0.26
+    runs = main[sp]; fig, ax = plt.subplots(figsize=(5.8, 3.3)); w = 0.21
     for j, (mdl, mname) in enumerate(MODELS):
         for ti, (t, tname) in enumerate(TASKS):
             v = series(runs, mdl, t)
             if not v: continue
-            ax.bar(ti + (j - 1) * w, np.mean(v), w, color=COL[mdl], label=mname if ti == 0 else None,
+            ax.bar(ti + (j - 1.5) * w, np.mean(v), w, color=COL[mdl], label=mname if ti == 0 else None,
                    yerr=np.std(v, ddof=1), capsize=2, error_kw=dict(lw=.8))
-            ax.scatter(np.full(len(v), ti + (j - 1) * w) + np.random.default_rng(0).normal(0, .02, len(v)), v, color="k", s=5, zorder=3)
+            ax.scatter(np.full(len(v), ti + (j - 1.5) * w) + np.random.default_rng(0).normal(0, .02, len(v)), v, color="k", s=5, zorder=3)
     ax.axhline(0, color="k", lw=.6); ax.set_xticks(range(len(TASKS))); ax.set_xticklabels([n for _, n in TASKS])
     ax.set_ylabel("Test Spearman ρ"); ax.set_title(title, fontsize=10); ax.legend(frameon=False, fontsize=8)
     fig.tight_layout(); fig.savefig(FIG / fn, dpi=220); plt.close(fig)
