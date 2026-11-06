@@ -1,0 +1,114 @@
+{
+ "dms_id": "AACC1_PSEAI_Dandage_2018",
+ "n_variants": 1801,
+ "seq_len": 177,
+ "n_positions": 161,
+ "frac_multi": 0.0,
+ "max_nsub": 1,
+ "has_structure": false,
+ "splits": {
+  "random": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 361
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.09989314606331431,
+    "spearman_sd": 0.05959120922078368,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 361
+   },
+   "residue_only": {
+    "spearman": 0.27569482274545554,
+    "spearman_sd": 0.024891231114863382,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 361
+   },
+   "physchem": {
+    "spearman": 0.28597797781483836,
+    "spearman_sd": 0.02597933931520213,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 361
+   },
+   "chem_struct": {
+    "spearman": NaN,
+    "spearman_sd": 0.0,
+    "partial": NaN,
+    "n_seeds": 0,
+    "n_test": 0
+   },
+   "position_mean": {
+    "spearman": 0.5887794850817133,
+    "spearman_sd": 0.023841634202364095,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 361
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 361
+   }
+  },
+  "heldout_positions": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 355
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.12178801621108944,
+    "spearman_sd": 0.020624981630181647,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 355
+   },
+   "residue_only": {
+    "spearman": 0.21364303127972892,
+    "spearman_sd": 0.08108317886605926,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 355
+   },
+   "physchem": {
+    "spearman": 0.23914937248535661,
+    "spearman_sd": 0.07580121097707371,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 355
+   },
+   "chem_struct": {
+    "spearman": NaN,
+    "spearman_sd": 0.0,
+    "partial": NaN,
+    "n_seeds": 0,
+    "n_test": 0
+   },
+   "position_mean": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 355
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 355
+   }
+  }
+ },
+ "_seconds": 8.4
+}

@@ -153,8 +153,9 @@ NSEED = SUM2.get("seeds", {}).get("heldout_sites", 10)
 
 # ================================================================= TITLE
 doc.add_heading(
-    "Position-level extrapolation in deep mutational scanning models is a property of the "
-    "representation, not of the data: structure transfers where sequence-indexed models cannot",
+    "What a held-out-position split measures: the apparent failure of deep mutational scanning "
+    "models to extrapolate across positions is a property of their representation, shown across "
+    "218 assays",
     0)
 P("[Author names and affiliations]", al=WD_ALIGN_PARAGRAPH.CENTER)
 
@@ -223,11 +224,31 @@ if len(GEN):
             f"can account for even when the models are genuinely good: under a held-out-species "
             f"split, genome length and base composition alone reach balanced accuracy "
             f"{g_triv.iloc[0].balanced_accuracy}, and {_verdict}.")
+PGT0 = C("table_proteingym.csv")
+if len(PGT0):
+    def _pg(split, model, col="median"):
+        r = PGT0[(PGT0.split == split) & (PGT0.model == model)]
+        return None if not len(r) else r.iloc[0][col]
+    _pm_r, _pm_h = _pg("Random split", "Position mean"), _pg("Held-out-position split", "Position mean")
+    _ch_r, _ch_h = _pg("Random split", "Chemistry ridge"), _pg("Held-out-position split", "Chemistry ridge")
+    _na = int(C("proteingym_per_assay.csv").dms_id.nunique()) if len(C("proteingym_per_assay.csv")) else 0
+    if None not in (_pm_r, _pm_h, _ch_r, _ch_h):
+        abs_bits.append(
+            f"Repeating the comparison over all {_na} substitution assays in ProteinGym shows "
+            f"this is a property of the benchmark and not of one protein. A model given only "
+            f"position indicators, which knows nothing about which substitution is made, has a "
+            f"median per-assay rho of {_pm_r} under a random split against {_ch_r} for a model "
+            f"given only the chemistry of the substitution; under a held-out-position split the "
+            f"first falls to {_pm_h}, which is an identity rather than a degradation, and the "
+            f"second retains {_ch_h}. The standard evaluation rewards memorising per-position "
+            f"means, and that capability is worth nothing at a position no experiment has probed.")
+
 abs_bits.append(
     "We conclude that a hard evaluation split is interpretable only against an untrained "
     "baseline computed on the same partition, that the apparent inability of sequence models to "
-    "extrapolate across positions is an artefact of how they index substitutions, and that "
-    "structural information is what makes such extrapolation possible here.")
+    "extrapolate across positions is an artefact of how they index substitutions rather than a "
+    "limit of the measurements, and that before a phenotype is called unpredictable at an unseen "
+    "position one should check whether the models tested hold any parameter that applies there.")
 P(" ".join(abs_bits))
 P("Keywords: deep mutational scanning; SARS-CoV-2; model evaluation; generalisation; baselines; "
   "protein structure; protein language models; variant effect prediction.", it=True)
@@ -741,9 +762,78 @@ if VA:
           f"samples of the same archive (permutation P = {v['perm_p']:.3f}). A learned fitness "
           f"surface is constrained only where it was fitted, and an optimiser leaves that region.")
 
-H("3.11 A second task: coronavirus genomes", 2)
+H("3.11 Does it hold across proteins? 217 ProteinGym assays", 2)
+PGT, PGC = C("table_proteingym.csv"), C("table_proteingym_comparisons.csv")
+PGA, PGCONF = C("proteingym_per_assay.csv"), J("proteingym_confound.json")
+if len(PGT):
+    n_assay = int(PGA.dms_id.nunique()) if len(PGA) else 0
+    P(f"Everything above concerns one protein. To ask whether it is a property of the benchmark "
+      f"rather than of the receptor-binding domain, the same comparison was run over every "
+      f"substitution assay in ProteinGym v1.3: {n_assay} assays spanning organismal fitness, "
+      f"stability, activity, expression and binding. Two baselines are added that make the "
+      f"decomposition unambiguous. A position-mean model is a ridge regression on position "
+      f"indicators alone: it knows which position a variant mutates and nothing whatever about "
+      f"which substitution is made. A residue-identity model is its mirror image, knowing the "
+      f"wild-type and mutant residue and nothing about position.")
+    table(PGT, "Table 9. ProteinGym: distribution of per-assay Spearman ρ by model family and "
+          "split. Each assay contributes one value, averaged over seeds.",
+          cols=["split", "family", "model", "n_assays", "median", "mean", "q25", "q75",
+                "frac_above_0_2", "frac_at_zero"],
+          rename={"split": "Split", "family": "Family", "model": "Model",
+                  "n_assays": "Assays", "median": "Median ρ", "mean": "Mean ρ",
+                  "q25": "Q1", "q75": "Q3", "frac_above_0_2": "Frac ρ > 0.2",
+                  "frac_at_zero": "Frac ρ = 0"})
+    def pgv(split, model, col="median"):
+        r = PGT[(PGT.split == split) & (PGT.model == model)]
+        return None if not len(r) else r.iloc[0][col]
+    pm_r, pm_h = pgv("Random split", "Position mean"), pgv("Held-out-position split", "Position mean")
+    ch_r, ch_h = pgv("Random split", "Chemistry ridge"), pgv("Held-out-position split", "Chemistry ridge")
+    if pm_r is not None and pm_h is not None:
+        P(f"The result is the paper's argument in two numbers, repeated across the benchmark. "
+          f"Under a random split the position-mean model reaches a median ρ of {pm_r} across "
+          f"assays, against {ch_r} for the chemistry model: knowing only which position is "
+          f"mutated beats knowing only how the residue changes. Under the held-out-position "
+          f"split the position-mean model falls to {pm_h}, which is not a degradation but an "
+          f"identity — it has no parameter for a position it never saw — while the chemistry "
+          f"model retains {ch_h}. A random split rewards memorising per-position means, and that "
+          f"capability is worth exactly nothing at a position no experiment has probed.")
+    if PGCONF:
+        P(f"The mutation-count confound, which dominates the receptor-binding-domain analysis, "
+          f"is largely absent here and that is worth stating plainly: "
+          f"{PGCONF.get('n_with_multi_mutants', 0)} of {PGCONF.get('n_assays', 0)} assays contain "
+          f"any multi-substitution variant at all. On the rest the baseline is constant, the "
+          f"partial correlation is undefined, and the raw rank correlation is already free of the "
+          f"confound. The separation between representations therefore does not depend on the "
+          f"confound existing; it is simply cleaner to see where it does not.")
+    if len(PGC):
+        sel = PGC[(PGC.split == "Held-out-position split") & (PGC.reference == "Position mean")]
+        table(sel, "Table 10. ProteinGym, held-out-position split: each model against the "
+              "position-mean model, paired with the assay as the unit of analysis.",
+              cols=["model", "n_assays", "median_diff", "ci_lo", "ci_hi", "p_fdr",
+                    "frac_model_better", "cliffs_delta", "effect"],
+              rename={"model": "Model", "n_assays": "Assays", "median_diff": "Median Δρ",
+                      "ci_lo": "CI low", "ci_hi": "CI high", "p_fdr": "P (FDR)",
+                      "frac_model_better": "Frac assays better", "cliffs_delta": "Cliff's δ",
+                      "effect": "Effect"})
+    cs_h = pgv("Held-out-position split", "Chemistry + structure")
+    if cs_h is not None and ch_h is not None:
+        n_struct = int(PGA[PGA.split == "heldout_positions"].chem_struct.notna().sum()) if "chem_struct" in PGA.columns else 0
+        P(f"The structural arm generalises less cleanly than the RBD analysis alone would "
+          f"suggest, and the honest summary is a qualified one. AlphaFold models were obtained "
+          f"for the proteins behind {n_struct} of the assays; adding their per-residue "
+          f"descriptors to the chemistry block moves the median held-out-position ρ from "
+          f"{ch_h} to {cs_h}. Predicted monomers cannot supply the descriptors that carry most "
+          f"of the signal in the receptor-binding domain, where the structure is a crystal of the "
+          f"bound complex, so this is a weaker instrument than the one used in Section 3.4 "
+          f"rather than a refutation of it.")
+fig("fig9_proteingym.png", "Figure 7. ProteinGym: distribution of per-assay Spearman ρ for each "
+    "model family under both evaluation designs. Each point is one assay.", 6.8)
+fig("fig10_proteingym_scatter.png", "Figure 8. The position-mean model against the chemistry "
+    "model, per assay. Which one wins is decided entirely by the split.", 6.0)
+
+H("3.12 A second data type: coronavirus genomes", 2)
 if len(GEN):
-    table(GEN, "Table 9. Coronavirus genus classification under both splits, mean ± SD across "
+    table(GEN, "Table 11. Coronavirus genus classification under both splits, mean ± SD across "
           "seeds.",
           cols=["split", "family", "model", "seeds", "accuracy", "balanced_accuracy", "macro_f1",
                 "weighted_f1", "mcc"] + [c for c in GEN.columns if c.startswith("f1_")],
@@ -764,7 +854,7 @@ if len(GEN):
               f"{d[d.model == 'Majority class'].iloc[0].balanced_accuracy} for the majority "
               f"class.")
 if len(GENC):
-    table(GENC, "Table 10. Sequence models against the untrained length-and-composition control, "
+    table(GENC, "Table 12. Sequence models against the untrained length-and-composition control, "
           "paired over seeds.",
           cols=["split", "model", "reference", "n_seeds", "median_diff", "ci_lo", "ci_hi",
                 "p_fdr", "tost_p", "equivalent", "cliffs_delta"],
@@ -772,9 +862,9 @@ if len(GENC):
                   "n_seeds": "Seeds", "median_diff": "Median Δ", "ci_lo": "CI low",
                   "ci_hi": "CI high", "p_fdr": "P (FDR)", "tost_p": "TOST P",
                   "equivalent": "Equivalent", "cliffs_delta": "Cliff's δ"})
-fig("fig6_genomes.png", "Figure 4. Balanced accuracy on coronavirus genus classification under "
+fig("fig6_genomes.png", "Figure 9. Balanced accuracy on coronavirus genus classification under "
     "both splits. The dotted line is chance for four classes.", 6.4)
-fig("fig7_genome_confusion.png", "Figure 5. Confusion matrices under the held-out-species split, "
+fig("fig7_genome_confusion.png", "Figure 10. Confusion matrices under the held-out-species split, "
     "pooled over seeds and row-normalised.", 6.4)
 P("The original project proposal reported this task as a five-way classification at 99.92 % "
   "accuracy, with no baseline. The lesson here is not that such a number must be wrong, but that "
