@@ -1,4 +1,4 @@
-# EvoClassNet — what a held-out-position split actually measures
+# What a held-out-position split actually measures
 
 Every number here is read out of `results/` by `scripts/build_readme2.py`.
 
@@ -37,6 +37,27 @@ A narrower question separates two components. Within a *single* withheld positio
 For binding and expression the model matches an **untrained substitution matrix** (+0.533 against +0.528, P = 0.407): within a position, the ordering is chemistry and needs no model. The model's real advantage is in telling **which positions** tolerate substitution at all, and that is what the structural descriptors supply — a position-independent matrix cannot.
 
 Escape runs the other way. BLOSUM62 is not merely uninformative there but anti-correlated (-0.350), because the substitutions that abolish antibody binding are not the chemically radical ones, while the model reaches +0.570 (difference +0.869, P = 8.65e-30). That within-position ordering is genuinely learned.
+
+## Second task: coronavirus genus classification
+
+806 complete genomes from 287 species across four genera, pulled from NCBI. SARS-CoV-2 is excluded from Betacoronavirus: with millions of deposited genomes against hundreds for whole genera, it would make the class a measure of one outbreak's sequencing effort. The same question is asked — a random split against a held-out-species split, with an untrained control.
+
+| Split | Family | Model | Seeds | Accuracy | Balanced acc. | Macro F1 | MCC |
+|---|---|---|---|---|---|---|---|
+| random | untrained | Majority class | 10 | 0.457 ± 0.044 | 0.250 ± 0.000 | 0.157 ± 0.010 | 0.000 ± 0.000 |
+| random | trivial | Genome length + base composition | 10 | 0.950 ± 0.010 | 0.953 ± 0.015 | 0.941 ± 0.016 | 0.924 ± 0.016 |
+| random | sequence | 5-mer + logistic regression | 10 | 1.000 ± 0.000 | 1.000 ± 0.000 | 1.000 ± 0.000 | 1.000 ± 0.000 |
+| random | sequence | 5-mer + random forest | 10 | 0.997 ± 0.006 | 0.993 ± 0.013 | 0.995 ± 0.009 | 0.995 ± 0.009 |
+| random | sequence | 5-mer + gradient boosting | 10 | 0.998 ± 0.004 | 0.995 ± 0.009 | 0.997 ± 0.006 | 0.996 ± 0.006 |
+| random | sequence | 1D CNN on nucleotides | 10 | 0.990 ± 0.015 | 0.992 ± 0.009 | 0.992 ± 0.010 | 0.985 ± 0.022 |
+| heldout_species | untrained | Majority class | 10 | 0.497 ± 0.077 | 0.250 ± 0.000 | 0.165 ± 0.017 | 0.000 ± 0.000 |
+| heldout_species | trivial | Genome length + base composition | 10 | 0.894 ± 0.044 | 0.914 ± 0.037 | 0.891 ± 0.038 | 0.843 ± 0.062 |
+| heldout_species | sequence | 5-mer + logistic regression | 10 | 0.999 ± 0.003 | 0.998 ± 0.004 | 0.997 ± 0.007 | 0.998 ± 0.005 |
+| heldout_species | sequence | 5-mer + random forest | 10 | 0.969 ± 0.038 | 0.962 ± 0.034 | 0.968 ± 0.031 | 0.953 ± 0.053 |
+| heldout_species | sequence | 5-mer + gradient boosting | 10 | 0.986 ± 0.017 | 0.976 ± 0.026 | 0.982 ± 0.021 | 0.978 ± 0.026 |
+| heldout_species | sequence | 1D CNN on nucleotides | 10 | 0.986 ± 0.018 | 0.988 ± 0.017 | 0.985 ± 0.019 | 0.978 ± 0.026 |
+
+Genome length and base composition need no training and no sequence model. They are the score any reported accuracy on this task has to be read against.
 
 ## Run-to-run instability
 

@@ -15,6 +15,8 @@ GEN, GENC = C("table_genomes.csv"), C("table_genome_comparisons.csv")
 FEAT, HO, STAB = J("feature_ablation.json"), J("holdout_analysis.json"), J("stability_check.json")
 ESMC, SUM2 = J("esm_control.json"), J("run_summary_v2.json")
 TBP = J("transfer_by_position.json")
+PGT, PGA = C("table_proteingym.csv"), C("proteingym_per_assay.csv")
+PGC, PGCONF = C("table_proteingym_comparisons.csv"), J("proteingym_confound.json")
 GMETA = J("genome_study.json").get("meta", {})
 
 L = []
@@ -46,7 +48,7 @@ def pv(split, task, model, metric="spearman"):
     return None if not len(s) else s.iloc[0].get(metric)
 
 
-w("# EvoClassNet — what a held-out-position split actually measures")
+w("# What a held-out-position split actually measures")
 w("")
 w("Every number here is read out of `results/` by `scripts/build_readme2.py`.")
 w("")
@@ -110,6 +112,47 @@ if ESMC:
       f"{rs.get('recovery', float('nan')):.1%} on the same positions inside the full spike "
       f"protein, with no weights missing at load time.")
     w("")
+
+if len(PGT):
+    n_assay = int(PGA.dms_id.nunique()) if len(PGA) else 0
+    w(f"## It is not one protein: {n_assay} ProteinGym assays")
+    w("")
+    w("Two baselines make the point unambiguous. A **position-mean** model is a ridge regression "
+      "on position indicators alone — it knows which position a variant mutates and nothing at "
+      "all about which substitution is made. A **residue-identity** model is its mirror image.")
+    w("")
+    md(PGT, ["split", "family", "model", "n_assays", "median", "q25", "q75", "frac_above_0_2",
+             "frac_at_zero"],
+       ["Split", "Family", "Model", "Assays", "Median ρ", "Q1", "Q3", "Frac ρ>0.2", "Frac ρ=0"])
+    def pgv(split, model, col="median"):
+        r = PGT[(PGT.split == split) & (PGT.model == model)]
+        return None if not len(r) else r.iloc[0][col]
+    pm_r, pm_h = pgv("Random split", "Position mean"), pgv("Held-out-position split", "Position mean")
+    ch_r, ch_h = pgv("Random split", "Chemistry ridge"), pgv("Held-out-position split", "Chemistry ridge")
+    if None not in (pm_r, pm_h, ch_r, ch_h):
+        w(f"Under a **random split** the position-mean model has a median per-assay ρ of "
+          f"**{pm_r}**, against {ch_r} for chemistry: knowing only *where* beats knowing only "
+          f"*what*. Under the **held-out-position split** it falls to **{pm_h}** — not a "
+          f"degradation but an identity, since it holds no parameter for a position it never "
+          f"saw — while chemistry retains {ch_h}.")
+        w("")
+        w("The standard evaluation rewards memorising per-position means. That capability is "
+          "worth exactly nothing at a position no experiment has probed.")
+        w("")
+    if PGCONF:
+        w(f"Worth noting: the mutation-count confound that dominates the RBD analysis is mostly "
+          f"*absent* here — only {PGCONF.get('n_with_multi_mutants',0)} of "
+          f"{PGCONF.get('n_assays',0)} assays contain any multi-substitution variant. So the "
+          f"separation between representations does not depend on the confound existing.")
+        w("")
+    cs_h = pgv("Held-out-position split", "Chemistry + structure")
+    if cs_h is not None and ch_h is not None:
+        n_s = int(PGA[PGA.split == "heldout_positions"].chem_struct.notna().sum()) if "chem_struct" in PGA.columns else 0
+        w(f"AlphaFold models were obtained for {n_s} of the assays. Adding their per-residue "
+          f"descriptors moves the median held-out-position ρ from {ch_h} to **{cs_h}**. This is "
+          f"a weaker instrument than the RBD analysis, where the structure is a crystal of the "
+          f"bound complex and supplies descriptors a predicted monomer cannot.")
+        w("")
 
 if TBP:
     w("## Where the transfer comes from: positions, not substitutions")
