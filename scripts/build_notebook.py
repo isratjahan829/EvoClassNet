@@ -233,6 +233,45 @@ if len(Cm):
                  "frac_model_better","effect"]])
 """))
 
+cells.append(md("""## 7a. Auditing the published leaderboard with a position-only control
+
+`scripts/position_only_audit.py`. ProteinGym publishes per-assay Spearman correlations for eleven
+supervised models under each cross-validation scheme. This compares those published numbers,
+assay by assay, against a ridge regression told only *which position* a variant mutates.
+
+A model that cannot distinguish an alanine from a tryptophan should not be competitive on a
+benchmark of substitution effects.
+"""))
+cells.append(code("""
+A = C("table_position_only_audit.csv")
+if len(A):
+    for sch in ("Random split", "fold_modulo_5"):
+        d = A[A.scheme == sch].sort_values("frac_assays_model_beats_position_only")
+        if not len(d): continue
+        print(f"--- {sch}")
+        display(d[["model","n_assays","model_median","position_only_median","median_margin",
+                   "frac_assays_model_beats_position_only","n_assays_not_beaten"]])
+    print(json.dumps(J("position_only_audit.json"), indent=1))
+else:
+    print("run scripts/position_only_audit.py")
+"""))
+cells.append(code("""show("fig12_position_only_audit.png", 950)"""))
+cells.append(md("""Under the random split the position-only baseline is not beaten by six of the
+eleven published models. Under `fold_modulo_5` it is identically zero and every model clears it.
+The models are not weak; the conventional protocol does not show what separates them.
+
+Two caveats, stated in the manuscript: ProteinGym's own random-fold assignments are not
+distributed, so an independent 80/20 split over five seeds stands in, and a position-only model
+is favoured where each position carries many measured substitutions. Neither affects the
+position-based comparisons, where the baseline is zero by construction."""))
+cells.append(code("""
+L = C("table_leaderboard_pivot.csv")
+if len(L):
+    print("This study's baselines on the published leaderboard's axes:")
+    display(L)
+show("fig11_leaderboard.png", 900)
+"""))
+
 cells.append(md("""## 8. A second data type: coronavirus genome classification
 
 `scripts/run_genome_study.py`. Genus classification of coronavirus genomes from NCBI, with the
