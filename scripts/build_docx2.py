@@ -296,6 +296,10 @@ if _res:
       ", ".join(str(s) for s in _iface) + ", which is the ACE2 contact set reported in the "
       f"structural literature. Every one of these quantities is a property of the folded protein "
       f"and is available for a position whether or not it was ever assayed.")
+fig("schema4_structure_gnn.png",
+    "Figure M1. Structural pipeline and residue contact graph from PDB 6M0J. Descriptor names, "
+    "edge count, mean degree and the recovered interface set are read from the computed features, "
+    "not written by hand.", 6.6)
 
 H("2.3 Protein language model", 2)
 try:
@@ -326,6 +330,10 @@ if ESMC:
       f"{rf.get('median_top_prob', float('nan')):.3f} and "
       f"{rs.get('median_top_prob', float('nan')):.3f} respectively.")
 
+fig("schema3_plm.png",
+    "Figure M2. ESM-2 enters the study twice: as an untrained zero-shot scorer, and as "
+    "per-position features for the supervised network.", 6.6)
+
 H("2.4 Evaluation designs", 2)
 P("Random split. Genotypes are divided 80/10/10 % into training, validation and test sets.")
 P("Held-out-position split. The 201 positions are partitioned at random into training (75 %), "
@@ -336,6 +344,10 @@ P("Held-out-position split. The 201 positions are partitioned at random into tra
   "and 50 % of positions withheld. Both designs were run over "
   f"{NSEED} seeds, and all models within a seed see the identical partition, so every model "
   "comparison is paired.")
+
+fig("schema1_design.png",
+    "Figure M3. The two evaluation designs, and the untrained controls evaluated on the identical "
+    "partitions.", 6.6)
 
 H("2.5 Models", 2)
 P("Three untrained scorers. Mutation count ranks by the negative number of substitutions. "
@@ -368,6 +380,10 @@ P("Hyper-parameters were selected by a genetic algorithm maximising mean validat
   "a random-split validation set; test data were never used for selection. Optimisation used "
   "AdamW [5] with a one-cycle schedule, batch size 256, up to 8 epochs with early stopping, "
   "gradient clipping at global norm 1.0. All experiments ran on four CPU cores.")
+
+fig("schema2_backbone.png",
+    "Figure M4. EvoClassNet backbone. Channel counts, kernel sizes, pooling, hidden widths and "
+    "the parameter count are read from the trained configuration.", 6.8)
 
 H("2.6 Metrics", 2)
 P("The primary metric is Spearman's ρ on the test partition, computed per task over genotypes "
@@ -408,6 +424,9 @@ if GMETA:
       f"base composition. The split is either random or by species, the latter placing every "
       f"genome of a species on one side only, which is the genome-level analogue of withholding "
       f"positions.")
+    fig("schema5_genome_task.png",
+        "Figure M5. The genome classification design, with class sizes and the untrained "
+        "controls.", 6.6)
 
 # ================================================================= RESULTS
 H("3. Results")
