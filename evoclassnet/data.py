@@ -32,7 +32,7 @@ def parse_subs(s):
     return out
 
 
-def load_genotypes(min_barcodes=1):
+def load_genotypes(min_barcodes=1, with_escape=True, min_ab=20):
     """One row per unique amino-acid genotype with mean binding / expression."""
     wt, _ = wildtype()
     b = pd.read_csv(RAW / "binding_Kds.csv", usecols=["library", "barcode", "aa_substitutions", "delta_log10Ka", "variant_class"])
@@ -52,6 +52,12 @@ def load_genotypes(min_barcodes=1):
             assert wt[p - 1] == w, (w, p, wt[p - 1])
     g["n_sub"] = g.subs.map(len)
     g["sites"] = g.subs.map(lambda s: frozenset(p for _, p, _ in s))
+    if with_escape:
+        # Escape is measured for single substitutions only, so only single-substitution
+        # genotypes carry a label; everything else stays NaN and is masked out of that task.
+        from .escape import escape_lookup
+        L = escape_lookup(min_ab)
+        g["escape"] = [L.get(s[0], np.nan) if len(s) == 1 else np.nan for s in g.subs]
     return g.reset_index(drop=True)
 
 
@@ -72,13 +78,13 @@ def split_random(g, seed, frac=(0.8, 0.1, 0.1)):
     return idx[:a], idx[a:b], idx[b:]
 
 
-def split_heldout_sites(g, seed, test_site_frac=0.15, val_site_frac=0.10):
+def split_heldout_sites(g, seed, test_site_frac=0.15, val_site_frac=0.10, n_sites=201):
     """Strict generalisation split: test variants only touch held-out sites; no training
     variant mutates a held-out site (neither test nor validation sites). Variants spanning
     both held-out and training sites are discarded."""
     rng = np.random.default_rng(seed)
-    sites = np.arange(1, 202); rng.shuffle(sites)
-    nt, nv = int(test_site_frac * 201), int(val_site_frac * 201)
+    sites = np.arange(1, n_sites + 1); rng.shuffle(sites)
+    nt, nv = int(test_site_frac * n_sites), int(val_site_frac * n_sites)
     test_s, val_s, train_s = set(sites[:nt]), set(sites[nt:nt + nv]), set(sites[nt + nv:])
     tr, va, te = [], [], []
     for i, s in enumerate(g.sites):

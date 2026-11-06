@@ -65,8 +65,8 @@ class GlobalEpistasis(nn.Module):
     def __init__(self, n_tasks=2, L=201):
         super().__init__()
         self.eff = nn.Parameter(torch.zeros(n_tasks, L, 20))
-        self.lo = nn.Parameter(torch.full((n_tasks,), -4.0))
-        self.span = nn.Parameter(torch.full((n_tasks,), 4.0))
+        self.lo = nn.Parameter(torch.full((n_tasks,), -5.0))
+        self.span = nn.Parameter(torch.full((n_tasks,), 6.0))
         self.log_var = nn.Parameter(torch.zeros(n_tasks))
 
     def forward(self, x, extra=None):

@@ -3,3 +3,5 @@ __pycache__/
 data/raw/bloom_rbd_dms/binding_Kds.csv
 data/raw/bloom_rbd_dms/expression_meanFs.csv
 data/raw/bloom_rbd_dms/codon_variant_table.csv
+data/raw/bloom_escape/escape_data.csv
+results/jobs/
