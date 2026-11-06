@@ -14,6 +14,7 @@ PANEL, COMPAR = C("table_panel.csv"), C("table_comparisons.csv")
 GEN, GENC = C("table_genomes.csv"), C("table_genome_comparisons.csv")
 FEAT, HO, STAB = J("feature_ablation.json"), J("holdout_analysis.json"), J("stability_check.json")
 ESMC, SUM2 = J("esm_control.json"), J("run_summary_v2.json")
+TBP = J("transfer_by_position.json")
 GMETA = J("genome_study.json").get("meta", {})
 
 L = []
@@ -109,6 +110,42 @@ if ESMC:
       f"{rs.get('recovery', float('nan')):.1%} on the same positions inside the full spike "
       f"protein, with no weights missing at load time.")
     w("")
+
+if TBP:
+    w("## Where the transfer comes from: positions, not substitutions")
+    w("")
+    w("A narrower question separates two components. Within a *single* withheld position, can the "
+      "model order the nineteen substitutions available there?")
+    w("")
+    rows = []
+    for t, tn in (("bind", "ACE2 binding"), ("expr", "Expression"), ("escape", "Antibody escape")):
+        v = TBP.get(t)
+        if not v:
+            continue
+        vb, me = v["vs_blosum"], v["mixed_effects"]
+        rows.append({"Phenotype": tn, "Model median ρ": f"{v['median_rho']:+.3f}",
+                     "% positive": f"{100*v['frac_positive']:.0f}",
+                     "BLOSUM62 median ρ": f"{vb['blosum_median']:+.3f}",
+                     "Difference": f"{vb['median_diff']:+.3f}",
+                     "P": f"{vb['p']:.3g}",
+                     "n position–seed": vb["n"]})
+    md(pd.DataFrame(rows), ["Phenotype", "Model median ρ", "% positive", "BLOSUM62 median ρ",
+                            "Difference", "P", "n position–seed"])
+    b, e = TBP.get("bind", {}), TBP.get("escape", {})
+    if b and e:
+        w(f"For binding and expression the model matches an **untrained substitution matrix** "
+          f"({b['median_rho']:+.3f} against {b['vs_blosum']['blosum_median']:+.3f}, "
+          f"P = {b['vs_blosum']['p']:.3g}): within a position, the ordering is chemistry and "
+          f"needs no model. The model's real advantage is in telling **which positions** tolerate "
+          f"substitution at all, and that is what the structural descriptors supply — a "
+          f"position-independent matrix cannot.")
+        w("")
+        w(f"Escape runs the other way. BLOSUM62 is not merely uninformative there but "
+          f"anti-correlated ({e['vs_blosum']['blosum_median']:+.3f}), because the substitutions "
+          f"that abolish antibody binding are not the chemically radical ones, while the model "
+          f"reaches {e['median_rho']:+.3f} (difference {e['vs_blosum']['median_diff']:+.3f}, "
+          f"P = {e['vs_blosum']['p']:.3g}). That within-position ordering is genuinely learned.")
+        w("")
 
 if len(PANEL):
     w("## Full metric panel")

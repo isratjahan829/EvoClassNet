@@ -24,6 +24,20 @@ Held-out-position split, 10 seeds. Escape has no partial column: every escape-la
 
 Two things to note. **Structure carries most of it** (+0.554 ± 0.112 partial for binding against +0.371 ± 0.060 for chemistry), and it is not an artefact of knowing the receptor interface: the two descriptors derived from the ACE2-bound complex mark exactly the contact residues, which is nearly circular for binding, and dropping them leaves +0.518 ± 0.095. **ESM-2 contributes nothing on this protein** — its raw +0.340 ± 0.067 is the substitution-count effect in full, with -0.004 ± 0.091 surviving the control.
 
+## Where the transfer comes from: positions, not substitutions
+
+A narrower question separates two components. Within a *single* withheld position, can the model order the nineteen substitutions available there?
+
+| Phenotype | Model median ρ | % positive | BLOSUM62 median ρ | Difference | P | n position–seed |
+|---|---|---|---|---|---|---|
+| ACE2 binding | +0.533 | 92 | +0.528 | +0.005 | 0.407 | 300 |
+| Expression | +0.510 | 90 | +0.561 | +0.003 | 0.926 | 300 |
+| Antibody escape | +0.570 | 96 | -0.350 | +0.869 | 8.65e-30 | 178 |
+
+For binding and expression the model matches an **untrained substitution matrix** (+0.533 against +0.528, P = 0.407): within a position, the ordering is chemistry and needs no model. The model's real advantage is in telling **which positions** tolerate substitution at all, and that is what the structural descriptors supply — a position-independent matrix cannot.
+
+Escape runs the other way. BLOSUM62 is not merely uninformative there but anti-correlated (-0.350), because the substitutions that abolish antibody binding are not the chemically radical ones, while the model reaches +0.570 (difference +0.869, P = 8.65e-30). That within-position ordering is genuinely learned.
+
 ## Run-to-run instability
 
 * partition seed 0, varying only the weight initialisation: +0.374, +0.423, +0.387  (range 0.050)
