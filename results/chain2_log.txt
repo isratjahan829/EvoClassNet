@@ -1,50 +1,8 @@
 + cd /home/user/EvoClassNet
 + export HF_HUB_DISABLE_XET=1
 + HF_HUB_DISABLE_XET=1
-+ for proc in run_study2.py run_genome_study.py esm_control.py run_proteingym.py download_alphafold.py
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
-+ sleep 60
-+ pgrep -f run_study2.py
++ for proc in run_genome_study.py esm_control.py run_proteingym.py download_alphafold.py
++ pgrep -f run_genome_study.py
++ for proc in run_genome_study.py esm_control.py run_proteingym.py download_alphafold.py
++ pgrep -f esm_control.py
 + sleep 60

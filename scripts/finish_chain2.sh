@@ -4,7 +4,10 @@
 set -x
 cd /home/user/EvoClassNet
 export HF_HUB_DISABLE_XET=1
-for proc in run_study2.py run_genome_study.py esm_control.py run_proteingym.py download_alphafold.py; do
+# run_study2.py is deliberately not waited on: the eleven-model RBD panel is a case study
+# that takes many hours, and the rest of the deliverables should not be held hostage to it.
+# Re-run analyze2.py and the build steps when its jobs land.
+for proc in run_genome_study.py esm_control.py run_proteingym.py download_alphafold.py; do
   while pgrep -f "$proc" >/dev/null; do sleep 60; done
 done
 python3 -u scripts/analyze2.py            > results/analyze2_log.txt         2>&1
