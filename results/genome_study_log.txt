@@ -19,3 +19,4 @@
 17:53:03 heldout_species s0: majority_class=0.250  length_gc_logreg=0.866  kmer5_logreg=1.000  kmer5_gbm=0.955  kmer5_rf=0.970  cnn=1.000
 17:54:49 heldout_species s1: majority_class=0.250  length_gc_logreg=0.933  kmer5_logreg=1.000  kmer5_gbm=0.957  kmer5_rf=0.929  cnn=0.997
 17:56:50 heldout_species s2: majority_class=0.250  length_gc_logreg=0.894  kmer5_logreg=0.994  kmer5_gbm=1.000  kmer5_rf=0.973  cnn=0.979
+17:59:22 heldout_species s3: majority_class=0.250  length_gc_logreg=0.925  kmer5_logreg=1.000  kmer5_gbm=0.972  kmer5_rf=0.972  cnn=0.989

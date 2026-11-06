@@ -575,7 +575,64 @@ if FEAT:
       f"on them. The remaining descriptors — solvent accessibility of the unbound domain, "
       f"contact number, burial, B-factor — describe the folded domain alone.")
 
-H("3.5 The protein language model contributes nothing here", 2)
+H("3.5 Where the transfer comes from: positions, not substitutions", 2)
+TBP = J("transfer_by_position.json")
+if TBP:
+    rows = []
+    for t, tn in (("bind", "ACE2 binding"), ("expr", "Expression"), ("escape", "Antibody escape")):
+        v = TBP.get(t)
+        if not v:
+            continue
+        vb, me = v["vs_blosum"], v["mixed_effects"]
+        rows.append({"Phenotype": tn,
+                     "Median ρ": f"{v['median_rho']:+.3f}",
+                     "% positive": f"{100*v['frac_positive']:.0f}",
+                     "Random-intercept P": f"{me.get('p', float('nan')):.3g}",
+                     "BLOSUM62 median ρ": f"{vb['blosum_median']:+.3f}",
+                     "Difference": f"{vb['median_diff']:+.3f}",
+                     "P": f"{vb['p']:.3g}",
+                     "n position–seed": vb["n"]})
+    table(pd.DataFrame(rows),
+          "Table 5. Per-position rank accuracy of the transferable model at withheld positions: "
+          "within each withheld position, how well it orders the 19 possible substitutions. "
+          "Compared against BLOSUM62 exchangeability on identical instances. The P value for the "
+          "median comes from a random-intercept model over positions, because positions recur "
+          "across seeds.")
+    b, e = TBP.get("bind", {}), TBP.get("escape", {})
+    if b and e:
+        P(f"Restricting to single substitutions and asking a narrower question — within one "
+          f"withheld position, can the model order the nineteen substitutions available there — "
+          f"separates two components of the transfer. For binding the model reaches a median "
+          f"per-position ρ of {b['median_rho']:+.3f}, positive at "
+          f"{100*b['frac_positive']:.0f} % of position–seed cells, but BLOSUM62 reaches "
+          f"{b['vs_blosum']['blosum_median']:+.3f} on the same instances and the difference is "
+          f"{b['vs_blosum']['median_diff']:+.3f} (P = {b['vs_blosum']['p']:.3g}). Within a "
+          f"position, in other words, the ordering is chemistry, and an untrained substitution "
+          f"matrix already supplies it.")
+        P(f"The model's advantage therefore lies in discriminating between positions — which "
+          f"positions tolerate substitution at all — and that is precisely what the structural "
+          f"descriptors provide and what a substitution matrix, being position-independent, "
+          f"cannot. It is consistent with the whole-test-set result: summed BLOSUM62 scores reach "
+          f"{pv('heldout_sites','ACE2 binding','BLOSUM62') or 'n/a'} there, against "
+          f"{feat_pm('chem+struct+esm','bind','spearman')} for the full feature block.")
+        P(f"Escape is the exception in the opposite direction. BLOSUM62 is not merely uninformative "
+          f"but anti-correlated ({e['vs_blosum']['blosum_median']:+.3f}), because the "
+          f"substitutions that abolish antibody binding are not the chemically radical ones, "
+          f"while the model reaches {e['median_rho']:+.3f} "
+          f"(difference {e['vs_blosum']['median_diff']:+.3f}, P = {e['vs_blosum']['p']:.3g}). "
+          f"There the within-position ordering is genuinely learned.")
+    for t, tn in (("bind", "binding"), ("escape", "escape")):
+        v = TBP.get(t)
+        if not v:
+            continue
+        cs = sorted(v["rho_vs_structure"].items(), key=lambda kv: -abs(kv[1][0]))[:3]
+        P(f"Per-position accuracy for {tn} is associated with " + ", ".join(
+            f"{k} (ρ = {r:+.2f}, P = {pp:.2g})" for k, (r, pp) in cs) + ".")
+fig("fig8_transfer_by_position.png",
+    "Figure 6. Per-position rank accuracy at withheld positions against solvent accessibility and "
+    "distance to ACE2.", 6.6)
+
+H("3.6 The protein language model contributes nothing here", 2)
 if FEAT:
     P(f"ESM-2 is the component most often expected to supply exactly this kind of "
       f"position-independent knowledge, and on this protein it does not. Its zero-shot scores "
@@ -602,9 +659,9 @@ if ESMC:
       f"with SARS-CoV-2 ranking among the harder entries in published zero-shot benchmarks, and "
       f"not as a general statement about protein language models.")
 
-H("3.6 Permuting the amino-acid alphabet", 2)
+H("3.7 Permuting the amino-acid alphabet", 2)
 if len(ABL2):
-    table(ABL2, "Table 5. Amino-acid permutation ablation: an independent random permutation of "
+    table(ABL2, "Table 6. Amino-acid permutation ablation: an independent random permutation of "
           "the alphabet at every position, applied consistently to all partitions.",
           cols=["split", "model", "task", "intact", "permuted", "delta"],
           rename={"split": "Split", "model": "Model", "task": "Phenotype", "intact": "Intact",
@@ -616,11 +673,11 @@ if len(ABL2):
       "The feature-based models are destroyed by it, as they must be: their entire "
       "representation is residue identity and its chemical correlates.")
 
-H("3.7 Withholding more positions", 2)
+H("3.8 Withholding more positions", 2)
 fig("fig3_sweep_v2.png", "Figure 3. Performance against the fraction of positions withheld "
     "(5–50 %). Points are means over seeds, whiskers one standard deviation.", 6.6)
 
-H("3.8 Run-to-run instability", 2)
+H("3.9 Run-to-run instability", 2)
 if STAB:
     byss = {}
     for r in STAB:
@@ -635,13 +692,13 @@ if STAB:
       f"spread exceeds the differences being discussed, so a single run on this benchmark is not "
       f"a measurement. Every table here reports a seed distribution for that reason.")
 
-H("3.9 Variant-of-Concern ranking without leakage", 2)
+H("3.10 Variant-of-Concern ranking without leakage", 2)
 if HO.get("voc"):
     rows = [dict(Score=k, AUROC=f"{v['auroc']:.3f}",
                  CI=f"{v['ci95'][0]:.3f}–{v['ci95'][1]:.3f}", n_positives=v["n_voc"])
             for k, v in HO["voc"].items()]
     table(pd.DataFrame(rows),
-          "Table 6. Ranking Variant-of-Concern substitutions at withheld positions only, pooled "
+          "Table 7. Ranking Variant-of-Concern substitutions at withheld positions only, pooled "
           "over seeds, with 95 % bootstrap intervals.")
     pe = HO["voc"].get("EvoClassNet predicted escape", {})
     me = HO["voc"].get("Measured escape (held-out positions)", {})
@@ -663,7 +720,7 @@ if HO.get("vs_blosum"):
                  EvoClassNet=f"{v['model_median']:.3f}", BLOSUM62=f"{v['blosum_median']:.3f}",
                  Difference=f"{v['median_diff']:+.3f}", P=f"{v['p']:.3g}", n=v["n"])
             for k, v in HO["vs_blosum"].items()]
-    table(pd.DataFrame(rows), "Table 7. Median per-position Spearman ρ over single substitutions "
+    table(pd.DataFrame(rows), "Table 8. Median per-position Spearman ρ over single substitutions "
           "at withheld positions, against a substitution matrix.")
     vb = HO["vs_blosum"]
     if "bind" in vb and "escape" in vb:
@@ -684,9 +741,9 @@ if VA:
           f"samples of the same archive (permutation P = {v['perm_p']:.3f}). A learned fitness "
           f"surface is constrained only where it was fitted, and an optimiser leaves that region.")
 
-H("3.10 The same pattern on coronavirus genomes", 2)
+H("3.11 A second task: coronavirus genomes", 2)
 if len(GEN):
-    table(GEN, "Table 8. Coronavirus genus classification under both splits, mean ± SD across "
+    table(GEN, "Table 9. Coronavirus genus classification under both splits, mean ± SD across "
           "seeds.",
           cols=["split", "family", "model", "seeds", "accuracy", "balanced_accuracy", "macro_f1",
                 "weighted_f1", "mcc"] + [c for c in GEN.columns if c.startswith("f1_")],
@@ -707,7 +764,7 @@ if len(GEN):
               f"{d[d.model == 'Majority class'].iloc[0].balanced_accuracy} for the majority "
               f"class.")
 if len(GENC):
-    table(GENC, "Table 9. Sequence models against the untrained length-and-composition control, "
+    table(GENC, "Table 10. Sequence models against the untrained length-and-composition control, "
           "paired over seeds.",
           cols=["split", "model", "reference", "n_seeds", "median_diff", "ci_lo", "ci_hi",
                 "p_fdr", "tost_p", "equivalent", "cliffs_delta"],

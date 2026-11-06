@@ -1,0 +1,15 @@
+17:58:02 seed 0: 30 withheld positions scored
+17:58:08 seed 1: 30 withheld positions scored
+17:58:15 seed 2: 30 withheld positions scored
+17:58:21 seed 3: 30 withheld positions scored
+17:58:27 seed 4: 30 withheld positions scored
+17:58:33 seed 5: 30 withheld positions scored
+17:58:40 seed 6: 30 withheld positions scored
+17:58:46 seed 7: 30 withheld positions scored
+17:58:52 seed 8: 30 withheld positions scored
+17:58:58 seed 9: 30 withheld positions scored
+17:59:00 bind: median per-position rho +0.533, 92% positive, mixed-effects P=2.74e-25
+17:59:00 escape: median per-position rho +0.570, 96% positive, mixed-effects P=3.49e-17
+17:59:00 expr: median per-position rho +0.510, 90% positive, mixed-effects P=3.6e-24
+17:59:01 wrote fig8_transfer_by_position.png
+17:59:01 saved results/transfer_by_position.json
