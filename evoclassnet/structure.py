@@ -133,3 +133,71 @@ def features(standardise=True):
             f = (f - f.mean(0)) / (f.std(0) + 1e-8)
         _CACHE[key] = (f.astype(np.float32), m, a, names)
     return _CACHE[key]
+
+
+# --------------------------------------------------------------------------------------------
+# Generic single-chain features, used for the AlphaFold models behind the ProteinGym assays.
+# The RBD pipeline above uses a crystal structure of a complex and can therefore measure burial
+# by the receptor. A predicted monomer cannot, so the descriptors here are those of the folded
+# chain alone, plus the model's own per-residue confidence.
+GENERIC_FEATURES = ["rsa", "contact_number", "burial", "plddt"]
+
+
+def features_from_pdb(pdb_path, seq, offset=0, cutoff=8.0):
+    """Per-residue descriptors for `seq` taken from a single-chain model.
+
+    `offset` is the index at which `seq` starts inside the model's own sequence, so a domain can
+    be located within a full-length prediction. Returns (features [len(seq), 4], mask, adjacency).
+    Positions the model does not resolve are imputed at the column median and flagged in `mask`.
+
+    For an AlphaFold model the B-factor column holds pLDDT, the model's confidence, which is
+    carried through as a feature: a descriptor computed from a poorly predicted region should not
+    be trusted as much as one from a confident region, and giving the model the confidence lets
+    it learn that itself.
+    """
+    from Bio.PDB import PDBParser, ShrakeRupley
+    L = len(seq)
+    st = PDBParser(QUIET=True).get_structure("m", str(pdb_path))[0]
+    chain = next(iter(st))
+    res = [r for r in chain if r.id[0] == " " and r.get_resname() in THREE2ONE]
+    sr = ShrakeRupley()
+    sr.compute(chain, level="R")
+
+    feats = np.full((L, len(GENERIC_FEATURES)), np.nan, dtype=float)
+    mask = np.zeros(L, dtype=bool)
+    cb = np.full((L, 3), np.nan)
+    coords = np.array([a.get_coord() for r in res for a in r]) if res else np.zeros((0, 3))
+
+    for r in res:
+        i = r.id[1] - 1 - offset              # 0-based index into seq
+        if not (0 <= i < L):
+            continue
+        aa = THREE2ONE[r.get_resname()]
+        if seq[i] != aa:                      # numbering disagrees; leave unresolved
+            continue
+        atoms = np.array([a.get_coord() for a in r])
+        centroid = atoms.mean(0)
+        other = np.array([a.get_coord() for rr in res if rr is not r for a in rr])
+        burial = float((np.linalg.norm(other - centroid, axis=-1) < 10.0).sum()) if len(other) else np.nan
+        feats[i] = [r.sasa / MAXASA[aa], np.nan, burial,
+                    float(np.mean([a.get_bfactor() for a in r]))]
+        mask[i] = True
+        cb[i] = _cb(r)
+
+    adj = np.zeros((L, L), dtype=np.float32)
+    idx = np.flatnonzero(~np.isnan(cb[:, 0]))
+    if len(idx) > 1:
+        d = np.linalg.norm(cb[idx][:, None, :] - cb[idx][None, :, :], axis=-1)
+        close = (d < cutoff).astype(np.float32)
+        np.fill_diagonal(close, 0.0)
+        adj[np.ix_(idx, idx)] = close
+        feats[idx, GENERIC_FEATURES.index("contact_number")] = close.sum(1)
+    for j in range(feats.shape[1]):
+        col = feats[:, j]
+        if np.isnan(col).all():
+            col[:] = 0.0
+        else:
+            col[np.isnan(col)] = np.nanmedian(col)
+    for i in range(L - 1):
+        adj[i, i + 1] = adj[i + 1, i] = 1.0
+    return feats.astype(np.float32), mask, adj

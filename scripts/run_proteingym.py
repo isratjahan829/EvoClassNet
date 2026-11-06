@@ -11,6 +11,12 @@ model families on both:
                     Defined at a position the training set never touched.
   residue_only      ridge on wild-type and mutant residue identity alone, with no position
                     information at all. The minimal transferable model.
+  chem_struct       the chemistry block plus per-residue descriptors of the position taken
+                    from an AlphaFold model of the protein (relative solvent accessibility,
+                    contact number, burial, and the model's own pLDDT confidence). Available
+                    only for the assays whose target sequence could be located in a predicted
+                    model; NaN elsewhere. This is the benchmark-wide version of the structural
+                    arm that the RBD study runs against a crystal structure.
   position_mean     ridge on one-hot position indicators: the mean effect of mutating each
                     position, learning nothing about which substitution is made. This is the
                     cleanest representative of the position-indexed family, because it is
@@ -36,16 +42,37 @@ from sklearn.linear_model import Ridge, RidgeCV
 from sklearn.preprocessing import StandardScaler
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from evoclassnet import proteingym as PG, zoo
+from evoclassnet import proteingym as PG, structure as ST, zoo
 from evoclassnet.metrics import evaluate
+
+
+def structure_block(dms_id, seq):
+    """Per-position AlphaFold descriptors for this assay, or None if no model matched."""
+    cov = AF / "coverage.json"
+    if not cov.exists():
+        return None
+    if not hasattr(structure_block, "_map"):
+        structure_block._map = {c["dms_id"]: c for c in json.load(open(cov))}
+    c = structure_block._map.get(dms_id)
+    if not c or c.get("status") != "matched" or c.get("offset") is None:
+        return None
+    pdb = AF / f"AF-{c['acc']}.pdb"
+    if not pdb.exists():
+        return None
+    try:
+        f, mask, _ = ST.features_from_pdb(pdb, seq, offset=int(c["offset"]))
+    except Exception:
+        return None
+    return f if mask.sum() >= 0.5 * len(seq) else None
 
 warnings.filterwarnings("ignore", category=ConvergenceWarning)
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "results"
 JOBS = OUT / "pg_jobs"
+AF = ROOT / "data" / "raw" / "alphafold"
 log = lambda *a: print(time.strftime("%H:%M:%S"), *a, flush=True)
 MODELS = ["mutation_count", "blosum_zeroshot", "residue_only", "physchem",
-          "position_mean", "ridge_additive"]
+          "chem_struct", "position_mean", "ridge_additive"]
 
 
 def _nanmean(xs):
@@ -97,13 +124,16 @@ def one_assay(dms_id, seeds, test_site_frac=0.2, max_variants=120_000):
     nsub = df.n_sub.to_numpy()
     subs = df.subs.tolist()
     F = zoo.genotype_features(subs)                  # chemistry only: no structure, no PLM
+    sf = structure_block(dms_id, seq)
+    FS = (zoo.genotype_features(subs, struct=sf, struct_names=ST.GENERIC_FEATURES)
+          if sf is not None else None)
     R = residue_identity(subs)
     S = onehot(subs, len(seq))
     Pm = onehot_position(subs, len(seq))
     out = dict(dms_id=dms_id, n_variants=int(len(df)), seq_len=int(len(seq)),
                n_positions=int(len({p for s in df.sites for p in s})),
                frac_multi=float((nsub > 1).mean()), max_nsub=int(nsub.max()),
-               splits={})
+               has_structure=bool(FS is not None), splits={})
 
     for split in ("random", "heldout_positions"):
         per = {m: {"spearman": [], "spearman_partial": [], "n": []} for m in MODELS}
@@ -124,9 +154,15 @@ def one_assay(dms_id, seeds, test_site_frac=0.2, max_variants=120_000):
             sr = StandardScaler().fit(R[tr])
             preds["residue_only"] = RidgeCV(alphas=np.logspace(-2, 3, 10)).fit(
                 sr.transform(R[tr]), y[tr]).predict(sr.transform(R[te]))
+            if FS is not None:
+                ss = StandardScaler().fit(FS[tr])
+                preds["chem_struct"] = RidgeCV(alphas=np.logspace(-2, 3, 10)).fit(
+                    ss.transform(FS[tr]), y[tr]).predict(ss.transform(FS[te]))
             preds["position_mean"] = Ridge(alpha=1.0).fit(Pm[tr], y[tr]).predict(Pm[te])
             preds["ridge_additive"] = Ridge(alpha=1.0).fit(S[tr], y[tr]).predict(S[te])
             for m, p in preds.items():
+                if m not in per:
+                    continue
                 r = evaluate(y[te], np.asarray(p, float), nsub[te])
                 per[m]["spearman"].append(r["spearman"])
                 per[m]["spearman_partial"].append(r["spearman_partial"])
@@ -184,9 +220,10 @@ if __name__ == "__main__":
                 h = r["splits"].get("heldout_positions", {})
                 rnd = r["splits"].get("random", {})
                 gv = lambda blk, m: blk.get(m, {}).get("spearman", float("nan"))
-                log(f"[{i}/{len(ids)}] {d[:38]:38s} "
-                    f"random: pos={gv(rnd,'position_mean'):+.3f} chem={gv(rnd,'physchem'):+.3f} | "
-                    f"heldout: pos={gv(h,'position_mean'):+.3f} res={gv(h,'residue_only'):+.3f} "
-                    f"chem={gv(h,'physchem'):+.3f}")
+                st_tag = "S" if r.get("has_structure") else "-"
+                log(f"[{i}/{len(ids)}] {d[:36]:36s} [{st_tag}] "
+                    f"rand pos={gv(rnd,'position_mean'):+.3f} | heldout pos={gv(h,'position_mean'):+.3f} "
+                    f"res={gv(h,'residue_only'):+.3f} chem={gv(h,'physchem'):+.3f} "
+                    f"chem+str={gv(h,'chem_struct'):+.3f}")
     json.dump(results, open(OUT / "proteingym_study.json", "w"), indent=1, default=float)
     log("saved results/proteingym_study.json")

@@ -11,3 +11,4 @@ data/plm/
 data/raw/genomes/*.fasta
 results/genome_kmer_k*.npy
 data/raw/proteingym/
+data/raw/alphafold/*.pdb

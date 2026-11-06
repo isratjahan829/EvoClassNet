@@ -5,6 +5,7 @@
  "n_positions": 564,
  "frac_multi": 0.0,
  "max_nsub": 1,
+ "has_structure": false,
  "splits": {
   "random": {
    "mutation_count": {
@@ -34,6 +35,13 @@
     "partial": NaN,
     "n_seeds": 5,
     "n_test": 2143
+   },
+   "chem_struct": {
+    "spearman": NaN,
+    "spearman_sd": 0.0,
+    "partial": NaN,
+    "n_seeds": 0,
+    "n_test": 0
    },
    "position_mean": {
     "spearman": 0.7407921305381954,
@@ -79,6 +87,13 @@
     "n_seeds": 5,
     "n_test": 2128
    },
+   "chem_struct": {
+    "spearman": NaN,
+    "spearman_sd": 0.0,
+    "partial": NaN,
+    "n_seeds": 0,
+    "n_test": 0
+   },
    "position_mean": {
     "spearman": 0.0,
     "spearman_sd": 0.0,
@@ -95,5 +110,5 @@
    }
   }
  },
- "_seconds": 15.7
+ "_seconds": 16.3
 }
