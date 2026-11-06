@@ -6,3 +6,4 @@
 17:32:40   k-mers 600/806
 17:32:41   k-mers 800/806
 17:32:41 k-mer matrix (806, 1024)
+17:35:59 random s0: majority_class=0.250  length_gc_logreg=0.972  kmer5_logreg=1.000  kmer5_gbm=0.981  kmer5_rf=0.962  cnn=0.981
