@@ -1,0 +1,114 @@
+{
+ "dms_id": "P53_HUMAN_Giacomelli_2018_Null_Etoposide",
+ "n_variants": 7467,
+ "seq_len": 393,
+ "n_positions": 393,
+ "frac_multi": 0.0,
+ "max_nsub": 1,
+ "has_structure": false,
+ "splits": {
+  "random": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1494
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.08769037178072817,
+    "spearman_sd": 0.016931576437086256,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1494
+   },
+   "residue_only": {
+    "spearman": 0.30791613325196787,
+    "spearman_sd": 0.028846763058462722,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1494
+   },
+   "physchem": {
+    "spearman": 0.3147370047996125,
+    "spearman_sd": 0.030375195544772055,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1494
+   },
+   "chem_struct": {
+    "spearman": NaN,
+    "spearman_sd": 0.0,
+    "partial": NaN,
+    "n_seeds": 0,
+    "n_test": 0
+   },
+   "position_mean": {
+    "spearman": 0.6975448457891639,
+    "spearman_sd": 0.011981795059081502,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1494
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1494
+   }
+  },
+  "heldout_positions": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1482
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.1138240648643793,
+    "spearman_sd": 0.011749067170124068,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1482
+   },
+   "residue_only": {
+    "spearman": 0.24251379549281804,
+    "spearman_sd": 0.06196549838148702,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1482
+   },
+   "physchem": {
+    "spearman": 0.24585458289978068,
+    "spearman_sd": 0.06475588809612193,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1482
+   },
+   "chem_struct": {
+    "spearman": NaN,
+    "spearman_sd": 0.0,
+    "partial": NaN,
+    "n_seeds": 0,
+    "n_test": 0
+   },
+   "position_mean": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1482
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1482
+   }
+  }
+ },
+ "_seconds": 1.1
+}

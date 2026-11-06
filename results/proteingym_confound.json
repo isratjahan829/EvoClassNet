@@ -1,0 +1,7 @@
+{
+ "n_assays": 217,
+ "n_with_multi_mutants": 69,
+ "frac_with_multi_mutants": 0.318,
+ "n_count_above_0_2": 9,
+ "median_count_rho_where_multi": 0.012
+}

@@ -138,7 +138,7 @@ def main():
                 continue
             data.append(v); labs.append(nm); cols.append(COL[fam])
         pos = np.arange(len(data))
-        bp = ax.boxplot(data, positions=pos, vert=False, widths=0.6, patch_artist=True,
+        bp = ax.boxplot(data, positions=pos, orientation="horizontal", widths=0.6, patch_artist=True,
                         showfliers=False, medianprops=dict(color="k", lw=1.2))
         for patch, c in zip(bp["boxes"], cols):
             patch.set_facecolor(c); patch.set_alpha(0.75); patch.set_edgecolor("none")

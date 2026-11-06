@@ -1,0 +1,114 @@
+{
+ "dms_id": "RL40A_YEAST_Mavor_2016",
+ "n_variants": 1253,
+ "seq_len": 128,
+ "n_positions": 75,
+ "frac_multi": 0.0,
+ "max_nsub": 1,
+ "has_structure": true,
+ "splits": {
+  "random": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 251
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.2635835299092734,
+    "spearman_sd": 0.03724733211368036,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 251
+   },
+   "residue_only": {
+    "spearman": 0.4314245203774699,
+    "spearman_sd": 0.0573738846497249,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 251
+   },
+   "physchem": {
+    "spearman": 0.4893167485425464,
+    "spearman_sd": 0.04533330897753019,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 251
+   },
+   "chem_struct": {
+    "spearman": 0.5372817014997343,
+    "spearman_sd": 0.05150962804328117,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 251
+   },
+   "position_mean": {
+    "spearman": 0.6567233152047667,
+    "spearman_sd": 0.03351557536371337,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 251
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 251
+   }
+  },
+  "heldout_positions": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 253
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.18980332384690474,
+    "spearman_sd": 0.14751605668972664,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 253
+   },
+   "residue_only": {
+    "spearman": 0.40177539365876863,
+    "spearman_sd": 0.16908251713479155,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 253
+   },
+   "physchem": {
+    "spearman": 0.4427966665917822,
+    "spearman_sd": 0.1726677904791583,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 253
+   },
+   "chem_struct": {
+    "spearman": 0.41437820728700225,
+    "spearman_sd": 0.12078394077884189,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 253
+   },
+   "position_mean": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 253
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 253
+   }
+  }
+ },
+ "_seconds": 0.9
+}

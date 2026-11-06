@@ -6,3 +6,13 @@
 + sleep 60
 + pgrep -f run_study2.py
 + sleep 60
++ pgrep -f run_study2.py
++ sleep 60
++ pgrep -f run_study2.py
++ sleep 60
++ pgrep -f run_study2.py
++ sleep 60
++ pgrep -f run_study2.py
++ sleep 60
++ pgrep -f run_study2.py
++ sleep 60
