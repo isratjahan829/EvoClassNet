@@ -852,6 +852,36 @@ if FEAT:
       f"on them. The remaining descriptors — solvent accessibility of the unbound domain, "
       f"contact number, burial, B-factor — describe the folded domain alone.")
 
+_Z = C("table_partial_vs_zero.csv")
+if len(_Z):
+    _zh = _Z[_Z.split == "heldout_sites"]
+    table(_zh.sort_values("mean_partial", ascending=False),
+          "Table 3b. Held-out-position split: is each model's partial Spearman correlation "
+          "different from zero? Bootstrap intervals over seeds, Wilcoxon signed-rank with "
+          "false-discovery-rate correction across the family. The untrained mutation-count "
+          "baseline and the additive model are identically zero and carry no test.",
+          cols=["family", "model", "task", "n_seeds", "mean_partial", "ci_lo", "ci_hi",
+                "p_fdr", "nonzero_fdr"],
+          rename={"family": "Family", "model": "Model", "task": "Phenotype",
+                  "n_seeds": "Seeds", "mean_partial": "Mean partial ρ", "ci_lo": "CI low",
+                  "ci_hi": "CI high", "p_fdr": "P (FDR)", "nonzero_fdr": "Above zero"})
+    def _zv(model, task="ACE2 binding", col="mean_partial"):
+        r = _zh[(_zh.model == model) & (_zh.task == task)]
+        return None if not len(r) else float(r.iloc[0][col])
+    _bl, _en = _zv("BLOSUM62"), _zv("EvoClassNet")
+    if _bl is not None and _en is not None and _bl > _en:
+        _blr = _zh[(_zh.model == "BLOSUM62") & (_zh.task == "ACE2 binding")].iloc[0]
+        _enr = _zh[(_zh.model == "EvoClassNet") & (_zh.task == "ACE2 binding")].iloc[0]
+        P(f"One row of that table is worth pausing on. BLOSUM62 exchangeability — a substitution "
+          f"matrix published in 1992, with no training, no parameters and no knowledge of this "
+          f"protein — reaches a partial correlation of {_bl:.3f} "
+          f"({_blr.ci_lo:.3f} to {_blr.ci_hi:.3f}) at held-out positions, against {_en:.3f} "
+          f"({_enr.ci_lo:.3f} to {_enr.ci_hi:.3f}) for the trained multi-task network on the "
+          f"same partitions. The network was given 124,197 measured genotypes and still "
+          f"transfers less well across positions than a lookup table of amino-acid "
+          f"interchangeability, because almost everything it learned was indexed to positions "
+          f"it will not see again.")
+
 _ec = pv("heldout_sites", "ACE2 binding", "EvoClassNet", "spearman_partial")
 _ecp = pv("heldout_sites", "ACE2 binding", "EvoClassNet + ESM/str", "spearman_partial")
 _gnn = pv("heldout_sites", "ACE2 binding", "Structure GNN", "spearman_partial")

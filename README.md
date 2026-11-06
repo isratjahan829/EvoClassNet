@@ -77,6 +77,55 @@ For binding and expression the model matches an **untrained substitution matrix*
 
 Escape runs the other way. BLOSUM62 is not merely uninformative there but anti-correlated (-0.350), because the substitutions that abolish antibody binding are not the chemically radical ones, while the model reaches +0.570 (difference +0.869, P = 8.65e-30). That within-position ordering is genuinely learned.
 
+## Full metric panel
+
+**Held-out-position split** — ACE2 binding (`results/table_panel.csv` has all phenotypes and metrics)
+
+| Family | Model | Seeds | Spearman ρ | Partial ρ | Pearson r | Kendall τ | R² | RMSE | AUROC | Prec@k | NDCG | Calib. | n |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| untrained | Mutation count | 10 | 0.386 ± 0.047 | -0.000 ± 0.001 | 0.350 ± 0.044 | 0.311 ± 0.038 | 0.091 ± 0.079 | 1.630 ± 0.075 | 0.660 ± 0.026 | 0.046 ± 0.051 | 0.768 ± 0.113 | 0.971 ± 0.158 | 1386 |
+| untrained | BLOSUM62 | 10 | 0.410 ± 0.032 | 0.318 ± 0.034 | 0.390 ± 0.028 | 0.299 ± 0.024 | -0.684 ± 0.361 | 2.202 ± 0.125 | 0.709 ± 0.023 | 0.142 ± 0.063 | 0.858 ± 0.033 | 0.325 ± 0.042 | 1386 |
+| untrained | ESM-2 zero-shot | 10 | -0.022 ± 0.084 | -0.052 ± 0.077 | -0.012 ± 0.103 | -0.015 ± 0.056 | -0.912 ± 0.250 | 2.366 ± 0.232 | 0.500 ± 0.063 | 0.022 ± 0.039 | 0.556 ± 0.113 | -0.023 ± 0.175 | 1386 |
+| transferable | Physicochemical ridge | 10 | 0.711 ± 0.053 | 0.648 ± 0.077 | 0.658 ± 0.045 | 0.518 ± 0.046 | 0.391 ± 0.071 | 1.335 ± 0.100 | 0.859 ± 0.024 | 0.150 ± 0.079 | 0.964 ± 0.015 | 1.256 ± 0.152 | 1386 |
+| transferable | k-NN (features) | 10 | 0.602 ± 0.052 | 0.530 ± 0.075 | 0.568 ± 0.057 | 0.427 ± 0.042 | 0.287 ± 0.060 | 1.446 ± 0.120 | 0.803 ± 0.028 | 0.134 ± 0.072 | 0.956 ± 0.010 | 1.094 ± 0.110 | 1386 |
+| transferable | Gradient boosting | 10 | 0.698 ± 0.052 | 0.635 ± 0.073 | 0.666 ± 0.061 | 0.506 ± 0.045 | 0.420 ± 0.082 | 1.299 ± 0.081 | 0.858 ± 0.027 | 0.104 ± 0.059 | 0.957 ± 0.009 | 0.909 ± 0.094 | 1386 |
+| transferable | Structure GNN | 10 | 0.332 ± 0.172 | 0.259 ± 0.162 | 0.293 ± 0.159 | 0.227 ± 0.121 | -0.047 ± 0.114 | 1.753 ± 0.178 | 0.669 ± 0.079 | 0.048 ± 0.042 | 0.793 ± 0.168 | 3.747 ± 10.138 | 1386 |
+| position-indexed | Additive ridge | 10 | 0.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 | — | 2.017 ± 0.241 | 0.500 ± 0.000 | — | — | — | 1386 |
+| position-indexed | Global epistasis | 10 | -0.370 ± 0.042 | -0.015 ± 0.075 | -0.350 ± 0.045 | -0.289 ± 0.038 | -0.166 ± 0.217 | 1.849 ± 0.259 | 0.342 ± 0.024 | 0.002 ± 0.006 | 0.361 ± 0.103 | -19.605 ± 16.762 | 1386 |
+| position-indexed | EvoClassNet | 10 | 0.341 ± 0.118 | 0.187 ± 0.134 | 0.293 ± 0.129 | 0.234 ± 0.083 | -0.184 ± 0.203 | 1.860 ± 0.219 | 0.664 ± 0.081 | 0.072 ± 0.053 | 0.795 ± 0.082 | 7.257 ± 18.051 | 1386 |
+| position-indexed | EvoClassNet + ESM/str | 10 | 0.449 ± 0.102 | 0.339 ± 0.114 | 0.387 ± 0.123 | 0.314 ± 0.076 | -0.143 ± 0.290 | 1.821 ± 0.274 | 0.716 ± 0.066 | 0.084 ± 0.053 | 0.829 ± 0.086 | 2.383 ± 4.285 | 1386 |
+
+## Equivalence testing
+
+A non-significant difference is not evidence of no difference. Each trained model is also tested for *equivalence* to the untrained baseline with two one-sided tests at a ±0.05 margin in Spearman ρ, and P values are FDR-corrected across the whole model-by-task family.
+
+| Phenotype | Model | Median Δρ | CI low | CI high | P (FDR) | TOST P | Equivalent | Cliff's δ | Effect |
+|---|---|---|---|---|---|---|---|---|---|
+| ACE2 binding | Physicochemical ridge | 0.3088 | 0.2797 | 0.3724 | 0.003 | 0.999999164248084 | False | 1.0 | large |
+| ACE2 binding | k-NN (features) | 0.2137 | 0.1723 | 0.2598 | 0.003 | 0.9999695051538248 | False | 1.0 | large |
+| ACE2 binding | Gradient boosting | 0.3081 | 0.2725 | 0.3544 | 0.003 | 0.9999995483930094 | False | 1.0 | large |
+| ACE2 binding | Structure GNN | -0.0264 | -0.1497 | 0.0347 | 0.35312 | 0.5313516250383241 | False | -0.16 | small |
+| ACE2 binding | Additive ridge | -0.3939 | -0.4118 | -0.3573 | 0.003 | 0.9999999985020248 | False | -1.0 | large |
+| ACE2 binding | Global epistasis | -0.7771 | -0.8013 | -0.7051 | 0.003 | 0.9999999996603752 | False | -1.0 | large |
+| ACE2 binding | EvoClassNet | -0.0217 | -0.1215 | 0.0207 | 0.31871 | 0.4462284048570662 | False | -0.22 | small |
+| ACE2 binding | EvoClassNet + ESM/str | 0.0703 | 0.0006 | 0.1199 | 0.10679 | 0.6569136834149025 | False | 0.48 | large |
+| Expression | Physicochemical ridge | 0.203 | 0.1706 | 0.2693 | 0.003 | 0.999928016037545 | False | 1.0 | large |
+| Expression | k-NN (features) | 0.1488 | 0.0945 | 0.2013 | 0.003 | 0.9956419163076456 | False | 0.96 | large |
+| Expression | Gradient boosting | 0.2363 | 0.2088 | 0.3023 | 0.003 | 0.9999897622022216 | False | 1.0 | large |
+| Expression | Structure GNN | 0.0732 | -0.0953 | 0.0965 | 0.40234 | 0.2555906965152575 | False | 0.36 | medium |
+| Expression | Additive ridge | -0.382 | -0.3938 | -0.3373 | 0.003 | 0.9999999963204804 | False | -1.0 | large |
+| Expression | Global epistasis | -0.7401 | -0.7779 | -0.6587 | 0.003 | 0.9999999966239258 | False | -1.0 | large |
+| Expression | EvoClassNet | -0.0177 | -0.0976 | 0.0052 | 0.35312 | 0.4250940411662657 | False | -0.4 | medium |
+| Expression | EvoClassNet + ESM/str | 0.0242 | -0.0594 | 0.0823 | 0.57334 | 0.1852968019775392 | False | 0.34 | medium |
+| Antibody escape | Physicochemical ridge | 0.5812 | 0.557 | 0.6414 | 0.003 | 0.9999999990092736 | False | 1.0 | large |
+| Antibody escape | k-NN (features) | 0.4058 | 0.3571 | 0.4569 | 0.003 | 0.9999998550819889 | False | 1.0 | large |
+| Antibody escape | Gradient boosting | 0.579 | 0.5204 | 0.6398 | 0.003 | 0.9999999744333672 | False | 1.0 | large |
+| Antibody escape | Structure GNN | 0.2542 | 0.1177 | 0.2848 | 0.00838 | 0.9972316420931856 | False | 0.8 | large |
+| Antibody escape | Additive ridge | 0.0 | 0.0 | 0.0 |  |  | False | 0.0 | negligible |
+| Antibody escape | Global epistasis | 0.0 | 0.0 | 0.0187 | 0.5202 | 7.399767135154628e-06 | True | 0.2 | small |
+| Antibody escape | EvoClassNet | 0.2414 | 0.0602 | 0.2948 | 0.03706 | 0.9675099975291984 | False | 0.6 | large |
+| Antibody escape | EvoClassNet + ESM/str | 0.3877 | 0.1304 | 0.4405 | 0.04964 | 0.9923486991895392 | False | 0.8 | large |
+
 ## Second task: coronavirus genus classification
 
 806 complete genomes from 287 species across four genera, pulled from NCBI. SARS-CoV-2 is excluded from Betacoronavirus: with millions of deposited genomes against hundreds for whole genera, it would make the class a measure of one outbreak's sequencing effort. The same question is asked — a random split against a held-out-species split, with an untrained control.
@@ -150,3 +199,5 @@ scripts/build_readme2.py   this file, generated from results/
 ```bash
 ./run_all.sh
 ```
+
+The study is 10 cached runs in `results/jobs_v2/`, one JSON per run; re-running skips completed jobs.

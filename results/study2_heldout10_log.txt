@@ -6,3 +6,11 @@
 22:05:38 [3/10] main_heldout_sites_s0 bind=0.284 expr=0.367 esca=0.406
 22:05:38 [4/10] main_heldout_sites_s1 bind=0.338 expr=0.228 esca=0.046
 22:05:38 [5/10] main_heldout_sites_s4 bind=0.265 expr=0.301 esca=-0.100
+/home/user/EvoClassNet/evoclassnet/metrics.py:83: NearConstantInputWarning: An input array is nearly constant; the computed correlation coefficient may be inaccurate.
+  out["pearson"] = float(pearsonr(yy, pp)[0])
+22:43:12 [6/10] main_heldout_sites_s8 bind=0.276 expr=0.257 esca=-0.178
+22:47:37 [7/10] main_heldout_sites_s7 bind=0.366 expr=0.364 esca=0.195
+22:56:40 [8/10] main_heldout_sites_s5 bind=0.410 expr=0.323 esca=0.347
+22:57:17 [9/10] main_heldout_sites_s6 bind=0.459 expr=0.402 esca=0.325
+23:26:10 [10/10] main_heldout_sites_s9 bind=0.504 expr=0.455 esca=0.334
+23:26:10 all runs finished

@@ -1,8 +1,8 @@
 {
- "n_runs": 5,
+ "n_runs": 10,
  "seeds": {
   "random": 0,
-  "heldout_sites": 5
+  "heldout_sites": 10
  },
  "models": [
   "mutation_count",
