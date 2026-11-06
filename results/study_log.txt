@@ -41,3 +41,15 @@
 09:20:40 [29/50] sweep_f30_s0 bind=0.405 expr=0.352 esca=0.412
 09:28:32 [30/50] sweep_f30_s1 bind=0.250 expr=0.205 esca=-0.023
 09:28:41 [31/50] sweep_f5_s4 bind=0.590 expr=0.424 esca=0.701
+09:29:57 [32/50] sweep_f5_s3 bind=0.485 expr=0.372 esca=0.617
+/home/user/EvoClassNet/scripts/run_study.py:33: NearConstantInputWarning: An input array is nearly constant; the computed correlation coefficient may be inaccurate.
+  return dict(spearman=float(spearmanr(y[m], p[m])[0]), pearson=float(pearsonr(y[m], p[m])[0]),
+09:32:41 [33/50] sweep_f30_s2 bind=0.326 expr=0.129 esca=0.174
+/home/user/EvoClassNet/scripts/run_study.py:33: NearConstantInputWarning: An input array is nearly constant; the computed correlation coefficient may be inaccurate.
+  return dict(spearman=float(spearmanr(y[m], p[m])[0]), pearson=float(pearsonr(y[m], p[m])[0]),
+09:34:05 [34/50] sweep_f50_s0 bind=0.356 expr=0.354 esca=0.246
+/home/user/EvoClassNet/scripts/run_study.py:33: NearConstantInputWarning: An input array is nearly constant; the computed correlation coefficient may be inaccurate.
+  return dict(spearman=float(spearmanr(y[m], p[m])[0]), pearson=float(pearsonr(y[m], p[m])[0]),
+09:34:19 [35/50] sweep_f30_s3 bind=0.108 expr=0.131 esca=0.145
+/home/user/EvoClassNet/scripts/run_study.py:33: NearConstantInputWarning: An input array is nearly constant; the computed correlation coefficient may be inaccurate.
+  return dict(spearman=float(spearmanr(y[m], p[m])[0]), pearson=float(pearsonr(y[m], p[m])[0]),
