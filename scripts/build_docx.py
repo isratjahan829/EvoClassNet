@@ -81,37 +81,33 @@ def fig(name, cap, w=5.4):
     P(cap, it=True)
 
 # ---------------------------------------------------------------- front matter
-doc.add_heading("Deep multi-task models generalise to mutated positions unseen in training, where additive and global-epistasis models fail: a benchmark on the SARS-CoV-2 receptor-binding domain", 0)
+doc.add_heading("Apparent generalisation to unseen positions in deep mutational scanning models is explained by mutation count: a benchmark on the SARS-CoV-2 receptor-binding domain", 0)
 P("[Author names and affiliations]", al=WD_ALIGN_PARAGRAPH.CENTER)
 
 rb, gb = mean("main_random_s", "evoclassnet", "bind"), mean("main_random_s", "global_epistasis", "bind")
-hb, hgb = mean("main_heldout_sites_s", "evoclassnet", "bind"), mean("main_heldout_sites_s", "global_epistasis", "bind")
+nb_r, nb_h = mean("main_random_s", "mutation_count", "bind"), mean("main_heldout_sites_s", "mutation_count", "bind")
+hb = mean("main_heldout_sites_s", "evoclassnet", "bind")
 H("Abstract")
-P(f"Models trained on deep mutational scanning (DMS) data are routinely evaluated by holding out random variants. "
-  f"Because almost every position is mutated somewhere in the training set, this measures interpolation and says little about the "
-  f"situation that matters for surveillance, in which a new lineage mutates a position no experiment has probed. "
-  f"We benchmarked three model families on {len(g):,} unique SARS-CoV-2 receptor-binding-domain (RBD) genotypes with three measured phenotypes "
-  f"— ACE2 binding ({nlab['bind']:,} labels), expression ({nlab['expr']:,}) and antibody escape averaged over up to 1,535 monoclonal antibodies ({nlab['escape']:,}) — "
-  f"under two evaluation designs: a conventional random split and a held-out-position split in which no training variant mutates any test position. "
-  f"Under the random split a multi-task convolutional–recurrent–attention network (EvoClassNet) was {cmpword(rb, gb)} a global-epistasis baseline for binding "
-  f"(Spearman ρ = {ms('main_random_s','evoclassnet','bind')} vs {ms('main_random_s','global_epistasis','bind')}; {nseed} seeds). "
-  f"Under the held-out-position split the ordering reversed: additive models are undefined at unseen positions and the global-epistasis baseline became anti-correlated "
-  f"({ms('main_heldout_sites_s','global_epistasis','bind')}), whereas EvoClassNet retained positive signal ({ms('main_heldout_sites_s','evoclassnet','bind')}). "
-  f"Permuting the amino-acid alphabet independently at every position — which preserves per-position information but removes residue identity shared across positions — "
-  f"abolished this transfer, identifying its mechanism. "
-  f"In a leakage-free test restricted to positions withheld from training, predicted escape ranked Variant-of-Concern substitutions with AUROC "
-  f"{HO.get('voc',{}).get('EvoClassNet predicted escape',{}).get('auroc',float('nan')):.2f}. "
-  f"We argue that held-out-position evaluation should be reported alongside random splits for any DMS-trained predictor, and release code that reproduces every number here.")
-P("Keywords: deep mutational scanning; SARS-CoV-2; generalisation; multi-task learning; model evaluation; antibody escape; variant effect prediction.", it=True)
+P(f"Models trained on deep mutational scanning (DMS) data are normally evaluated by holding out random variants. In a combinatorial library almost every position is mutated somewhere in the "
+  f"training set, so this measures interpolation, not the situation that matters for surveillance, in which a lineage mutates a position no experiment has probed. We benchmarked four model "
+  f"families on {len(g):,} unique SARS-CoV-2 receptor-binding-domain genotypes with three measured phenotypes — ACE2 binding ({nlab['bind']:,} labels), expression ({nlab['expr']:,}) and antibody "
+  f"escape averaged over a large monoclonal panel ({nlab['escape']:,}) — under a conventional random split and under a held-out-position split in which no training variant mutates any test position. "
+  f"Under the random split the trained models performed as expected and clearly exceeded an untrained baseline that ranks variants only by how many substitutions they carry "
+  f"(EvoClassNet ρ = {ms('main_random_s','evoclassnet','bind')} versus {ms('main_random_s','mutation_count','bind')} for binding). "
+  f"Under the held-out-position split the additive model became undefined and the global-epistasis model anti-correlated ({ms('main_heldout_sites_s','global_epistasis','bind')}), while a multi-task "
+  f"convolutional–recurrent–attention network appeared to retain signal ({ms('main_heldout_sites_s','evoclassnet','bind')}). That appearance does not survive the right control: the untrained "
+  f"mutation-count baseline reached {ms('main_heldout_sites_s','mutation_count','bind')} on the same partitions, and the trained network was statistically indistinguishable from it on all three "
+  f"phenotypes (paired Wilcoxon over {nseed} seeds: {stat('heldout_sites','ACE2 binding','vs_mutation_count')} for binding). Permuting the amino-acid alphabet independently at every position, which "
+  f"destroys residue identity shared across positions but leaves mutation count untouched, changed nothing, as this account predicts. We conclude that none of the models tested demonstrates "
+  f"position-level extrapolation, and that held-out-position evaluation is interpretable only when reported against a mutation-count baseline.")
+P("Keywords: deep mutational scanning; SARS-CoV-2; model evaluation; generalisation; baselines; variant effect prediction; negative result.", it=True)
 
-# ---------------------------------------------------------------- introduction
 H("1. Introduction")
-P("Deep mutational scanning measures the phenotypic effect of thousands of amino-acid substitutions in a single experiment, and such data now underpin much of what is known about the SARS-CoV-2 receptor-binding domain (RBD): which substitutions raise ACE2 affinity, which destabilise the fold, and which abolish binding by therapeutic antibodies [1,2]. Supervised models trained on these measurements are widely used to score substitutions that have not been assayed, and to prioritise candidates for experimental follow-up.")
-P("How such models are evaluated has received far less attention than how they are built. The standard protocol holds out a random subset of variants. In a saturating DMS library almost every position is mutated somewhere in the training data, so a random test variant differs from training variants in which substitutions it combines, not in where they occur. A model can therefore score well by learning a per-position, per-residue effect table and a link function, without any ability to say anything about a position it has never seen mutated. That is precisely the ability surveillance requires: a newly sampled lineage frequently mutates positions absent from any existing scan.")
-P("We therefore evaluate under two designs. The first is the conventional random split over genotypes. The second is a held-out-position split: positions are partitioned, and a variant enters a partition only if every position it mutates belongs to that partition, so no training variant touches a test position. We compare three model families — an additive ridge model, a global-epistasis model [3] and a multi-task convolutional–recurrent–attention network we call EvoClassNet — on three phenotypes measured for the same domain: ACE2 binding, expression and antibody escape aggregated across a large antibody panel [1,2].")
-P("Our contributions are: (i) a quantitative demonstration that conventional and held-out-position evaluation give opposite model rankings on the same data; (ii) an ablation that isolates the mechanism of the neural model's transfer, namely amino-acid identity shared across positions; (iii) a characterisation of how far transfer extends as more positions are withheld, and of which positions it succeeds at; (iv) a leakage-free retrospective test against Variant-of-Concern substitutions, made possible by evaluating only at withheld positions; and (v) a control showing what naive genetic-algorithm optimisation of a learned fitness surface actually produces.")
+P("Deep mutational scanning measures the phenotypic consequences of thousands of amino-acid substitutions in one experiment, and such data underpin much of what is known about the SARS-CoV-2 receptor-binding domain (RBD): which substitutions raise ACE2 affinity, which destabilise the fold, and which abolish binding by therapeutic antibodies [1,2]. Supervised models trained on these measurements are routinely used to score substitutions that were not assayed and to prioritise candidates for experimental follow-up.")
+P("How such models are evaluated has received less scrutiny than how they are built. The standard protocol holds out a random subset of variants. In a saturating combinatorial library almost every position is mutated somewhere in the training data, so a random test variant differs from training variants in which substitutions it combines, not in where those substitutions fall. A model can therefore score well by learning a per-position, per-residue effect table together with a link function, without any capacity to say anything about a position it has never seen mutated. That capacity is what surveillance requires.")
+P("We therefore compared a conventional random split against a held-out-position split, in which positions are partitioned and a variant enters a partition only if every position it mutates belongs to that partition. We expected, and found, that the trained models degrade sharply under the second design. The purpose of this paper is a second and less comfortable observation: the degradation is total. Once an untrained baseline that ranks variants by the number of substitutions they carry is included, no trained model in our comparison is distinguishable from it at unseen positions. Because that baseline is trivial to compute and is almost never reported, a held-out-position experiment without it invites exactly the wrong conclusion — and we initially drew that conclusion ourselves before adding the control.")
+P("Our contributions are: (i) a demonstration that random-split and held-out-position evaluation give different model rankings on the same data, with paired statistics over ten seeds; (ii) the mutation-count control that reinterprets the second ranking, showing that apparent extrapolation is not position-level transfer; (iii) an alphabet-permutation ablation whose null result corroborates that account; (iv) a quantification of run-to-run instability large enough to flip conclusions drawn from single runs; and (v) a leakage-free retrospective test against Variant-of-Concern substitutions and a genetic-algorithm control, both of which we report with the same scepticism.")
 
-# ---------------------------------------------------------------- methods
 H("2. Materials and methods")
 H("2.1 Phenotype data", 2)
 P(f"Binding and expression. We used the yeast-display RBD DMS of Starr et al. [1] (Wuhan-Hu-1 background, spike residues 331–531; 201 positions), which reports ACE2 binding (Δlog10 Ka relative to wild type) and surface expression (Δ mean fluorescence) for barcoded variants carrying 0–9 amino-acid substitutions. Variants containing stop codons were removed, and barcodes sharing an identical amino-acid genotype were collapsed to a single record carrying the mean of their measurements, so that an identical sequence can never appear on both sides of a split. This yields {len(g):,} unique genotypes (median {int(g.n_sub.median())} substitutions, range {int(g.n_sub.min())}–{int(g.n_sub.max())}); {nlab['bind']:,} carry a binding value and {nlab['expr']:,} an expression value. Binding is censored at a floor of log10 Ka = 6, which we did not model explicitly.")
@@ -134,102 +130,145 @@ P(f"The primary metric is Spearman's ρ between predicted and measured phenotype
 
 # ---------------------------------------------------------------- results
 H("3. Results")
-H("3.1 Conventional random splits do not separate the model families", 2)
+H("3.1 Under random splits the trained models behave as expected", 2)
 table(main_df[main_df.split == "random"] if not main_df.empty else main_df,
       "Table 1. Random genotype split: test-set performance (mean ± SD across seeds).",
       cols=["model", "task", "seeds", "n_test", "spearman", "pearson", "rmse"],
       rename={"model": "Model", "task": "Phenotype", "seeds": "Seeds", "n_test": "n test", "spearman": "Spearman ρ", "pearson": "Pearson r", "rmse": "RMSE"})
 fig("fig1_random_split.png", "Figure 1. Random genotype split. Bars show the mean across seeds, error bars the standard deviation, dots individual seeds.")
-P(f"On the conventional design the three families are close. For binding, EvoClassNet reached ρ = {ms('main_random_s','evoclassnet','bind')} and the global-epistasis baseline {ms('main_random_s','global_epistasis','bind')} "
-  f"(paired difference {stat('random','ACE2 binding')}); for expression {ms('main_random_s','evoclassnet','expr')} versus {ms('main_random_s','global_epistasis','expr')} "
-  f"({stat('random','Expression')}); for escape {ms('main_random_s','evoclassnet','escape')} versus {ms('main_random_s','global_epistasis','escape')} "
-  f"({stat('random','Antibody escape')}). The additive model is only slightly behind ({ms('main_random_s','ridge_additive','bind')} for binding). "
-  f"A reader given only this table would reasonably conclude that the additional capacity of the neural model buys little.")
-H("3.2 Held-out positions reverse the ranking", 2)
+P(f"On the conventional design all trained models performed well and comfortably exceeded the untrained mutation-count baseline. For binding, EvoClassNet reached ρ = {ms('main_random_s','evoclassnet','bind')} "
+  f"and the global-epistasis baseline {ms('main_random_s','global_epistasis','bind')}, against {ms('main_random_s','mutation_count','bind')} for mutation count alone "
+  f"(EvoClassNet versus mutation count {stat('random','ACE2 binding','vs_mutation_count')}). The two trained families were close to each other: {stat('random','ACE2 binding')} for binding and "
+  f"{stat('random','Expression')} for expression. On escape the global-epistasis model was the better of the two ({ms('main_random_s','global_epistasis','escape')} versus "
+  f"{ms('main_random_s','evoclassnet','escape')}; {stat('random','Antibody escape')}), so the neural architecture is not uniformly preferable even under interpolation.")
+P(f"Two entries in Table 1 are zero by construction rather than by failure. The additive ridge model scores 0 on escape because escape labels exist only for single substitutions, so each "
+  f"(position, residue) indicator occurs in exactly one training row and the regularised fit collapses to the intercept. Mutation count scores 0 on escape for the same reason: every labelled "
+  f"variant carries exactly one substitution, so the baseline is constant. This makes escape the one phenotype here on which mutation count cannot masquerade as predictive skill, a point we return to in Section 3.3.")
+
+H("3.2 Held-out positions: the trained models collapse", 2)
 table(main_df[main_df.split == "heldout_sites"] if not main_df.empty else main_df,
       "Table 2. Held-out-position split: test variants mutate only positions absent from training (mean ± SD across seeds).",
       cols=["model", "task", "seeds", "n_test", "spearman", "pearson", "rmse"],
       rename={"model": "Model", "task": "Phenotype", "seeds": "Seeds", "n_test": "n test", "spearman": "Spearman ρ", "pearson": "Pearson r", "rmse": "RMSE"})
 fig("fig2_heldout_sites.png", "Figure 2. Held-out-position split. Same layout as Figure 1.")
-P(f"When every test variant mutates positions the model has never seen mutated, the additive model has no applicable parameter and emits a constant prediction (ρ = 0 by our convention). "
-  f"The global-epistasis model does worse than that: its predictions are anti-correlated with measurement ({ms('main_heldout_sites_s','global_epistasis','bind')} for binding, "
-  f"{ms('main_heldout_sites_s','global_epistasis','expr')} for expression), because the latent effects it assigns to unseen substitutions are set by regularisation towards zero and then passed through a link function fitted to the training distribution. "
-  f"EvoClassNet retained positive correlation ({ms('main_heldout_sites_s','evoclassnet','bind')} binding, {ms('main_heldout_sites_s','evoclassnet','expr')} expression, "
-  f"{ms('main_heldout_sites_s','evoclassnet','escape')} escape; paired difference versus global epistasis {stat('heldout_sites','ACE2 binding')} for binding). "
-  f"The absolute values are modest and well below the ρ ≈ {rb:.2f} the same architecture attains under interpolation, so this is a difference in kind, not a claim of accurate extrapolation.")
-H("3.3 How far transfer extends", 2)
-fig("fig4_sweep.png", "Figure 3. Performance as a function of the fraction of positions withheld (5–50 %). Points are means over seeds, error bars standard deviations.", 6.2)
-sw = {f: mean(f"sweep_f{f}_s", "evoclassnet", "bind") for f in (5, 15, 30, 50)}
-P(f"Withholding more positions removes training data and widens the gap the model must bridge. For binding, EvoClassNet's test ρ moved from {sw[5]:.3f} at 5 % of positions withheld to "
-  f"{sw[15]:.3f} at 15 %, {sw[30]:.3f} at 30 % and {sw[50]:.3f} at 50 % (Figure 3). Transfer therefore degrades gracefully rather than collapsing at a threshold, and remains positive even when half of the domain is unseen, "
-  f"while the baselines remain at or below zero throughout.")
-H("3.4 The mechanism is residue identity shared across positions", 2)
-table(abl_df, "Table 3. Amino-acid permutation ablation: an independent permutation of the amino-acid alphabet at every position, applied consistently to all partitions.",
+P(f"When every test variant mutates positions never mutated in training, the additive model has no applicable parameter and emits a constant prediction. The global-epistasis model does worse than "
+  f"nothing: its predictions are anti-correlated with measurement ({ms('main_heldout_sites_s','global_epistasis','bind')} for binding, {ms('main_heldout_sites_s','global_epistasis','expr')} for "
+  f"expression), because latent effects for unseen substitutions are shrunk towards zero and then passed through a link function fitted to the training distribution. EvoClassNet remained positive on "
+  f"average ({ms('main_heldout_sites_s','evoclassnet','bind')} binding, {ms('main_heldout_sites_s','evoclassnet','expr')} expression, {ms('main_heldout_sites_s','evoclassnet','escape')} escape) and beat both "
+  f"trained baselines by a wide margin ({stat('heldout_sites','ACE2 binding')} versus global epistasis). Read in isolation, Table 2 says that the neural model extrapolates to unseen positions where "
+  f"the conventional models cannot.")
+
+H("3.3 An untrained baseline matches the neural model at unseen positions", 2)
+P(f"That reading is wrong. Ranking variants by the number of substitutions they carry — no training, no parameters, and no knowledge of which positions or residues are involved — reached "
+  f"ρ = {ms('main_heldout_sites_s','mutation_count','bind')} for binding and {ms('main_heldout_sites_s','mutation_count','expr')} for expression on the same partitions, against "
+  f"{ms('main_heldout_sites_s','evoclassnet','bind')} and {ms('main_heldout_sites_s','evoclassnet','expr')} for EvoClassNet. Paired over {nseed} seeds the differences are "
+  f"{stat('heldout_sites','ACE2 binding','vs_mutation_count')} for binding, {stat('heldout_sites','Expression','vs_mutation_count')} for expression and "
+  f"{stat('heldout_sites','Antibody escape','vs_mutation_count')} for escape: the trained network is not distinguishable from the untrained baseline on any phenotype, and the baseline is far more "
+  f"stable across partitions (SD {np.std(vals('main_heldout_sites_s','mutation_count','bind'), ddof=1):.3f} against {np.std(vals('main_heldout_sites_s','evoclassnet','bind'), ddof=1):.3f}).")
+table(stat_df, "Table 3. Paired differences in Spearman ρ (EvoClassNet minus comparator) with two-sided Wilcoxon signed-rank tests over seeds.",
+      cols=["split", "task", "n_seeds", "vs_mutation_count", "vs_global_epistasis", "vs_additive"],
+      rename={"split": "Split", "task": "Phenotype", "n_seeds": "Seeds", "vs_mutation_count": "vs mutation count",
+              "vs_global_epistasis": "vs global epistasis", "vs_additive": "vs additive ridge"})
+P("The interpretation is straightforward. In a combinatorial library a large part of the rank variance in binding and expression is carried by how many substitutions a variant has, because most "
+  "substitutions are deleterious and their effects accumulate. A model that has learned nothing about the held-out positions can still order test variants correctly to that extent, simply by "
+  "responding to the overall amount of mutation. What Table 2 measures is therefore not transfer to unseen positions; it is the part of the signal that requires no knowledge of positions at all.")
+P(f"Escape is the exception that makes the point. Every escape-labelled variant carries exactly one substitution, so mutation count is constant and contributes nothing. There, EvoClassNet reached "
+  f"{ms('main_heldout_sites_s','evoclassnet','escape')} against {ms('main_heldout_sites_s','global_epistasis','escape')} for global epistasis, a difference of "
+  f"{stat('heldout_sites','Antibody escape')}. This is the only measurement in our study that could constitute genuine position-level transfer, and at {nseed} seeds it does not reach significance.")
+
+H("3.4 Permuting the amino-acid alphabet changes nothing", 2)
+table(abl_df, "Table 4. Amino-acid permutation ablation: an independent random permutation of the alphabet at every position, applied consistently to all partitions.",
       cols=["split", "task", "intact", "permuted", "delta"],
       rename={"split": "Split", "task": "Phenotype", "intact": "Intact alphabet", "permuted": "Permuted alphabet", "delta": "Δρ"})
 if not abl_df.empty:
     a = abl_df[(abl_df.split == "heldout_sites") & (abl_df.task == "ACE2 binding")].iloc[0]
-    b = abl_df[(abl_df.split == "random") & (abl_df.task == "ACE2 binding")].iloc[0]
-    P(f"Permuting the alphabet independently at each position leaves every position's own information intact but destroys the correspondence between the same residue at different positions. "
-      f"Under the random split this barely matters (binding ρ {b.intact} → {b.permuted}, Δ = {b.delta}): interpolation only needs a per-position effect table, which the permutation merely relabels. "
-      f"Under the held-out-position split the same manipulation removes the model's advantage (binding ρ {a.intact} → {a.permuted}, Δ = {a.delta}). "
-      f"Transfer to unseen positions is therefore carried by amino-acid identity shared across positions — approximately, learned residue chemistry — and not by positional context or extra capacity.")
-H("3.5 Learned chemistry outperforms a substitution-matrix prior", 2)
+    P(f"We designed this ablation to test the hypothesis that transfer is carried by residue identity shared across positions: permuting the alphabet independently at each position preserves every "
+      f"position's own information while destroying any correspondence between the same residue at different positions. Under that hypothesis the manipulation should remove the neural model's "
+      f"advantage at held-out positions. It did not. At held-out positions binding moved from {a.intact} to {a.permuted} (Δ = {a.delta}), a change small against the between-seed standard deviation, "
+      f"and the other conditions behaved similarly. The null result is what the mutation-count account predicts, because the number of substitutions in a variant is invariant to relabelling the "
+      f"alphabet. We report the ablation because it was the discriminating experiment between the two explanations, and it favours the second.")
+
+H("3.5 Run-to-run instability", 2)
+hv = sorted(vals("main_heldout_sites_s", "evoclassnet", "bind"))
+ST = J("stability_check.json")
+P(f"Per-seed results for EvoClassNet at held-out positions ranged from {min(hv):+.3f} to {max(hv):+.3f} for binding ({sum(1 for x in hv if x > 0)} of {len(hv)} seeds positive), a spread that "
+  f"exceeds most of the differences discussed above. In the main study the partition and the weight initialisation share a seed value, so partition difficulty and optimisation noise are confounded.")
+if ST:
+    import collections
+    by = collections.defaultdict(list)
+    for r in ST: by[r["split_seed"]].append(r["bind"])
+    for ss, v in sorted(by.items()):
+        P(f"Holding partition {ss} fixed and varying only the initialisation gave binding ρ of " + ", ".join(f"{x:+.3f}" for x in v) +
+          f" (range {max(v)-min(v):.3f}). ", it=False)
+    P("Initialisation alone therefore accounts for a substantial part of the spread, which means single-run comparisons on this benchmark are not reliable and that published results of this kind should report a seed distribution rather than a single number.")
+
+H("3.6 Withholding more positions", 2)
+fig("fig4_sweep.png", "Figure 3. Performance as a function of the fraction of positions withheld (5–50 %). Points are means over seeds, error bars standard deviations.", 6.2)
+sw = {f: mean(f"sweep_f{f}_s", "evoclassnet", "bind") for f in (5, 15, 30, 50)}
+swb = {f: mean(f"sweep_f{f}_s", "mutation_count", "bind") for f in (5, 15, 30, 50)}
+P(f"Withholding a larger fraction of positions removes training data and widens the gap to be bridged. EvoClassNet's binding ρ fell from {sw[5]:.3f} at 5 % of positions withheld to {sw[15]:.3f} at 15 %, "
+  f"{sw[30]:.3f} at 30 % and {sw[50]:.3f} at 50 %. The mutation-count baseline on the same partitions gave {swb[5]:.3f}, {swb[15]:.3f}, {swb[30]:.3f} and {swb[50]:.3f}. The trained model does not "
+  f"separate from the baseline at any fraction, so the decline reflects the shrinking contribution of mutation count rather than a failure of transfer that was present at smaller fractions.")
+
+H("3.7 Single substitutions at withheld positions", 2)
+P("Restricting attention to single substitutions removes mutation count as a confound entirely, because every variant then carries exactly one substitution. We trained held-out-position models and "
+  "scored every single substitution at the withheld positions, comparing the model against the measured values and against BLOSUM62 exchangeability, which encodes generic residue chemistry with no training.")
 if HO.get("vs_blosum"):
     rows = [dict(Phenotype={"bind": "ACE2 binding", "escape": "Antibody escape"}.get(k, k),
                  EvoClassNet=f"{v['model_median']:.3f}", BLOSUM62=f"{v['blosum_median']:.3f}",
-                 Difference=f"{v['median_diff']:+.3f}", P=f"{v['p']:.3g}", n=v["n"])
-            for k, v in HO["vs_blosum"].items()]
-    table(pd.DataFrame(rows), "Table 4. Median per-position Spearman ρ at withheld positions: the trained model against BLOSUM62 exchangeability (Wilcoxon signed-rank on paired per-position differences).")
-    bb = HO["vs_blosum"].get("bind", {})
-    P(f"If transfer rests on residue chemistry, a substitution matrix encodes that prior directly and without training, so it is the appropriate control. "
-      f"At withheld positions BLOSUM62 reached a median per-position ρ of {bb.get('blosum_median',float('nan')):.3f} for binding against {bb.get('model_median',float('nan')):.3f} for EvoClassNet "
-      f"(median paired difference {bb.get('median_diff',float('nan')):+.3f}, P = {bb.get('p',float('nan')):.3g}, n = {bb.get('n','—')} position–seed pairs). "
-      f"The model therefore learns more than generic exchangeability: the chemistry it extracts is conditioned on this domain and these phenotypes, not merely a restatement of a general-purpose matrix.")
-
-H("3.6 Leakage-free ranking of Variant-of-Concern substitutions", 2)
-if HO.get("voc"):
-    rows = [dict(Score=k, AUROC=f"{v['auroc']:.3f}", CI=f"{v['ci95'][0]:.3f}–{v['ci95'][1]:.3f}", n_VOC=v["n_voc"], n_scored=v["n_total"]) for k, v in HO["voc"].items()]
-    table(pd.DataFrame(rows), "Table 5. Ranking Variant-of-Concern substitutions at withheld positions only (pooled over seeds; 95 % bootstrap intervals).")
-    pe = HO["voc"].get("EvoClassNet predicted escape", {}); me = HO["voc"].get("Measured escape (held-out positions)", {})
-    P(f"Restricting the comparison to positions that were withheld removes the circularity that would otherwise dominate this analysis. Predicted escape ranked Variant-of-Concern substitutions above the remainder "
-      f"with AUROC {pe.get('auroc',float('nan')):.3f} (95 % CI {pe.get('ci95',[float('nan')]*2)[0]:.3f}–{pe.get('ci95',[float('nan')]*2)[1]:.3f}; {pe.get('n_voc','—')} positive instances). "
-      f"The measured escape values on the identical subset give {me.get('auroc',float('nan')):.3f} ({me.get('ci95',[float('nan')]*2)[0]:.3f}–{me.get('ci95',[float('nan')]*2)[1]:.3f}), "
-      f"which is the ceiling available to any model of this phenotype. The number of positives is small and the intervals are correspondingly wide.")
-H("3.7 Which positions transfer", 2)
-fig("fig5_per_site.png", "Figure 5. Per-position Spearman ρ at withheld positions against relative solvent accessibility, with a linear fit.", 6.2)
+                 Difference=f"{v['median_diff']:+.3f}", P=f"{v['p']:.3g}", n=v["n"]) for k, v in HO["vs_blosum"].items()]
+    table(pd.DataFrame(rows), "Table 5. Median per-position Spearman ρ over single substitutions at withheld positions (Wilcoxon signed-rank on paired per-position differences).")
 if HO.get("per_site"):
     for task, tname in (("bind", "binding"), ("escape", "escape")):
         d = HO["per_site"].get(task)
         if not d: continue
         rr, pp = d["rho_vs_RSA"]
-        P(f"For {tname}, the median per-position ρ at withheld positions was {d['median_rho']:.3f} and {100*d['frac_positive']:.0f} % of position–seed pairs were positive. "
-          f"Per-position accuracy correlated with relative solvent accessibility (ρ = {rr:.3f}, P = {pp:.3g}), and the comparison of receptor-binding-motif positions with core positions "
-          f"is reported in results/holdout_analysis.json. Transfer is thus not uniform across the domain.")
-H("3.8 A control: optimising a learned fitness surface", 2)
+        P(f"For {tname} the median per-position ρ was {d['median_rho']:.3f}, with {100*d['frac_positive']:.0f} % of position–seed pairs positive, and per-position accuracy correlated with relative "
+          f"solvent accessibility at ρ = {rr:.3f} (P = {pp:.3g}).")
+fig("fig5_per_site.png", "Figure 4. Per-position Spearman ρ at withheld positions against relative solvent accessibility, with a linear fit.", 6.2)
+
+H("3.8 Variant-of-Concern ranking and a genetic-algorithm control", 2)
+if HO.get("voc"):
+    rows = [dict(Score=k, AUROC=f"{v['auroc']:.3f}", CI=f"{v['ci95'][0]:.3f}–{v['ci95'][1]:.3f}", n_VOC=v["n_voc"], n_scored=v["n_total"]) for k, v in HO["voc"].items()]
+    table(pd.DataFrame(rows), "Table 6. Ranking Variant-of-Concern substitutions at withheld positions only (pooled over seeds; 95 % bootstrap intervals).")
+    pe = HO["voc"].get("EvoClassNet predicted escape", {}); me = HO["voc"].get("Measured escape (held-out positions)", {})
+    P(f"Variant-of-Concern substitutions appear in the escape training data, so ranking them with a model that has seen them measures memorisation; restricting the comparison to withheld positions "
+      f"removes that circularity. Predicted escape gave AUROC {pe.get('auroc',float('nan')):.3f} "
+      f"(95 % CI {pe.get('ci95',[float('nan')]*2)[0]:.3f}–{pe.get('ci95',[float('nan')]*2)[1]:.3f}; {pe.get('n_voc','—')} positive instances), against "
+      f"{me.get('auroc',float('nan')):.3f} for the measured values on the identical subset, which is the ceiling available to any model of this phenotype. The number of positives is small and the intervals are wide.")
 if VA:
     for obj, lab in (("escape", "predicted escape"), ("escape_and_binding", "predicted escape plus binding")):
         v = VA.get(obj)
         if not v: continue
-        P(f"Maximising {lab} with a genetic algorithm (population 400, 20 generations, at most 8 substitutions) visited {v['archive']:,} distinct sequences. "
-          f"The top 1 % carried {v['top_mean_voc']:.3f} Variant-of-Concern substitutions per variant against {v['random_mean_voc']:.3f} for size-matched random samples of the same archive "
-          f"(permutation P = {v['perm_p']:.3f}); {100*v['frac_top_muts_in_terminal_20']:.0f} % of its twenty most frequent substitutions fall in the last twenty positions of the construct. "
-          f"The optimiser converges on regions where the assay is permissive rather than on biologically meaningful variants.")
-    P("We report this as a control rather than a method. A learned fitness surface is accurate in the region where it was fitted and unconstrained outside it, and an optimiser will find the unconstrained region. In-silico variant generation of this kind should be reported with such a null comparison, or not reported as prediction.")
+        P(f"Maximising {lab} with a genetic algorithm (population 400, 20 generations, at most 8 substitutions) visited {v['archive']:,} distinct sequences. The top 1 % carried {v['top_mean_voc']:.3f} "
+          f"Variant-of-Concern substitutions per variant against {v['random_mean_voc']:.3f} for size-matched random samples of the same archive (permutation P = {v['perm_p']:.3f}); "
+          f"{100*v['frac_top_muts_in_terminal_20']:.0f} % of its twenty most frequent substitutions fall in the last twenty positions of the construct.")
+    P("A learned fitness surface is constrained only where it was fitted, and an optimiser will leave that region. In-silico variant generation of this kind needs a null comparison of this sort before it is described as prediction.")
 
-# ---------------------------------------------------------------- discussion
 H("4. Discussion")
-P("The same data, the same models and two evaluation designs give opposite conclusions. Under random splits the neural model is indistinguishable from a two-parameter-per-substitution global-epistasis fit, and a reviewer would be right to ask what the additional machinery buys. Under held-out-position evaluation that fit becomes anti-correlated with measurement while the neural model retains positive signal across all three phenotypes. Neither result is wrong; they answer different questions, and only the second is the question that variant surveillance poses.")
-P("The permutation ablation locates the difference. Nothing about capacity or positional context explains the gap: once the amino-acid alphabet is permuted independently per position, the neural model loses its advantage exactly where that advantage existed, and is unaffected where it did not. What transfers is the learned regularity that a given residue tends to have related consequences wherever it appears — chemistry rather than coordinates. This also predicts where the approach should fail, and Section 3.6 shows that it does fail unevenly across the domain.")
-P("The practical recommendation is narrow and, we think, well supported: any predictor trained on a saturating mutational scan should report held-out-position performance alongside the conventional random split, because the two can disagree in direction. The protocol is cheap, requires no additional data, and would have changed the interpretation of the comparison reported here.")
-H("4.1 What this work does not show", 2)
-for x in ["Absolute accuracy at unseen positions is modest and far below interpolation performance; these models are not a substitute for measurement.",
-          "A single domain, a single genetic background (Wuhan-Hu-1) and two assay platforms. Whether the ranking reversal generalises to other proteins or scans is untested, and the seed-level P values describe reproducibility across partitions rather than across proteins.",
-          "Escape labels average over an antibody panel assembled from 13 studies with differing antibody selections; the average is a crude summary of a high-dimensional phenotype, and only single substitutions carry escape labels.",
+P("Three evaluation designs applied to the same data support three different conclusions. A random split says the trained models work well and that the choice between them barely matters. A "
+  "held-out-position split says the neural model extrapolates where conventional models fail. Adding an untrained baseline to the held-out-position split says that none of them extrapolates at "
+  "all. Only the third conclusion survives, and the baseline that produces it costs nothing to compute.")
+P("We think the general lesson is about which control a hard evaluation requires. Making a split harder does not by itself make the resulting number meaningful: it changes what an uninformative "
+  "model would score, and unless that value is measured it is easy to mistake a shift in the null for evidence of skill. On a combinatorial mutagenesis library the uninformative score is not zero, "
+  "because the number of substitutions a variant carries is itself predictive. We report this partly as a cautionary note on our own process: we had written up the held-out-position result as "
+  "evidence of transfer, and designed an ablation to explain a mechanism, before the baseline showed there was nothing to explain. The ablation's null result, which had looked like a failed "
+  "experiment, was in fact the first symptom.")
+P("Whether position-level transfer exists at all in these models remains open, and our escape measurements are the place to look, since every escape-labelled variant carries a single substitution "
+  "and mutation count is therefore constant. The neural model was above the alternatives there but not significantly so at ten seeds. Settling that question needs either more seeds, more "
+  "single-substitution phenotypes, or models with access to information beyond the training library — pretrained protein language models and structure being the obvious candidates, neither of which "
+  "we could evaluate here.")
+P("The practical recommendations are narrow. First, report held-out-position performance alongside random splits for any predictor trained on a saturating scan, because the two designs can be "
+  "ranked differently. Second, report a mutation-count baseline on every split, because without it a held-out-position number cannot be interpreted. Third, report a distribution over seeds rather "
+  "than a single run: on this benchmark initialisation alone moved held-out binding ρ across a range wide enough to reverse conclusions.")
+H("4.1 Limitations", 2)
+for x in ["This is a negative result on one domain, one genetic background (Wuhan-Hu-1) and two assay platforms. It shows that these models do not extrapolate here, not that no model can.",
+          "The architecture is a CPU-scale convolutional-recurrent-attention network. Pretrained protein language model embeddings and structural inputs, which are the components most likely to supply position-independent biochemical knowledge, were not evaluated: the pretrained weights and structural data were not reachable from the compute environment and no GPU was available. The implementation exposes an input for precomputed per-residue features so this comparison can be added.",
+          "Hyper-parameters were selected by validation on random splits and may be suboptimal in the held-out-position regime; this would, if anything, understate the trained models there.",
+          "Escape labels average over an antibody panel assembled from 13 studies with differing antibody selections, and only single substitutions carry escape labels, so the escape task has far fewer labels than the others and wide confidence intervals.",
           "Binding measurements are censored at an assay floor, which we did not model; expression is a proxy for folding stability.",
-          "The Variant-of-Concern analysis is retrospective, uses 18 substitutions chosen from known lineage definitions, and contributes only at seeds where the relevant position was withheld, so the effective sample is small and the intervals wide.",
-          "Hyper-parameters were selected on random-split validation data and may be suboptimal for the held-out-position regime, which if anything understates the neural model there.",
-          "Protein language model embeddings and structure-based components were not evaluated: the pretrained weights and structural data were not reachable from the compute environment used, and no GPU was available. The implementation exposes an input for precomputed per-residue features so that this comparison can be added."]:
+          "The Variant-of-Concern analysis is retrospective, uses 18 substitutions drawn from known lineage definitions, and contributes only at seeds where the relevant position was withheld, so the effective sample is small.",
+          "Seed-level P values describe reproducibility across partitions of one data set; they do not license inference to other proteins or other scans."]:
     doc.add_paragraph(x, style="List Bullet")
 
 H("5. Data and code availability")
