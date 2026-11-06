@@ -1,3 +1,31 @@
 + cd /home/user/EvoClassNet
 + pgrep -f run_study.py
 + sleep 30
++ pgrep -f run_study.py
++ sleep 30
++ pgrep -f run_study.py
++ sleep 30
++ pgrep -f run_study.py
++ sleep 30
++ pgrep -f run_study.py
++ sleep 30
++ pgrep -f run_study.py
++ sleep 30
++ pgrep -f run_study.py
++ sleep 30
++ pgrep -f run_study.py
++ sleep 30
++ pgrep -f run_study.py
++ sleep 30
++ pgrep -f run_study.py
++ sleep 30
++ pgrep -f run_study.py
++ sleep 30
++ pgrep -f run_study.py
++ sleep 30
++ pgrep -f run_study.py
++ sleep 30
++ pgrep -f run_study.py
++ sleep 30
++ pgrep -f run_study.py
++ sleep 30
