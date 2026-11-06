@@ -1,0 +1,216 @@
+{
+ "dms_id": "FECA_ECOLI_Tsuboyama_2023_2D1U",
+ "n_variants": 1886,
+ "seq_len": 72,
+ "n_positions": 72,
+ "frac_multi": 0.35365853658536583,
+ "max_nsub": 2,
+ "has_structure": true,
+ "splits": {
+  "random": {
+   "mutation_count": {
+    "spearman": 0.2111277461949988,
+    "spearman_sd": 0.019829970140230854,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 378
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.0385800174352809,
+    "spearman_sd": 0.04880927500520329,
+    "partial": -0.009985973770176104,
+    "n_seeds": 5,
+    "n_test": 378
+   },
+   "residue_only": {
+    "spearman": 0.6990999722983335,
+    "spearman_sd": 0.025671045013462818,
+    "partial": 0.682027050969083,
+    "n_seeds": 5,
+    "n_test": 378
+   },
+   "physchem": {
+    "spearman": 0.7163313988618167,
+    "spearman_sd": 0.02267141651557587,
+    "partial": 0.7004848711596887,
+    "n_seeds": 5,
+    "n_test": 378
+   },
+   "chem_struct": {
+    "spearman": 0.7549190011444525,
+    "spearman_sd": 0.02598492988762485,
+    "partial": 0.7417048803875677,
+    "n_seeds": 5,
+    "n_test": 378
+   },
+   "position_mean": {
+    "spearman": 0.6125554411987512,
+    "spearman_sd": 0.04492944334531522,
+    "partial": 0.5922707985457178,
+    "n_seeds": 5,
+    "n_test": 378
+   },
+   "ridge_additive": {
+    "spearman": 0.5178483607510407,
+    "spearman_sd": 0.027404005406821027,
+    "partial": 0.4841875286235859,
+    "n_seeds": 5,
+    "n_test": 378
+   }
+  },
+  "heldout_positions": {
+   "mutation_count": {
+    "spearman": 0.07823288707761984,
+    "spearman_sd": 0.17493405358162284,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 229
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.10651944943650296,
+    "spearman_sd": 0.11105881727205431,
+    "partial": -0.12656712227090558,
+    "n_seeds": 5,
+    "n_test": 229
+   },
+   "residue_only": {
+    "spearman": 0.4769507339872696,
+    "spearman_sd": 0.07951109327767929,
+    "partial": 0.4542923249995543,
+    "n_seeds": 5,
+    "n_test": 229
+   },
+   "physchem": {
+    "spearman": 0.5386126025565242,
+    "spearman_sd": 0.05857005276951841,
+    "partial": 0.47957348880033174,
+    "n_seeds": 5,
+    "n_test": 229
+   },
+   "chem_struct": {
+    "spearman": 0.617314710168394,
+    "spearman_sd": 0.057810322713746955,
+    "partial": 0.4900615409623739,
+    "n_seeds": 5,
+    "n_test": 229
+   },
+   "position_mean": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 229
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 229
+   }
+  },
+  "pg_modulo_5": {
+   "mutation_count": {
+    "spearman": 0.007765540793039304,
+    "spearman_sd": 0.017364277095283508,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 253
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.0779405974888199,
+    "spearman_sd": 0.19410552819202928,
+    "partial": -0.247378890172111,
+    "n_seeds": 5,
+    "n_test": 253
+   },
+   "residue_only": {
+    "spearman": 0.5150075552978642,
+    "spearman_sd": 0.13343696589831328,
+    "partial": 0.5384490233897758,
+    "n_seeds": 5,
+    "n_test": 253
+   },
+   "physchem": {
+    "spearman": 0.5308643153898489,
+    "spearman_sd": 0.13132024670690956,
+    "partial": 0.5012979193308452,
+    "n_seeds": 5,
+    "n_test": 253
+   },
+   "chem_struct": {
+    "spearman": 0.5503476947361012,
+    "spearman_sd": 0.1636721870379456,
+    "partial": 0.5957140586928696,
+    "n_seeds": 5,
+    "n_test": 253
+   },
+   "position_mean": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 253
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 253
+   }
+  },
+  "pg_contiguous_5": {
+   "mutation_count": {
+    "spearman": 0.030039654012594497,
+    "spearman_sd": 0.06717070839273562,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 242
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.06303997301264944,
+    "spearman_sd": 0.15971763583468176,
+    "partial": -0.27029230730152404,
+    "n_seeds": 5,
+    "n_test": 242
+   },
+   "residue_only": {
+    "spearman": 0.5234521439270646,
+    "spearman_sd": 0.11429049195485054,
+    "partial": 0.5306419817641048,
+    "n_seeds": 5,
+    "n_test": 242
+   },
+   "physchem": {
+    "spearman": 0.5453960505745294,
+    "spearman_sd": 0.10287214891258423,
+    "partial": 0.49818054959341534,
+    "n_seeds": 5,
+    "n_test": 242
+   },
+   "chem_struct": {
+    "spearman": 0.5414033923465165,
+    "spearman_sd": 0.11795561690722746,
+    "partial": 0.4894724794548474,
+    "n_seeds": 5,
+    "n_test": 242
+   },
+   "position_mean": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 242
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 242
+   }
+  }
+ },
+ "_seconds": 2.3
+}

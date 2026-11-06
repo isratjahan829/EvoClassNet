@@ -42,6 +42,18 @@ Two baselines make the point unambiguous. A **position-mean** model is a ridge r
 | Held-out-position split | position-indexed | Additive ridge | 212 | 0.0 | 0.0 | 0.0 | 0.0 | 1.0 |
 | Held-out-position split | transferable | Residue identity | 212 | 0.253 | 0.189 | 0.352 | 0.712 | 0.0 |
 | Held-out-position split | transferable | Chemistry ridge | 212 | 0.313 | 0.24 | 0.405 | 0.84 | 0.0 |
+| ProteinGym fold_modulo_5 | untrained | Mutation count | 214 | 0.0 | 0.0 | 0.0 | 0.061 | 0.818 |
+| ProteinGym fold_modulo_5 | untrained | BLOSUM62 | 214 | 0.203 | 0.126 | 0.273 | 0.514 | 0.0 |
+| ProteinGym fold_modulo_5 | position-indexed | Position mean | 214 | 0.0 | 0.0 | 0.0 | 0.0 | 1.0 |
+| ProteinGym fold_modulo_5 | position-indexed | Additive ridge | 214 | 0.0 | 0.0 | 0.0 | 0.0 | 1.0 |
+| ProteinGym fold_modulo_5 | transferable | Residue identity | 214 | 0.252 | 0.184 | 0.352 | 0.701 | 0.0 |
+| ProteinGym fold_modulo_5 | transferable | Chemistry ridge | 214 | 0.309 | 0.237 | 0.411 | 0.827 | 0.0 |
+| ProteinGym fold_contiguous_5 | untrained | Mutation count | 193 | 0.0 | 0.0 | 0.0 | 0.057 | 0.782 |
+| ProteinGym fold_contiguous_5 | untrained | BLOSUM62 | 193 | 0.207 | 0.132 | 0.268 | 0.523 | 0.0 |
+| ProteinGym fold_contiguous_5 | position-indexed | Position mean | 193 | 0.0 | 0.0 | 0.0 | 0.0 | 1.0 |
+| ProteinGym fold_contiguous_5 | position-indexed | Additive ridge | 193 | 0.0 | 0.0 | 0.0 | 0.0 | 1.0 |
+| ProteinGym fold_contiguous_5 | transferable | Residue identity | 193 | 0.251 | 0.165 | 0.339 | 0.668 | 0.0 |
+| ProteinGym fold_contiguous_5 | transferable | Chemistry ridge | 193 | 0.314 | 0.228 | 0.386 | 0.788 | 0.0 |
 
 Under a **random split** the position-mean model has a median per-assay ρ of **0.665**, against 0.455 for chemistry: knowing only *where* beats knowing only *what*. Under the **held-out-position split** it falls to **0.0** — not a degradation but an identity, since it holds no parameter for a position it never saw — while chemistry retains 0.313.
 

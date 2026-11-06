@@ -1,0 +1,216 @@
+{
+ "dms_id": "PAI1_HUMAN_Huttinger_2021",
+ "n_variants": 5345,
+ "seq_len": 402,
+ "n_positions": 379,
+ "frac_multi": 0.0,
+ "max_nsub": 1,
+ "has_structure": true,
+ "splits": {
+  "random": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1069
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.19251458336784508,
+    "spearman_sd": 0.0281604319207144,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1069
+   },
+   "residue_only": {
+    "spearman": 0.24310379258660553,
+    "spearman_sd": 0.020226264312517617,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1069
+   },
+   "physchem": {
+    "spearman": 0.2878210211020925,
+    "spearman_sd": 0.009659765516305256,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1069
+   },
+   "chem_struct": {
+    "spearman": 0.3763988300730043,
+    "spearman_sd": 0.015852609786880988,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1069
+   },
+   "position_mean": {
+    "spearman": 0.4383890493066316,
+    "spearman_sd": 0.018313560090548686,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1069
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1069
+   }
+  },
+  "heldout_positions": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1050
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.18117367031612816,
+    "spearman_sd": 0.03152487980407474,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1050
+   },
+   "residue_only": {
+    "spearman": 0.20507780113279606,
+    "spearman_sd": 0.035836657792256074,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1050
+   },
+   "physchem": {
+    "spearman": 0.24295225316360997,
+    "spearman_sd": 0.02681865839756264,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1050
+   },
+   "chem_struct": {
+    "spearman": 0.33834958887806665,
+    "spearman_sd": 0.03133505492125496,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1050
+   },
+   "position_mean": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1050
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1050
+   }
+  },
+  "pg_modulo_5": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1064
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.18274773838039032,
+    "spearman_sd": 0.03350628299486441,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1064
+   },
+   "residue_only": {
+    "spearman": 0.22462793726757227,
+    "spearman_sd": 0.056988524400474125,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1064
+   },
+   "physchem": {
+    "spearman": 0.26401863150403476,
+    "spearman_sd": 0.04779171208037654,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1064
+   },
+   "chem_struct": {
+    "spearman": 0.36607322803700193,
+    "spearman_sd": 0.04291622392847677,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1064
+   },
+   "position_mean": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1064
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1064
+   }
+  },
+  "pg_contiguous_5": {
+   "mutation_count": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1125
+   },
+   "blosum_zeroshot": {
+    "spearman": 0.18366794253357369,
+    "spearman_sd": 0.012485973503251879,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1125
+   },
+   "residue_only": {
+    "spearman": 0.2155641624994235,
+    "spearman_sd": 0.046486583219232505,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1125
+   },
+   "physchem": {
+    "spearman": 0.25769972124396917,
+    "spearman_sd": 0.036570277509138945,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1125
+   },
+   "chem_struct": {
+    "spearman": 0.35447120474322596,
+    "spearman_sd": 0.04904164907301607,
+    "partial": NaN,
+    "n_seeds": 5,
+    "n_test": 1125
+   },
+   "position_mean": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1125
+   },
+   "ridge_additive": {
+    "spearman": 0.0,
+    "spearman_sd": 0.0,
+    "partial": 0.0,
+    "n_seeds": 5,
+    "n_test": 1125
+   }
+  }
+ },
+ "_seconds": 3.2
+}
