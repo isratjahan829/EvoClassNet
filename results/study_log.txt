@@ -75,3 +75,5 @@
 15:10:55 [47/50] abl_perm_random_s4 bind=0.897 expr=0.848 esca=0.635
 15:11:25 [48/50] abl_perm_heldout_sites_s2 bind=0.302 expr=0.252 esca=0.442
 15:14:03 [49/50] abl_perm_heldout_sites_s4 bind=0.273 expr=0.237 esca=-0.272
+15:17:56 [50/50] abl_perm_heldout_sites_s3 bind=0.227 expr=0.167 esca=0.287
+15:17:56 all runs finished
