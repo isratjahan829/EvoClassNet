@@ -215,3 +215,33 @@ def build_gnn(seed, adj, struct, n_tasks=3, emb=24, hidden=64, layers=3, dropout
     torch.manual_seed(seed)
     np.random.seed(seed)
     return GNN()
+
+
+def build_evoclassnet_plus(seed, side, n_tasks=3, **kw):
+    """EvoClassNetLite given fixed per-position side information (ESM embeddings, structure).
+
+    `side` is [L, d]: one feature vector per RBD position, identical for every variant because it
+    describes the position rather than the variant. It is broadcast over the batch and
+    concatenated to the residue embedding, which is exactly what the model's `extra_dim` hook was
+    built for. Wrapping rather than editing the model keeps fit() and predict() unchanged, so the
+    augmented model is trained by the same code path as the plain one.
+    """
+    import torch
+    import torch.nn as nn
+    from . import model as M
+
+    side_t = torch.tensor(np.asarray(side, dtype=np.float32))
+
+    class EvoClassNetPlus(M.EvoClassNetLite):
+        def __init__(self):
+            super().__init__(n_tasks=n_tasks, extra_dim=side_t.shape[1], **kw)
+            self.register_buffer("side", side_t)
+
+        def forward(self, x, extra=None):
+            if extra is None:
+                extra = self.side.unsqueeze(0).expand(x.shape[0], -1, -1)
+            return super().forward(x, extra)
+
+    torch.manual_seed(seed)
+    np.random.seed(seed)
+    return EvoClassNetPlus()

@@ -4,3 +4,9 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 16:52:18 embeddings (201, 1280) -> esm2_t33_650M_UR50D_embeddings.npz
 16:52:21 masked marginals 4/201
 16:52:53 masked marginals 44/201
+16:53:26 masked marginals 84/201
+16:53:58 masked marginals 124/201
+16:54:28 masked marginals 164/201
+16:54:57 masked marginals 201/201
+16:54:57 masked marginals (201, 20) -> esm2_t33_650M_UR50D_masked_marginals.npz
+16:54:57 done

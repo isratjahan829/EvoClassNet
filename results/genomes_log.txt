@@ -1,0 +1,60 @@
+16:54:33 Alphacoronavirus: searching
+16:54:33 Alphacoronavirus: 1800 hits; fetching summaries
+16:54:34   summaries 200/1800
+16:54:35   summaries 400/1800
+16:54:36   summaries 600/1800
+16:54:37   summaries 800/1800
+16:54:38   summaries 1000/1800
+16:54:39   summaries 1200/1800
+16:54:40   summaries 1400/1800
+16:54:41   summaries 1600/1800
+16:54:41   summaries 1800/1800
+16:54:41 Alphacoronavirus: selected 303 records across 103 species
+16:54:42   fasta 50/303
+16:54:43   fasta 100/303
+16:54:44   fasta 150/303
+16:54:45   fasta 200/303
+16:54:46   fasta 250/303
+16:54:47   fasta 300/303
+16:54:48   fasta 303/303
+16:54:48 Betacoronavirus: searching
+16:54:48 Betacoronavirus: 1800 hits; fetching summaries
+16:54:49   summaries 200/1800
+16:54:50   summaries 400/1800
+16:54:51   summaries 600/1800
+16:54:52   summaries 800/1800
+16:54:53   summaries 1000/1800
+16:54:53   summaries 1200/1800
+16:54:54   summaries 1400/1800
+16:54:55   summaries 1600/1800
+16:54:56   summaries 1800/1800
+16:54:56 Betacoronavirus: selected 382 records across 128 species
+16:54:58   fasta 50/382
+16:54:59   fasta 100/382
+16:55:00   fasta 150/382
+16:55:01   fasta 200/382
+16:55:02   fasta 250/382
+16:55:03   fasta 300/382
+16:55:05   fasta 350/382
+16:55:06   fasta 382/382
+16:55:06 Gammacoronavirus: searching
+16:55:06 Gammacoronavirus: 980 hits; fetching summaries
+16:55:07   summaries 200/980
+16:55:08   summaries 400/980
+16:55:08   summaries 600/980
+16:55:09   summaries 800/980
+16:55:10   summaries 980/980
+16:55:10 Gammacoronavirus: selected 75 records across 24 species
+16:55:11   fasta 50/75
+16:55:12   fasta 75/75
+16:55:12 Deltacoronavirus: searching
+16:55:12 Deltacoronavirus: 334 hits; fetching summaries
+16:55:13   summaries 200/334
+16:55:14   summaries 334/334
+16:55:14 Deltacoronavirus: selected 89 records across 36 species
+16:55:15   fasta 50/89
+16:55:16   fasta 89/89
+16:55:16 Alphacoronavirus: 303 genomes, 103 species
+16:55:16 Betacoronavirus: 382 genomes, 128 species
+16:55:16 Gammacoronavirus: 75 genomes, 24 species
+16:55:16 Deltacoronavirus: 89 genomes, 36 species

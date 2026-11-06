@@ -1,0 +1,452 @@
+{
+ "MW436465.1": {
+  "accession": "MW436465.1",
+  "organism": "Anser fabalis coronavirus NCN2",
+  "title": "Anser fabalis coronavirus NCN2, complete genome",
+  "length": 28466
+ },
+ "PX987256.1": {
+  "accession": "PX987256.1",
+  "organism": "Avian coronavirus",
+  "title": "Avian coronavirus isolate AvCoV/Chicken/France/LAB25-0239/2025, complete genome",
+  "length": 27563
+ },
+ "MW024789.1": {
+  "accession": "MW024789.1",
+  "organism": "Avian coronavirus IA1162/2020",
+  "title": "Avian coronavirus IA1162/2020, complete genome",
+  "length": 27486
+ },
+ "OR639835.1": {
+  "accession": "OR639835.1",
+  "organism": "Avian gammacoronavirus",
+  "title": "Avian gammacoronavirus isolate MEZ-CoV 828/e3MD/18DUR1, complete genome",
+  "length": 27595
+ },
+ "AY646283.1": {
+  "accession": "AY646283.1",
+  "organism": "Avian infectious bronchitis virus partridge/GD/S14/2003",
+  "title": "Avian infectious bronchitis virus partridge/GD/S14/2003, complete genome",
+  "length": 27503
+ },
+ "NC_010646.1": {
+  "accession": "NC_010646.1",
+  "organism": "Beluga whale coronavirus SW1",
+  "title": "Beluga Whale coronavirus SW1, complete genome",
+  "length": 31686
+ },
+ "MN690611.1": {
+  "accession": "MN690611.1",
+  "organism": "Bottlenose dolphin coronavirus",
+  "title": "Bottlenose dolphin coronavirus strain 37112-4, complete genome",
+  "length": 31728
+ },
+ "KF793826.1": {
+  "accession": "KF793826.1",
+  "organism": "Bottlenose dolphin coronavirus HKU22",
+  "title": "Bottlenose dolphin coronavirus HKU22 isolate CF090331, complete genome",
+  "length": 31775
+ },
+ "NC_046965.1": {
+  "accession": "NC_046965.1",
+  "organism": "Canada goose coronavirus",
+  "title": "Canada goose coronavirus strain Cambridge_Bay_2017, complete genome",
+  "length": 28539
+ },
+ "NC_048214.1": {
+  "accession": "NC_048214.1",
+  "organism": "Duck coronavirus",
+  "title": "Duck coronavirus isolate DK/GD/27/2014, complete genome",
+  "length": 27754
+ },
+ "KM454473.1": {
+  "accession": "KM454473.1",
+  "organism": "Duck coronavirus DK/GD/27/2014",
+  "title": "Duck coronavirus DK/GD/27/2014, complete genome",
+  "length": 27754
+ },
+ "KR822424.1": {
+  "accession": "KR822424.1",
+  "organism": "European turkey coronavirus 080385d",
+  "title": "European turkey coronavirus 080385d, complete genome",
+  "length": 27739
+ },
+ "MK359255.1": {
+  "accession": "MK359255.1",
+  "organism": "Gammacoronavirus brantae",
+  "title": "Gammacoronavirus brantae strain Cambridge_Bay_2017, complete genome",
+  "length": 28539
+ },
+ "PZ113107.1": {
+  "accession": "PZ113107.1",
+  "organism": "Gammacoronavirus sp.",
+  "title": "Gammacoronavirus sp. isolate DLU3/2023/11, complete genome",
+  "length": 27412
+ },
+ "MZ327724.1": {
+  "accession": "MZ327724.1",
+  "organism": "Guinea fowl coronavirus",
+  "title": "Guinea fowl coronavirus strain gCoV/AvCoV/Guineafowl/France/I172562a2/2017, complete genome",
+  "length": 27773
+ },
+ "LN610099.1": {
+  "accession": "LN610099.1",
+  "organism": "Guinea fowl coronavirus GfCoV/FR/2011",
+  "title": "Guinea fowl coronavirus GfCoV/FR/2011 complete genome",
+  "length": 27471
+ },
+ "OQ095389.1": {
+  "accession": "OQ095389.1",
+  "organism": "Igacovirus CA1737",
+  "title": "Igacovirus CA1737, complete genome",
+  "length": 27728
+ },
+ "PZ860302.1": {
+  "accession": "PZ860302.1",
+  "organism": "Infectious bronchitis virus",
+  "title": "Infectious bronchitis virus isolate CK/CH/SX/YC01, complete genome",
+  "length": 27727
+ },
+ "FN430414.1": {
+  "accession": "FN430414.1",
+  "organism": "Infectious bronchitis virus ITA/90254/2005",
+  "title": "Infectious bronchitis virus ITA/90254/2005, complete genome",
+  "length": 27643
+ },
+ "FN430415.1": {
+  "accession": "FN430415.1",
+  "organism": "Infectious bronchitis virus NGA/A116E7/2006",
+  "title": "Infectious bronchitis virus NGA/A116E7/2006, complete genome",
+  "length": 27593
+ },
+ "MK423877.1": {
+  "accession": "MK423877.1",
+  "organism": "Pheasant coronavirus",
+  "title": "Pheasant coronavirus strain gammaCoV/ph/China/I0623/17, complete genome",
+  "length": 27652
+ },
+ "BR002451.1": {
+  "accession": "BR002451.1",
+  "organism": "Pigeon coronavirus",
+  "title": "MAG TPA_asm: Pigeon coronavirus rin35 RNA, nearly complete genome",
+  "length": 27792
+ },
+ "OR346994.1": {
+  "accession": "OR346994.1",
+  "organism": "Swan goose coronavirus",
+  "title": "Swan goose coronavirus isolate DWY40, complete genome",
+  "length": 28474
+ },
+ "PZ959257.1": {
+  "accession": "PZ959257.1",
+  "organism": "Turkey coronavirus",
+  "title": "Turkey coronavirus isolate TCoV/Egypt, complete genome",
+  "length": 27666
+ },
+ "PV843474.1": {
+  "accession": "PV843474.1",
+  "organism": "Avian coronavirus",
+  "title": "Avian coronavirus isolate AvCoV/Chicken/France/LAB25-0295/2025, complete genome",
+  "length": 27770
+ },
+ "EU111742.1": {
+  "accession": "EU111742.1",
+  "organism": "Beluga whale coronavirus SW1",
+  "title": "Coronavirus SW1, complete genome",
+  "length": 31686
+ },
+ "MN690610.1": {
+  "accession": "MN690610.1",
+  "organism": "Bottlenose dolphin coronavirus",
+  "title": "Bottlenose dolphin coronavirus strain 37112-3, complete genome",
+  "length": 31728
+ },
+ "KF793825.1": {
+  "accession": "KF793825.1",
+  "organism": "Bottlenose dolphin coronavirus HKU22",
+  "title": "Bottlenose dolphin coronavirus HKU22 isolate CF090327, complete genome",
+  "length": 31766
+ },
+ "JF705860.1": {
+  "accession": "JF705860.1",
+  "organism": "Duck coronavirus",
+  "title": "Duck coronavirus isolate DK/CH/HN/ZZ2004, complete genome",
+  "length": 27673
+ },
+ "PQ821724.1": {
+  "accession": "PQ821724.1",
+  "organism": "Gammacoronavirus sp.",
+  "title": "Gammacoronavirus sp. isolate MP22-196, complete genome",
+  "length": 28490
+ },
+ "MZ327723.1": {
+  "accession": "MZ327723.1",
+  "organism": "Guinea fowl coronavirus",
+  "title": "Guinea fowl coronavirus strain gCoV/AvCoV/Guineafowl/France/I172562a1/2017, complete genome",
+  "length": 27767
+ },
+ "PX387952.2": {
+  "accession": "PX387952.2",
+  "organism": "Infectious bronchitis virus",
+  "title": "Infectious bronchitis virus isolate ck/CH/LN/TA/20230401, complete genome",
+  "length": 27379
+ },
+ "MK423876.1": {
+  "accession": "MK423876.1",
+  "organism": "Pheasant coronavirus",
+  "title": "Pheasant coronavirus strain gammaCoV/ph/China/I0710/17, complete genome",
+  "length": 27655
+ },
+ "BR002449.1": {
+  "accession": "BR002449.1",
+  "organism": "Pigeon coronavirus",
+  "title": "MAG TPA_asm: Pigeon coronavirus rin33 RNA, nearly complete genome",
+  "length": 27804
+ },
+ "PZ497762.1": {
+  "accession": "PZ497762.1",
+  "organism": "Turkey coronavirus",
+  "title": "Turkey coronavirus isolate TCoV/NC/US/ADRDL-5/2023, complete genome",
+  "length": 27187
+ },
+ "PV843473.1": {
+  "accession": "PV843473.1",
+  "organism": "Avian coronavirus",
+  "title": "Avian coronavirus isolate AvCoV/Guineafowl/France/LAB25-0137/2025, complete genome",
+  "length": 27773
+ },
+ "MN690609.1": {
+  "accession": "MN690609.1",
+  "organism": "Bottlenose dolphin coronavirus",
+  "title": "Bottlenose dolphin coronavirus strain 37112-2, complete genome",
+  "length": 31728
+ },
+ "KF793824.1": {
+  "accession": "KF793824.1",
+  "organism": "Bottlenose dolphin coronavirus HKU22",
+  "title": "Bottlenose dolphin coronavirus HKU22 isolate CF090325, complete genome",
+  "length": 31769
+ },
+ "PQ536710.1": {
+  "accession": "PQ536710.1",
+  "organism": "Gammacoronavirus sp.",
+  "title": "Gammacoronavirus sp. isolate HNU6-2, complete genome",
+  "length": 29745
+ },
+ "PZ205637.1": {
+  "accession": "PZ205637.1",
+  "organism": "Infectious bronchitis virus",
+  "title": "Infectious bronchitis virus isolate IBV/CK/CH/HeB-HD/2025/1, complete genome",
+  "length": 27684
+ },
+ "PQ037257.1": {
+  "accession": "PQ037257.1",
+  "organism": "Pigeon coronavirus",
+  "title": "Pigeon coronavirus isolate PG/FS/2024, complete genome",
+  "length": 27538
+ },
+ "PZ497761.1": {
+  "accession": "PZ497761.1",
+  "organism": "Turkey coronavirus",
+  "title": "Turkey coronavirus isolate TCoV/AR/US/ADRDL-4/2023, complete genome",
+  "length": 27435
+ },
+ "PV843472.1": {
+  "accession": "PV843472.1",
+  "organism": "Avian coronavirus",
+  "title": "Avian coronavirus isolate AvCoV/Chicken/France/LAB25-0093/2025, complete genome",
+  "length": 27773
+ },
+ "MN690608.1": {
+  "accession": "MN690608.1",
+  "organism": "Bottlenose dolphin coronavirus",
+  "title": "Bottlenose dolphin coronavirus strain 37112-1, complete genome",
+  "length": 31728
+ },
+ "PQ536709.1": {
+  "accession": "PQ536709.1",
+  "organism": "Gammacoronavirus sp.",
+  "title": "Gammacoronavirus sp. isolate HNU6-1, complete genome",
+  "length": 29622
+ },
+ "QB081633.1": {
+  "accession": "QB081633.1",
+  "organism": "Infectious bronchitis virus",
+  "title": "Infectious bronchitis virus isolate 10157, complete genome",
+  "length": 27608
+ },
+ "PZ497760.1": {
+  "accession": "PZ497760.1",
+  "organism": "Turkey coronavirus",
+  "title": "Turkey coronavirus isolate TCoV/AR/US/ADRDL-3/2023, complete genome",
+  "length": 27716
+ },
+ "PV843471.1": {
+  "accession": "PV843471.1",
+  "organism": "Avian coronavirus",
+  "title": "Avian coronavirus isolate AvCoV/Chicken/France/LAB25-0059/2025, complete genome",
+  "length": 27773
+ },
+ "PQ536708.1": {
+  "accession": "PQ536708.1",
+  "organism": "Gammacoronavirus sp.",
+  "title": "Gammacoronavirus sp. isolate HNU5-3, complete genome",
+  "length": 27305
+ },
+ "PX388002.1": {
+  "accession": "PX388002.1",
+  "organism": "Infectious bronchitis virus",
+  "title": "Infectious bronchitis virus isolate SH20241122-2, complete genome",
+  "length": 27647
+ },
+ "PZ497759.1": {
+  "accession": "PZ497759.1",
+  "organism": "Turkey coronavirus",
+  "title": "Turkey coronavirus isolate TCoV/AR/US/ADRDL-2/2023, complete genome",
+  "length": 27599
+ },
+ "PQ570515.1": {
+  "accession": "PQ570515.1",
+  "organism": "Avian coronavirus",
+  "title": "Avian coronavirus isolate AR19, complete genome",
+  "length": 27611
+ },
+ "PQ536707.1": {
+  "accession": "PQ536707.1",
+  "organism": "Gammacoronavirus sp.",
+  "title": "Gammacoronavirus sp. isolate HNU5-2, complete genome",
+  "length": 27874
+ },
+ "PZ012300.1": {
+  "accession": "PZ012300.1",
+  "organism": "Infectious bronchitis virus",
+  "title": "Infectious bronchitis virus strain FVS/IBV/20-05-2025/617(49k), complete genome",
+  "length": 27590
+ },
+ "PZ497758.1": {
+  "accession": "PZ497758.1",
+  "organism": "Turkey coronavirus",
+  "title": "Turkey coronavirus isolate TCoV/AR/US/ADRDL-1/2023, complete genome",
+  "length": 27630
+ },
+ "PQ570514.1": {
+  "accession": "PQ570514.1",
+  "organism": "Avian coronavirus",
+  "title": "Avian coronavirus isolate AD23, complete genome",
+  "length": 27477
+ },
+ "PQ536706.1": {
+  "accession": "PQ536706.1",
+  "organism": "Gammacoronavirus sp.",
+  "title": "Gammacoronavirus sp. isolate HNU5-1, complete genome",
+  "length": 27608
+ },
+ "PX103085.1": {
+  "accession": "PX103085.1",
+  "organism": "Infectious bronchitis virus",
+  "title": "Infectious bronchitis virus isolate CK/CH/FJ-T5/2023, complete genome",
+  "length": 27678
+ },
+ "MT367412.1": {
+  "accession": "MT367412.1",
+  "organism": "Turkey coronavirus",
+  "title": "Turkey coronavirus strain gammaCoV/Tk/Poland/G160/2016, complete genome",
+  "length": 27614
+ },
+ "PQ738166.1": {
+  "accession": "PQ738166.1",
+  "organism": "Avian coronavirus",
+  "title": "Avian coronavirus isolate 174443, complete genome",
+  "length": 27650
+ },
+ "PQ679936.1": {
+  "accession": "PQ679936.1",
+  "organism": "Gammacoronavirus sp.",
+  "title": "Gammacoronavirus sp. isolate PL_pigeon_25/2023, complete genome",
+  "length": 27743
+ },
+ "PX103084.1": {
+  "accession": "PX103084.1",
+  "organism": "Infectious bronchitis virus",
+  "title": "Infectious bronchitis virus isolate CK/CH/FJ-F3/2023, complete genome",
+  "length": 27701
+ },
+ "NC_010800.1": {
+  "accession": "NC_010800.1",
+  "organism": "Turkey coronavirus",
+  "title": "Turkey coronavirus, complete genome",
+  "length": 27657
+ },
+ "PQ738165.1": {
+  "accession": "PQ738165.1",
+  "organism": "Avian coronavirus",
+  "title": "Avian coronavirus isolate 238153, complete genome",
+  "length": 27721
+ },
+ "PZ426367.1": {
+  "accession": "PZ426367.1",
+  "organism": "Infectious bronchitis virus",
+  "title": "Infectious bronchitis virus isolate CK/CH/SDLY970-3/2026, complete genome",
+  "length": 27636
+ },
+ "EU095850.1": {
+  "accession": "EU095850.1",
+  "organism": "Turkey coronavirus",
+  "title": "Turkey coronavirus isolate MG10, complete genome",
+  "length": 27657
+ },
+ "PQ738164.1": {
+  "accession": "PQ738164.1",
+  "organism": "Avian coronavirus",
+  "title": "Avian coronavirus isolate 259214_S1, complete genome",
+  "length": 27693
+ },
+ "OP302731.1": {
+  "accession": "OP302731.1",
+  "organism": "Infectious bronchitis virus",
+  "title": "Infectious bronchitis virus isolate CKCHGX06-980506, complete genome",
+  "length": 27674
+ },
+ "GQ427176.1": {
+  "accession": "GQ427176.1",
+  "organism": "Turkey coronavirus",
+  "title": "Turkey coronavirus strain TCoV/TX-1038/98, complete genome",
+  "length": 27804
+ },
+ "PQ738163.1": {
+  "accession": "PQ738163.1",
+  "organism": "Avian coronavirus",
+  "title": "Avian coronavirus isolate 564876, complete genome",
+  "length": 27567
+ },
+ "OP243321.1": {
+  "accession": "OP243321.1",
+  "organism": "Infectious bronchitis virus",
+  "title": "Infectious bronchitis virus isolate CKCHGX05-990105, complete genome",
+  "length": 27707
+ },
+ "GQ427175.1": {
+  "accession": "GQ427175.1",
+  "organism": "Turkey coronavirus",
+  "title": "Turkey coronavirus strain TCoV/IN-517/94, complete genome",
+  "length": 27690
+ },
+ "OQ725698.1": {
+  "accession": "OQ725698.1",
+  "organism": "Avian coronavirus",
+  "title": "Avian coronavirus isolate AvCoV/TZ/CA127/19, complete genome",
+  "length": 27663
+ },
+ "PZ330336.1": {
+  "accession": "PZ330336.1",
+  "organism": "Infectious bronchitis virus",
+  "title": "Infectious bronchitis virus isolate GVI-1-SD20630-WT, complete genome",
+  "length": 27711
+ },
+ "GQ427174.1": {
+  "accession": "GQ427174.1",
+  "organism": "Turkey coronavirus",
+  "title": "Turkey coronavirus strain TCoV/TX-GL/01, complete genome",
+  "length": 27650
+ }
+}

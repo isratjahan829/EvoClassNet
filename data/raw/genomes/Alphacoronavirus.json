@@ -1,0 +1,1820 @@
+{
+ "KY073748.1": {
+  "accession": "KY073748.1",
+  "organism": "229E-related bat coronavirus",
+  "title": "229E-related bat coronavirus strain BtKY229E-8, complete genome",
+  "length": 27636
+ },
+ "PQ133194.1": {
+  "accession": "PQ133194.1",
+  "organism": "Alphacoronavirus 1",
+  "title": "Alphacoronavirus 1 isolate 2-H8 So 8842, complete genome",
+  "length": 28470
+ },
+ "MH938448.1": {
+  "accession": "MH938448.1",
+  "organism": "Alphacoronavirus Bat-CoV/P.kuhlii/Italy/206645-41/2011",
+  "title": "Alphacoronavirus Bat-CoV/P.kuhlii/Italy/206645-41/2011, complete genome",
+  "length": 27862
+ },
+ "MH938450.1": {
+  "accession": "MH938450.1",
+  "organism": "Alphacoronavirus Bat-CoV/P.kuhlii/Italy/206679-3/2010",
+  "title": "Alphacoronavirus Bat-CoV/P.kuhlii/Italy/206679-3/2010, complete genome",
+  "length": 28146
+ },
+ "NC_046964.1": {
+  "accession": "NC_046964.1",
+  "organism": "Alphacoronavirus Bat-CoV/P.kuhlii/Italy/3398-19/2015",
+  "title": "Alphacoronavirus Bat-CoV/P.kuhlii/Italy/3398-19/2015, complete genome",
+  "length": 28128
+ },
+ "KJ473810.1": {
+  "accession": "KJ473810.1",
+  "organism": "Alphacoronavirus BtMs-AlphaCoV/GS2013",
+  "title": "BtMs-AlphaCoV/GS2013, complete genome",
+  "length": 27576
+ },
+ "MW924112.1": {
+  "accession": "MW924112.1",
+  "organism": "Alphacoronavirus HCQD-2020",
+  "title": "Alphacoronavirus HCQD-2020, complete genome",
+  "length": 28761
+ },
+ "MF113046.1": {
+  "accession": "MF113046.1",
+  "organism": "Alphacoronavirus Mink/China/1/2016",
+  "title": "Alphacoronavirus Mink/China/1/2016, complete genome",
+  "length": 28924
+ },
+ "PX254696.1": {
+  "accession": "PX254696.1",
+  "organism": "Alphacoronavirus porci",
+  "title": "Alphacoronavirus porci isolate 2022-HEB, complete genome",
+  "length": 27985
+ },
+ "QB002158.1": {
+  "accession": "QB002158.1",
+  "organism": "Alphacoronavirus sp.",
+  "title": "Alphacoronavirus sp. isolate Bat-CoV/Rhinolophus/feces/BG/2026, complete genome",
+  "length": 28160
+ },
+ "PP868301.1": {
+  "accession": "PP868301.1",
+  "organism": "Apodemus agrarius coronavirus",
+  "title": "Apodemus agrarius coronavirus isolate Aa22-10, complete genome",
+  "length": 27488
+ },
+ "PP868304.1": {
+  "accession": "PP868304.1",
+  "organism": "Apodemus chejuensis coronavirus",
+  "title": "Apodemus chejuensis coronavirus isolate Ac20-8, complete genome",
+  "length": 27485
+ },
+ "PV420123.1": {
+  "accession": "PV420123.1",
+  "organism": "Bat alphacoronavirus",
+  "title": "Bat alphacoronavirus isolate IZSVe18/140928_H_savii_ITA, complete genome",
+  "length": 28522
+ },
+ "PQ649435.1": {
+  "accession": "PQ649435.1",
+  "organism": "Bat alphacoronavirus Kudep",
+  "title": "Bat alphacoronavirus Kudep isolate BtCoV/Rf/Russia/F3/2020, complete genome",
+  "length": 28142
+ },
+ "NC_010437.1": {
+  "accession": "NC_010437.1",
+  "organism": "Bat coronavirus 1A",
+  "title": "Bat coronavirus 1A, complete genome",
+  "length": 28326
+ },
+ "NC_022103.1": {
+  "accession": "NC_022103.1",
+  "organism": "Bat coronavirus CDPHE15/USA/2006",
+  "title": "Bat coronavirus CDPHE15/USA/2006, complete genome",
+  "length": 28035
+ },
+ "OQ297728.1": {
+  "accession": "OQ297728.1",
+  "organism": "Bat coronavirus HKU10",
+  "title": "MAG: Bat coronavirus HKU10 isolate GD/L109.18/2022, complete genome",
+  "length": 28469
+ },
+ "KJ473795.1": {
+  "accession": "KJ473795.1",
+  "organism": "BtMf-AlphaCoV/AH2011",
+  "title": "BtMf-AlphaCoV/AH2011, complete genome",
+  "length": 28310
+ },
+ "KJ473799.1": {
+  "accession": "KJ473799.1",
+  "organism": "BtMf-AlphaCoV/FJ2012",
+  "title": "BtMf-AlphaCoV/FJ2012, complete genome",
+  "length": 28765
+ },
+ "KJ473797.1": {
+  "accession": "KJ473797.1",
+  "organism": "BtMf-AlphaCoV/GD2012",
+  "title": "BtMf-AlphaCoV/GD2012, complete genome",
+  "length": 28758
+ },
+ "KJ473800.1": {
+  "accession": "KJ473800.1",
+  "organism": "BtMf-AlphaCoV/HeN2013",
+  "title": "BtMf-AlphaCoV/HeN2013, complete genome",
+  "length": 28735
+ },
+ "KJ473798.1": {
+  "accession": "KJ473798.1",
+  "organism": "BtMf-AlphaCoV/HuB2013",
+  "title": "BtMf-AlphaCoV/HuB2013, complete genome",
+  "length": 28755
+ },
+ "KJ473796.1": {
+  "accession": "KJ473796.1",
+  "organism": "BtMf-AlphaCoV/JX2012",
+  "title": "BtMf-AlphaCoV/JX2012, complete genome",
+  "length": 28311
+ },
+ "NC_028811.1": {
+  "accession": "NC_028811.1",
+  "organism": "BtMr-AlphaCoV/SAX2011",
+  "title": "BtMr-AlphaCoV/SAX2011, complete genome",
+  "length": 27935
+ },
+ "NC_028833.1": {
+  "accession": "NC_028833.1",
+  "organism": "BtNv-AlphaCoV/SC2013",
+  "title": "BtNv-AlphaCoV/SC2013, complete genome",
+  "length": 27783
+ },
+ "NC_028814.1": {
+  "accession": "NC_028814.1",
+  "organism": "BtRf-AlphaCoV/HuB2013",
+  "title": "BtRf-AlphaCoV/HuB2013, complete genome",
+  "length": 27608
+ },
+ "NC_028824.1": {
+  "accession": "NC_028824.1",
+  "organism": "BtRf-AlphaCoV/YN2012",
+  "title": "BtRf-AlphaCoV/YN2012, complete genome",
+  "length": 26975
+ },
+ "NC_028752.1": {
+  "accession": "NC_028752.1",
+  "organism": "Camel alphacoronavirus",
+  "title": "Camel alphacoronavirus isolate camel/Riyadh/Ry141/2015, complete genome",
+  "length": 27395
+ },
+ "KT253328.1": {
+  "accession": "KT253328.1",
+  "organism": "Camel alphacoronavirus Camel229E",
+  "title": "Camel alphacoronavirus Camel229E isolate Camel229E-CoV/JC50_HUH7/KSA/2014, complete genome",
+  "length": 27270
+ },
+ "OZ453977.1": {
+  "accession": "OZ453977.1",
+  "organism": "Canine coronavirus",
+  "title": "Canine enteric coronavirus strain 14875/UK/2022, complete genome",
+  "length": 29139
+ },
+ "NC_034972.1": {
+  "accession": "NC_034972.1",
+  "organism": "Coronavirus AcCoV-JC34",
+  "title": "Coronavirus AcCoV-JC34, complete genome",
+  "length": 27682
+ },
+ "MK211373.1": {
+  "accession": "MK211373.1",
+  "organism": "Coronavirus BtRs-AlphaCoV/YN2018",
+  "title": "Coronavirus BtRs-AlphaCoV/YN2018, complete genome",
+  "length": 29109
+ },
+ "MK211369.1": {
+  "accession": "MK211369.1",
+  "organism": "Coronavirus BtSk-AlphaCoV/GX2018A",
+  "title": "Coronavirus BtSk-AlphaCoV/GX2018A, complete genome",
+  "length": 28303
+ },
+ "MK211370.1": {
+  "accession": "MK211370.1",
+  "organism": "Coronavirus BtSk-AlphaCoV/GX2018B",
+  "title": "Coronavirus BtSk-AlphaCoV/GX2018B, complete genome",
+  "length": 28175
+ },
+ "MK211371.1": {
+  "accession": "MK211371.1",
+  "organism": "Coronavirus BtSk-AlphaCoV/GX2018C",
+  "title": "Coronavirus BtSk-AlphaCoV/GX2018C, complete genome",
+  "length": 28146
+ },
+ "MK211372.1": {
+  "accession": "MK211372.1",
+  "organism": "Coronavirus BtSk-AlphaCoV/GX2018D",
+  "title": "Coronavirus BtSk-AlphaCoV/GX2018D, complete genome",
+  "length": 28238
+ },
+ "OL415262.1": {
+  "accession": "OL415262.1",
+  "organism": "Eptesicus bat coronavirus",
+  "title": "Eptesicus bat coronavirus strain 15593, complete genome",
+  "length": 28546
+ },
+ "MH817484.1": {
+  "accession": "MH817484.1",
+  "organism": "Feline alphacoronavirus 1",
+  "title": "Feline alphacoronavirus 1 strain FCoV-SB22, complete genome",
+  "length": 29137
+ },
+ "PZ660971.1": {
+  "accession": "PZ660971.1",
+  "organism": "Feline coronavirus",
+  "title": "Feline coronavirus isolate Fe_FCoV_2C, complete genome",
+  "length": 29216
+ },
+ "PZ518637.1": {
+  "accession": "PZ518637.1",
+  "organism": "Feline infectious peritonitis virus",
+  "title": "Feline infectious peritonitis virus isolate FIPV-25HZ-F653-Ple, complete genome",
+  "length": 29300
+ },
+ "PZ371019.1": {
+  "accession": "PZ371019.1",
+  "organism": "Ferret coronavirus",
+  "title": "Ferret coronavirus isolate FRCoV/24-10470-79/M.put/DK/2024, complete genome",
+  "length": 28508
+ },
+ "KX512809.1": {
+  "accession": "KX512809.1",
+  "organism": "Ferret enteric coronavirus",
+  "title": "Ferret enteric coronavirus strain FECV1, complete genome",
+  "length": 28151
+ },
+ "KX512810.1": {
+  "accession": "KX512810.1",
+  "organism": "Ferret systemic coronavirus",
+  "title": "Ferret systemic coronavirus strain FSCV6, complete genome",
+  "length": 27987
+ },
+ "NC_054004.1": {
+  "accession": "NC_054004.1",
+  "organism": "Hipposideros pomona bat coronavirus CHB25",
+  "title": "Hipposideros pomona bat coronavirus CHB25 isolate CHB0025, complete genome",
+  "length": 28169
+ },
+ "MN611523.1": {
+  "accession": "MN611523.1",
+  "organism": "Hipposideros pomona bat coronavirus HKU10-related",
+  "title": "Hipposideros pomona bat coronavirus HKU10-related isolate 160942, complete genome",
+  "length": 28514
+ },
+ "LC654445.1": {
+  "accession": "LC654445.1",
+  "organism": "Human coronavirus 229E",
+  "title": "Human coronavirus 229E Fukushima_H829_2020 RNA, complete genome",
+  "length": 27263
+ },
+ "PP868300.1": {
+  "accession": "PP868300.1",
+  "organism": "Human coronavirus KUMC22-3",
+  "title": "Human coronavirus KUMC22-3, complete genome",
+  "length": 27682
+ },
+ "PZ673863.1": {
+  "accession": "PZ673863.1",
+  "organism": "Human coronavirus NL63",
+  "title": "Human coronavirus NL63 isolate HCoV-NL63-HC, complete genome",
+  "length": 27553
+ },
+ "MZ328302.1": {
+  "accession": "MZ328302.1",
+  "organism": "Jingmen Apodemus agrarius alphacoronavirus 1",
+  "title": "Jingmen Apodemus agrarius alphacoronavirus 1, complete genome",
+  "length": 27382
+ },
+ "MZ328299.1": {
+  "accession": "MZ328299.1",
+  "organism": "Jingmen Miniopterus schreibersii alphacoronavirus 1",
+  "title": "Jingmen Miniopterus schreibersii alphacoronavirus 1, complete genome",
+  "length": 28041
+ },
+ "MZ328300.1": {
+  "accession": "MZ328300.1",
+  "organism": "Jingmen Miniopterus schreibersii alphacoronavirus 2",
+  "title": "Jingmen Miniopterus schreibersii alphacoronavirus 2, complete genome",
+  "length": 28074
+ },
+ "MZ328298.1": {
+  "accession": "MZ328298.1",
+  "organism": "Jingmen Myotis chinensis alphacoronavirus 1",
+  "title": "Jingmen Myotis chinensis alphacoronavirus 1, complete genome",
+  "length": 27914
+ },
+ "OM030318.1": {
+  "accession": "OM030318.1",
+  "organism": "Jingmen Myotis ricketti alphacoronavirus 1",
+  "title": "Jingmen Myotis ricketti alphacoronavirus 1 isolate JSB_DaZu, complete genome",
+  "length": 28090
+ },
+ "MZ328301.1": {
+  "accession": "MZ328301.1",
+  "organism": "Longquan Berylmys bowersi alphacoronavirus 1",
+  "title": "Longquan Berylmys bowersi alphacoronavirus 1, complete genome",
+  "length": 28660
+ },
+ "PX907772.1": {
+  "accession": "PX907772.1",
+  "organism": "Luchacovirus sp.",
+  "title": "Luchacovirus sp. isolate Mm18-1, complete genome",
+  "length": 27941
+ },
+ "NC_032730.1": {
+  "accession": "NC_032730.1",
+  "organism": "Lucheng Rn rat coronavirus",
+  "title": "Lucheng Rn rat coronavirus isolate Lucheng-19, complete genome",
+  "length": 28763
+ },
+ "MW248736.1": {
+  "accession": "MW248736.1",
+  "organism": "Minacovirus mink/NLD/2020/NT_4",
+  "title": "MAG: Minacovirus mink/NLD/2020/NT_4, complete genome",
+  "length": 28868
+ },
+ "EU420138.1": {
+  "accession": "EU420138.1",
+  "organism": "Miniopterus bat coronavirus 1",
+  "title": "Miniopterus bat coronavirus 1, complete genome",
+  "length": 28326
+ },
+ "NC_010438.1": {
+  "accession": "NC_010438.1",
+  "organism": "Miniopterus bat coronavirus HKU8",
+  "title": "Miniopterus bat coronavirus HKU8, complete genome",
+  "length": 28773
+ },
+ "MN611518.1": {
+  "accession": "MN611518.1",
+  "organism": "Miniopterus pusillus bat coronavirus HKU8-related",
+  "title": "Miniopterus pusillus bat coronavirus HKU8-related isolate 6610, complete genome",
+  "length": 28751
+ },
+ "MN611524.1": {
+  "accession": "MN611524.1",
+  "organism": "Miniopterus schreibersii bat coronavirus 1-related",
+  "title": "Miniopterus schreibersii bat coronavirus 1-related isolate 161454, complete genome",
+  "length": 28316
+ },
+ "PQ451290.1": {
+  "accession": "PQ451290.1",
+  "organism": "Mink coronavirus",
+  "title": "Mink coronavirus isolate MCoV/46367-5_Case/DK/2019, complete genome",
+  "length": 28917
+ },
+ "MN535737.1": {
+  "accession": "MN535737.1",
+  "organism": "Mink coronavirus 1",
+  "title": "Mink coronavirus 1 strain MCoV1/11918-1/DK/2015, complete genome",
+  "length": 28914
+ },
+ "NC_023760.1": {
+  "accession": "NC_023760.1",
+  "organism": "Mink coronavirus strain WD1127",
+  "title": "Mink coronavirus strain WD1127, complete genome",
+  "length": 28941
+ },
+ "OQ792155.1": {
+  "accession": "OQ792155.1",
+  "organism": "Mops condylurus alphacoronavirus",
+  "title": "MAG: Mops condylurus alphacoronavirus isolate GB13-NGR_2020, complete genome",
+  "length": 27968
+ },
+ "OQ297729.1": {
+  "accession": "OQ297729.1",
+  "organism": "Myotis bat alphacoronavirus",
+  "title": "MAG: Myotis bat alphacoronavirus isolate GZ/L172.18/2022, complete genome",
+  "length": 28202
+ },
+ "KY799179.1": {
+  "accession": "KY799179.1",
+  "organism": "Myotis lucifugus coronavirus",
+  "title": "Myotis lucifugus coronavirus, complete genome",
+  "length": 28173
+ },
+ "NC_048216.1": {
+  "accession": "NC_048216.1",
+  "organism": "NL63-related bat coronavirus",
+  "title": "NL63-related bat coronavirus strain BtKYNL63-9b, complete genome",
+  "length": 28679
+ },
+ "OQ401250.1": {
+  "accession": "OQ401250.1",
+  "organism": "Pedacovirus sp. MdGB01",
+  "title": "MAG: Pedacovirus MdGB01, complete genome",
+  "length": 28224
+ },
+ "OQ401254.1": {
+  "accession": "OQ401254.1",
+  "organism": "Pedacovirus sp. MdGB02",
+  "title": "MAG: Pedacovirus MdGB02, complete genome",
+  "length": 28010
+ },
+ "OQ401255.1": {
+  "accession": "OQ401255.1",
+  "organism": "Pedacovirus sp. MdGB03",
+  "title": "MAG: Pedacovirus MdGB03, complete genome",
+  "length": 28227
+ },
+ "OQ401253.1": {
+  "accession": "OQ401253.1",
+  "organism": "Pedacovirus sp. PpiGB01",
+  "title": "MAG: Pedacovirus PpiGB01, complete genome",
+  "length": 28247
+ },
+ "MW727454.1": {
+  "accession": "MW727454.1",
+  "organism": "Porcine enteric alphacoronavirus",
+  "title": "Porcine enteric alphacoronavirus isolate GDZQ-2018, complete genome",
+  "length": 27171
+ },
+ "MF167434.1": {
+  "accession": "MF167434.1",
+  "organism": "Porcine enteric alphacoronavirus GDS04",
+  "title": "Porcine enteric alphacoronavirus GDS04, complete genome",
+  "length": 27171
+ },
+ "QB148670.1": {
+  "accession": "QB148670.1",
+  "organism": "Porcine epidemic diarrhea virus",
+  "title": "Porcine epidemic diarrhea virus isolate NCAT1-P2, complete genome",
+  "length": 28038
+ },
+ "PV096984.1": {
+  "accession": "PV096984.1",
+  "organism": "Porcine respiratory coronavirus",
+  "title": "Porcine respiratory coronavirus isolate PRCV/NM, complete genome",
+  "length": 27904
+ },
+ "OM830318.1": {
+  "accession": "OM830318.1",
+  "organism": "Porcine respiratory coronavirus 135",
+  "title": "Porcine respiratory coronavirus 135 isolate 86/135308, complete genome",
+  "length": 27776
+ },
+ "OM830320.1": {
+  "accession": "OM830320.1",
+  "organism": "Porcine respiratory coronavirus 137",
+  "title": "Porcine respiratory coronavirus 137 isolate 86/135308, complete genome",
+  "length": 27776
+ },
+ "OM830319.1": {
+  "accession": "OM830319.1",
+  "organism": "Porcine respiratory coronavirus 310",
+  "title": "Porcine respiratory coronavirus 310 isolate AR310, complete genome",
+  "length": 27547
+ },
+ "OM830321.1": {
+  "accession": "OM830321.1",
+  "organism": "Porcine respiratory coronavirus ISU-1",
+  "title": "Porcine respiratory coronavirus ISU-1, complete genome",
+  "length": 27546
+ },
+ "OR960568.1": {
+  "accession": "OR960568.1",
+  "organism": "Raccoon dog acute diarrhea syndrome coronavirus",
+  "title": "Raccoon dog acute diarrhea syndrome coronavirus isolate RDCoV/CY/34/2022, complete genome",
+  "length": 29351
+ },
+ "PP746504.1": {
+  "accession": "PP746504.1",
+  "organism": "Rhinacovirus sp.",
+  "title": "Rhinacovirus sp. isolate Rt22QT46R, complete genome",
+  "length": 27129
+ },
+ "MN611522.1": {
+  "accession": "MN611522.1",
+  "organism": "Rhinolophus affinis bat coronavirus HKU2-related",
+  "title": "Rhinolophus affinis bat coronavirus HKU2-related isolate 160660, complete genome",
+  "length": 26956
+ },
+ "NC_009988.1": {
+  "accession": "NC_009988.1",
+  "organism": "Rhinolophus bat coronavirus HKU2",
+  "title": "Rhinolophus bat coronavirus HKU2, complete genome",
+  "length": 27165
+ },
+ "OQ297727.1": {
+  "accession": "OQ297727.1",
+  "organism": "Rhinolophus bat coronavirus HKU32",
+  "title": "MAG: Rhinolophus bat coronavirus HKU32 isolate GD/L105.18/2022, complete genome",
+  "length": 29205
+ },
+ "MN611517.1": {
+  "accession": "MN611517.1",
+  "organism": "Rousettus aegyptiacus bat coronavirus 229E-related",
+  "title": "Rousettus aegyptiacus bat coronavirus 229E-related isolate 5425, complete genome",
+  "length": 27619
+ },
+ "NC_018871.1": {
+  "accession": "NC_018871.1",
+  "organism": "Rousettus bat coronavirus HKU10",
+  "title": "Rousettus bat coronavirus HKU10, complete genome",
+  "length": 28494
+ },
+ "NC_009657.1": {
+  "accession": "NC_009657.1",
+  "organism": "Scotophilus bat coronavirus 512",
+  "title": "Scotophilus bat coronavirus 512, complete genome",
+  "length": 28203
+ },
+ "MN611521.1": {
+  "accession": "MN611521.1",
+  "organism": "Scotophilus kuhlii bat coronavirus 512-related",
+  "title": "Scotophilus kuhlii bat coronavirus 512-related isolate HK140714, complete genome",
+  "length": 27933
+ },
+ "QB246175.1": {
+  "accession": "QB246175.1",
+  "organism": "Swine acute diarrhea syndrome coronavirus",
+  "title": "Mutant Swine acute diarrhea syndrome coronavirus strain SADS-CoV-DeltaNS7a, complete genome",
+  "length": 27155
+ },
+ "OM994417.1": {
+  "accession": "OM994417.1",
+  "organism": "Swine enteric alphacoronavirus",
+  "title": "Swine enteric alphacoronavirus strain SeACoV-p0, complete genome",
+  "length": 27155
+ },
+ "MT821905.1": {
+  "accession": "MT821905.1",
+  "organism": "Swine enteric coronavirus",
+  "title": "Swine enteric coronavirus strain Italy/77590/2019, complete genome",
+  "length": 28081
+ },
+ "DQ811785.1": {
+  "accession": "DQ811785.1",
+  "organism": "TGEV Miller M6",
+  "title": "TGEV Miller M6, complete genome",
+  "length": 28542
+ },
+ "DQ811788.1": {
+  "accession": "DQ811788.1",
+  "organism": "TGEV Purdue P115",
+  "title": "TGEV Purdue P115, complete genome",
+  "length": 28571
+ },
+ "OP715781.1": {
+  "accession": "OP715781.1",
+  "organism": "Tadarida brasiliensis bat alphacoronavirus 1",
+  "title": "MAG: Tadarida brasiliensis bat alphacoronavirus 1 isolate Tb1, complete genome",
+  "length": 28844
+ },
+ "OP715780.1": {
+  "accession": "OP715780.1",
+  "organism": "Tadarida brasiliensis bat alphacoronavirus 2",
+  "title": "MAG: Tadarida brasiliensis bat alphacoronavirus 2 isolate Tb2, complete genome",
+  "length": 28790
+ },
+ "PZ799096.1": {
+  "accession": "PZ799096.1",
+  "organism": "Transmissible gastroenteritis virus",
+  "title": "Transmissible gastroenteritis virus isolate TGEV Wh-1-lackingD0, complete genome",
+  "length": 27937
+ },
+ "NC_054015.1": {
+  "accession": "NC_054015.1",
+  "organism": "Tylonycteris bat coronavirus HKU33",
+  "title": "Tylonycteris bat coronavirus HKU33 strain GZ151867, complete genome",
+  "length": 27636
+ },
+ "MZ328303.1": {
+  "accession": "MZ328303.1",
+  "organism": "Wenzhou Suncus murinus alphacoronavirus 1",
+  "title": "Wenzhou Suncus murinus alphacoronavirus 1, complete genome",
+  "length": 25940
+ },
+ "MK472067.1": {
+  "accession": "MK472067.1",
+  "organism": "alphacoronavirus sp. WA1087",
+  "title": "Alphacoronavirus sp. WA1087, complete genome",
+  "length": 28170
+ },
+ "MK472068.1": {
+  "accession": "MK472068.1",
+  "organism": "alphacoronavirus sp. WA2028",
+  "title": "Alphacoronavirus sp. WA2028, complete genome",
+  "length": 27435
+ },
+ "MK472070.1": {
+  "accession": "MK472070.1",
+  "organism": "alphacoronavirus sp. WA3607",
+  "title": "Alphacoronavirus sp. WA3607, complete genome",
+  "length": 28009
+ },
+ "MT663548.1": {
+  "accession": "MT663548.1",
+  "organism": "bat alphacoronavirus isolate AMA_L_F",
+  "title": "Bat alphacoronavirus isolate AMA_L_F, complete genome",
+  "length": 29097
+ },
+ "KY073747.1": {
+  "accession": "KY073747.1",
+  "organism": "229E-related bat coronavirus",
+  "title": "229E-related bat coronavirus strain BtKY229E-1, complete genome",
+  "length": 27837
+ },
+ "PQ133190.1": {
+  "accession": "PQ133190.1",
+  "organism": "Alphacoronavirus 1",
+  "title": "Alphacoronavirus 1 isolate 2-F9 Fe 9265, complete genome",
+  "length": 28479
+ },
+ "MH938449.1": {
+  "accession": "MH938449.1",
+  "organism": "Alphacoronavirus Bat-CoV/P.kuhlii/Italy/3398-19/2015",
+  "title": "Alphacoronavirus Bat-CoV/P.kuhlii/Italy/3398-19/2015, complete genome",
+  "length": 28128
+ },
+ "PV344424.1": {
+  "accession": "PV344424.1",
+  "organism": "Alphacoronavirus sp.",
+  "title": "Alphacoronavirus sp. isolate RfBC113, complete genome",
+  "length": 27080
+ },
+ "PP868303.1": {
+  "accession": "PP868303.1",
+  "organism": "Apodemus chejuensis coronavirus",
+  "title": "Apodemus chejuensis coronavirus isolate Ac18-19, complete genome",
+  "length": 27485
+ },
+ "NC_055953.1": {
+  "accession": "NC_055953.1",
+  "organism": "Bat alphacoronavirus",
+  "title": "Bat alphacoronavirus isolate AMA_L_F, complete genome",
+  "length": 29097
+ },
+ "OQ297726.1": {
+  "accession": "OQ297726.1",
+  "organism": "Bat coronavirus HKU10",
+  "title": "MAG: Bat coronavirus HKU10 isolate GD/L88.18/2022, complete genome",
+  "length": 28470
+ },
+ "KJ473806.1": {
+  "accession": "KJ473806.1",
+  "organism": "BtMr-AlphaCoV/SAX2011",
+  "title": "BtMr-AlphaCoV/SAX2011, complete genome",
+  "length": 27935
+ },
+ "KJ473809.1": {
+  "accession": "KJ473809.1",
+  "organism": "BtNv-AlphaCoV/SC2013",
+  "title": "BtNv-AlphaCoV/SC2013, complete genome",
+  "length": 27783
+ },
+ "KJ473807.1": {
+  "accession": "KJ473807.1",
+  "organism": "BtRf-AlphaCoV/HuB2013",
+  "title": "BtRf-AlphaCoV/HuB2013, complete genome",
+  "length": 27608
+ },
+ "KJ473808.1": {
+  "accession": "KJ473808.1",
+  "organism": "BtRf-AlphaCoV/YN2012",
+  "title": "BtRf-AlphaCoV/YN2012, complete genome",
+  "length": 26975
+ },
+ "MF593473.1": {
+  "accession": "MF593473.1",
+  "organism": "Camel alphacoronavirus",
+  "title": "Camel alphacoronavirus Abu Dhabi B38, complete genome",
+  "length": 27389
+ },
+ "KT253327.1": {
+  "accession": "KT253327.1",
+  "organism": "Camel alphacoronavirus Camel229E",
+  "title": "Camel alphacoronavirus Camel229E isolate Camel229E-CoV/AC04/KSA/2014, complete genome",
+  "length": 27241
+ },
+ "OZ453836.1": {
+  "accession": "OZ453836.1",
+  "organism": "Canine coronavirus",
+  "title": "Canine enteric coronavirus strain 8288/UK/2022, complete genome",
+  "length": 29285
+ },
+ "KX964649.1": {
+  "accession": "KX964649.1",
+  "organism": "Coronavirus AcCoV-JC34",
+  "title": "Coronavirus AcCoV-JC34, complete genome",
+  "length": 27682
+ },
+ "OL410609.1": {
+  "accession": "OL410609.1",
+  "organism": "Eptesicus bat coronavirus",
+  "title": "Eptesicus bat coronavirus strain 16964, complete genome",
+  "length": 28340
+ },
+ "PZ518638.1": {
+  "accession": "PZ518638.1",
+  "organism": "Feline coronavirus",
+  "title": "Feline coronavirus isolate FECV-25HZ-F652-Fec, complete genome",
+  "length": 29270
+ },
+ "PQ192636.1": {
+  "accession": "PQ192636.1",
+  "organism": "Feline infectious peritonitis virus",
+  "title": "Feline infectious peritonitis virus isolate FIPV/A15/LIU/2024, complete genome",
+  "length": 29355
+ },
+ "OP933726.1": {
+  "accession": "OP933726.1",
+  "organism": "Ferret coronavirus",
+  "title": "MAG: Ferret coronavirus isolate FRCoV MeGB01-2022, complete genome",
+  "length": 28096
+ },
+ "MN611525.1": {
+  "accession": "MN611525.1",
+  "organism": "Hipposideros pomona bat coronavirus CHB25",
+  "title": "Hipposideros pomona bat coronavirus CHB25 isolate CHB0025, complete genome",
+  "length": 28169
+ },
+ "OZ470519.1": {
+  "accession": "OZ470519.1",
+  "organism": "Human coronavirus 229E",
+  "title": "Human coronavirus 229E isolate RNA genome assembly, complete genome: monopartite",
+  "length": 27300
+ },
+ "LC720428.1": {
+  "accession": "LC720428.1",
+  "organism": "Human coronavirus NL63",
+  "title": "Human coronavirus NL63 HCoVNL63_Fukushima_O650_2019 RNA, nearly complete genome",
+  "length": 27529
+ },
+ "MT820627.1": {
+  "accession": "MT820627.1",
+  "organism": "Lucheng Rn rat coronavirus",
+  "title": "Lucheng Rn rat coronavirus isolate Lijiang-71, complete genome",
+  "length": 29147
+ },
+ "PQ451289.1": {
+  "accession": "PQ451289.1",
+  "organism": "Mink coronavirus",
+  "title": "Mink coronavirus isolate MCoV/46367-3_Case/DK/2019, complete genome",
+  "length": 28865
+ },
+ "MN535736.1": {
+  "accession": "MN535736.1",
+  "organism": "Mink coronavirus 1",
+  "title": "Mink coronavirus 1 strain MCoV1/11917-2/DK/2015, complete genome",
+  "length": 28910
+ },
+ "OQ792153.1": {
+  "accession": "OQ792153.1",
+  "organism": "Mops condylurus alphacoronavirus",
+  "title": "MAG: Mops condylurus alphacoronavirus isolate GB09-NGR_2020, complete genome",
+  "length": 27932
+ },
+ "NC_032107.1": {
+  "accession": "NC_032107.1",
+  "organism": "NL63-related bat coronavirus",
+  "title": "NL63-related bat coronavirus strain BtKYNL63-9a, complete genome",
+  "length": 28363
+ },
+ "MH697599.1": {
+  "accession": "MH697599.1",
+  "organism": "Porcine enteric alphacoronavirus",
+  "title": "UNVERIFIED_ASMBLY: Porcine enteric alphacoronavirus isolate PEAV_GDS04_P12, complete genome",
+  "length": 27183
+ },
+ "PZ730012.1": {
+  "accession": "PZ730012.1",
+  "organism": "Porcine epidemic diarrhea virus",
+  "title": "Porcine epidemic diarrhea virus isolate HLJ-26, complete genome",
+  "length": 28038
+ },
+ "OR689864.1": {
+  "accession": "OR689864.1",
+  "organism": "Porcine respiratory coronavirus",
+  "title": "Porcine respiratory coronavirus isolate 91V44, complete genome",
+  "length": 27500
+ },
+ "DQ811787.1": {
+  "accession": "DQ811787.1",
+  "organism": "Porcine respiratory coronavirus ISU-1",
+  "title": "PRCV ISU-1, complete genome",
+  "length": 27550
+ },
+ "OR960569.1": {
+  "accession": "OR960569.1",
+  "organism": "Raccoon dog acute diarrhea syndrome coronavirus",
+  "title": "Raccoon dog acute diarrhea syndrome coronavirus isolate RDCoV/CY/11/2023, complete genome",
+  "length": 29321
+ },
+ "PP746503.1": {
+  "accession": "PP746503.1",
+  "organism": "Rhinacovirus sp.",
+  "title": "Rhinacovirus sp. isolate Rp22DB167R, complete genome",
+  "length": 27149
+ },
+ "MF370205.1": {
+  "accession": "MF370205.1",
+  "organism": "Rhinolophus bat coronavirus HKU2",
+  "title": "Rhinolophus bat coronavirus HKU2 isolate Swine enteric alphacoronavirus CH/GD-01/2017/P2, complete genome",
+  "length": 27155
+ },
+ "OQ297724.1": {
+  "accession": "OQ297724.1",
+  "organism": "Rhinolophus bat coronavirus HKU32",
+  "title": "MAG: Rhinolophus bat coronavirus HKU32 isolate GD/L81.18/2021, complete genome",
+  "length": 29207
+ },
+ "PQ000331.1": {
+  "accession": "PQ000331.1",
+  "organism": "Swine acute diarrhea syndrome coronavirus",
+  "title": "Swine acute diarrhea syndrome coronavirus isolate SADS-CoV-GD-1, complete genome",
+  "length": 27165
+ },
+ "MK977618.1": {
+  "accession": "MK977618.1",
+  "organism": "Swine enteric alphacoronavirus",
+  "title": "Swine enteric alphacoronavirus strain SeACoV-p10, complete genome",
+  "length": 27155
+ },
+ "MN692770.1": {
+  "accession": "MN692770.1",
+  "organism": "Swine enteric coronavirus",
+  "title": "Swine enteric coronavirus isolate SeCoV-1480-Murcia-Lorca, complete genome",
+  "length": 28094
+ },
+ "OP700657.1": {
+  "accession": "OP700657.1",
+  "organism": "Tadarida brasiliensis bat alphacoronavirus 2",
+  "title": "MAG: Tadarida brasiliensis bat alphacoronavirus 2 isolate Tb3, complete genome",
+  "length": 28719
+ },
+ "PX756779.1": {
+  "accession": "PX756779.1",
+  "organism": "Transmissible gastroenteritis virus",
+  "title": "Transmissible gastroenteritis virus isolate SOAp90, complete genome",
+  "length": 27956
+ },
+ "MK720944.1": {
+  "accession": "MK720944.1",
+  "organism": "Tylonycteris bat coronavirus HKU33",
+  "title": "Tylonycteris bat coronavirus HKU33 strain GZ151867, complete genome",
+  "length": 27636
+ },
+ "PQ133188.1": {
+  "accession": "PQ133188.1",
+  "organism": "Alphacoronavirus 1",
+  "title": "Alphacoronavirus 1 isolate 2-E9 Mi 9160, complete genome",
+  "length": 28476
+ },
+ "PV344423.1": {
+  "accession": "PV344423.1",
+  "organism": "Alphacoronavirus sp.",
+  "title": "Alphacoronavirus sp. isolate RaNJ166, complete genome",
+  "length": 29006
+ },
+ "PP868302.1": {
+  "accession": "PP868302.1",
+  "organism": "Apodemus chejuensis coronavirus",
+  "title": "Apodemus chejuensis coronavirus isolate Ac18-16, complete genome",
+  "length": 27485
+ },
+ "ON325309.1": {
+  "accession": "ON325309.1",
+  "organism": "Bat alphacoronavirus",
+  "title": "Bat alphacoronavirus isolate BatCoV/M.myotis/Switzerland/2019, complete genome",
+  "length": 27932
+ },
+ "OQ297725.1": {
+  "accession": "OQ297725.1",
+  "organism": "Bat coronavirus HKU10",
+  "title": "MAG: Bat coronavirus HKU10 isolate GD/L87.18/2021, complete genome",
+  "length": 28586
+ },
+ "KT368916.1": {
+  "accession": "KT368916.1",
+  "organism": "Camel alphacoronavirus",
+  "title": "Camel alphacoronavirus isolate camel/Taif/T193/2015, complete genome",
+  "length": 27390
+ },
+ "KT253326.1": {
+  "accession": "KT253326.1",
+  "organism": "Camel alphacoronavirus Camel229E",
+  "title": "Camel alphacoronavirus Camel229E isolate Camel229E-CoV/JC52/KSA/2014, complete genome",
+  "length": 27193
+ },
+ "MW591993.2": {
+  "accession": "MW591993.2",
+  "organism": "Canine coronavirus",
+  "title": "Canine coronavirus isolate CCoV-HuPn-2018, complete genome",
+  "length": 29088
+ },
+ "OL410607.1": {
+  "accession": "OL410607.1",
+  "organism": "Eptesicus bat coronavirus",
+  "title": "Eptesicus bat coronavirus strain 15712, complete genome",
+  "length": 28486
+ },
+ "LC932283.1": {
+  "accession": "LC932283.1",
+  "organism": "Feline coronavirus",
+  "title": "Feline coronavirus A17_MLN RNA, nearly complete genome",
+  "length": 29158
+ },
+ "PQ202302.1": {
+  "accession": "PQ202302.1",
+  "organism": "Feline infectious peritonitis virus",
+  "title": "Feline infectious peritonitis virus isolate FIPV/A37/LIU/2024, complete genome",
+  "length": 29321
+ },
+ "NC_030292.1": {
+  "accession": "NC_030292.1",
+  "organism": "Ferret coronavirus",
+  "title": "Ferret coronavirus isolate FRCoV-NL-2010, complete genome",
+  "length": 28434
+ },
+ "OZ470518.1": {
+  "accession": "OZ470518.1",
+  "organism": "Human coronavirus 229E",
+  "title": "Human coronavirus 229E isolate RNA genome assembly, complete genome: monopartite",
+  "length": 27304
+ },
+ "LC687402.1": {
+  "accession": "LC687402.1",
+  "organism": "Human coronavirus NL63",
+  "title": "Human coronavirus NL63 Fukushima_OR236_2021 RNA, complete genome",
+  "length": 27550
+ },
+ "MT820626.1": {
+  "accession": "MT820626.1",
+  "organism": "Lucheng Rn rat coronavirus",
+  "title": "Lucheng Rn rat coronavirus isolate Ruian-83, complete genome",
+  "length": 28599
+ },
+ "PQ451288.1": {
+  "accession": "PQ451288.1",
+  "organism": "Mink coronavirus",
+  "title": "Mink coronavirus isolate MCoV/46351-5_Case/DK/2019, complete genome",
+  "length": 28751
+ },
+ "KY073746.1": {
+  "accession": "KY073746.1",
+  "organism": "NL63-related bat coronavirus",
+  "title": "NL63-related bat coronavirus strain BtKYNL63-15, complete genome",
+  "length": 28442
+ },
+ "MH539766.1": {
+  "accession": "MH539766.1",
+  "organism": "Porcine enteric alphacoronavirus",
+  "title": "Porcine enteric alphacoronavirus isolate CHN-GD-2017, complete genome",
+  "length": 27170
+ },
+ "PZ463692.2": {
+  "accession": "PZ463692.2",
+  "organism": "Porcine epidemic diarrhea virus",
+  "title": "Porcine epidemic diarrhea virus isolate HN2025, complete genome",
+  "length": 28002
+ },
+ "OR689863.1": {
+  "accession": "OR689863.1",
+  "organism": "Porcine respiratory coronavirus",
+  "title": "Porcine respiratory coronavirus isolate PRCV 15087/12 III NPTV Parma, complete genome",
+  "length": 27572
+ },
+ "OR960570.1": {
+  "accession": "OR960570.1",
+  "organism": "Raccoon dog acute diarrhea syndrome coronavirus",
+  "title": "Raccoon dog acute diarrhea syndrome coronavirus isolate RDCoV/CL/64/2023, complete genome",
+  "length": 29356
+ },
+ "PP746502.1": {
+  "accession": "PP746502.1",
+  "organism": "Rhinacovirus sp.",
+  "title": "Rhinacovirus sp. isolate Ra22DB163R, complete genome",
+  "length": 27130
+ },
+ "MK720946.1": {
+  "accession": "MK720946.1",
+  "organism": "Rhinolophus bat coronavirus HKU32",
+  "title": "Rhinolophus bat coronavirus HKU32 strain TLC28A, complete genome",
+  "length": 29201
+ },
+ "PP069800.1": {
+  "accession": "PP069800.1",
+  "organism": "Swine acute diarrhea syndrome coronavirus",
+  "title": "Swine acute diarrhea syndrome coronavirus strain SADS-CoV/HNNY/2023, complete genome",
+  "length": 27260
+ },
+ "NC_028806.1": {
+  "accession": "NC_028806.1",
+  "organism": "Swine enteric coronavirus",
+  "title": "Swine enteric coronavirus strain Italy/213306/2009, complete genome",
+  "length": 28111
+ },
+ "PX756778.1": {
+  "accession": "PX756778.1",
+  "organism": "Transmissible gastroenteritis virus",
+  "title": "Transmissible gastroenteritis virus isolate SOA, complete genome",
+  "length": 28596
+ },
+ "PQ133185.1": {
+  "accession": "PQ133185.1",
+  "organism": "Alphacoronavirus 1",
+  "title": "Alphacoronavirus 1 isolate 2-D9 Ni 9183, complete genome",
+  "length": 28464
+ },
+ "PV344422.1": {
+  "accession": "PV344422.1",
+  "organism": "Alphacoronavirus sp.",
+  "title": "Alphacoronavirus sp. isolate RaNJ171A, complete genome",
+  "length": 28954
+ },
+ "OL956935.1": {
+  "accession": "OL956935.1",
+  "organism": "Bat alphacoronavirus",
+  "title": "Bat alphacoronavirus isolate batCoV/MinFul/2018/SriLanka, complete genome",
+  "length": 27987
+ },
+ "OQ297723.1": {
+  "accession": "OQ297723.1",
+  "organism": "Bat coronavirus HKU10",
+  "title": "MAG: Bat coronavirus HKU10 isolate GD/L73.18/2021, complete genome",
+  "length": 28451
+ },
+ "KT368915.1": {
+  "accession": "KT368915.1",
+  "organism": "Camel alphacoronavirus",
+  "title": "Camel alphacoronavirus isolate camel/Taif/T157(a)/2015, complete genome",
+  "length": 27392
+ },
+ "KT253325.1": {
+  "accession": "KT253325.1",
+  "organism": "Camel alphacoronavirus Camel229E",
+  "title": "Camel alphacoronavirus Camel229E isolate Camel229E-CoV/JC49/KSA/2014, complete genome",
+  "length": 27193
+ },
+ "OR991746.1": {
+  "accession": "OR991746.1",
+  "organism": "Canine coronavirus",
+  "title": "Canine coronavirus isolate VuCCoV/WF/L9/2023, complete genome",
+  "length": 29352
+ },
+ "LC932282.1": {
+  "accession": "LC932282.1",
+  "organism": "Feline coronavirus",
+  "title": "Feline coronavirus A17_Ome RNA, nearly complete genome",
+  "length": 29146
+ },
+ "PP526173.1": {
+  "accession": "PP526173.1",
+  "organism": "Feline infectious peritonitis virus",
+  "title": "Feline infectious peritonitis virus strain WSU-79-1146, complete genome",
+  "length": 29356
+ },
+ "LC215871.1": {
+  "accession": "LC215871.1",
+  "organism": "Ferret coronavirus",
+  "title": "Ferret coronavirus genomic RNA, complete genome, strain: ferret063",
+  "length": 28542
+ },
+ "LC922646.1": {
+  "accession": "LC922646.1",
+  "organism": "Human coronavirus 229E",
+  "title": "Human coronavirus 229E HCoV229E_Shiogama_SSP028_2024 RNA, complete genome",
+  "length": 27306
+ },
+ "LC687394.1": {
+  "accession": "LC687394.1",
+  "organism": "Human coronavirus NL63",
+  "title": "Human coronavirus NL63 Fukushima_H257_2018 RNA, complete genome",
+  "length": 27563
+ },
+ "MT820625.1": {
+  "accession": "MT820625.1",
+  "organism": "Lucheng Rn rat coronavirus",
+  "title": "Lucheng Rn rat coronavirus isolate Lijiang-170, complete genome",
+  "length": 27563
+ },
+ "PQ451287.1": {
+  "accession": "PQ451287.1",
+  "organism": "Mink coronavirus",
+  "title": "Mink coronavirus isolate MCoV/46351-4_Case/DK/2019, complete genome",
+  "length": 28839
+ },
+ "KY073745.1": {
+  "accession": "KY073745.1",
+  "organism": "NL63-related bat coronavirus",
+  "title": "NL63-related bat coronavirus strain BtKYNL63-9b, complete genome",
+  "length": 28679
+ },
+ "MG742313.1": {
+  "accession": "MG742313.1",
+  "organism": "Porcine enteric alphacoronavirus",
+  "title": "Porcine enteric alphacoronavirus strain PEAV-GD-CH/2017, complete genome",
+  "length": 27155
+ },
+ "PZ949040.1": {
+  "accession": "PZ949040.1",
+  "organism": "Porcine epidemic diarrhea virus",
+  "title": "Porcine epidemic diarrhea virus isolate OH25-1916-2, complete genome",
+  "length": 28035
+ },
+ "OR209254.1": {
+  "accession": "OR209254.1",
+  "organism": "Porcine respiratory coronavirus",
+  "title": "Porcine respiratory coronavirus isolate PRCV/USA/ISU20-92330/2020, complete genome",
+  "length": 27792
+ },
+ "OR965710.1": {
+  "accession": "OR965710.1",
+  "organism": "Raccoon dog acute diarrhea syndrome coronavirus",
+  "title": "Raccoon dog acute diarrhea syndrome coronavirus isolate RDCoV/DLZH/2023, complete genome",
+  "length": 29324
+ },
+ "PP746501.1": {
+  "accession": "PP746501.1",
+  "organism": "Rhinacovirus sp.",
+  "title": "Rhinacovirus sp. isolate Ra22DB107R, complete genome",
+  "length": 27137
+ },
+ "MK720945.1": {
+  "accession": "MK720945.1",
+  "organism": "Rhinolophus bat coronavirus HKU32",
+  "title": "Rhinolophus bat coronavirus HKU32 strain TLC26A, complete genome",
+  "length": 29201
+ },
+ "MT039232.1": {
+  "accession": "MT039232.1",
+  "organism": "Swine acute diarrhea syndrome coronavirus",
+  "title": "Mutant Swine acute diarrhea syndrome coronavirus strain icSADS-tRFP, complete genome",
+  "length": 27271
+ },
+ "LT545990.1": {
+  "accession": "LT545990.1",
+  "organism": "Swine enteric coronavirus",
+  "title": "Swine enteric coronavirus isolate SeCoV_GER_L00930_2012 genome assembly, complete genome: monopartite",
+  "length": 28050
+ },
+ "OR085313.1": {
+  "accession": "OR085313.1",
+  "organism": "Transmissible gastroenteritis virus",
+  "title": "Transmissible gastroenteritis virus isolate TGEV-NMBB3-2023, complete genome",
+  "length": 28570
+ },
+ "PQ133184.1": {
+  "accession": "PQ133184.1",
+  "organism": "Alphacoronavirus 1",
+  "title": "Alphacoronavirus 1 isolate 2-D8 Ta 8364, complete genome",
+  "length": 28479
+ },
+ "PV344421.1": {
+  "accession": "PV344421.1",
+  "organism": "Alphacoronavirus sp.",
+  "title": "Alphacoronavirus sp. isolate RoNJ192A, complete genome",
+  "length": 29070
+ },
+ "MN065811.1": {
+  "accession": "MN065811.1",
+  "organism": "Bat alphacoronavirus",
+  "title": "Bat alphacoronavirus strain BtCoV/008_16/M.bra/FIN/2016, complete genome",
+  "length": 28119
+ },
+ "OQ297722.1": {
+  "accession": "OQ297722.1",
+  "organism": "Bat coronavirus HKU10",
+  "title": "MAG: Bat coronavirus HKU10 isolate GD/L49.18/2021, complete genome",
+  "length": 28537
+ },
+ "KT368914.1": {
+  "accession": "KT368914.1",
+  "organism": "Camel alphacoronavirus",
+  "title": "Camel alphacoronavirus isolate camel/Taif/T96/2015, complete genome",
+  "length": 27392
+ },
+ "KT253324.1": {
+  "accession": "KT253324.1",
+  "organism": "Camel alphacoronavirus Camel229E",
+  "title": "Camel alphacoronavirus Camel229E isolate Camel229E-CoV/JC50/KSA/2014, complete genome",
+  "length": 27395
+ },
+ "PQ383370.1": {
+  "accession": "PQ383370.1",
+  "organism": "Canine coronavirus",
+  "title": "Canine coronavirus isolate GX284, complete genome",
+  "length": 29343
+ },
+ "LC932281.1": {
+  "accession": "LC932281.1",
+  "organism": "Feline coronavirus",
+  "title": "Feline coronavirus A17_LI RNA, nearly complete genome",
+  "length": 29150
+ },
+ "OR295209.1": {
+  "accession": "OR295209.1",
+  "organism": "Feline infectious peritonitis virus",
+  "title": "Feline infectious peritonitis virus strain SH2021, complete genome",
+  "length": 29022
+ },
+ "LC119077.1": {
+  "accession": "LC119077.1",
+  "organism": "Ferret coronavirus",
+  "title": "Ferret coronavirus genomic RNA, complete genome, strain: FRCoV4370",
+  "length": 28550
+ },
+ "PX640307.1": {
+  "accession": "PX640307.1",
+  "organism": "Human coronavirus 229E",
+  "title": "Human coronavirus 229E isolate srw002, complete genome",
+  "length": 27317
+ },
+ "LC895504.1": {
+  "accession": "LC895504.1",
+  "organism": "Human coronavirus NL63",
+  "title": "Human coronavirus NL63 NL63/Yamagata.JPN/2016-854 RNA, nearly complete genome",
+  "length": 27488
+ },
+ "KF294380.2": {
+  "accession": "KF294380.2",
+  "organism": "Lucheng Rn rat coronavirus",
+  "title": "Lucheng Rn rat coronavirus isolate Lucheng-19, complete genome",
+  "length": 28763
+ },
+ "PQ451286.1": {
+  "accession": "PQ451286.1",
+  "organism": "Mink coronavirus",
+  "title": "Mink coronavirus isolate MCoV/46351-3_Case/DK/2019, complete genome",
+  "length": 28846
+ },
+ "KY073744.1": {
+  "accession": "KY073744.1",
+  "organism": "NL63-related bat coronavirus",
+  "title": "NL63-related bat coronavirus strain BtKYNL63-9a, complete genome",
+  "length": 28363
+ },
+ "PZ433557.1": {
+  "accession": "PZ433557.1",
+  "organism": "Porcine epidemic diarrhea virus",
+  "title": "Porcine epidemic diarrhea virus isolate CH-GX-PEDV-4193-2024, complete genome",
+  "length": 28097
+ },
+ "OR209253.1": {
+  "accession": "OR209253.1",
+  "organism": "Porcine respiratory coronavirus",
+  "title": "Porcine respiratory coronavirus isolate PRCV/USA/1894X/1992_ISU, complete genome",
+  "length": 27782
+ },
+ "OR082962.1": {
+  "accession": "OR082962.1",
+  "organism": "Raccoon dog acute diarrhea syndrome coronavirus",
+  "title": "Raccoon dog acute diarrhea syndrome coronavirus isolate RDCoV/CL/2022, complete genome",
+  "length": 29361
+ },
+ "PP746500.1": {
+  "accession": "PP746500.1",
+  "organism": "Rhinacovirus sp.",
+  "title": "Rhinacovirus sp. isolate Rt22CB395R, complete genome",
+  "length": 27165
+ },
+ "MT039231.1": {
+  "accession": "MT039231.1",
+  "organism": "Swine acute diarrhea syndrome coronavirus",
+  "title": "Mutant Swine acute diarrhea syndrome coronavirus strain icSADS, complete genome",
+  "length": 27171
+ },
+ "KR061459.1": {
+  "accession": "KR061459.1",
+  "organism": "Swine enteric coronavirus",
+  "title": "Swine enteric coronavirus strain Italy/213306/2009, complete genome",
+  "length": 28111
+ },
+ "PQ856105.1": {
+  "accession": "PQ856105.1",
+  "organism": "Transmissible gastroenteritis virus",
+  "title": "Transmissible gastroenteritis virus isolate SX0818, complete genome",
+  "length": 28366
+ },
+ "PQ133182.1": {
+  "accession": "PQ133182.1",
+  "organism": "Alphacoronavirus 1",
+  "title": "Alphacoronavirus 1 isolate 2-C11 Re 10276, complete genome",
+  "length": 29138
+ },
+ "PV344420.1": {
+  "accession": "PV344420.1",
+  "organism": "Alphacoronavirus sp.",
+  "title": "Alphacoronavirus sp. isolate RoNJ131A, complete genome",
+  "length": 29046
+ },
+ "OQ297712.1": {
+  "accession": "OQ297712.1",
+  "organism": "Bat coronavirus HKU10",
+  "title": "MAG: Bat coronavirus HKU10 isolate GD/L154.18/2022, complete genome",
+  "length": 28565
+ },
+ "KT368913.1": {
+  "accession": "KT368913.1",
+  "organism": "Camel alphacoronavirus",
+  "title": "Camel alphacoronavirus isolate camel/Taif/T91(a)/2015, complete genome",
+  "length": 27388
+ },
+ "KU291449.1": {
+  "accession": "KU291449.1",
+  "organism": "Camel alphacoronavirus Camel229E",
+  "title": "Camel alphacoronavirus Camel229E isolate Camel229E-CoV/KCSP1/KEN/2015, complete genome",
+  "length": 27164
+ },
+ "PQ383369.1": {
+  "accession": "PQ383369.1",
+  "organism": "Canine coronavirus",
+  "title": "Canine coronavirus isolate GX263, complete genome",
+  "length": 29341
+ },
+ "LC932280.1": {
+  "accession": "LC932280.1",
+  "organism": "Feline coronavirus",
+  "title": "Feline coronavirus A15_feces RNA, nearly complete genome",
+  "length": 29185
+ },
+ "OQ311323.1": {
+  "accession": "OQ311323.1",
+  "organism": "Feline infectious peritonitis virus",
+  "title": "Feline infectious peritonitis virus isolate 79-1146, complete genome",
+  "length": 29388
+ },
+ "KM347965.1": {
+  "accession": "KM347965.1",
+  "organism": "Ferret coronavirus",
+  "title": "Ferret coronavirus isolate FRCoV-NL-2010, complete genome",
+  "length": 28434
+ },
+ "PX640306.1": {
+  "accession": "PX640306.1",
+  "organism": "Human coronavirus 229E",
+  "title": "Human coronavirus 229E isolate srw001, complete genome",
+  "length": 27317
+ },
+ "LC922677.1": {
+  "accession": "LC922677.1",
+  "organism": "Human coronavirus NL63",
+  "title": "Human coronavirus NL63 HCoVNL63_Fukushima_OH988_2025 RNA, complete genome",
+  "length": 27535
+ },
+ "PQ451285.1": {
+  "accession": "PQ451285.1",
+  "organism": "Mink coronavirus",
+  "title": "Mink coronavirus isolate MCoV/46351-1_Case/DK/2019, complete genome",
+  "length": 28845
+ },
+ "PZ433556.1": {
+  "accession": "PZ433556.1",
+  "organism": "Porcine epidemic diarrhea virus",
+  "title": "Porcine epidemic diarrhea virus isolate CH-GX-PEDV-4137-2024, complete genome",
+  "length": 28082
+ },
+ "OR209252.1": {
+  "accession": "OR209252.1",
+  "organism": "Porcine respiratory coronavirus",
+  "title": "Porcine respiratory coronavirus isolate PRCV/USA/LEPP1/1991_ISU, complete genome",
+  "length": 27898
+ },
+ "MN719179.1": {
+  "accession": "MN719179.1",
+  "organism": "Raccoon dog acute diarrhea syndrome coronavirus",
+  "title": "Raccoon dog acute diarrhea syndrome coronavirus strain HBCL, complete genome",
+  "length": 29342
+ },
+ "MH615810.1": {
+  "accession": "MH615810.1",
+  "organism": "Swine acute diarrhea syndrome coronavirus",
+  "title": "Swine acute diarrhea syndrome coronavirus isolate SADS-CoV-CH-FJWT-2018, complete genome",
+  "length": 27184
+ },
+ "PQ189446.1": {
+  "accession": "PQ189446.1",
+  "organism": "Transmissible gastroenteritis virus",
+  "title": "Transmissible gastroenteritis virus strain Ly23, complete genome",
+  "length": 28513
+ },
+ "PQ133181.1": {
+  "accession": "PQ133181.1",
+  "organism": "Alphacoronavirus 1",
+  "title": "Alphacoronavirus 1 isolate 2-C8 Wi 8299, complete genome",
+  "length": 28454
+ },
+ "PV344419.1": {
+  "accession": "PV344419.1",
+  "organism": "Alphacoronavirus sp.",
+  "title": "Alphacoronavirus sp. isolate RaNJ110A, complete genome",
+  "length": 29179
+ },
+ "KT368912.1": {
+  "accession": "KT368912.1",
+  "organism": "Camel alphacoronavirus",
+  "title": "Camel alphacoronavirus isolate camel/Jeddah/Jd28/2015, complete genome",
+  "length": 27395
+ },
+ "PQ177897.1": {
+  "accession": "PQ177897.1",
+  "organism": "Canine coronavirus",
+  "title": "Canine coronavirus isolate fox113CCoV, complete genome",
+  "length": 28955
+ },
+ "LC932279.1": {
+  "accession": "LC932279.1",
+  "organism": "Feline coronavirus",
+  "title": "Feline coronavirus A17_Renmed RNA, nearly complete genome",
+  "length": 29165
+ },
+ "NC_002306.3": {
+  "accession": "NC_002306.3",
+  "organism": "Feline infectious peritonitis virus",
+  "title": "Feline infectious peritonitis virus, complete genome",
+  "length": 29355
+ },
+ "OZ415105.1": {
+  "accession": "OZ415105.1",
+  "organism": "Human coronavirus 229E",
+  "title": "Human coronavirus 229E isolate RNA genome assembly, complete genome: monopartite",
+  "length": 27300
+ },
+ "LC922676.1": {
+  "accession": "LC922676.1",
+  "organism": "Human coronavirus NL63",
+  "title": "Human coronavirus NL63 HCoVNL63_Fukushima_OH973_2025 RNA, complete genome",
+  "length": 27535
+ },
+ "PQ451284.1": {
+  "accession": "PQ451284.1",
+  "organism": "Mink coronavirus",
+  "title": "Mink coronavirus isolate MCoV/45511-40_Case/DK/2018, complete genome",
+  "length": 28865
+ },
+ "PZ433555.1": {
+  "accession": "PZ433555.1",
+  "organism": "Porcine epidemic diarrhea virus",
+  "title": "Porcine epidemic diarrhea virus isolate CH-GX-PEDV-3485-2023, complete genome",
+  "length": 28163
+ },
+ "OR209251.1": {
+  "accession": "OR209251.1",
+  "organism": "Porcine respiratory coronavirus",
+  "title": "Porcine respiratory coronavirus isolate PRCV/USA/AR310/1989_ISU, complete genome",
+  "length": 27869
+ },
+ "MF094684.1": {
+  "accession": "MF094684.1",
+  "organism": "Swine acute diarrhea syndrome coronavirus",
+  "title": "Swine acute diarrhea syndrome coronavirus isolate FarmD, complete genome",
+  "length": 27173
+ },
+ "PP236916.1": {
+  "accession": "PP236916.1",
+  "organism": "Transmissible gastroenteritis virus",
+  "title": "Transmissible gastroenteritis virus isolate VET-16, complete genome",
+  "length": 27867
+ },
+ "PQ133179.1": {
+  "accession": "PQ133179.1",
+  "organism": "Alphacoronavirus 1",
+  "title": "Alphacoronavirus 1 isolate 2-A9 Do 9045, complete genome",
+  "length": 28506
+ },
+ "PV107114.2": {
+  "accession": "PV107114.2",
+  "organism": "Alphacoronavirus sp.",
+  "title": "Alphacoronavirus sp. isolate Rattus norvegicus/FR/R31/2022, complete genome",
+  "length": 28693
+ },
+ "KT368911.1": {
+  "accession": "KT368911.1",
+  "organism": "Camel alphacoronavirus",
+  "title": "Camel alphacoronavirus isolate camel/Jeddah/Jd8/2015, complete genome",
+  "length": 27393
+ },
+ "PQ177896.1": {
+  "accession": "PQ177896.1",
+  "organism": "Canine coronavirus",
+  "title": "Canine coronavirus isolate fox13CCoV, complete genome",
+  "length": 28855
+ },
+ "PV941793.1": {
+  "accession": "PV941793.1",
+  "organism": "Feline coronavirus",
+  "title": "Feline coronavirus strain UCD2, complete genome",
+  "length": 29352
+ },
+ "PV631258.1": {
+  "accession": "PV631258.1",
+  "organism": "Human coronavirus 229E",
+  "title": "Human coronavirus 229E isolate HT, complete genome",
+  "length": 27220
+ },
+ "LC922664.1": {
+  "accession": "LC922664.1",
+  "organism": "Human coronavirus NL63",
+  "title": "Human coronavirus NL63 HCoVNL63_Fukushima_OH878_2025 RNA, complete genome",
+  "length": 27535
+ },
+ "PQ451283.1": {
+  "accession": "PQ451283.1",
+  "organism": "Mink coronavirus",
+  "title": "Mink coronavirus isolate MCoV/45511-32_Case/DK/2018, complete genome",
+  "length": 28652
+ },
+ "PZ433554.1": {
+  "accession": "PZ433554.1",
+  "organism": "Porcine epidemic diarrhea virus",
+  "title": "Porcine epidemic diarrhea virus isolate CH-GX-PEDV-3098-2021, complete genome",
+  "length": 28111
+ },
+ "OK078898.1": {
+  "accession": "OK078898.1",
+  "organism": "Porcine respiratory coronavirus",
+  "title": "Porcine respiratory coronavirus isolate PRCV-1/90-DK, complete genome",
+  "length": 27594
+ },
+ "MF094683.1": {
+  "accession": "MF094683.1",
+  "organism": "Swine acute diarrhea syndrome coronavirus",
+  "title": "Swine acute diarrhea syndrome coronavirus isolate FarmC, complete genome",
+  "length": 27173
+ },
+ "OP805351.1": {
+  "accession": "OP805351.1",
+  "organism": "Transmissible gastroenteritis virus",
+  "title": "Transmissible gastroenteritis virus isolate TGEV-DS01-2022, complete genome",
+  "length": 28591
+ },
+ "PQ133177.1": {
+  "accession": "PQ133177.1",
+  "organism": "Alphacoronavirus 1",
+  "title": "Alphacoronavirus 1 isolate 2-F12 BW 11350, complete genome",
+  "length": 28439
+ },
+ "PQ611141.1": {
+  "accession": "PQ611141.1",
+  "organism": "Alphacoronavirus sp.",
+  "title": "Alphacoronavirus sp. isolate MsAlphaCoV_Murcia2022, complete genome",
+  "length": 28877
+ },
+ "KT368910.1": {
+  "accession": "KT368910.1",
+  "organism": "Camel alphacoronavirus",
+  "title": "Camel alphacoronavirus isolate camel/Jeddah/Jd6(a)/2015, complete genome",
+  "length": 27387
+ },
+ "PP526172.1": {
+  "accession": "PP526172.1",
+  "organism": "Canine coronavirus",
+  "title": "Canine coronavirus strain UCD-1, complete genome",
+  "length": 29076
+ },
+ "PX471051.1": {
+  "accession": "PX471051.1",
+  "organism": "Feline coronavirus",
+  "title": "Feline coronavirus isolate AH2023, complete genome",
+  "length": 29013
+ },
+ "PV827141.1": {
+  "accession": "PV827141.1",
+  "organism": "Human coronavirus 229E",
+  "title": "Human coronavirus 229E isolate 229E/Australia/22050721/2022, complete genome",
+  "length": 26553
+ },
+ "LC922663.1": {
+  "accession": "LC922663.1",
+  "organism": "Human coronavirus NL63",
+  "title": "Human coronavirus NL63 HCoVNL63_Fukushima_OH868_2025 RNA, complete genome",
+  "length": 27535
+ },
+ "PQ451282.1": {
+  "accession": "PQ451282.1",
+  "organism": "Mink coronavirus",
+  "title": "Mink coronavirus isolate MCoV/45511-29_Case/DK/2018, complete genome",
+  "length": 28804
+ },
+ "PZ495893.1": {
+  "accession": "PZ495893.1",
+  "organism": "Porcine epidemic diarrhea virus",
+  "title": "Porcine epidemic diarrhea virus strain YN-S2DR13, complete genome",
+  "length": 28031
+ },
+ "KY406735.1": {
+  "accession": "KY406735.1",
+  "organism": "Porcine respiratory coronavirus",
+  "title": "Porcine respiratory coronavirus strain PRCV/USA/Minnesota-46140/2016, complete genome",
+  "length": 27779
+ },
+ "MF094682.1": {
+  "accession": "MF094682.1",
+  "organism": "Swine acute diarrhea syndrome coronavirus",
+  "title": "Swine acute diarrhea syndrome coronavirus isolate FarmB, complete genome",
+  "length": 27173
+ },
+ "ON858825.1": {
+  "accession": "ON858825.1",
+  "organism": "Transmissible gastroenteritis virus",
+  "title": "Transmissible gastroenteritis virus strain SC2021, complete genome",
+  "length": 28561
+ },
+ "PQ133176.1": {
+  "accession": "PQ133176.1",
+  "organism": "Alphacoronavirus 1",
+  "title": "Alphacoronavirus 1 isolate 1-F11 Gi 6590, complete genome",
+  "length": 28466
+ },
+ "PQ611140.1": {
+  "accession": "PQ611140.1",
+  "organism": "Alphacoronavirus sp.",
+  "title": "Alphacoronavirus sp. isolate MsAlphaCoV_Gordo, complete genome",
+  "length": 29264
+ },
+ "KT368909.1": {
+  "accession": "KT368909.1",
+  "organism": "Camel alphacoronavirus",
+  "title": "Camel alphacoronavirus isolate camel/Jeddah/Jd1(a)/2015, complete genome",
+  "length": 27386
+ },
+ "PP526170.1": {
+  "accession": "PP526170.1",
+  "organism": "Canine coronavirus",
+  "title": "Canine coronavirus strain 1-71, complete genome",
+  "length": 29441
+ },
+ "PQ416775.1": {
+  "accession": "PQ416775.1",
+  "organism": "Feline coronavirus",
+  "title": "Feline coronavirus isolate H30, complete genome",
+  "length": 29201
+ },
+ "PV827140.1": {
+  "accession": "PV827140.1",
+  "organism": "Human coronavirus 229E",
+  "title": "Human coronavirus 229E isolate 229E/Australia/21042820/2021, complete genome",
+  "length": 26553
+ },
+ "PX640309.1": {
+  "accession": "PX640309.1",
+  "organism": "Human coronavirus NL63",
+  "title": "Human coronavirus NL63 isolate srw004, complete genome",
+  "length": 27553
+ },
+ "PQ451280.1": {
+  "accession": "PQ451280.1",
+  "organism": "Mink coronavirus",
+  "title": "Mink coronavirus isolate MCoV/45511-27_Case/DK/2018, complete genome",
+  "length": 28770
+ },
+ "ON944188.1": {
+  "accession": "ON944188.1",
+  "organism": "Porcine epidemic diarrhea virus",
+  "title": "Porcine epidemic diarrhea virus isolate pedv_27, complete genome",
+  "length": 28034
+ },
+ "KR270796.1": {
+  "accession": "KR270796.1",
+  "organism": "Porcine respiratory coronavirus",
+  "title": "Porcine respiratory coronavirus strain OH7269, complete genome",
+  "length": 27765
+ },
+ "MF094681.1": {
+  "accession": "MF094681.1",
+  "organism": "Swine acute diarrhea syndrome coronavirus",
+  "title": "Swine acute diarrhea syndrome coronavirus isolate FarmA, complete genome",
+  "length": 27173
+ },
+ "ON016092.1": {
+  "accession": "ON016092.1",
+  "organism": "Transmissible gastroenteritis virus",
+  "title": "Transmissible gastroenteritis virus isolate CHN-SC-H, complete genome",
+  "length": 28503
+ },
+ "KP849472.1": {
+  "accession": "KP849472.1",
+  "organism": "Alphacoronavirus 1",
+  "title": "Alphacoronavirus 1 strain 23/03, complete genome",
+  "length": 30004
+ },
+ "PQ611138.1": {
+  "accession": "PQ611138.1",
+  "organism": "Alphacoronavirus sp.",
+  "title": "Alphacoronavirus sp. isolate McAlphaCoV_Yeseras, complete genome",
+  "length": 28323
+ },
+ "KT368908.1": {
+  "accession": "KT368908.1",
+  "organism": "Camel alphacoronavirus",
+  "title": "Camel alphacoronavirus isolate camel/Riyadh/Ry159(a)/2015, complete genome",
+  "length": 27395
+ },
+ "OQ540922.1": {
+  "accession": "OQ540922.1",
+  "organism": "Canine coronavirus",
+  "title": "Canine coronavirus isolate VuCCoV_191109SY, complete genome",
+  "length": 29824
+ },
+ "PX315758.1": {
+  "accession": "PX315758.1",
+  "organism": "Feline coronavirus",
+  "title": "Feline coronavirus isolate fip_172_mln, complete genome",
+  "length": 29244
+ },
+ "PV827139.1": {
+  "accession": "PV827139.1",
+  "organism": "Human coronavirus 229E",
+  "title": "Human coronavirus 229E isolate 229E/Australia/21021519/2021, complete genome",
+  "length": 26553
+ },
+ "PX640308.1": {
+  "accession": "PX640308.1",
+  "organism": "Human coronavirus NL63",
+  "title": "Human coronavirus NL63 isolate srw003, complete genome",
+  "length": 27553
+ },
+ "PQ451279.1": {
+  "accession": "PQ451279.1",
+  "organism": "Mink coronavirus",
+  "title": "Mink coronavirus isolate MCoV/45511-26_Case/DK/2018, complete genome",
+  "length": 28770
+ },
+ "ON944187.1": {
+  "accession": "ON944187.1",
+  "organism": "Porcine epidemic diarrhea virus",
+  "title": "Porcine epidemic diarrhea virus isolate pedv_28, complete genome",
+  "length": 28034
+ },
+ "ON911569.1": {
+  "accession": "ON911569.1",
+  "organism": "Swine acute diarrhea syndrome coronavirus",
+  "title": "Swine acute diarrhea syndrome coronavirus isolate SADS-CoV/Guangxi/2021, complete genome",
+  "length": 27163
+ },
+ "MZ322950.1": {
+  "accession": "MZ322950.1",
+  "organism": "Transmissible gastroenteritis virus",
+  "title": "Transmissible gastroenteritis virus strain CH/GX/TGEV/2662/2019, complete genome",
+  "length": 28458
+ },
+ "PQ577608.1": {
+  "accession": "PQ577608.1",
+  "organism": "Alphacoronavirus sp.",
+  "title": "Alphacoronavirus sp. isolate 201332, complete genome",
+  "length": 28758
+ },
+ "KT368907.1": {
+  "accession": "KT368907.1",
+  "organism": "Camel alphacoronavirus",
+  "title": "Camel alphacoronavirus isolate camel/Riyadh/Ry141/2015, complete genome",
+  "length": 27395
+ },
+ "OQ540921.1": {
+  "accession": "OQ540921.1",
+  "organism": "Canine coronavirus",
+  "title": "Canine coronavirus isolate VuCCoV_191108SY, complete genome",
+  "length": 29825
+ },
+ "PX315757.1": {
+  "accession": "PX315757.1",
+  "organism": "Feline coronavirus",
+  "title": "Feline coronavirus isolate fip_172_lung, complete genome",
+  "length": 29244
+ },
+ "PP914108.1": {
+  "accession": "PP914108.1",
+  "organism": "Human coronavirus 229E",
+  "title": "UNVERIFIED: Human coronavirus 229E isolate H224.15, complete genome",
+  "length": 27299
+ },
+ "PP910370.1": {
+  "accession": "PP910370.1",
+  "organism": "Human coronavirus NL63",
+  "title": "Human coronavirus NL63 strain p15_C8, complete genome",
+  "length": 27553
+ },
+ "PQ451278.1": {
+  "accession": "PQ451278.1",
+  "organism": "Mink coronavirus",
+  "title": "Mink coronavirus isolate MCoV/45511-25_Case/DK/2018, complete genome",
+  "length": 28770
+ },
+ "PX437825.1": {
+  "accession": "PX437825.1",
+  "organism": "Porcine epidemic diarrhea virus",
+  "title": "Porcine epidemic diarrhea virus isolate GDFS-2024, complete genome",
+  "length": 28034
+ },
+ "OK078018.1": {
+  "accession": "OK078018.1",
+  "organism": "Swine acute diarrhea syndrome coronavirus",
+  "title": "Swine acute diarrhea syndrome coronavirus isolate SADS-CoV-CH-JX1/2018, complete genome",
+  "length": 27188
+ },
+ "ON859974.1": {
+  "accession": "ON859974.1",
+  "organism": "Transmissible gastroenteritis virus",
+  "title": "Transmissible gastroenteritis virus isolate HNSQ-2021, complete genome",
+  "length": 28597
+ }
+}

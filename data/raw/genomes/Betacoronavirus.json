@@ -1,0 +1,2294 @@
+{
+ "MT430884.1": {
+  "accession": "MT430884.1",
+  "organism": "Apodemus peninsulae coronavirus",
+  "title": "Apodemus peninsulae coronavirus, complete genome",
+  "length": 31270
+ },
+ "NC_025217.1": {
+  "accession": "NC_025217.1",
+  "organism": "Bat Hp-betacoronavirus/Zhejiang2013",
+  "title": "Bat Hp-betacoronavirus/Zhejiang2013, complete genome",
+  "length": 31491
+ },
+ "MT782115.1": {
+  "accession": "MT782115.1",
+  "organism": "Bat SARS coronavirus HKU3",
+  "title": "Mutant Bat SARS coronavirus HKU3 isolate icHKU3-SRBD-MA, complete genome",
+  "length": 29781
+ },
+ "DQ022305.2": {
+  "accession": "DQ022305.2",
+  "organism": "Bat SARS coronavirus HKU3-1",
+  "title": "Bat SARS coronavirus HKU3-1, complete genome",
+  "length": 29728
+ },
+ "DQ084199.1": {
+  "accession": "DQ084199.1",
+  "organism": "Bat SARS coronavirus HKU3-2",
+  "title": "bat SARS coronavirus HKU3-2, complete genome",
+  "length": 29687
+ },
+ "DQ084200.1": {
+  "accession": "DQ084200.1",
+  "organism": "Bat SARS coronavirus HKU3-3",
+  "title": "bat SARS coronavirus HKU3-3, complete genome",
+  "length": 29711
+ },
+ "MG772934.1": {
+  "accession": "MG772934.1",
+  "organism": "Bat SARS-like coronavirus",
+  "title": "Bat SARS-like coronavirus isolate bat-SL-CoVZXC21, complete genome",
+  "length": 29732
+ },
+ "MZ190137.1": {
+  "accession": "MZ190137.1",
+  "organism": "Bat SARS-like coronavirus Khosta-1",
+  "title": "Bat SARS-like coronavirus Khosta-1 strain BtCoV/Khosta-1/Rh/Russia/2020, complete genome",
+  "length": 28878
+ },
+ "MZ190138.1": {
+  "accession": "MZ190138.1",
+  "organism": "Bat SARS-like coronavirus Khosta-2",
+  "title": "Bat SARS-like coronavirus Khosta-2 strain BtCoV/Khosta-2/Rh/Russia/2020, complete genome",
+  "length": 29220
+ },
+ "KP886808.1": {
+  "accession": "KP886808.1",
+  "organism": "Bat SARS-like coronavirus YNLF_31C",
+  "title": "Bat SARS-like coronavirus YNLF_31C, complete genome",
+  "length": 29723
+ },
+ "KP886809.1": {
+  "accession": "KP886809.1",
+  "organism": "Bat SARS-like coronavirus YNLF_34C",
+  "title": "Bat SARS-like coronavirus YNLF_34C, complete genome",
+  "length": 29723
+ },
+ "OM240725.1": {
+  "accession": "OM240725.1",
+  "organism": "Bat betacoronavirus",
+  "title": "Bat betacoronavirus isolate RaCH025, complete genome",
+  "length": 29622
+ },
+ "NC_014470.1": {
+  "accession": "NC_014470.1",
+  "organism": "Bat coronavirus BM48-31/BGR/2008",
+  "title": "Bat coronavirus BM48-31/BGR/2008, complete genome",
+  "length": 29276
+ },
+ "JX993988.1": {
+  "accession": "JX993988.1",
+  "organism": "Bat coronavirus Cp/Yunnan2011",
+  "title": "Bat coronavirus Cp/Yunnan2011, complete genome",
+  "length": 29452
+ },
+ "MN996532.2": {
+  "accession": "MN996532.2",
+  "organism": "Bat coronavirus RaTG13",
+  "title": "Bat coronavirus RaTG13, complete genome",
+  "length": 29855
+ },
+ "MW251308.1": {
+  "accession": "MW251308.1",
+  "organism": "Bat coronavirus RacCS203",
+  "title": "Bat coronavirus RacCS203, complete genome",
+  "length": 29832
+ },
+ "JX993987.1": {
+  "accession": "JX993987.1",
+  "organism": "Bat coronavirus Rp/Shaanxi2011",
+  "title": "Bat coronavirus Rp/Shaanxi2011, complete genome",
+  "length": 29484
+ },
+ "PQ594947.1": {
+  "accession": "PQ594947.1",
+  "organism": "Betacoronavirus 1",
+  "title": "Betacoronavirus 1 isolate JN_01, complete genome",
+  "length": 30712
+ },
+ "NC_038294.1": {
+  "accession": "NC_038294.1",
+  "organism": "Betacoronavirus England 1",
+  "title": "Betacoronavirus England 1 isolate H123990006, complete genome",
+  "length": 30111
+ },
+ "PV359184.2": {
+  "accession": "PV359184.2",
+  "organism": "Betacoronavirus Erinaceus",
+  "title": "Betacoronavirus Erinaceus isolate EriCoV/RU/MOW3/2023, complete genome",
+  "length": 30057
+ },
+ "NC_039207.1": {
+  "accession": "NC_039207.1",
+  "organism": "Betacoronavirus Erinaceus/VMC/DEU/2012",
+  "title": "Betacoronavirus Erinaceus/VMC/DEU/2012 isolate ErinaceusCoV/2012-174/GER/2012, complete genome",
+  "length": 30148
+ },
+ "NC_026011.1": {
+  "accession": "NC_026011.1",
+  "organism": "Betacoronavirus HKU24",
+  "title": "Betacoronavirus HKU24 strain HKU24-R05005I, complete genome",
+  "length": 31249
+ },
+ "PX905642.1": {
+  "accession": "PX905642.1",
+  "organism": "Betacoronavirus erinacei",
+  "title": "Betacoronavirus erinacei isolate EriCoV/H.auritus_27/Italy/2022, complete genome",
+  "length": 30481
+ },
+ "OR676675.1": {
+  "accession": "OR676675.1",
+  "organism": "Betacoronavirus sp.",
+  "title": "Betacoronavirus sp. isolate Ovine/SWUN/28-3/2023, complete genome",
+  "length": 31103
+ },
+ "MZ081376.1": {
+  "accession": "MZ081376.1",
+  "organism": "Betacoronavirus sp. RmYN05",
+  "title": "Betacoronavirus sp. RmYN05 strain bat/Yunnan/RmYN05/2020, complete genome",
+  "length": 29712
+ },
+ "MZ081377.1": {
+  "accession": "MZ081377.1",
+  "organism": "Betacoronavirus sp. RmYN07",
+  "title": "Betacoronavirus sp. RmYN07 strain bat/Yunnan/RmYN07/2020, complete genome",
+  "length": 29734
+ },
+ "MZ081378.1": {
+  "accession": "MZ081378.1",
+  "organism": "Betacoronavirus sp. RmYN08",
+  "title": "Betacoronavirus sp. RmYN08 strain bat/Yunnan/RmYN08/2020, complete genome",
+  "length": 29712
+ },
+ "MZ081381.1": {
+  "accession": "MZ081381.1",
+  "organism": "Betacoronavirus sp. RpYN06",
+  "title": "Betacoronavirus sp. RpYN06 strain bat/Yunnan/RpYN06/2020, complete genome",
+  "length": 29793
+ },
+ "MZ081379.1": {
+  "accession": "MZ081379.1",
+  "organism": "Betacoronavirus sp. RsYN03",
+  "title": "Betacoronavirus sp. RsYN03 strain bat/Yunnan/RsYN03/2019, complete genome",
+  "length": 29737
+ },
+ "MZ081380.1": {
+  "accession": "MZ081380.1",
+  "organism": "Betacoronavirus sp. RsYN04",
+  "title": "Betacoronavirus sp. RsYN04 strain bat/Yunnan/RsYN04/2020, complete genome",
+  "length": 29712
+ },
+ "MZ081382.1": {
+  "accession": "MZ081382.1",
+  "organism": "Betacoronavirus sp. RsYN09",
+  "title": "Betacoronavirus sp. RsYN09 strain bat/Yunnan/RsYN09/2020, complete genome",
+  "length": 29717
+ },
+ "QB137378.1": {
+  "accession": "QB137378.1",
+  "organism": "Bovine coronavirus",
+  "title": "Bovine coronavirus isolate BCoV_XJYL6C, complete genome",
+  "length": 31063
+ },
+ "EF424619.1": {
+  "accession": "EF424619.1",
+  "organism": "Bovine coronavirus E-AH187",
+  "title": "Bovine coronavirus E-AH187, complete genome",
+  "length": 30995
+ },
+ "EF424615.1": {
+  "accession": "EF424615.1",
+  "organism": "Bovine coronavirus E-AH65",
+  "title": "Bovine coronavirus E-AH65, complete genome",
+  "length": 31017
+ },
+ "EF424616.1": {
+  "accession": "EF424616.1",
+  "organism": "Bovine coronavirus E-AH65-TC",
+  "title": "Bovine coronavirus E-AH65-TC, complete genome",
+  "length": 30970
+ },
+ "EF424620.1": {
+  "accession": "EF424620.1",
+  "organism": "Bovine coronavirus R-AH187",
+  "title": "Bovine coronavirus R-AH187, complete genome",
+  "length": 30964
+ },
+ "EF424617.1": {
+  "accession": "EF424617.1",
+  "organism": "Bovine coronavirus R-AH65",
+  "title": "Bovine coronavirus R-AH65, complete genome",
+  "length": 31016
+ },
+ "EF424618.1": {
+  "accession": "EF424618.1",
+  "organism": "Bovine coronavirus R-AH65-TC",
+  "title": "Bovine coronavirus R-AH65-TC, complete genome",
+  "length": 30995
+ },
+ "KJ473820.1": {
+  "accession": "KJ473820.1",
+  "organism": "BtPa-BetaCoV/GD2013",
+  "title": "BtPa-BetaCoV/GD2013, complete genome",
+  "length": 30480
+ },
+ "KJ473812.1": {
+  "accession": "KJ473812.1",
+  "organism": "BtRf-BetaCoV/HeB2013",
+  "title": "BtRf-BetaCoV/HeB2013, complete genome",
+  "length": 29443
+ },
+ "KJ473811.1": {
+  "accession": "KJ473811.1",
+  "organism": "BtRf-BetaCoV/JL2012",
+  "title": "BtRf-BetaCoV/JL2012, complete genome",
+  "length": 29037
+ },
+ "KJ473813.1": {
+  "accession": "KJ473813.1",
+  "organism": "BtRf-BetaCoV/SX2013",
+  "title": "BtRf-BetaCoV/SX2013, complete genome",
+  "length": 29461
+ },
+ "KJ473815.1": {
+  "accession": "KJ473815.1",
+  "organism": "BtRs-BetaCoV/GX2013",
+  "title": "BtRs-BetaCoV/GX2013, complete genome",
+  "length": 29161
+ },
+ "KJ473814.1": {
+  "accession": "KJ473814.1",
+  "organism": "BtRs-BetaCoV/HuB2013",
+  "title": "BtRs-BetaCoV/HuB2013, complete genome",
+  "length": 29658
+ },
+ "KJ473816.1": {
+  "accession": "KJ473816.1",
+  "organism": "BtRs-BetaCoV/YN2013",
+  "title": "BtRs-BetaCoV/YN2013, complete genome",
+  "length": 29142
+ },
+ "KJ473822.1": {
+  "accession": "KJ473822.1",
+  "organism": "BtTp-BetaCoV/GX2012",
+  "title": "BtTp-BetaCoV/GX2012, complete genome",
+  "length": 30247
+ },
+ "KJ473821.1": {
+  "accession": "KJ473821.1",
+  "organism": "BtVs-BetaCoV/SC2013",
+  "title": "BtVs-BetaCoV/SC2013, complete genome",
+  "length": 30423
+ },
+ "EF424624.1": {
+  "accession": "EF424624.1",
+  "organism": "Calf-giraffe coronavirus US/OH3/2006",
+  "title": "Calf-giraffe coronavirus US/OH3/2006, complete genome",
+  "length": 30979
+ },
+ "KT368891.1": {
+  "accession": "KT368891.1",
+  "organism": "Camel coronavirus HKU23",
+  "title": "Camel coronavirus HKU23 isolate camel/Riyadh/Ry123/2015, complete genome",
+  "length": 31041
+ },
+ "PQ725952.1": {
+  "accession": "PQ725952.1",
+  "organism": "Canine respiratory coronavirus",
+  "title": "Canine respiratory coronavirus isolate CRCoV_CD5, complete genome",
+  "length": 30856
+ },
+ "MK211374.1": {
+  "accession": "MK211374.1",
+  "organism": "Coronavirus BtRl-BetaCoV/SC2018",
+  "title": "Coronavirus BtRl-BetaCoV/SC2018, complete genome",
+  "length": 29648
+ },
+ "MK211375.1": {
+  "accession": "MK211375.1",
+  "organism": "Coronavirus BtRs-BetaCoV/YN2018A",
+  "title": "Coronavirus BtRs-BetaCoV/YN2018A, complete genome",
+  "length": 29698
+ },
+ "MK211376.1": {
+  "accession": "MK211376.1",
+  "organism": "Coronavirus BtRs-BetaCoV/YN2018B",
+  "title": "Coronavirus BtRs-BetaCoV/YN2018B, complete genome",
+  "length": 30256
+ },
+ "MK211377.1": {
+  "accession": "MK211377.1",
+  "organism": "Coronavirus BtRs-BetaCoV/YN2018C",
+  "title": "Coronavirus BtRs-BetaCoV/YN2018C, complete genome",
+  "length": 29689
+ },
+ "MK211378.1": {
+  "accession": "MK211378.1",
+  "organism": "Coronavirus BtRs-BetaCoV/YN2018D",
+  "title": "Coronavirus BtRs-BetaCoV/YN2018D, complete genome",
+  "length": 30213
+ },
+ "MK211379.1": {
+  "accession": "MK211379.1",
+  "organism": "Coronavirus BtRt-BetaCoV/GX2018",
+  "title": "Coronavirus BtRt-BetaCoV/GX2018, complete genome",
+  "length": 29752
+ },
+ "MN514967.1": {
+  "accession": "MN514967.1",
+  "organism": "Dromedary camel coronavirus HKU23",
+  "title": "Dromedary camel coronavirus HKU23 isolate DcCoV-HKU23/camel/Nigeria/NV1385/2016, complete genome",
+  "length": 30799
+ },
+ "PX907773.1": {
+  "accession": "PX907773.1",
+  "organism": "Embecovirus sp.",
+  "title": "Embecovirus sp. isolate Mm18-1, complete genome",
+  "length": 31273
+ },
+ "LC592689.1": {
+  "accession": "LC592689.1",
+  "organism": "Equine coronavirus",
+  "title": "Equine coronavirus Tokyo2020 RNA, nearly complete genome",
+  "length": 30763
+ },
+ "PV953138.1": {
+  "accession": "PV953138.1",
+  "organism": "Erinaceus hedgehog coronavirus HKU31",
+  "title": "Erinaceus hedgehog coronavirus HKU31 isolate HP0060_1Y, complete genome",
+  "length": 29842
+ },
+ "EF424622.1": {
+  "accession": "EF424622.1",
+  "organism": "Giraffe coronavirus US/OH3-TC/2006",
+  "title": "Giraffe coronavirus US/OH3-TC/2006, complete genome",
+  "length": 30979
+ },
+ "EF424623.1": {
+  "accession": "EF424623.1",
+  "organism": "Giraffe coronavirus US/OH3/2003",
+  "title": "Giraffe coronavirus US/OH3/2003, complete genome",
+  "length": 31002
+ },
+ "PQ869635.1": {
+  "accession": "PQ869635.1",
+  "organism": "Hedgehog coronavirus 1",
+  "title": "Hedgehog coronavirus 1 isolate Erinaceus/FR/22-7137/2022/complete genome, complete genome",
+  "length": 30092
+ },
+ "OR233295.1": {
+  "accession": "OR233295.1",
+  "organism": "Horseshoe bat sarbecovirus",
+  "title": "Horseshoe bat sarbecovirus isolate Rt17DN420, complete genome",
+  "length": 29602
+ },
+ "PZ256269.1": {
+  "accession": "PZ256269.1",
+  "organism": "Human coronavirus HKU1",
+  "title": "Human coronavirus HKU1 isolate 23V-11452_250113001, complete genome",
+  "length": 29854
+ },
+ "PV798437.1": {
+  "accession": "PV798437.1",
+  "organism": "Human coronavirus OC43",
+  "title": "Human coronavirus OC43 isolate 18_S7, complete genome",
+  "length": 30683
+ },
+ "KX442565.1": {
+  "accession": "KX442565.1",
+  "organism": "Hypsugo bat coronavirus HKU25",
+  "title": "Hypsugo bat coronavirus HKU25 isolate NL140462, complete genome",
+  "length": 30497
+ },
+ "MZ328294.1": {
+  "accession": "MZ328294.1",
+  "organism": "Jingmen Rhinolophus sinicus betacoronavirus 1",
+  "title": "Jingmen Rhinolophus sinicus betacoronavirus 1, complete genome",
+  "length": 29627
+ },
+ "PX975258.1": {
+  "accession": "PX975258.1",
+  "organism": "Merbecovirus sp.",
+  "title": "Merbecovirus sp. isolate Camargue_bat_2024_01, complete genome",
+  "length": 30256
+ },
+ "OQ401251.1": {
+  "accession": "OQ401251.1",
+  "organism": "Merbecovirus sp. PaGB01",
+  "title": "MAG: Merbecovirus PaGB01, complete genome",
+  "length": 30018
+ },
+ "PX660034.1": {
+  "accession": "PX660034.1",
+  "organism": "Middle East respiratory syndrome-related coronavirus",
+  "title": "Middle East respiratory syndrome-related coronavirus isolate 025188840901RBS1, complete genome",
+  "length": 29988
+ },
+ "FJ647223.1": {
+  "accession": "FJ647223.1",
+  "organism": "Murine coronavirus MHV-1",
+  "title": "Murine coronavirus MHV-1, complete genome",
+  "length": 31386
+ },
+ "MW620427.1": {
+  "accession": "MW620427.1",
+  "organism": "Murine coronavirus MHV-3",
+  "title": "Murine coronavirus MHV-3 isolate UNICAMP, complete genome",
+  "length": 31218
+ },
+ "FJ647226.1": {
+  "accession": "FJ647226.1",
+  "organism": "Murine coronavirus MHV-JHM.IA",
+  "title": "Murine coronavirus MHV-JHM.IA, complete genome",
+  "length": 31473
+ },
+ "FJ647218.1": {
+  "accession": "FJ647218.1",
+  "organism": "Murine coronavirus RA59/R13",
+  "title": "Murine coronavirus RA59/R13, complete genome",
+  "length": 31285
+ },
+ "FJ647220.1": {
+  "accession": "FJ647220.1",
+  "organism": "Murine coronavirus RA59/SJHM",
+  "title": "Murine coronavirus RA59/SJHM, complete genome",
+  "length": 31429
+ },
+ "FJ647219.1": {
+  "accession": "FJ647219.1",
+  "organism": "Murine coronavirus RJHM/A",
+  "title": "Murine coronavirus RJHM/A, complete genome",
+  "length": 31427
+ },
+ "FJ647222.1": {
+  "accession": "FJ647222.1",
+  "organism": "Murine coronavirus SA59/RJHM",
+  "title": "Murine coronavirus SA59/RJHM, complete genome",
+  "length": 31283
+ },
+ "FJ647225.1": {
+  "accession": "FJ647225.1",
+  "organism": "Murine coronavirus inf-MHV-A59",
+  "title": "Murine coronavirus inf-MHV-A59, complete genome",
+  "length": 31293
+ },
+ "FJ647221.1": {
+  "accession": "FJ647221.1",
+  "organism": "Murine coronavirus repA59/RJHM",
+  "title": "Murine coronavirus repA59/RJHM, complete genome",
+  "length": 31456
+ },
+ "FJ647227.1": {
+  "accession": "FJ647227.1",
+  "organism": "Murine coronavirus repJHM/RA59",
+  "title": "Murine coronavirus repJHM/RA59, complete genome",
+  "length": 31250
+ },
+ "PV544234.1": {
+  "accession": "PV544234.1",
+  "organism": "Murine hepatitis virus",
+  "title": "Murine hepatitis virus strain MHV/UMN/2024, complete genome",
+  "length": 31452
+ },
+ "AF201929.1": {
+  "accession": "AF201929.1",
+  "organism": "Murine hepatitis virus strain 2",
+  "title": "Murine hepatitis virus strain 2, complete genome",
+  "length": 31276
+ },
+ "FJ884687.1": {
+  "accession": "FJ884687.1",
+  "organism": "Murine hepatitis virus strain A59",
+  "title": "Murine hepatitis virus strain A59 B12 variant, complete genome",
+  "length": 31277
+ },
+ "AC_000192.1": {
+  "accession": "AC_000192.1",
+  "organism": "Murine hepatitis virus strain JHM",
+  "title": "Murine hepatitis virus strain JHM, complete genome",
+  "length": 31526
+ },
+ "PX802981.1": {
+  "accession": "PX802981.1",
+  "organism": "Pangolin coronavirus",
+  "title": "Pangolin coronavirus isolate PCoV-GX/P49T, complete genome",
+  "length": 29790
+ },
+ "OQ297693.1": {
+  "accession": "OQ297693.1",
+  "organism": "Pangolin coronavirus HKU4",
+  "title": "MAG: Pangolin coronavirus HKU4 isolate GX/HKU4-GX/2020, complete genome",
+  "length": 30328
+ },
+ "OM009282.1": {
+  "accession": "OM009282.1",
+  "organism": "Pangolin coronavirus HKU4/P251T/pangolin/2018",
+  "title": "Pangolin coronavirus HKU4/P251T/pangolin/2018, complete genome",
+  "length": 30344
+ },
+ "MN611520.1": {
+  "accession": "MN611520.1",
+  "organism": "Pipistrellus abramus bat coronavirus HKU5-related",
+  "title": "Pipistrellus abramus bat coronavirus HKU5-related isolate BY140568, complete genome",
+  "length": 30511
+ },
+ "PV533968.1": {
+  "accession": "PV533968.1",
+  "organism": "Pipistrellus bat coronavirus HKU5",
+  "title": "Pipistrellus bat coronavirus HKU5 isolate B24-268G, complete genome",
+  "length": 30434
+ },
+ "LC928264.1": {
+  "accession": "LC928264.1",
+  "organism": "Porcine hemagglutinating encephalomyelitis virus",
+  "title": "Porcine hemagglutinating encephalomyelitis virus PHEV/TN25-P047-NNFL/Pig/Vietnam/2025 genomic RNA, nearly complete genome",
+  "length": 30083
+ },
+ "OK067319.1": {
+  "accession": "OK067319.1",
+  "organism": "Pteropus rufus nobecovirus",
+  "title": "Pteropus rufus nobecovirus isolate AMB130, complete genome",
+  "length": 29122
+ },
+ "NC_017083.1": {
+  "accession": "NC_017083.1",
+  "organism": "Rabbit coronavirus HKU14",
+  "title": "Rabbit coronavirus HKU14, complete genome",
+  "length": 31100
+ },
+ "PP526175.1": {
+  "accession": "PP526175.1",
+  "organism": "Rat coronavirus",
+  "title": "Rat coronavirus isolate Parker, complete genome",
+  "length": 31293
+ },
+ "NC_012936.1": {
+  "accession": "NC_012936.1",
+  "organism": "Rat coronavirus Parker",
+  "title": "Rat coronavirus Parker, complete genome",
+  "length": 31250
+ },
+ "OR261265.1": {
+  "accession": "OR261265.1",
+  "organism": "Rhinolophus siamensis bat sarbecovirus",
+  "title": "Rhinolophus siamensis bat sarbecovirus isolate RsVN21-195, complete genome",
+  "length": 29463
+ },
+ "OR261268.1": {
+  "accession": "OR261268.1",
+  "organism": "Rhinolophus thomasi bat coronavirus",
+  "title": "Rhinolophus thomasi bat coronavirus isolate RtVN21-201, complete genome",
+  "length": 29741
+ },
+ "PP273174.1": {
+  "accession": "PP273174.1",
+  "organism": "Rousettus bat coronavirus",
+  "title": "Rousettus bat coronavirus isolate 3A/Kenya/BAT20/2015, complete genome",
+  "length": 30248
+ },
+ "MT350598.1": {
+  "accession": "MT350598.1",
+  "organism": "Rousettus bat coronavirus GCCDC1",
+  "title": "Rousettus bat coronavirus GCCDC1, complete genome",
+  "length": 30162
+ },
+ "EF065513.1": {
+  "accession": "EF065513.1",
+  "organism": "Rousettus bat coronavirus HKU9",
+  "title": "Rousettus bat coronavirus HKU9, complete genome",
+  "length": 29114
+ },
+ "OK067321.1": {
+  "accession": "OK067321.1",
+  "organism": "Rousettus madagascariensis nobecovirus",
+  "title": "Rousettus madagascariensis nobecovirus isolate MIZ240, complete genome",
+  "length": 28980
+ },
+ "AY278489.2": {
+  "accession": "AY278489.2",
+  "organism": "SARS coronavirus GD01",
+  "title": "SARS coronavirus GD01, complete genome",
+  "length": 29757
+ },
+ "AY338174.1": {
+  "accession": "AY338174.1",
+  "organism": "SARS coronavirus Taiwan TC1",
+  "title": "SARS coronavirus Taiwan TC1, complete genome",
+  "length": 29573
+ },
+ "AY338175.1": {
+  "accession": "AY338175.1",
+  "organism": "SARS coronavirus Taiwan TC2",
+  "title": "SARS coronavirus Taiwan TC2, complete genome",
+  "length": 29573
+ },
+ "AY348314.1": {
+  "accession": "AY348314.1",
+  "organism": "SARS coronavirus Taiwan TC3",
+  "title": "SARS coronavirus Taiwan TC3, complete genome",
+  "length": 29573
+ },
+ "NC_004718.3": {
+  "accession": "NC_004718.3",
+  "organism": "SARS coronavirus Tor2",
+  "title": "SARS coronavirus Tor2, complete genome",
+  "length": 29751
+ },
+ "MT308984.1": {
+  "accession": "MT308984.1",
+  "organism": "SARS coronavirus Urbani",
+  "title": "Mutant SARS coronavirus Urbani clone SARS-Urbani-MA_SHC014-spike, complete genome",
+  "length": 29730
+ },
+ "KT444582.1": {
+  "accession": "KT444582.1",
+  "organism": "SARS-like coronavirus WIV16",
+  "title": "SARS-like coronavirus WIV16, complete genome",
+  "length": 30290
+ },
+ "EF424621.1": {
+  "accession": "EF424621.1",
+  "organism": "Sable antelope coronavirus US/OH1/2003",
+  "title": "Sable antelope coronavirus US/OH1/2003, complete genome",
+  "length": 30995
+ },
+ "FJ425190.1": {
+  "accession": "FJ425190.1",
+  "organism": "Sambar deer coronavirus US/OH-WD388-TC/1994",
+  "title": "Sambar deer coronavirus US/OH-WD388-TC/1994 calf-passaged, complete genome",
+  "length": 30987
+ },
+ "FJ425189.1": {
+  "accession": "FJ425189.1",
+  "organism": "Sambar deer coronavirus US/OH-WD388/1994",
+  "title": "Sambar deer coronavirus US/OH-WD388/1994, complete genome",
+  "length": 30997
+ },
+ "MW719567.1": {
+  "accession": "MW719567.1",
+  "organism": "Sarbecovirus RhGB01",
+  "title": "Sarbecovirus RhGB01, complete genome",
+  "length": 29324
+ },
+ "PX775823.1": {
+  "accession": "PX775823.1",
+  "organism": "Sarbecovirus sp.",
+  "title": "Sarbecovirus sp. isolate B24-116-G, complete genome",
+  "length": 29348
+ },
+ "OQ401247.1": {
+  "accession": "OQ401247.1",
+  "organism": "Sarbecovirus sp. RfGB01",
+  "title": "MAG: Sarbecovirus RfGB01, complete genome",
+  "length": 29308
+ },
+ "OQ401249.1": {
+  "accession": "OQ401249.1",
+  "organism": "Sarbecovirus sp. RfGB02",
+  "title": "MAG: Sarbecovirus RfGB02, complete genome",
+  "length": 29375
+ },
+ "OQ401248.1": {
+  "accession": "OQ401248.1",
+  "organism": "Sarbecovirus sp. RhGB07",
+  "title": "MAG: Sarbecovirus sp. RhGB07 isolate 2-30B, complete genome",
+  "length": 29224
+ },
+ "PZ810323.1": {
+  "accession": "PZ810323.1",
+  "organism": "Severe acute respiratory syndrome coronavirus",
+  "title": "Mutant Severe acute respiratory syndrome coronavirus clone WIV1-MA15, complete genome",
+  "length": 29723
+ },
+ "OQ503506.1": {
+  "accession": "OQ503506.1",
+  "organism": "Severe acute respiratory syndrome-related coronavirus",
+  "title": "Severe acute respiratory syndrome-related coronavirus isolate B228, complete genome",
+  "length": 29751
+ },
+ "MZ100070.1": {
+  "accession": "MZ100070.1",
+  "organism": "Tapir coronavirus 1044512-1",
+  "title": "Tapir coronavirus 1044512-1, complete genome",
+  "length": 31016
+ },
+ "EF065505.1": {
+  "accession": "EF065505.1",
+  "organism": "Tylonycteris bat coronavirus HKU4",
+  "title": "Tylonycteris bat coronavirus HKU4, complete genome",
+  "length": 30286
+ },
+ "MN611519.1": {
+  "accession": "MN611519.1",
+  "organism": "Tylonycteris pachypus bat coronavirus HKU4-related",
+  "title": "Tylonycteris pachypus bat coronavirus HKU4-related isolate GZ131656, complete genome",
+  "length": 30224
+ },
+ "MG518518.1": {
+  "accession": "MG518518.1",
+  "organism": "Water deer coronavirus",
+  "title": "Water deer coronavirus isolate W17-18, complete genome",
+  "length": 31034
+ },
+ "FJ425185.1": {
+  "accession": "FJ425185.1",
+  "organism": "Waterbuck coronavirus US/OH-WD358-GnC/1994",
+  "title": "Waterbuck coronavirus US/OH-WD358-GnC/1994, complete genome",
+  "length": 30940
+ },
+ "FJ425184.1": {
+  "accession": "FJ425184.1",
+  "organism": "Waterbuck coronavirus US/OH-WD358-TC/1994",
+  "title": "Waterbuck coronavirus US/OH-WD358-TC/1994, complete genome",
+  "length": 30995
+ },
+ "FJ425186.1": {
+  "accession": "FJ425186.1",
+  "organism": "Waterbuck coronavirus US/OH-WD358/1994",
+  "title": "Waterbuck coronavirus US/OH-WD358/1994, complete genome",
+  "length": 30962
+ },
+ "MZ328297.1": {
+  "accession": "MZ328297.1",
+  "organism": "Wenzhou Pipistrellus abramus betacoronavirus 1",
+  "title": "Wenzhou Pipistrellus abramus betacoronavirus 1, complete genome",
+  "length": 30429
+ },
+ "FJ425187.1": {
+  "accession": "FJ425187.1",
+  "organism": "White-tailed deer coronavirus US/OH-WD470/1994",
+  "title": "White-tailed deer coronavirus US/OH-WD470/1994, complete genome",
+  "length": 31020
+ },
+ "OR603987.1": {
+  "accession": "OR603987.1",
+  "organism": "Yak coronavirus",
+  "title": "Yak coronavirus isolate Yak/SWUN/NF5/2022, complete genome",
+  "length": 31021
+ },
+ "KF636752.1": {
+  "accession": "KF636752.1",
+  "organism": "Bat Hp-betacoronavirus/Zhejiang2013",
+  "title": "Bat Hp-betacoronavirus/Zhejiang2013, complete genome",
+  "length": 31491
+ },
+ "MT782114.1": {
+  "accession": "MT782114.1",
+  "organism": "Bat SARS coronavirus HKU3",
+  "title": "Mutant Bat SARS coronavirus HKU3 isolate icHKU3-SRBD, complete genome",
+  "length": 29781
+ },
+ "MG772933.1": {
+  "accession": "MG772933.1",
+  "organism": "Bat SARS-like coronavirus",
+  "title": "Bat SARS-like coronavirus isolate bat-SL-CoVZC45, complete genome",
+  "length": 29802
+ },
+ "OZ250252.1": {
+  "accession": "OZ250252.1",
+  "organism": "Betacoronavirus 1",
+  "title": "Betacoronavirus 1 isolate RNA genome assembly, complete genome: monopartite",
+  "length": 30725
+ },
+ "PV359183.2": {
+  "accession": "PV359183.2",
+  "organism": "Betacoronavirus Erinaceus",
+  "title": "Betacoronavirus Erinaceus isolate EriCoV/RU/MOW23/2023, complete genome",
+  "length": 30236
+ },
+ "OR676674.1": {
+  "accession": "OR676674.1",
+  "organism": "Betacoronavirus sp.",
+  "title": "Betacoronavirus sp. isolate Ovine/SWUN/FA/2023, complete genome",
+  "length": 31600
+ },
+ "QB137377.1": {
+  "accession": "QB137377.1",
+  "organism": "Bovine coronavirus",
+  "title": "Bovine coronavirus isolate BCoV_XJYL6F, complete genome",
+  "length": 31063
+ },
+ "PQ725951.1": {
+  "accession": "PQ725951.1",
+  "organism": "Canine respiratory coronavirus",
+  "title": "Canine respiratory coronavirus isolate CRCoV_CD4, complete genome",
+  "length": 30855
+ },
+ "MN514966.1": {
+  "accession": "MN514966.1",
+  "organism": "Dromedary camel coronavirus HKU23",
+  "title": "Dromedary camel coronavirus HKU23 isolate DcCoV-HKU23/camel/Nigeria/NV1097/2015, complete genome",
+  "length": 31075
+ },
+ "PP444723.2": {
+  "accession": "PP444723.2",
+  "organism": "Embecovirus sp.",
+  "title": "Embecovirus sp. isolate Lianghe-5, complete genome",
+  "length": 30967
+ },
+ "OR468100.1": {
+  "accession": "OR468100.1",
+  "organism": "Equine coronavirus",
+  "title": "Equine coronavirus isolate FL2020-CUh4, complete genome",
+  "length": 30909
+ },
+ "PV953137.1": {
+  "accession": "PV953137.1",
+  "organism": "Erinaceus hedgehog coronavirus HKU31",
+  "title": "Erinaceus hedgehog coronavirus HKU31 isolate HP0060_1G, complete genome",
+  "length": 29901
+ },
+ "PQ869634.1": {
+  "accession": "PQ869634.1",
+  "organism": "Hedgehog coronavirus 1",
+  "title": "Hedgehog coronavirus 1 isolate Erinaceus/FR/22-3151/2023/complete genome, complete genome",
+  "length": 30105
+ },
+ "OR233328.1": {
+  "accession": "OR233328.1",
+  "organism": "Horseshoe bat sarbecovirus",
+  "title": "Horseshoe bat sarbecovirus isolate Ra22QT137, complete genome",
+  "length": 29751
+ },
+ "PV619111.1": {
+  "accession": "PV619111.1",
+  "organism": "Human coronavirus HKU1",
+  "title": "Human coronavirus HKU1 isolate HKU1A/1587-Passage2-NasalOrganoids, complete genome",
+  "length": 29803
+ },
+ "PV798435.1": {
+  "accession": "PV798435.1",
+  "organism": "Human coronavirus OC43",
+  "title": "Human coronavirus OC43 isolate 16_S6, complete genome",
+  "length": 30639
+ },
+ "KX442564.1": {
+  "accession": "KX442564.1",
+  "organism": "Hypsugo bat coronavirus HKU25",
+  "title": "Hypsugo bat coronavirus HKU25 isolate YD131305, complete genome",
+  "length": 30498
+ },
+ "PP883548.1": {
+  "accession": "PP883548.1",
+  "organism": "Merbecovirus sp.",
+  "title": "MAG: Merbecovirus sp. isolate BtCoV/16227-10/P.aur/DK/2020 from Denmark, complete genome",
+  "length": 29626
+ },
+ "PP086048.1": {
+  "accession": "PP086048.1",
+  "organism": "Middle East respiratory syndrome-related coronavirus",
+  "title": "Middle East respiratory syndrome-related coronavirus isolate Camel/Oman_112_2019, complete genome",
+  "length": 30072
+ },
+ "FJ647224.1": {
+  "accession": "FJ647224.1",
+  "organism": "Murine coronavirus MHV-3",
+  "title": "Murine coronavirus MHV-3, complete genome",
+  "length": 31448
+ },
+ "PQ488813.1": {
+  "accession": "PQ488813.1",
+  "organism": "Murine hepatitis virus",
+  "title": "Mutant Murine hepatitis virus clone recombinant WT MHV-A59, complete genome",
+  "length": 31290
+ },
+ "FJ884686.1": {
+  "accession": "FJ884686.1",
+  "organism": "Murine hepatitis virus strain A59",
+  "title": "Murine hepatitis virus strain A59 B11 variant, complete genome",
+  "length": 31275
+ },
+ "PX802980.1": {
+  "accession": "PX802980.1",
+  "organism": "Pangolin coronavirus",
+  "title": "Pangolin coronavirus isolate PCoV-GX/P5V, complete genome",
+  "length": 29805
+ },
+ "EF065509.1": {
+  "accession": "EF065509.1",
+  "organism": "Pipistrellus bat coronavirus HKU5",
+  "title": "Pipistrellus bat coronavirus HKU5, complete genome",
+  "length": 30482
+ },
+ "LC928263.1": {
+  "accession": "LC928263.1",
+  "organism": "Porcine hemagglutinating encephalomyelitis virus",
+  "title": "Porcine hemagglutinating encephalomyelitis virus PHEV/TN25-P046-NNFL/Pig/Vietnam/2025 genomic RNA, nearly complete genome",
+  "length": 30083
+ },
+ "OR261267.1": {
+  "accession": "OR261267.1",
+  "organism": "Rhinolophus thomasi bat coronavirus",
+  "title": "Rhinolophus thomasi bat coronavirus isolate RtVN21-200, complete genome",
+  "length": 29680
+ },
+ "MZ293755.1": {
+  "accession": "MZ293755.1",
+  "organism": "Rousettus bat coronavirus",
+  "title": "Rousettus bat coronavirus isolate SBB-797, complete genome",
+  "length": 29109
+ },
+ "NC_009021.1": {
+  "accession": "NC_009021.1",
+  "organism": "Rousettus bat coronavirus HKU9",
+  "title": "Rousettus bat coronavirus HKU9, complete genome",
+  "length": 29114
+ },
+ "OK067320.1": {
+  "accession": "OK067320.1",
+  "organism": "Rousettus madagascariensis nobecovirus",
+  "title": "Rousettus madagascariensis nobecovirus isolate MIZ178, complete genome",
+  "length": 28926
+ },
+ "JX163928.1": {
+  "accession": "JX163928.1",
+  "organism": "SARS coronavirus Tor2",
+  "title": "SARS coronavirus Tor2 isolate Tor2/FP1-10895, complete genome",
+  "length": 29646
+ },
+ "MK062184.1": {
+  "accession": "MK062184.1",
+  "organism": "SARS coronavirus Urbani",
+  "title": "SARS coronavirus Urbani isolate icSARS-C7-MA, complete genome",
+  "length": 29874
+ },
+ "FJ425188.1": {
+  "accession": "FJ425188.1",
+  "organism": "Sambar deer coronavirus US/OH-WD388-TC/1994",
+  "title": "Sambar deer coronavirus US/OH-WD388-TC/1994, complete genome",
+  "length": 30995
+ },
+ "PX775822.1": {
+  "accession": "PX775822.1",
+  "organism": "Sarbecovirus sp.",
+  "title": "Sarbecovirus sp. isolate B24-90, complete genome",
+  "length": 29413
+ },
+ "OQ503505.1": {
+  "accession": "OQ503505.1",
+  "organism": "Severe acute respiratory syndrome-related coronavirus",
+  "title": "Severe acute respiratory syndrome-related coronavirus isolate 162181, complete genome",
+  "length": 30448
+ },
+ "MW218395.1": {
+  "accession": "MW218395.1",
+  "organism": "Tylonycteris bat coronavirus HKU4",
+  "title": "Tylonycteris bat coronavirus HKU4 isolate SM3A, complete genome",
+  "length": 30248
+ },
+ "OR603986.1": {
+  "accession": "OR603986.1",
+  "organism": "Yak coronavirus",
+  "title": "Yak coronavirus isolate Yak/SWUN/NF2/2022, complete genome",
+  "length": 31108
+ },
+ "KY417152.1": {
+  "accession": "KY417152.1",
+  "organism": "Bat SARS-like coronavirus",
+  "title": "Bat SARS-like coronavirus isolate Rs9401, complete genome",
+  "length": 29769
+ },
+ "OR613113.1": {
+  "accession": "OR613113.1",
+  "organism": "Betacoronavirus 1",
+  "title": "MAG: Betacoronavirus 1 isolate Yale-225, complete genome",
+  "length": 31177
+ },
+ "PV359182.2": {
+  "accession": "PV359182.2",
+  "organism": "Betacoronavirus Erinaceus",
+  "title": "Betacoronavirus Erinaceus isolate EriCoV/RU/MOW17/2023, complete genome",
+  "length": 30197
+ },
+ "PV344449.1": {
+  "accession": "PV344449.1",
+  "organism": "Betacoronavirus sp.",
+  "title": "Betacoronavirus sp. isolate RaNJ192B, complete genome",
+  "length": 29665
+ },
+ "QB137376.1": {
+  "accession": "QB137376.1",
+  "organism": "Bovine coronavirus",
+  "title": "Bovine coronavirus isolate BCoV_XJYL51, complete genome",
+  "length": 31063
+ },
+ "PQ725950.1": {
+  "accession": "PQ725950.1",
+  "organism": "Canine respiratory coronavirus",
+  "title": "Canine respiratory coronavirus isolate CRCoV_CD3, complete genome",
+  "length": 30852
+ },
+ "MN514965.1": {
+  "accession": "MN514965.1",
+  "organism": "Dromedary camel coronavirus HKU23",
+  "title": "Dromedary camel coronavirus HKU23 isolate DcCoV-HKU23/camel/Nigeria/NV1092/2015, complete genome",
+  "length": 30799
+ },
+ "OR468099.1": {
+  "accession": "OR468099.1",
+  "organism": "Equine coronavirus",
+  "title": "Equine coronavirus isolate FL2018-CUh3, complete genome",
+  "length": 30909
+ },
+ "PV953136.1": {
+  "accession": "PV953136.1",
+  "organism": "Erinaceus hedgehog coronavirus HKU31",
+  "title": "Erinaceus hedgehog coronavirus HKU31 isolate HP0059_1G, complete genome",
+  "length": 29901
+ },
+ "PP721362.1": {
+  "accession": "PP721362.1",
+  "organism": "Hedgehog coronavirus 1",
+  "title": "Hedgehog coronavirus 1 isolate bCoV/Erinaceus/Poland/J64/2021, complete genome",
+  "length": 30195
+ },
+ "OR233325.1": {
+  "accession": "OR233325.1",
+  "organism": "Horseshoe bat sarbecovirus",
+  "title": "Horseshoe bat sarbecovirus isolate Ra22DB163, complete genome",
+  "length": 29747
+ },
+ "PV619110.1": {
+  "accession": "PV619110.1",
+  "organism": "Human coronavirus HKU1",
+  "title": "Human coronavirus HKU1 isolate HKU1B/6025K-Passage2-NasalOrganoids, complete genome",
+  "length": 29777
+ },
+ "PV798433.1": {
+  "accession": "PV798433.1",
+  "organism": "Human coronavirus OC43",
+  "title": "Human coronavirus OC43 isolate 12_S3, complete genome",
+  "length": 30736
+ },
+ "PP883547.1": {
+  "accession": "PP883547.1",
+  "organism": "Merbecovirus sp.",
+  "title": "MAG: Merbecovirus sp. isolate BtCoV/16227-9/P.aur/DK/2020 from Denmark, complete genome",
+  "length": 29802
+ },
+ "OR987496.1": {
+  "accession": "OR987496.1",
+  "organism": "Middle East respiratory syndrome-related coronavirus",
+  "title": "Middle East respiratory syndrome-related coronavirus isolate Hu/Sur-Oman-191940/2019, complete genome",
+  "length": 30118
+ },
+ "PP526174.1": {
+  "accession": "PP526174.1",
+  "organism": "Murine hepatitis virus",
+  "title": "Murine hepatitis virus strain JHM, complete genome",
+  "length": 31515
+ },
+ "PX802979.1": {
+  "accession": "PX802979.1",
+  "organism": "Pangolin coronavirus",
+  "title": "Pangolin coronavirus isolate PCoV-GX/P1T, complete genome",
+  "length": 29778
+ },
+ "NC_009020.1": {
+  "accession": "NC_009020.1",
+  "organism": "Pipistrellus bat coronavirus HKU5",
+  "title": "Pipistrellus bat coronavirus HKU5, complete genome",
+  "length": 30482
+ },
+ "PV730382.1": {
+  "accession": "PV730382.1",
+  "organism": "Porcine hemagglutinating encephalomyelitis virus",
+  "title": "Porcine hemagglutinating encephalomyelitis virus isolate PHEV JS-2025, complete genome",
+  "length": 30044
+ },
+ "OR261266.1": {
+  "accession": "OR261266.1",
+  "organism": "Rhinolophus thomasi bat coronavirus",
+  "title": "Rhinolophus thomasi bat coronavirus isolate RtVN21-197, complete genome",
+  "length": 29752
+ },
+ "MZ293754.1": {
+  "accession": "MZ293754.1",
+  "organism": "Rousettus bat coronavirus",
+  "title": "Rousettus bat coronavirus isolate SBB-788, complete genome",
+  "length": 29100
+ },
+ "MG762674.1": {
+  "accession": "MG762674.1",
+  "organism": "Rousettus bat coronavirus HKU9",
+  "title": "Rousettus bat coronavirus HKU9 isolate Rousettus spp/Jinghong/2009, complete genome",
+  "length": 29134
+ },
+ "JX163927.1": {
+  "accession": "JX163927.1",
+  "organism": "SARS coronavirus Tor2",
+  "title": "SARS coronavirus Tor2 isolate Tor2/FP1-10851, complete genome",
+  "length": 29646
+ },
+ "MK062183.1": {
+  "accession": "MK062183.1",
+  "organism": "SARS coronavirus Urbani",
+  "title": "SARS coronavirus Urbani isolate icSARS-C7, complete genome",
+  "length": 29874
+ },
+ "PX775821.1": {
+  "accession": "PX775821.1",
+  "organism": "Sarbecovirus sp.",
+  "title": "Sarbecovirus sp. isolate B23-32, complete genome",
+  "length": 29530
+ },
+ "OQ503504.1": {
+  "accession": "OQ503504.1",
+  "organism": "Severe acute respiratory syndrome-related coronavirus",
+  "title": "Severe acute respiratory syndrome-related coronavirus isolate 162173, complete genome",
+  "length": 30325
+ },
+ "NC_009019.1": {
+  "accession": "NC_009019.1",
+  "organism": "Tylonycteris bat coronavirus HKU4",
+  "title": "Tylonycteris bat coronavirus HKU4, complete genome",
+  "length": 30286
+ },
+ "MH810163.1": {
+  "accession": "MH810163.1",
+  "organism": "Yak coronavirus",
+  "title": "Yak coronavirus strain YAK/HY24/CH/2017, complete genome",
+  "length": 31032
+ },
+ "KY417151.1": {
+  "accession": "KY417151.1",
+  "organism": "Bat SARS-like coronavirus",
+  "title": "Bat SARS-like coronavirus isolate Rs7327, complete genome",
+  "length": 30307
+ },
+ "OQ348268.1": {
+  "accession": "OQ348268.1",
+  "organism": "Betacoronavirus 1",
+  "title": "MAG: Betacoronavirus 1 isolate ASRA3, complete genome",
+  "length": 30999
+ },
+ "PV428875.1": {
+  "accession": "PV428875.1",
+  "organism": "Betacoronavirus Erinaceus",
+  "title": "Betacoronavirus Erinaceus isolate EriCoV-Italy_RM9r_2021, complete genome",
+  "length": 30178
+ },
+ "PV344448.1": {
+  "accession": "PV344448.1",
+  "organism": "Betacoronavirus sp.",
+  "title": "Betacoronavirus sp. isolate RaNJ171B, complete genome",
+  "length": 29787
+ },
+ "QB137375.1": {
+  "accession": "QB137375.1",
+  "organism": "Bovine coronavirus",
+  "title": "Bovine coronavirus isolate BCoV_XJYL41, complete genome",
+  "length": 31063
+ },
+ "PQ725949.1": {
+  "accession": "PQ725949.1",
+  "organism": "Canine respiratory coronavirus",
+  "title": "Canine respiratory coronavirus isolate CRCoV_CD2, complete genome",
+  "length": 30854
+ },
+ "MN514964.1": {
+  "accession": "MN514964.1",
+  "organism": "Dromedary camel coronavirus HKU23",
+  "title": "Dromedary camel coronavirus HKU23 isolate DcCoV-HKU23/camel/Nigeria/NV1010/2015, complete genome",
+  "length": 30780
+ },
+ "OR468098.1": {
+  "accession": "OR468098.1",
+  "organism": "Equine coronavirus",
+  "title": "Equine coronavirus isolate CA2018-CUh2, complete genome",
+  "length": 30885
+ },
+ "PV953135.1": {
+  "accession": "PV953135.1",
+  "organism": "Erinaceus hedgehog coronavirus HKU31",
+  "title": "Erinaceus hedgehog coronavirus HKU31 isolate HP0058_1G, complete genome",
+  "length": 29901
+ },
+ "PP721361.1": {
+  "accession": "PP721361.1",
+  "organism": "Hedgehog coronavirus 1",
+  "title": "Hedgehog coronavirus 1 isolate bCoV/Erinaceus/Poland/J24/2020, complete genome",
+  "length": 29743
+ },
+ "OR233324.1": {
+  "accession": "OR233324.1",
+  "organism": "Horseshoe bat sarbecovirus",
+  "title": "Horseshoe bat sarbecovirus isolate Ra22QT77, complete genome",
+  "length": 29751
+ },
+ "LC817379.1": {
+  "accession": "LC817379.1",
+  "organism": "Human coronavirus HKU1",
+  "title": "Human coronavirus HKU1 HCoVHKU1B_Fukushima_OR842_2023 RNA, complete genome",
+  "length": 29877
+ },
+ "PV798432.1": {
+  "accession": "PV798432.1",
+  "organism": "Human coronavirus OC43",
+  "title": "Human coronavirus OC43 isolate 10_S4, complete genome",
+  "length": 30674
+ },
+ "OQ786862.1": {
+  "accession": "OQ786862.1",
+  "organism": "Merbecovirus sp.",
+  "title": "Merbecovirus sp. isolate A98, complete genome",
+  "length": 30215
+ },
+ "OR987495.1": {
+  "accession": "OR987495.1",
+  "organism": "Middle East respiratory syndrome-related coronavirus",
+  "title": "Middle East respiratory syndrome-related coronavirus isolate Hu/Sohar-Oman-191224/2019, complete genome",
+  "length": 30118
+ },
+ "OK491634.1": {
+  "accession": "OK491634.1",
+  "organism": "Murine hepatitis virus",
+  "title": "Murine hepatitis virus strain COR-118, complete genome",
+  "length": 31252
+ },
+ "PV146379.1": {
+  "accession": "PV146379.1",
+  "organism": "Pangolin coronavirus",
+  "title": "Pangolin coronavirus isolate PCoV-GX/P11V-15, complete genome",
+  "length": 29792
+ },
+ "MH002342.1": {
+  "accession": "MH002342.1",
+  "organism": "Pipistrellus bat coronavirus HKU5",
+  "title": "Pipistrellus bat coronavirus HKU5 isolate YD13403, complete genome",
+  "length": 30529
+ },
+ "PQ241464.1": {
+  "accession": "PQ241464.1",
+  "organism": "Porcine hemagglutinating encephalomyelitis virus",
+  "title": "Porcine hemagglutinating encephalomyelitis virus isolate PHEV/USA/IL/19661/2021, complete genome",
+  "length": 30540
+ },
+ "OR261264.1": {
+  "accession": "OR261264.1",
+  "organism": "Rhinolophus thomasi bat coronavirus",
+  "title": "Rhinolophus thomasi bat coronavirus isolate RtVN21-193, complete genome",
+  "length": 29693
+ },
+ "MZ293753.1": {
+  "accession": "MZ293753.1",
+  "organism": "Rousettus bat coronavirus",
+  "title": "Rousettus bat coronavirus isolate SBB-747, complete genome",
+  "length": 29095
+ },
+ "JX163926.1": {
+  "accession": "JX163926.1",
+  "organism": "SARS coronavirus Tor2",
+  "title": "SARS coronavirus Tor2 isolate Tor2/FP1-10912, complete genome",
+  "length": 29646
+ },
+ "MK062182.1": {
+  "accession": "MK062182.1",
+  "organism": "SARS coronavirus Urbani",
+  "title": "SARS coronavirus Urbani isolate icSARS-C3-MA, complete genome",
+  "length": 29727
+ },
+ "PQ611137.1": {
+  "accession": "PQ611137.1",
+  "organism": "Sarbecovirus sp.",
+  "title": "Sarbecovirus sp. isolate RhBetaCoV_Murcia2022, complete genome",
+  "length": 29259
+ },
+ "OQ503503.1": {
+  "accession": "OQ503503.1",
+  "organism": "Severe acute respiratory syndrome-related coronavirus",
+  "title": "Severe acute respiratory syndrome-related coronavirus isolate 162171, complete genome",
+  "length": 27141
+ },
+ "MH002339.1": {
+  "accession": "MH002339.1",
+  "organism": "Tylonycteris bat coronavirus HKU4",
+  "title": "Tylonycteris bat coronavirus HKU4 isolate SZ140324, complete genome",
+  "length": 30280
+ },
+ "KY417150.1": {
+  "accession": "KY417150.1",
+  "organism": "Bat SARS-like coronavirus",
+  "title": "Bat SARS-like coronavirus isolate Rs4874, complete genome",
+  "length": 30311
+ },
+ "OM397541.1": {
+  "accession": "OM397541.1",
+  "organism": "Betacoronavirus 1",
+  "title": "Betacoronavirus 1 isolate ISR1127, complete genome",
+  "length": 30992
+ },
+ "PV428874.1": {
+  "accession": "PV428874.1",
+  "organism": "Betacoronavirus Erinaceus",
+  "title": "Betacoronavirus Erinaceus isolate EriCoV-Italy_MG2_2021, complete genome",
+  "length": 30122
+ },
+ "PV344447.1": {
+  "accession": "PV344447.1",
+  "organism": "Betacoronavirus sp.",
+  "title": "Betacoronavirus sp. isolate RaNJ110B, complete genome",
+  "length": 29686
+ },
+ "QB137374.1": {
+  "accession": "QB137374.1",
+  "organism": "Bovine coronavirus",
+  "title": "Bovine coronavirus isolate BCoV_XJYL21, complete genome",
+  "length": 31115
+ },
+ "PQ725948.1": {
+  "accession": "PQ725948.1",
+  "organism": "Canine respiratory coronavirus",
+  "title": "Canine respiratory coronavirus isolate CRCoV_CD1, complete genome",
+  "length": 30893
+ },
+ "MN514963.1": {
+  "accession": "MN514963.1",
+  "organism": "Dromedary camel coronavirus HKU23",
+  "title": "Dromedary camel coronavirus HKU23 isolate DcCoV-HKU23/camel/Morocco/CAC2586/2016, complete genome",
+  "length": 31062
+ },
+ "OR468097.1": {
+  "accession": "OR468097.1",
+  "organism": "Equine coronavirus",
+  "title": "Equine coronavirus isolate NY2019-CUh1, complete genome",
+  "length": 30912
+ },
+ "PV953134.1": {
+  "accession": "PV953134.1",
+  "organism": "Erinaceus hedgehog coronavirus HKU31",
+  "title": "Erinaceus hedgehog coronavirus HKU31 isolate HP0055_1G, complete genome",
+  "length": 29919
+ },
+ "MK679660.1": {
+  "accession": "MK679660.1",
+  "organism": "Hedgehog coronavirus 1",
+  "title": "Hedgehog coronavirus 1, complete genome",
+  "length": 30172
+ },
+ "OR233323.1": {
+  "accession": "OR233323.1",
+  "organism": "Horseshoe bat sarbecovirus",
+  "title": "Horseshoe bat sarbecovirus isolate Ra22QT135, complete genome",
+  "length": 29751
+ },
+ "LC315650.2": {
+  "accession": "LC315650.2",
+  "organism": "Human coronavirus HKU1",
+  "title": "Human coronavirus HKU1 Tokyo/SGH-15/2014 RNA, complete genome",
+  "length": 29804
+ },
+ "PV798431.1": {
+  "accession": "PV798431.1",
+  "organism": "Human coronavirus OC43",
+  "title": "Human coronavirus OC43 isolate 7_S3, complete genome",
+  "length": 30663
+ },
+ "OQ786861.1": {
+  "accession": "OQ786861.1",
+  "organism": "Merbecovirus sp.",
+  "title": "Merbecovirus sp. isolate A96, complete genome",
+  "length": 30340
+ },
+ "OR987494.1": {
+  "accession": "OR987494.1",
+  "organism": "Middle East respiratory syndrome-related coronavirus",
+  "title": "Middle East respiratory syndrome-related coronavirus isolate Hu/Sohar-Oman-191133/2019, complete genome",
+  "length": 30118
+ },
+ "NC_001846.1": {
+  "accession": "NC_001846.1",
+  "organism": "Murine hepatitis virus",
+  "title": "Murine hepatitis virus strain MHV-A59 C12 mutant, complete genome",
+  "length": 31357
+ },
+ "PV146378.1": {
+  "accession": "PV146378.1",
+  "organism": "Pangolin coronavirus",
+  "title": "Pangolin coronavirus isolate PCoV-GX/P11V-5, complete genome",
+  "length": 29799
+ },
+ "MH002341.1": {
+  "accession": "MH002341.1",
+  "organism": "Pipistrellus bat coronavirus HKU5",
+  "title": "Pipistrellus bat coronavirus HKU5 isolate BY140562, complete genome",
+  "length": 30480
+ },
+ "OQ798829.1": {
+  "accession": "OQ798829.1",
+  "organism": "Porcine hemagglutinating encephalomyelitis virus",
+  "title": "Porcine hemagglutinating encephalomyelitis virus strain rvPHEV9, complete genome",
+  "length": 30029
+ },
+ "OR261263.1": {
+  "accession": "OR261263.1",
+  "organism": "Rhinolophus thomasi bat coronavirus",
+  "title": "Rhinolophus thomasi bat coronavirus isolate RtVN21-192, complete genome",
+  "length": 29677
+ },
+ "MZ293752.1": {
+  "accession": "MZ293752.1",
+  "organism": "Rousettus bat coronavirus",
+  "title": "Rousettus bat coronavirus isolate SBB-726, complete genome",
+  "length": 29112
+ },
+ "JX163925.1": {
+  "accession": "JX163925.1",
+  "organism": "SARS coronavirus Tor2",
+  "title": "SARS coronavirus Tor2 isolate Tor2/FP1-10895, complete genome",
+  "length": 29646
+ },
+ "MK062181.1": {
+  "accession": "MK062181.1",
+  "organism": "SARS coronavirus Urbani",
+  "title": "SARS coronavirus Urbani isolate icSARS-C3, complete genome",
+  "length": 29727
+ },
+ "OK017860.1": {
+  "accession": "OK017860.1",
+  "organism": "Sarbecovirus sp.",
+  "title": "Sarbecovirus sp. isolate JX2021D, complete genome",
+  "length": 29541
+ },
+ "OQ503502.1": {
+  "accession": "OQ503502.1",
+  "organism": "Severe acute respiratory syndrome-related coronavirus",
+  "title": "Severe acute respiratory syndrome-related coronavirus isolate 6301, complete genome",
+  "length": 29674
+ },
+ "MH002338.1": {
+  "accession": "MH002338.1",
+  "organism": "Tylonycteris bat coronavirus HKU4",
+  "title": "Tylonycteris bat coronavirus HKU4 isolate CZ07, complete genome",
+  "length": 30252
+ },
+ "KY417149.1": {
+  "accession": "KY417149.1",
+  "organism": "Bat SARS-like coronavirus",
+  "title": "Bat SARS-like coronavirus isolate Rs4255, complete genome",
+  "length": 29743
+ },
+ "OP020177.1": {
+  "accession": "OP020177.1",
+  "organism": "Betacoronavirus 1",
+  "title": "MAG: Betacoronavirus 1 isolate BCoV_NSW_L4, complete genome",
+  "length": 30955
+ },
+ "PV428873.1": {
+  "accession": "PV428873.1",
+  "organism": "Betacoronavirus Erinaceus",
+  "title": "Betacoronavirus Erinaceus isolate ErinaceusCoV/Italy/50265-27/2018, complete genome",
+  "length": 30820
+ },
+ "PV344446.1": {
+  "accession": "PV344446.1",
+  "organism": "Betacoronavirus sp.",
+  "title": "Betacoronavirus sp. isolate RoNJ112, complete genome",
+  "length": 29721
+ },
+ "QB137373.1": {
+  "accession": "QB137373.1",
+  "organism": "Bovine coronavirus",
+  "title": "Bovine coronavirus isolate BCoV_XJALT, complete genome",
+  "length": 31141
+ },
+ "OQ621727.1": {
+  "accession": "OQ621727.1",
+  "organism": "Canine respiratory coronavirus",
+  "title": "Canine respiratory coronavirus isolate D153NS_THA_2021, complete genome",
+  "length": 30715
+ },
+ "MN514962.1": {
+  "accession": "MN514962.1",
+  "organism": "Dromedary camel coronavirus HKU23",
+  "title": "Dromedary camel coronavirus HKU23 isolate DcCoV-HKU23/camel/Ethiopia/CAC1019/2015, complete genome",
+  "length": 31021
+ },
+ "OQ541850.1": {
+  "accession": "OQ541850.1",
+  "organism": "Equine coronavirus",
+  "title": "UNVERIFIED: Equine coronavirus isolate JL, complete genome",
+  "length": 30892
+ },
+ "PV953133.1": {
+  "accession": "PV953133.1",
+  "organism": "Erinaceus hedgehog coronavirus HKU31",
+  "title": "Erinaceus hedgehog coronavirus HKU31 isolate HP0050_1G, complete genome",
+  "length": 29920
+ },
+ "OR233322.1": {
+  "accession": "OR233322.1",
+  "organism": "Horseshoe bat sarbecovirus",
+  "title": "Horseshoe bat sarbecovirus isolate Ra22QT106, complete genome",
+  "length": 29751
+ },
+ "PX441742.1": {
+  "accession": "PX441742.1",
+  "organism": "Human coronavirus HKU1",
+  "title": "Human coronavirus HKU1 isolate HKU1A_IPP02_P4D4_110225_S24, complete genome",
+  "length": 29782
+ },
+ "PV798430.1": {
+  "accession": "PV798430.1",
+  "organism": "Human coronavirus OC43",
+  "title": "Human coronavirus OC43 isolate 6_S2, complete genome",
+  "length": 30679
+ },
+ "OQ786860.1": {
+  "accession": "OQ786860.1",
+  "organism": "Merbecovirus sp.",
+  "title": "Merbecovirus sp. isolate A97, complete genome",
+  "length": 30326
+ },
+ "OR987493.1": {
+  "accession": "OR987493.1",
+  "organism": "Middle East respiratory syndrome-related coronavirus",
+  "title": "Middle East respiratory syndrome-related coronavirus isolate Hu/Sohar-Oman-191011/2019, complete genome",
+  "length": 30118
+ },
+ "NC_048217.1": {
+  "accession": "NC_048217.1",
+  "organism": "Murine hepatitis virus",
+  "title": "Murine hepatitis virus strain A59, complete genome",
+  "length": 31335
+ },
+ "PV146377.1": {
+  "accession": "PV146377.1",
+  "organism": "Pangolin coronavirus",
+  "title": "Pangolin coronavirus isolate PCoV-GX/P11V-1, complete genome",
+  "length": 29785
+ },
+ "MH002340.1": {
+  "accession": "MH002340.1",
+  "organism": "Pipistrellus bat coronavirus HKU5",
+  "title": "Pipistrellus bat coronavirus HKU5 isolate BY140535, complete genome",
+  "length": 30494
+ },
+ "OQ798828.1": {
+  "accession": "OQ798828.1",
+  "organism": "Porcine hemagglutinating encephalomyelitis virus",
+  "title": "Porcine hemagglutinating encephalomyelitis virus strain rvPHEV8, complete genome",
+  "length": 30029
+ },
+ "OR261262.1": {
+  "accession": "OR261262.1",
+  "organism": "Rhinolophus thomasi bat coronavirus",
+  "title": "Rhinolophus thomasi bat coronavirus isolate RtVN21-29, complete genome",
+  "length": 29476
+ },
+ "MZ293756.1": {
+  "accession": "MZ293756.1",
+  "organism": "Rousettus bat coronavirus",
+  "title": "Rousettus bat coronavirus isolate SBB-943, complete genome",
+  "length": 29090
+ },
+ "JX163924.1": {
+  "accession": "JX163924.1",
+  "organism": "SARS coronavirus Tor2",
+  "title": "SARS coronavirus Tor2 isolate Tor2/FP1-10851, complete genome",
+  "length": 29646
+ },
+ "MK062180.1": {
+  "accession": "MK062180.1",
+  "organism": "SARS coronavirus Urbani",
+  "title": "SARS coronavirus Urbani isolate icSARS-MA, complete genome",
+  "length": 29727
+ },
+ "OK017859.1": {
+  "accession": "OK017859.1",
+  "organism": "Sarbecovirus sp.",
+  "title": "Sarbecovirus sp. isolate GX2019A, complete genome",
+  "length": 29507
+ },
+ "OQ503501.1": {
+  "accession": "OQ503501.1",
+  "organism": "Severe acute respiratory syndrome-related coronavirus",
+  "title": "Severe acute respiratory syndrome-related coronavirus isolate 4230, complete genome",
+  "length": 29689
+ },
+ "MH002337.1": {
+  "accession": "MH002337.1",
+  "organism": "Tylonycteris bat coronavirus HKU4",
+  "title": "Tylonycteris bat coronavirus HKU4 isolate CZ01, complete genome",
+  "length": 30255
+ },
+ "KY417148.1": {
+  "accession": "KY417148.1",
+  "organism": "Bat SARS-like coronavirus",
+  "title": "Bat SARS-like coronavirus isolate Rs4247, complete genome",
+  "length": 29743
+ },
+ "OP020176.1": {
+  "accession": "OP020176.1",
+  "organism": "Betacoronavirus 1",
+  "title": "MAG: Betacoronavirus 1 isolate BCoV_NSW_L3, complete genome",
+  "length": 30983
+ },
+ "PV428872.1": {
+  "accession": "PV428872.1",
+  "organism": "Betacoronavirus Erinaceus",
+  "title": "Betacoronavirus Erinaceus isolate ErinaceusCoV/Italy/50265-24/2018, complete genome",
+  "length": 30280
+ },
+ "PV344445.1": {
+  "accession": "PV344445.1",
+  "organism": "Betacoronavirus sp.",
+  "title": "Betacoronavirus sp. isolate RoNJ147, complete genome",
+  "length": 29629
+ },
+ "QB137372.1": {
+  "accession": "QB137372.1",
+  "organism": "Bovine coronavirus",
+  "title": "Bovine coronavirus isolate BCoV_XJCJ, complete genome",
+  "length": 31054
+ },
+ "OQ621726.1": {
+  "accession": "OQ621726.1",
+  "organism": "Canine respiratory coronavirus",
+  "title": "Canine respiratory coronavirus isolate D200NS_THA_2022, complete genome",
+  "length": 30759
+ },
+ "ON453891.1": {
+  "accession": "ON453891.1",
+  "organism": "Equine coronavirus",
+  "title": "Equine coronavirus isolate CH-CVP3, complete genome",
+  "length": 30884
+ },
+ "PV953132.1": {
+  "accession": "PV953132.1",
+  "organism": "Erinaceus hedgehog coronavirus HKU31",
+  "title": "Erinaceus hedgehog coronavirus HKU31 isolate HP0047_1G, complete genome",
+  "length": 29902
+ },
+ "OR233321.1": {
+  "accession": "OR233321.1",
+  "organism": "Horseshoe bat sarbecovirus",
+  "title": "Horseshoe bat sarbecovirus isolate Rt22QT53, complete genome",
+  "length": 29671
+ },
+ "LC889301.1": {
+  "accession": "LC889301.1",
+  "organism": "Human coronavirus HKU1",
+  "title": "Human coronavirus HKU1 HCoVHKU1_Fukushima_OH774_2025 RNA, complete genome",
+  "length": 29813
+ },
+ "PV798427.1": {
+  "accession": "PV798427.1",
+  "organism": "Human coronavirus OC43",
+  "title": "Human coronavirus OC43 isolate 1_S1, complete genome",
+  "length": 30699
+ },
+ "OQ786859.1": {
+  "accession": "OQ786859.1",
+  "organism": "Merbecovirus sp.",
+  "title": "Merbecovirus sp. isolate A100, complete genome",
+  "length": 30335
+ },
+ "OR987492.1": {
+  "accession": "OR987492.1",
+  "organism": "Middle East respiratory syndrome-related coronavirus",
+  "title": "Middle East respiratory syndrome-related coronavirus isolate Hu/Sur-Oman-19992/2019, complete genome",
+  "length": 30118
+ },
+ "MF618253.1": {
+  "accession": "MF618253.1",
+  "organism": "Murine hepatitis virus",
+  "title": "Murine hepatitis virus strain A59 isolate MHV-ExoN(-) P250, complete genome",
+  "length": 29893
+ },
+ "PQ675611.1": {
+  "accession": "PQ675611.1",
+  "organism": "Pangolin coronavirus",
+  "title": "Pangolin coronavirus isolate PCoV-GX/P8V-P15, complete genome",
+  "length": 29810
+ },
+ "OQ798827.1": {
+  "accession": "OQ798827.1",
+  "organism": "Porcine hemagglutinating encephalomyelitis virus",
+  "title": "Porcine hemagglutinating encephalomyelitis virus strain rvPHEV7, complete genome",
+  "length": 30029
+ },
+ "MZ293739.1": {
+  "accession": "MZ293739.1",
+  "organism": "Rousettus bat coronavirus",
+  "title": "Rousettus bat coronavirus isolate PREDICT/GCS-242, complete genome",
+  "length": 29125
+ },
+ "JX163923.1": {
+  "accession": "JX163923.1",
+  "organism": "SARS coronavirus Tor2",
+  "title": "SARS coronavirus Tor2 isolate Tor2/FP1-10912, complete genome",
+  "length": 29646
+ },
+ "MK062179.1": {
+  "accession": "MK062179.1",
+  "organism": "SARS coronavirus Urbani",
+  "title": "SARS coronavirus Urbani isolate icSARS, complete genome",
+  "length": 29727
+ },
+ "OK017858.1": {
+  "accession": "OK017858.1",
+  "organism": "Sarbecovirus sp.",
+  "title": "Sarbecovirus sp. isolate YN2020H, complete genome",
+  "length": 29485
+ },
+ "OQ503500.1": {
+  "accession": "OQ503500.1",
+  "organism": "Severe acute respiratory syndrome-related coronavirus",
+  "title": "Severe acute respiratory syndrome-related coronavirus isolate 4105, complete genome",
+  "length": 30385
+ },
+ "KY417147.1": {
+  "accession": "KY417147.1",
+  "organism": "Bat SARS-like coronavirus",
+  "title": "Bat SARS-like coronavirus isolate Rs4237, complete genome",
+  "length": 29741
+ },
+ "OP020175.1": {
+  "accession": "OP020175.1",
+  "organism": "Betacoronavirus 1",
+  "title": "MAG: Betacoronavirus 1 isolate BCoV_NSW_L1, complete genome",
+  "length": 30757
+ },
+ "PV359185.1": {
+  "accession": "PV359185.1",
+  "organism": "Betacoronavirus Erinaceus",
+  "title": "Betacoronavirus Erinaceus isolate EriCov_23_4_MOS-o, complete genome",
+  "length": 30125
+ },
+ "PV344444.1": {
+  "accession": "PV344444.1",
+  "organism": "Betacoronavirus sp.",
+  "title": "Betacoronavirus sp. isolate RoNJ149, complete genome",
+  "length": 29685
+ },
+ "QB137371.1": {
+  "accession": "QB137371.1",
+  "organism": "Bovine coronavirus",
+  "title": "Bovine coronavirus isolate BCoV_XJSHZ, complete genome",
+  "length": 31063
+ },
+ "OQ621725.1": {
+  "accession": "OQ621725.1",
+  "organism": "Canine respiratory coronavirus",
+  "title": "Canine respiratory coronavirus isolate D197NS_THA_2022, complete genome",
+  "length": 30757
+ },
+ "ON453890.1": {
+  "accession": "ON453890.1",
+  "organism": "Equine coronavirus",
+  "title": "Equine coronavirus isolate CH-ZH39, complete genome",
+  "length": 30913
+ },
+ "PV953131.1": {
+  "accession": "PV953131.1",
+  "organism": "Erinaceus hedgehog coronavirus HKU31",
+  "title": "Erinaceus hedgehog coronavirus HKU31 isolate HP0045_1G, complete genome",
+  "length": 29920
+ },
+ "OR233320.1": {
+  "accession": "OR233320.1",
+  "organism": "Horseshoe bat sarbecovirus",
+  "title": "Horseshoe bat sarbecovirus isolate Rt22QT48, complete genome",
+  "length": 29671
+ },
+ "LC889300.1": {
+  "accession": "LC889300.1",
+  "organism": "Human coronavirus HKU1",
+  "title": "Human coronavirus HKU1 HCoVHKU1_Fukushima_OH774_2025 RNA, complete genome",
+  "length": 29813
+ },
+ "PZ457020.1": {
+  "accession": "PZ457020.1",
+  "organism": "Human coronavirus OC43",
+  "title": "Human coronavirus OC43 isolate Rotterdam/Netherlands/2021-ABW, complete genome",
+  "length": 30649
+ },
+ "LC663783.1": {
+  "accession": "LC663783.1",
+  "organism": "Merbecovirus sp.",
+  "title": "Merbecovirus sp. Ej-CoV-3 RNA, complete genome",
+  "length": 29986
+ },
+ "OR987491.1": {
+  "accession": "OR987491.1",
+  "organism": "Middle East respiratory syndrome-related coronavirus",
+  "title": "Middle East respiratory syndrome-related coronavirus isolate Hu/Sur-Oman-19947/2019, complete genome",
+  "length": 30118
+ },
+ "MF618252.1": {
+  "accession": "MF618252.1",
+  "organism": "Murine hepatitis virus",
+  "title": "Murine hepatitis virus strain A59 isolate WT-MHV P250, complete genome",
+  "length": 29947
+ },
+ "PQ675610.1": {
+  "accession": "PQ675610.1",
+  "organism": "Pangolin coronavirus",
+  "title": "Pangolin coronavirus isolate PCoV-GX/P8V-P5, complete genome",
+  "length": 29814
+ },
+ "OQ798826.1": {
+  "accession": "OQ798826.1",
+  "organism": "Porcine hemagglutinating encephalomyelitis virus",
+  "title": "Porcine hemagglutinating encephalomyelitis virus strain rvPHEV6, complete genome",
+  "length": 30029
+ },
+ "NC_030886.1": {
+  "accession": "NC_030886.1",
+  "organism": "Rousettus bat coronavirus",
+  "title": "Rousettus bat coronavirus isolate GCCDC1 356, complete genome",
+  "length": 30161
+ },
+ "AY274119.3": {
+  "accession": "AY274119.3",
+  "organism": "SARS coronavirus Tor2",
+  "title": "SARS coronavirus Tor2, complete genome",
+  "length": 29751
+ },
+ "AY278741.1": {
+  "accession": "AY278741.1",
+  "organism": "SARS coronavirus Urbani",
+  "title": "SARS coronavirus Urbani, complete genome",
+  "length": 29727
+ },
+ "OK017857.1": {
+  "accession": "OK017857.1",
+  "organism": "Sarbecovirus sp.",
+  "title": "Sarbecovirus sp. isolate YN2020G, complete genome",
+  "length": 29183
+ },
+ "OQ503499.1": {
+  "accession": "OQ503499.1",
+  "organism": "Severe acute respiratory syndrome-related coronavirus",
+  "title": "Severe acute respiratory syndrome-related coronavirus isolate RsHB190371, complete genome",
+  "length": 29660
+ },
+ "KY417146.1": {
+  "accession": "KY417146.1",
+  "organism": "Bat SARS-like coronavirus",
+  "title": "Bat SARS-like coronavirus isolate Rs4231, complete genome",
+  "length": 29782
+ },
+ "OP020174.1": {
+  "accession": "OP020174.1",
+  "organism": "Betacoronavirus 1",
+  "title": "MAG: Betacoronavirus 1 isolate BCoV_NSW_L9, complete genome",
+  "length": 30869
+ },
+ "PP421221.1": {
+  "accession": "PP421221.1",
+  "organism": "Betacoronavirus Erinaceus",
+  "title": "Betacoronavirus Erinaceus isolate EriCoV/RU/MOW15-2/2022, complete genome",
+  "length": 30315
+ },
+ "PV344443.1": {
+  "accession": "PV344443.1",
+  "organism": "Betacoronavirus sp.",
+  "title": "Betacoronavirus sp. isolate RoNJ119, complete genome",
+  "length": 29690
+ },
+ "QB036323.1": {
+  "accession": "QB036323.1",
+  "organism": "Bovine coronavirus",
+  "title": "Bovine coronavirus isolate HB202511, complete genome",
+  "length": 31045
+ },
+ "OQ621724.1": {
+  "accession": "OQ621724.1",
+  "organism": "Canine respiratory coronavirus",
+  "title": "Canine respiratory coronavirus isolate D187NS_THA_2022, complete genome",
+  "length": 30758
+ },
+ "OM937885.1": {
+  "accession": "OM937885.1",
+  "organism": "Equine coronavirus",
+  "title": "Equine coronavirus strain ECoV 2020/7881, complete genome",
+  "length": 30964
+ },
+ "PV953130.1": {
+  "accession": "PV953130.1",
+  "organism": "Erinaceus hedgehog coronavirus HKU31",
+  "title": "Erinaceus hedgehog coronavirus HKU31 isolate HP0038_1G, complete genome",
+  "length": 29880
+ },
+ "OR233319.1": {
+  "accession": "OR233319.1",
+  "organism": "Horseshoe bat sarbecovirus",
+  "title": "Horseshoe bat sarbecovirus isolate Rt22QT46, complete genome",
+  "length": 29671
+ },
+ "LC889299.1": {
+  "accession": "LC889299.1",
+  "organism": "Human coronavirus HKU1",
+  "title": "Human coronavirus HKU1 HCoVHKU1_Fukushima_OH772_2025 RNA, complete genome",
+  "length": 29813
+ },
+ "PZ457019.1": {
+  "accession": "PZ457019.1",
+  "organism": "Human coronavirus OC43",
+  "title": "Human coronavirus OC43 isolate Rotterdam/Netherlands/K-2016-000986, complete genome",
+  "length": 30654
+ },
+ "LC706865.1": {
+  "accession": "LC706865.1",
+  "organism": "Merbecovirus sp.",
+  "title": "Merbecovirus sp. EjCoV-3 RNA, complete genome",
+  "length": 30085
+ },
+ "OR987490.1": {
+  "accession": "OR987490.1",
+  "organism": "Middle East respiratory syndrome-related coronavirus",
+  "title": "Middle East respiratory syndrome-related coronavirus isolate Hu/Sohar-Oman-19690/2019, complete genome",
+  "length": 30118
+ },
+ "AF208067.1": {
+  "accession": "AF208067.1",
+  "organism": "Murine hepatitis virus",
+  "title": "Murine hepatitis virus strain ML-10, complete genome",
+  "length": 31233
+ },
+ "PQ675609.1": {
+  "accession": "PQ675609.1",
+  "organism": "Pangolin coronavirus",
+  "title": "Pangolin coronavirus isolate PCoV-GX/P8V-P1, complete genome",
+  "length": 29806
+ },
+ "OQ798825.1": {
+  "accession": "OQ798825.1",
+  "organism": "Porcine hemagglutinating encephalomyelitis virus",
+  "title": "Porcine hemagglutinating encephalomyelitis virus strain rvPHEV5, complete genome",
+  "length": 29811
+ },
+ "KU762338.1": {
+  "accession": "KU762338.1",
+  "organism": "Rousettus bat coronavirus",
+  "title": "Rousettus bat coronavirus isolate GCCDC1 356, complete genome",
+  "length": 30161
+ },
+ "OK017856.1": {
+  "accession": "OK017856.1",
+  "organism": "Sarbecovirus sp.",
+  "title": "Sarbecovirus sp. isolate YN2020F, complete genome",
+  "length": 29134
+ },
+ "OQ503498.1": {
+  "accession": "OQ503498.1",
+  "organism": "Severe acute respiratory syndrome-related coronavirus",
+  "title": "Severe acute respiratory syndrome-related coronavirus isolate BDA190366, complete genome",
+  "length": 30172
+ },
+ "KY417145.1": {
+  "accession": "KY417145.1",
+  "organism": "Bat SARS-like coronavirus",
+  "title": "Bat SARS-like coronavirus isolate Rf4092, complete genome",
+  "length": 29710
+ },
+ "MW802581.1": {
+  "accession": "MW802581.1",
+  "organism": "Betacoronavirus 1",
+  "title": "Betacoronavirus 1 isolate GCCDC3, complete genome",
+  "length": 31256
+ },
+ "PP421220.1": {
+  "accession": "PP421220.1",
+  "organism": "Betacoronavirus Erinaceus",
+  "title": "Betacoronavirus Erinaceus isolate EriCoV/RU/MOW15-1/2022, complete genome",
+  "length": 30315
+ },
+ "PV344442.1": {
+  "accession": "PV344442.1",
+  "organism": "Betacoronavirus sp.",
+  "title": "Betacoronavirus sp. isolate RoNJ81, complete genome",
+  "length": 29687
+ },
+ "LC918947.2": {
+  "accession": "LC918947.2",
+  "organism": "Bovine coronavirus",
+  "title": "Bovine coronavirus BCoV2020GF_Trachea_Isolate/adult cattle/Japan/2020 RNA, complete genome",
+  "length": 31015
+ },
+ "OQ621723.1": {
+  "accession": "OQ621723.1",
+  "organism": "Canine respiratory coronavirus",
+  "title": "Canine respiratory coronavirus isolate D206NS_THA_2022, complete genome",
+  "length": 30757
+ },
+ "OL770366.1": {
+  "accession": "OL770366.1",
+  "organism": "Equine coronavirus",
+  "title": "Equine coronavirus strain ECoV 2021/464693, complete genome",
+  "length": 30942
+ },
+ "PV953129.1": {
+  "accession": "PV953129.1",
+  "organism": "Erinaceus hedgehog coronavirus HKU31",
+  "title": "Erinaceus hedgehog coronavirus HKU31 isolate HP0037_1G, complete genome",
+  "length": 29914
+ },
+ "OR233318.1": {
+  "accession": "OR233318.1",
+  "organism": "Horseshoe bat sarbecovirus",
+  "title": "Horseshoe bat sarbecovirus isolate Rt22QT36, complete genome",
+  "length": 29671
+ },
+ "LC889298.1": {
+  "accession": "LC889298.1",
+  "organism": "Human coronavirus HKU1",
+  "title": "Human coronavirus HKU1 HCoVHKU1_Fukushima_OH343_2024 RNA, complete genome",
+  "length": 29783
+ },
+ "LC756670.1": {
+  "accession": "LC756670.1",
+  "organism": "Human coronavirus OC43",
+  "title": "Human coronavirus OC43 HCoVOC43_Fukushima_OR427_2021 RNA, nearly complete genome",
+  "length": 30733
+ },
+ "LC706864.1": {
+  "accession": "LC706864.1",
+  "organism": "Merbecovirus sp.",
+  "title": "Merbecovirus sp. VsCoV-a7 RNA, complete genome",
+  "length": 29736
+ },
+ "OR987489.1": {
+  "accession": "OR987489.1",
+  "organism": "Middle East respiratory syndrome-related coronavirus",
+  "title": "Middle East respiratory syndrome-related coronavirus isolate Hu/Al Khabourah-Oman-19525/2019, complete genome",
+  "length": 30118
+ },
+ "AF208066.1": {
+  "accession": "AF208066.1",
+  "organism": "Murine hepatitis virus",
+  "title": "Murine hepatitis virus strain Penn 97-1, complete genome",
+  "length": 31112
+ },
+ "OQ297708.1": {
+  "accession": "OQ297708.1",
+  "organism": "Pangolin coronavirus",
+  "title": "MAG: Pangolin coronavirus isolate GD/P79-9/2019, complete genome",
+  "length": 29768
+ },
+ "OQ798824.1": {
+  "accession": "OQ798824.1",
+  "organism": "Porcine hemagglutinating encephalomyelitis virus",
+  "title": "Porcine hemagglutinating encephalomyelitis virus strain rvPHEV4, complete genome",
+  "length": 30029
+ },
+ "OK017855.1": {
+  "accession": "OK017855.1",
+  "organism": "Sarbecovirus sp.",
+  "title": "Sarbecovirus sp. isolate YN2020E, complete genome",
+  "length": 29369
+ },
+ "OQ503497.1": {
+  "accession": "OQ503497.1",
+  "organism": "Severe acute respiratory syndrome-related coronavirus",
+  "title": "Severe acute respiratory syndrome-related coronavirus isolate 151491, complete genome",
+  "length": 29648
+ },
+ "KY417144.1": {
+  "accession": "KY417144.1",
+  "organism": "Bat SARS-like coronavirus",
+  "title": "Bat SARS-like coronavirus isolate Rs4084, complete genome",
+  "length": 29770
+ },
+ "MW773844.1": {
+  "accession": "MW773844.1",
+  "organism": "Betacoronavirus 1",
+  "title": "Betacoronavirus 1 strain GCCDC4, complete genome",
+  "length": 31383
+ },
+ "MW246802.1": {
+  "accession": "MW246802.1",
+  "organism": "Betacoronavirus Erinaceus",
+  "title": "Betacoronavirus Erinaceus isolate ErinaceusCoV/Italy/50265-15/2019, complete genome",
+  "length": 30277
+ },
+ "PV344441.1": {
+  "accession": "PV344441.1",
+  "organism": "Betacoronavirus sp.",
+  "title": "Betacoronavirus sp. isolate RoNJ133, complete genome",
+  "length": 29782
+ },
+ "LC918946.2": {
+  "accession": "LC918946.2",
+  "organism": "Bovine coronavirus",
+  "title": "Bovine coronavirus BCoV2020GF_Trachea/adult cattle/Japan/2020 RNA, complete genome",
+  "length": 31015
+ },
+ "OQ621722.1": {
+  "accession": "OQ621722.1",
+  "organism": "Canine respiratory coronavirus",
+  "title": "Canine respiratory coronavirus isolate D155NS_THA_2021, complete genome",
+  "length": 30713
+ },
+ "LC061274.1": {
+  "accession": "LC061274.1",
+  "organism": "Equine coronavirus",
+  "title": "Equine coronavirus RNA, complete genome, strain: Obihiro12-2",
+  "length": 30916
+ },
+ "PV953128.1": {
+  "accession": "PV953128.1",
+  "organism": "Erinaceus hedgehog coronavirus HKU31",
+  "title": "Erinaceus hedgehog coronavirus HKU31 isolate HP0035_1G, complete genome",
+  "length": 29901
+ },
+ "OR233317.1": {
+  "accession": "OR233317.1",
+  "organism": "Horseshoe bat sarbecovirus",
+  "title": "Horseshoe bat sarbecovirus isolate Rt22QT178, complete genome",
+  "length": 29671
+ },
+ "LC817381.1": {
+  "accession": "LC817381.1",
+  "organism": "Human coronavirus HKU1",
+  "title": "Human coronavirus HKU1 HCoVHKU1B_Fukushima_OR853_2023 RNA, complete genome",
+  "length": 29885
+ },
+ "LC720429.1": {
+  "accession": "LC720429.1",
+  "organism": "Human coronavirus OC43",
+  "title": "Human coronavirus OC43 HCoVOC43_Fukushima_O989_2019 RNA, nearly complete genome",
+  "length": 30705
+ },
+ "LC706863.1": {
+  "accession": "LC706863.1",
+  "organism": "Merbecovirus sp.",
+  "title": "Merbecovirus sp. VsCoV-kj15 RNA, complete genome",
+  "length": 30263
+ },
+ "OR987488.1": {
+  "accession": "OR987488.1",
+  "organism": "Middle East respiratory syndrome-related coronavirus",
+  "title": "Middle East respiratory syndrome-related coronavirus isolate Hu/Sohar-Oman-19522/2019, complete genome",
+  "length": 30118
+ },
+ "AF029248.1": {
+  "accession": "AF029248.1",
+  "organism": "Murine hepatitis virus",
+  "title": "Mouse hepatitis virus strain MHV-A59 C12 mutant, complete genome",
+  "length": 31357
+ },
+ "OP288969.1": {
+  "accession": "OP288969.1",
+  "organism": "Pangolin coronavirus",
+  "title": "Pangolin coronavirus isolate HKU4/GX-2020, complete genome",
+  "length": 30358
+ },
+ "OQ798823.1": {
+  "accession": "OQ798823.1",
+  "organism": "Porcine hemagglutinating encephalomyelitis virus",
+  "title": "Porcine hemagglutinating encephalomyelitis virus strain rvPHEV3, complete genome",
+  "length": 29803
+ },
+ "OK017854.1": {
+  "accession": "OK017854.1",
+  "organism": "Sarbecovirus sp.",
+  "title": "Sarbecovirus sp. isolate YN2020D, complete genome",
+  "length": 29368
+ },
+ "OQ503496.1": {
+  "accession": "OQ503496.1",
+  "organism": "Severe acute respiratory syndrome-related coronavirus",
+  "title": "Severe acute respiratory syndrome-related coronavirus isolate 141376, complete genome",
+  "length": 29646
+ },
+ "KY417143.1": {
+  "accession": "KY417143.1",
+  "organism": "Bat SARS-like coronavirus",
+  "title": "Bat SARS-like coronavirus isolate Rs4081, complete genome",
+  "length": 29741
+ },
+ "KU558923.1": {
+  "accession": "KU558923.1",
+  "organism": "Betacoronavirus 1",
+  "title": "Betacoronavirus 1 isolate Buffalo coronavirus B1-28F, complete genome",
+  "length": 30985
+ },
+ "MW246801.1": {
+  "accession": "MW246801.1",
+  "organism": "Betacoronavirus Erinaceus",
+  "title": "Betacoronavirus Erinaceus isolate ErinaceusCoV/Italy/50265-13/2019, complete genome",
+  "length": 30791
+ },
+ "PV344440.1": {
+  "accession": "PV344440.1",
+  "organism": "Betacoronavirus sp.",
+  "title": "Betacoronavirus sp. isolate RoNJ141, complete genome",
+  "length": 29704
+ },
+ "LC642814.2": {
+  "accession": "LC642814.2",
+  "organism": "Bovine coronavirus",
+  "title": "Bovine coronavirus BoCoV GF2020 RNA, complete genome",
+  "length": 31015
+ },
+ "OQ621721.1": {
+  "accession": "OQ621721.1",
+  "organism": "Canine respiratory coronavirus",
+  "title": "Canine respiratory coronavirus isolate D154NS_THA_2021, complete genome",
+  "length": 30713
+ },
+ "LC061273.1": {
+  "accession": "LC061273.1",
+  "organism": "Equine coronavirus",
+  "title": "Equine coronavirus RNA, complete genome, strain: Obihiro12-1",
+  "length": 30916
+ },
+ "PV953127.1": {
+  "accession": "PV953127.1",
+  "organism": "Erinaceus hedgehog coronavirus HKU31",
+  "title": "Erinaceus hedgehog coronavirus HKU31 isolate HP0034_1G, complete genome",
+  "length": 29901
+ },
+ "OR233316.1": {
+  "accession": "OR233316.1",
+  "organism": "Horseshoe bat sarbecovirus",
+  "title": "Horseshoe bat sarbecovirus isolate Rt22QT161, complete genome",
+  "length": 29671
+ },
+ "LC817380.1": {
+  "accession": "LC817380.1",
+  "organism": "Human coronavirus HKU1",
+  "title": "Human coronavirus HKU1 HCoVHKU1B_Fukushima_OR850_2023 RNA, complete genome",
+  "length": 29895
+ },
+ "LC315646.2": {
+  "accession": "LC315646.2",
+  "organism": "Human coronavirus OC43",
+  "title": "Human coronavirus OC43 Tokyo/SGH-36/2014 RNA, complete genome",
+  "length": 30736
+ },
+ "OR987487.1": {
+  "accession": "OR987487.1",
+  "organism": "Middle East respiratory syndrome-related coronavirus",
+  "title": "Middle East respiratory syndrome-related coronavirus isolate Hu/Sohar-Oman-19508/2019, complete genome",
+  "length": 30118
+ },
+ "MW532698.1": {
+  "accession": "MW532698.1",
+  "organism": "Pangolin coronavirus",
+  "title": "Pangolin coronavirus isolate GX_P2V, complete genome",
+  "length": 29729
+ },
+ "OQ798822.1": {
+  "accession": "OQ798822.1",
+  "organism": "Porcine hemagglutinating encephalomyelitis virus",
+  "title": "Porcine hemagglutinating encephalomyelitis virus strain rvPHEV26, complete genome",
+  "length": 29779
+ },
+ "OK017853.1": {
+  "accession": "OK017853.1",
+  "organism": "Sarbecovirus sp.",
+  "title": "Sarbecovirus sp. isolate YN2020C, complete genome",
+  "length": 29369
+ },
+ "OQ503495.1": {
+  "accession": "OQ503495.1",
+  "organism": "Severe acute respiratory syndrome-related coronavirus",
+  "title": "Severe acute respiratory syndrome-related coronavirus isolate 141341, complete genome",
+  "length": 29657
+ }
+}

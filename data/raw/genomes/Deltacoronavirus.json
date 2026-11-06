@@ -1,0 +1,536 @@
+{
+ "PV544238.1": {
+  "accession": "PV544238.1",
+  "organism": "Bulbul coronavirus HKU11",
+  "title": "Bulbul coronavirus HKU11 isolate GD2411, complete genome",
+  "length": 26482
+ },
+ "FJ376620.1": {
+  "accession": "FJ376620.1",
+  "organism": "Bulbul coronavirus HKU11-796",
+  "title": "Bulbul coronavirus HKU11-796, complete genome",
+  "length": 26476
+ },
+ "NC_011547.1": {
+  "accession": "NC_011547.1",
+  "organism": "Bulbul coronavirus HKU11-934",
+  "title": "Bulbul coronavirus HKU11-934, complete genome",
+  "length": 26487
+ },
+ "OR208630.1": {
+  "accession": "OR208630.1",
+  "organism": "Chinese pond heron coronavirus XN11",
+  "title": "Chinese pond heron coronavirus XN11, complete genome",
+  "length": 26077
+ },
+ "NC_016996.1": {
+  "accession": "NC_016996.1",
+  "organism": "Common moorhen coronavirus HKU21",
+  "title": "Common moorhen coronavirus HKU21, complete genome",
+  "length": 26223
+ },
+ "MN200481.1": {
+  "accession": "MN200481.1",
+  "organism": "Coronavirus HKU15",
+  "title": "Coronavirus HKU15 isolate SD2018/300, complete genome",
+  "length": 25410
+ },
+ "MW345814.1": {
+  "accession": "MW345814.1",
+  "organism": "Deltacoronavirus HNU1-1",
+  "title": "Deltacoronavirus HNU1-1, complete genome",
+  "length": 26289
+ },
+ "MW345815.1": {
+  "accession": "MW345815.1",
+  "organism": "Deltacoronavirus HNU1-2",
+  "title": "Deltacoronavirus HNU1-2, complete genome",
+  "length": 26289
+ },
+ "MW349841.1": {
+  "accession": "MW349841.1",
+  "organism": "Deltacoronavirus HNU2",
+  "title": "Deltacoronavirus HNU2, complete genome",
+  "length": 26240
+ },
+ "MW345816.1": {
+  "accession": "MW345816.1",
+  "organism": "Deltacoronavirus HNU3",
+  "title": "Deltacoronavirus HNU3, complete genome",
+  "length": 26208
+ },
+ "KJ481931.1": {
+  "accession": "KJ481931.1",
+  "organism": "Deltacoronavirus PDCoV/USA/Illinois121/2014",
+  "title": "Deltacoronavirus PDCoV/USA/Illinois121/2014 from USA, complete genome",
+  "length": 25406
+ },
+ "KJ601777.1": {
+  "accession": "KJ601777.1",
+  "organism": "Deltacoronavirus PDCoV/USA/Illinois133/2014",
+  "title": "Deltacoronavirus PDCoV/USA/Illinois133/2014 from USA, complete genome",
+  "length": 25408
+ },
+ "KJ601778.1": {
+  "accession": "KJ601778.1",
+  "organism": "Deltacoronavirus PDCoV/USA/Illinois134/2014",
+  "title": "Deltacoronavirus PDCoV/USA/Illinois134/2014 from USA, complete genome",
+  "length": 25404
+ },
+ "KJ601779.1": {
+  "accession": "KJ601779.1",
+  "organism": "Deltacoronavirus PDCoV/USA/Illinois136/2014",
+  "title": "Deltacoronavirus PDCoV/USA/Illinois136/2014 from USA, complete genome",
+  "length": 25404
+ },
+ "KJ601780.1": {
+  "accession": "KJ601780.1",
+  "organism": "Deltacoronavirus PDCoV/USA/Ohio137/2014",
+  "title": "Deltacoronavirus PDCoV/USA/Ohio137/2014 from USA, complete genome",
+  "length": 25404
+ },
+ "PZ113112.1": {
+  "accession": "PZ113112.1",
+  "organism": "Deltacoronavirus sp.",
+  "title": "Deltacoronavirus sp. isolate DLU8/2023/12, complete genome",
+  "length": 26185
+ },
+ "PX204802.1": {
+  "accession": "PX204802.1",
+  "organism": "Eurasian tree sparrow deltacoronavirus",
+  "title": "Eurasian tree sparrow deltacoronavirus isolate DCoV85/2020, complete genome",
+  "length": 26018
+ },
+ "LC364342.1": {
+  "accession": "LC364342.1",
+  "organism": "Falcon coronavirus UAE-HKU27",
+  "title": "Falcon coronavirus UAE-HKU27 988F genomic RNA, complete genome",
+  "length": 26162
+ },
+ "LC364343.1": {
+  "accession": "LC364343.1",
+  "organism": "Houbara coronavirus UAE-HKU28",
+  "title": "Houbara coronavirus UAE-HKU28 285F genomic RNA, complete genome",
+  "length": 26155
+ },
+ "NC_016993.1": {
+  "accession": "NC_016993.1",
+  "organism": "Magpie-robin coronavirus HKU18",
+  "title": "Magpie-robin coronavirus HKU18, complete genome",
+  "length": 26689
+ },
+ "FJ376622.1": {
+  "accession": "FJ376622.1",
+  "organism": "Munia coronavirus HKU13",
+  "title": "Munia coronavirus HKU13 isolate HKU13-3514, complete genome",
+  "length": 26552
+ },
+ "NC_011550.1": {
+  "accession": "NC_011550.1",
+  "organism": "Munia coronavirus HKU13-3514",
+  "title": "Munia coronavirus HKU13-3514, complete genome",
+  "length": 26552
+ },
+ "NC_016994.1": {
+  "accession": "NC_016994.1",
+  "organism": "Night heron coronavirus HKU19",
+  "title": "Night-heron coronavirus HKU19, complete genome",
+  "length": 26077
+ },
+ "LC364344.1": {
+  "accession": "LC364344.1",
+  "organism": "Pigeon coronavirus UAE-HKU29",
+  "title": "Pigeon coronavirus UAE-HKU29 271F genomic RNA, complete genome",
+  "length": 26155
+ },
+ "NC_039208.1": {
+  "accession": "NC_039208.1",
+  "organism": "Porcine coronavirus HKU15",
+  "title": "Porcine coronavirus HKU15 strain HKU15-155, complete genome",
+  "length": 25425
+ },
+ "PZ823619.1": {
+  "accession": "PZ823619.1",
+  "organism": "Porcine deltacoronavirus",
+  "title": "Porcine deltacoronavirus isolate PDCoV FJ2023, complete genome",
+  "length": 25464
+ },
+ "KJ567050.1": {
+  "accession": "KJ567050.1",
+  "organism": "Porcine deltacoronavirus 8734/USA-IA/2014",
+  "title": "Porcine deltacoronavirus 8734/USA-IA/2014, complete genome",
+  "length": 25422
+ },
+ "KM820765.1": {
+  "accession": "KM820765.1",
+  "organism": "Porcine deltacoronavirus KNU14-04",
+  "title": "Porcine deltacoronavirus KNU14-04, complete genome",
+  "length": 25422
+ },
+ "LC364346.1": {
+  "accession": "LC364346.1",
+  "organism": "Quail coronavirus UAE-HKU30",
+  "title": "Quail coronavirus UAE-HKU30 1101F genomic RNA, complete genome",
+  "length": 25871
+ },
+ "PQ584608.1": {
+  "accession": "PQ584608.1",
+  "organism": "Quail deltacoronavirus",
+  "title": "Quail deltacoronavirus isolate DCov628/15, complete genome",
+  "length": 25886
+ },
+ "NC_016992.1": {
+  "accession": "NC_016992.1",
+  "organism": "Sparrow coronavirus HKU17",
+  "title": "Sparrow coronavirus HKU17, complete genome",
+  "length": 26083
+ },
+ "MG812378.1": {
+  "accession": "MG812378.1",
+  "organism": "Sparrow deltacoronavirus",
+  "title": "Sparrow deltacoronavirus strain ISU73347, complete genome",
+  "length": 25685
+ },
+ "KJ769231.1": {
+  "accession": "KJ769231.1",
+  "organism": "Swine deltacoronavirus OhioCVM1/2014",
+  "title": "Swine deltacoronavirus OhioCVM1/2014, complete genome",
+  "length": 25433
+ },
+ "NC_011549.1": {
+  "accession": "NC_011549.1",
+  "organism": "Thrush coronavirus HKU12-600",
+  "title": "Thrush coronavirus HKU12-600, complete genome",
+  "length": 26396
+ },
+ "NC_016991.1": {
+  "accession": "NC_016991.1",
+  "organism": "White-eye coronavirus HKU16",
+  "title": "White-eye coronavirus HKU16, complete genome",
+  "length": 26041
+ },
+ "NC_016995.1": {
+  "accession": "NC_016995.1",
+  "organism": "Wigeon coronavirus HKU20",
+  "title": "Wigeon coronavirus HKU20, complete genome",
+  "length": 26227
+ },
+ "FJ376619.2": {
+  "accession": "FJ376619.2",
+  "organism": "Bulbul coronavirus HKU11",
+  "title": "Bulbul coronavirus HKU11 isolate HKU11-934, complete genome",
+  "length": 26487
+ },
+ "JQ065049.1": {
+  "accession": "JQ065049.1",
+  "organism": "Common moorhen coronavirus HKU21",
+  "title": "Common-moorhen coronavirus HKU21 strain HKU21-8295, complete genome",
+  "length": 26223
+ },
+ "LC216915.1": {
+  "accession": "LC216915.1",
+  "organism": "Coronavirus HKU15",
+  "title": "Coronavirus HKU15 genomic RNA, complete genome, strain: S582N",
+  "length": 25406
+ },
+ "PZ113111.1": {
+  "accession": "PZ113111.1",
+  "organism": "Deltacoronavirus sp.",
+  "title": "Deltacoronavirus sp. isolate DLU7/2023/11, complete genome",
+  "length": 26162
+ },
+ "PX204801.1": {
+  "accession": "PX204801.1",
+  "organism": "Eurasian tree sparrow deltacoronavirus",
+  "title": "Eurasian tree sparrow deltacoronavirus isolate DCoV84/2020, complete genome",
+  "length": 26017
+ },
+ "JQ065046.1": {
+  "accession": "JQ065046.1",
+  "organism": "Magpie-robin coronavirus HKU18",
+  "title": "Magpie-robin coronavirus HKU18 strain HKU18-chu3, complete genome",
+  "length": 26689
+ },
+ "JQ065047.1": {
+  "accession": "JQ065047.1",
+  "organism": "Night heron coronavirus HKU19",
+  "title": "Night-heron coronavirus HKU19 strain HKU19-6918, complete genome",
+  "length": 26077
+ },
+ "JQ065043.2": {
+  "accession": "JQ065043.2",
+  "organism": "Porcine coronavirus HKU15",
+  "title": "Porcine coronavirus HKU15 strain HKU15-155, complete genome",
+  "length": 25425
+ },
+ "PZ144404.1": {
+  "accession": "PZ144404.1",
+  "organism": "Porcine deltacoronavirus",
+  "title": "Porcine deltacoronavirus isolate AHHF2026, complete genome",
+  "length": 25430
+ },
+ "LC364345.1": {
+  "accession": "LC364345.1",
+  "organism": "Quail coronavirus UAE-HKU30",
+  "title": "Quail coronavirus UAE-HKU30 411F genomic RNA, complete genome",
+  "length": 25874
+ },
+ "PQ584607.1": {
+  "accession": "PQ584607.1",
+  "organism": "Quail deltacoronavirus",
+  "title": "Quail deltacoronavirus isolate DCov70/18, complete genome",
+  "length": 25861
+ },
+ "JQ065045.1": {
+  "accession": "JQ065045.1",
+  "organism": "Sparrow coronavirus HKU17",
+  "title": "Sparrow coronavirus HKU17 strain HKU17-6124, complete genome",
+  "length": 26083
+ },
+ "MG812377.1": {
+  "accession": "MG812377.1",
+  "organism": "Sparrow deltacoronavirus",
+  "title": "Sparrow deltacoronavirus strain ISU42824, complete genome",
+  "length": 25710
+ },
+ "FJ376621.1": {
+  "accession": "FJ376621.1",
+  "organism": "Thrush coronavirus HKU12-600",
+  "title": "Thrush coronavirus HKU12-600, complete genome",
+  "length": 26396
+ },
+ "JQ065044.1": {
+  "accession": "JQ065044.1",
+  "organism": "White-eye coronavirus HKU16",
+  "title": "White-eye coronavirus HKU16 strain HKU16-6847, complete genome",
+  "length": 26041
+ },
+ "JQ065048.1": {
+  "accession": "JQ065048.1",
+  "organism": "Wigeon coronavirus HKU20",
+  "title": "Wigeon coronavirus HKU20 strain HKU20-9243, complete genome",
+  "length": 26227
+ },
+ "LC216914.1": {
+  "accession": "LC216914.1",
+  "organism": "Coronavirus HKU15",
+  "title": "Coronavirus HKU15 genomic RNA, complete genome, strain: S579N",
+  "length": 25422
+ },
+ "PZ113110.1": {
+  "accession": "PZ113110.1",
+  "organism": "Deltacoronavirus sp.",
+  "title": "Deltacoronavirus sp. isolate DLU6/2023/11, complete genome",
+  "length": 26159
+ },
+ "PX204800.1": {
+  "accession": "PX204800.1",
+  "organism": "Eurasian tree sparrow deltacoronavirus",
+  "title": "Eurasian tree sparrow deltacoronavirus isolate DCoV78/2020, complete genome",
+  "length": 26017
+ },
+ "JQ065042.2": {
+  "accession": "JQ065042.2",
+  "organism": "Porcine coronavirus HKU15",
+  "title": "Porcine coronavirus HKU15 strain HKU15-44, complete genome",
+  "length": 25430
+ },
+ "KR265865.1": {
+  "accession": "KR265865.1",
+  "organism": "Porcine deltacoronavirus",
+  "title": "Porcine deltacoronavirus strain USA/Iowa459/2014, complete genome",
+  "length": 25394
+ },
+ "PQ584606.1": {
+  "accession": "PQ584606.1",
+  "organism": "Quail deltacoronavirus",
+  "title": "Quail deltacoronavirus isolate DCov56/18, complete genome",
+  "length": 25834
+ },
+ "MG812376.1": {
+  "accession": "MG812376.1",
+  "organism": "Sparrow deltacoronavirus",
+  "title": "Sparrow deltacoronavirus strain ISU690-7, complete genome",
+  "length": 25796
+ },
+ "PZ113109.1": {
+  "accession": "PZ113109.1",
+  "organism": "Deltacoronavirus sp.",
+  "title": "Deltacoronavirus sp. isolate DLU5/2023/11, complete genome",
+  "length": 26159
+ },
+ "PX204799.1": {
+  "accession": "PX204799.1",
+  "organism": "Eurasian tree sparrow deltacoronavirus",
+  "title": "Eurasian tree sparrow deltacoronavirus isolate DCoV73/2020, complete genome",
+  "length": 26017
+ },
+ "KT381613.1": {
+  "accession": "KT381613.1",
+  "organism": "Porcine coronavirus HKU15",
+  "title": "Porcine coronavirus HKU15 strain OH11846, complete genome",
+  "length": 25422
+ },
+ "KR265864.1": {
+  "accession": "KR265864.1",
+  "organism": "Porcine deltacoronavirus",
+  "title": "Porcine deltacoronavirus strain USA/Minnesota292/2014, complete genome",
+  "length": 25395
+ },
+ "MH532440.1": {
+  "accession": "MH532440.1",
+  "organism": "Quail deltacoronavirus",
+  "title": "Quail deltacoronavirus strain G032/2015, complete genome",
+  "length": 25881
+ },
+ "MG812375.1": {
+  "accession": "MG812375.1",
+  "organism": "Sparrow deltacoronavirus",
+  "title": "Sparrow deltacoronavirus strain ISU690-4, complete genome",
+  "length": 25795
+ },
+ "PZ113108.1": {
+  "accession": "PZ113108.1",
+  "organism": "Deltacoronavirus sp.",
+  "title": "Deltacoronavirus sp. isolate DLU4/2024/13, complete genome",
+  "length": 26151
+ },
+ "KM012168.1": {
+  "accession": "KM012168.1",
+  "organism": "Porcine coronavirus HKU15",
+  "title": "Porcine coronavirus HKU15 strain Michigan/8977/2014, complete genome",
+  "length": 25411
+ },
+ "KR265863.1": {
+  "accession": "KR265863.1",
+  "organism": "Porcine deltacoronavirus",
+  "title": "Porcine deltacoronavirus strain USA/Ohio445/2014, complete genome",
+  "length": 25394
+ },
+ "PQ821723.1": {
+  "accession": "PQ821723.1",
+  "organism": "Deltacoronavirus sp.",
+  "title": "Deltacoronavirus sp. isolate MP22-1474, complete genome",
+  "length": 26220
+ },
+ "KJ462462.1": {
+  "accession": "KJ462462.1",
+  "organism": "Porcine coronavirus HKU15",
+  "title": "Porcine coronavirus HKU15 strain OH1987, complete genome",
+  "length": 25422
+ },
+ "KR265862.1": {
+  "accession": "KR265862.1",
+  "organism": "Porcine deltacoronavirus",
+  "title": "Porcine deltacoronavirus strain USA/Ohio444/2014, complete genome",
+  "length": 25394
+ },
+ "PQ821722.1": {
+  "accession": "PQ821722.1",
+  "organism": "Deltacoronavirus sp.",
+  "title": "Deltacoronavirus sp. isolate MP18-1070, complete genome",
+  "length": 26306
+ },
+ "KJ620016.1": {
+  "accession": "KJ620016.1",
+  "organism": "Porcine coronavirus HKU15",
+  "title": "Porcine coronavirus HKU15 strain MI6148, complete genome",
+  "length": 25422
+ },
+ "KR265861.1": {
+  "accession": "KR265861.1",
+  "organism": "Porcine deltacoronavirus",
+  "title": "Porcine deltacoronavirus strain USA/Nebraska210/2014, complete genome",
+  "length": 25404
+ },
+ "PX138934.1": {
+  "accession": "PX138934.1",
+  "organism": "Deltacoronavirus sp.",
+  "title": "Deltacoronavirus sp. isolate GDYF2025-6, complete genome",
+  "length": 25420
+ },
+ "KJ584359.1": {
+  "accession": "KJ584359.1",
+  "organism": "Porcine coronavirus HKU15",
+  "title": "Porcine coronavirus HKU15 strain NE3579, complete genome",
+  "length": 25422
+ },
+ "KR265860.1": {
+  "accession": "KR265860.1",
+  "organism": "Porcine deltacoronavirus",
+  "title": "Porcine deltacoronavirus strain USA/Nebraska209/2014, complete genome",
+  "length": 25396
+ },
+ "PQ351810.1": {
+  "accession": "PQ351810.1",
+  "organism": "Deltacoronavirus sp.",
+  "title": "MAG: Deltacoronavirus sp. isolate DeltaCoV/AvCoV/Larus_dominicanus/Antartica/Fiocruz-F1596/2023, complete genome",
+  "length": 26093
+ },
+ "KJ584358.1": {
+  "accession": "KJ584358.1",
+  "organism": "Porcine coronavirus HKU15",
+  "title": "Porcine coronavirus HKU15 strain PA3148, complete genome",
+  "length": 25422
+ },
+ "KR265859.1": {
+  "accession": "KR265859.1",
+  "organism": "Porcine deltacoronavirus",
+  "title": "Porcine deltacoronavirus strain USA/Minnesota159/2014, complete genome",
+  "length": 25401
+ },
+ "PP397109.1": {
+  "accession": "PP397109.1",
+  "organism": "Deltacoronavirus sp.",
+  "title": "Deltacoronavirus sp. isolate A/black-headed_gull/Qinghai/2021, complete genome",
+  "length": 25966
+ },
+ "KJ584357.1": {
+  "accession": "KJ584357.1",
+  "organism": "Porcine coronavirus HKU15",
+  "title": "Porcine coronavirus HKU15 strain KY4813, complete genome",
+  "length": 25422
+ },
+ "KR265858.1": {
+  "accession": "KR265858.1",
+  "organism": "Porcine deltacoronavirus",
+  "title": "Porcine deltacoronavirus strain USA/NorthCarolina452/2014, complete genome",
+  "length": 25394
+ },
+ "OQ102159.1": {
+  "accession": "OQ102159.1",
+  "organism": "Deltacoronavirus sp.",
+  "title": "Deltacoronavirus sp. isolate BIME-WS38, complete genome",
+  "length": 25937
+ },
+ "KJ584356.1": {
+  "accession": "KJ584356.1",
+  "organism": "Porcine coronavirus HKU15",
+  "title": "Porcine coronavirus HKU15 strain SD3424, complete genome",
+  "length": 25422
+ },
+ "KR265857.1": {
+  "accession": "KR265857.1",
+  "organism": "Porcine deltacoronavirus",
+  "title": "Porcine deltacoronavirus strain USA/Illinois273/2014, complete genome",
+  "length": 25394
+ },
+ "OL311152.1": {
+  "accession": "OL311152.1",
+  "organism": "Deltacoronavirus sp.",
+  "title": "Deltacoronavirus sp. isolate HNU4-3, complete genome",
+  "length": 26159
+ },
+ "KJ584355.1": {
+  "accession": "KJ584355.1",
+  "organism": "Porcine coronavirus HKU15",
+  "title": "Porcine coronavirus HKU15 strain IL2768, complete genome",
+  "length": 25422
+ },
+ "KR265856.1": {
+  "accession": "KR265856.1",
+  "organism": "Porcine deltacoronavirus",
+  "title": "Porcine deltacoronavirus strain USA/Illinois272/2014, complete genome",
+  "length": 25399
+ }
+}
