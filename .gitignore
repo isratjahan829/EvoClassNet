@@ -5,3 +5,4 @@ data/raw/bloom_rbd_dms/expression_meanFs.csv
 data/raw/bloom_rbd_dms/codon_variant_table.csv
 data/raw/bloom_escape/escape_data.csv
 results/jobs/
+results/chain_log.txt
