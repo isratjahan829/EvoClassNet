@@ -3,3 +3,7 @@
 17:54:59   ubiquitin (positive control): 40/76  running recovery 77.5%
 18:01:44   ubiquitin (positive control): 60/76  running recovery 78.3%
 18:06:36 ubiquitin (positive control): recovery 80.3% over 76 positions, median top probability 0.796
+18:11:15   RBD alone (fragment): 20/51  running recovery 20.0%
+18:13:51   RBD alone (fragment): 40/51  running recovery 15.0%
+18:15:44 RBD alone (fragment): recovery 11.8% over 51 positions, median top probability 0.096
+18:34:54   RBD in full spike: 20/51  running recovery 30.0%
