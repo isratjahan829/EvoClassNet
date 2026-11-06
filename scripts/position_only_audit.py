@@ -88,7 +88,7 @@ def main():
                   values="frac_assays_model_beats_position_only")
     cols = [l for _, _, l in SCHEMES if l in piv.columns]
     piv = piv[cols].sort_values(cols[0])
-    fig, ax = plt.subplots(figsize=(8.4, 4.6))
+    fig, ax = plt.subplots(figsize=(8.4, 5.0))
     y = np.arange(len(piv))
     w = 0.26
     for i, c in enumerate(cols):
@@ -98,10 +98,12 @@ def main():
     ax.set_yticks(y); ax.set_yticklabels(piv.index, fontsize=8)
     ax.set_xlabel("Fraction of assays where the published model beats a position-only baseline")
     ax.set_xlim(0, 1.02); ax.invert_yaxis()
-    ax.legend(frameon=False, fontsize=8, loc="lower right")
+    ax.legend(frameon=False, fontsize=8, loc="upper center", ncol=3,
+              bbox_to_anchor=(0.5, -0.13))
     ax.set_title("Published supervised models against a model told only which position is mutated",
                  fontsize=9.5)
-    fig.tight_layout(); fig.savefig(FIG / "fig12_position_only_audit.png", dpi=240)
+    fig.tight_layout(); fig.savefig(FIG / "fig12_position_only_audit.png", dpi=240,
+                                    bbox_inches="tight")
     plt.close(fig)
 
     print(T.to_string(index=False))
