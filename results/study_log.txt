@@ -1,3 +1,6 @@
 11:02:52 124,197 genotypes; labelled bind=105,526, expr=116,258, escape=2,029
 11:02:52 50 runs, 0 already done
 11:31:31 [1/50] main_random_s3 bind=0.871 expr=0.804 esca=0.430
+11:40:30 [2/50] main_random_s0 bind=0.893 expr=0.857 esca=0.667
+11:40:35 [3/50] main_random_s2 bind=0.892 expr=0.864 esca=0.787
+11:40:39 [4/50] main_random_s1 bind=0.897 expr=0.863 esca=0.649
