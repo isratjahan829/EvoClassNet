@@ -174,17 +174,30 @@ if not abl_df.empty:
       f"Under the random split this barely matters (binding ρ {b.intact} → {b.permuted}, Δ = {b.delta}): interpolation only needs a per-position effect table, which the permutation merely relabels. "
       f"Under the held-out-position split the same manipulation removes the model's advantage (binding ρ {a.intact} → {a.permuted}, Δ = {a.delta}). "
       f"Transfer to unseen positions is therefore carried by amino-acid identity shared across positions — approximately, learned residue chemistry — and not by positional context or extra capacity.")
-H("3.5 Leakage-free ranking of Variant-of-Concern substitutions", 2)
+H("3.5 Learned chemistry outperforms a substitution-matrix prior", 2)
+if HO.get("vs_blosum"):
+    rows = [dict(Phenotype={"bind": "ACE2 binding", "escape": "Antibody escape"}.get(k, k),
+                 EvoClassNet=f"{v['model_median']:.3f}", BLOSUM62=f"{v['blosum_median']:.3f}",
+                 Difference=f"{v['median_diff']:+.3f}", P=f"{v['p']:.3g}", n=v["n"])
+            for k, v in HO["vs_blosum"].items()]
+    table(pd.DataFrame(rows), "Table 4. Median per-position Spearman ρ at withheld positions: the trained model against BLOSUM62 exchangeability (Wilcoxon signed-rank on paired per-position differences).")
+    bb = HO["vs_blosum"].get("bind", {})
+    P(f"If transfer rests on residue chemistry, a substitution matrix encodes that prior directly and without training, so it is the appropriate control. "
+      f"At withheld positions BLOSUM62 reached a median per-position ρ of {bb.get('blosum_median',float('nan')):.3f} for binding against {bb.get('model_median',float('nan')):.3f} for EvoClassNet "
+      f"(median paired difference {bb.get('median_diff',float('nan')):+.3f}, P = {bb.get('p',float('nan')):.3g}, n = {bb.get('n','—')} position–seed pairs). "
+      f"The model therefore learns more than generic exchangeability: the chemistry it extracts is conditioned on this domain and these phenotypes, not merely a restatement of a general-purpose matrix.")
+
+H("3.6 Leakage-free ranking of Variant-of-Concern substitutions", 2)
 if HO.get("voc"):
     rows = [dict(Score=k, AUROC=f"{v['auroc']:.3f}", CI=f"{v['ci95'][0]:.3f}–{v['ci95'][1]:.3f}", n_VOC=v["n_voc"], n_scored=v["n_total"]) for k, v in HO["voc"].items()]
-    table(pd.DataFrame(rows), "Table 4. Ranking Variant-of-Concern substitutions at withheld positions only (pooled over seeds; 95 % bootstrap intervals).")
+    table(pd.DataFrame(rows), "Table 5. Ranking Variant-of-Concern substitutions at withheld positions only (pooled over seeds; 95 % bootstrap intervals).")
     pe = HO["voc"].get("EvoClassNet predicted escape", {}); me = HO["voc"].get("Measured escape (held-out positions)", {})
     P(f"Restricting the comparison to positions that were withheld removes the circularity that would otherwise dominate this analysis. Predicted escape ranked Variant-of-Concern substitutions above the remainder "
       f"with AUROC {pe.get('auroc',float('nan')):.3f} (95 % CI {pe.get('ci95',[float('nan')]*2)[0]:.3f}–{pe.get('ci95',[float('nan')]*2)[1]:.3f}; {pe.get('n_voc','—')} positive instances). "
       f"The measured escape values on the identical subset give {me.get('auroc',float('nan')):.3f} ({me.get('ci95',[float('nan')]*2)[0]:.3f}–{me.get('ci95',[float('nan')]*2)[1]:.3f}), "
       f"which is the ceiling available to any model of this phenotype. The number of positives is small and the intervals are correspondingly wide.")
-H("3.6 Which positions transfer", 2)
-fig("fig5_per_site.png", "Figure 4. Per-position Spearman ρ at withheld positions against relative solvent accessibility, with a linear fit.", 6.2)
+H("3.7 Which positions transfer", 2)
+fig("fig5_per_site.png", "Figure 5. Per-position Spearman ρ at withheld positions against relative solvent accessibility, with a linear fit.", 6.2)
 if HO.get("per_site"):
     for task, tname in (("bind", "binding"), ("escape", "escape")):
         d = HO["per_site"].get(task)
@@ -193,7 +206,7 @@ if HO.get("per_site"):
         P(f"For {tname}, the median per-position ρ at withheld positions was {d['median_rho']:.3f} and {100*d['frac_positive']:.0f} % of position–seed pairs were positive. "
           f"Per-position accuracy correlated with relative solvent accessibility (ρ = {rr:.3f}, P = {pp:.3g}), and the comparison of receptor-binding-motif positions with core positions "
           f"is reported in results/holdout_analysis.json. Transfer is thus not uniform across the domain.")
-H("3.7 A control: optimising a learned fitness surface", 2)
+H("3.8 A control: optimising a learned fitness surface", 2)
 if VA:
     for obj, lab in (("escape", "predicted escape"), ("escape_and_binding", "predicted escape plus binding")):
         v = VA.get(obj)

@@ -7,6 +7,11 @@ supports two analyses that a model trained on all positions could not support ho
 (a) Variant-of-Concern ranking without leakage. VOC-defining substitutions are present in the
     escape training data, so ranking them with a model that saw them measures memorisation. Here
     a VOC substitution contributes only in the seeds where its position was held out.
+(a2) A hand-crafted chemistry prior. The model's transfer is carried by residue identity shared
+    across positions (Section on the permutation ablation), so the natural question is whether it
+    beats a substitution matrix, which encodes exactly that prior without any training. We score
+    each substitution by its BLOSUM62 exchangeability and compare per-position rank accuracy.
+
 (b) Which positions transfer? Per-position Spearman between predicted and measured phenotype,
     related to structural annotations (relative solvent accessibility, evolutionary entropy,
     receptor-binding-motif membership) from the source data set.
@@ -17,6 +22,7 @@ import numpy as np, pandas as pd, torch
 from scipy.stats import rankdata, spearmanr, mannwhitneyu
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from Bio.Align import substitution_matrices
 from evoclassnet import data, model as M, escape as ESC
 ROOT = Path(__file__).resolve().parents[1]; OUT = ROOT / "results"; FIG = OUT / "figures"; FIG.mkdir(exist_ok=True)
 torch.set_num_threads(4)
@@ -48,6 +54,7 @@ if __name__ == "__main__":
     sm = pd.read_csv(data.RAW / "single_mut_effects.csv")
     meas = {(int(r.site_RBD), r.mutant): (r.bind_avg, r.expr_avg) for r in sm.itertuples()}
     esc = ESC.escape_lookup(20)
+    BL = substitution_matrices.load("BLOSUM62")
     singles = [(wt[p - 1], p, a) for p in range(1, 202) for a in data.AA if a != wt[p - 1]]
     Xs = data.encode([[s] for s in singles])
 
@@ -65,6 +72,7 @@ if __name__ == "__main__":
             recs.append(dict(seed=seed, site=p, spike_site=p + off, wt=w, mut=m,
                              pred_bind=P[i, 0], pred_expr=P[i, 1], pred_escape=P[i, 2],
                              meas_bind=mb, meas_expr=me, meas_escape=esc.get((w, p, m), np.nan),
+                             blosum=float(BL[w, m]) if (w in BL.alphabet and m in BL.alphabet) else np.nan,
                              is_voc=(w, p, m) in set(voc)))
         log(f"seed {seed}: {len(ts)} held-out positions, {sum(r['seed']==seed for r in recs)} substitutions scored")
     D = pd.DataFrame(recs); D.to_csv(OUT / "holdout_predictions.csv", index=False)
@@ -74,6 +82,7 @@ if __name__ == "__main__":
     res["voc"] = {}
     for key, col in (("EvoClassNet predicted escape", "pred_escape"),
                      ("EvoClassNet predicted binding", "pred_bind"),
+                     ("BLOSUM62 exchangeability", "blosum"),
                      ("Measured escape (held-out positions)", "meas_escape"),
                      ("Measured binding DMS (held-out positions)", "meas_bind")):
         a, ci, n = auroc_ci(D[col].to_numpy(float), D.is_voc.to_numpy(), rng)
@@ -86,15 +95,27 @@ if __name__ == "__main__":
     per = []
     for (seed, site), d in D.groupby(["seed", "site"]):
         for task, pc, mc in (("bind", "pred_bind", "meas_bind"), ("escape", "pred_escape", "meas_escape")):
-            ok = d[[pc, mc]].dropna()
+            ok = d[[pc, mc, "blosum"]].dropna()
             if len(ok) >= 8 and ok[pc].std() > 1e-9 and ok[mc].std() > 1e-9:
-                per.append(dict(seed=seed, site=site, task=task, rho=spearmanr(ok[pc], ok[mc])[0], n=len(ok)))
+                per.append(dict(seed=seed, site=site, task=task, rho=spearmanr(ok[pc], ok[mc])[0],
+                                rho_blosum=spearmanr(ok.blosum, ok[mc])[0], n=len(ok)))
     PS = pd.DataFrame(per)
     if len(PS):
         ann = sites.set_index("site_RBD")
         PS["RSA"] = PS.site.map(ann.RSA_unbound); PS["entropy"] = PS.site.map(ann.entropy); PS["RBM"] = PS.site.map(ann.RBM)
         PS.to_csv(OUT / "per_site_transfer.csv", index=False)
         res["per_site"] = {}
+        res["vs_blosum"] = {}
+        for task, d in PS.groupby("task"):
+            dd = d.dropna(subset=["rho", "rho_blosum"])
+            if len(dd) >= 8:
+                from scipy.stats import wilcoxon as _w
+                diff = dd.rho - dd.rho_blosum
+                res["vs_blosum"][task] = dict(model_median=float(dd.rho.median()), blosum_median=float(dd.rho_blosum.median()),
+                                              median_diff=float(diff.median()), n=len(dd),
+                                              p=float(_w(diff).pvalue) if not np.allclose(diff, 0) else float("nan"))
+                log(f"vs BLOSUM62 [{task}]: model {dd.rho.median():.3f} vs BLOSUM {dd.rho_blosum.median():.3f} "
+                    f"(median diff {diff.median():+.3f}, P={res['vs_blosum'][task]['p']:.3g}, n={len(dd)})")
         for task, d in PS.groupby("task"):
             dd = d.dropna(subset=["RSA"])
             r_rsa = spearmanr(dd.RSA, dd.rho) if len(dd) > 8 else (np.nan, np.nan)
