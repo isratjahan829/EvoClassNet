@@ -1,0 +1,3 @@
+15:21:41 split 2 init 0: bind=+0.236 expr=+0.032 escape=-0.290  val_loss=0.4179
+15:28:11 split 2 init 1: bind=+0.558 expr=+0.396 escape=+0.499  val_loss=0.3653
+15:31:21 split 2 init 2: bind=+0.385 expr=+0.267 escape=+0.334  val_loss=0.4265
