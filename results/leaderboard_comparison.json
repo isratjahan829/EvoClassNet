@@ -1,0 +1,22 @@
+{
+ "n_published_models": 11,
+ "one_hot": {
+  "random": 0.582,
+  "modulo": 0.022,
+  "contiguous": 0.059
+ },
+ "best_under_modulo": {
+  "model": "Kermut",
+  "type": "Structure & sequence embedding",
+  "random": 0.745,
+  "modulo": 0.633
+ },
+ "ours_under_modulo": {
+  "position_mean": 0.0,
+  "ridge_additive": 0.0,
+  "physchem": 0.318,
+  "residue_only": 0.269,
+  "blosum_zeroshot": 0.202,
+  "position_mean_random": 0.63
+ }
+}

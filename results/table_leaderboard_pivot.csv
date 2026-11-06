@@ -1,0 +1,17 @@
+source,model_type,model,Random split,fold_modulo_5,fold_contiguous_5,drop (random → modulo)
+ProteinGym leaderboard,Structure & sequence embedding,Kermut,0.745,0.633,0.593,0.112
+ProteinGym leaderboard,Sequence embedding,ProteinNPT,0.741,0.588,0.529,0.153
+ProteinGym leaderboard,Sequence embedding,MSA Transformer Embeddings,0.67,0.562,0.513,0.108
+ProteinGym leaderboard,Sequence embedding,ESM-1v Embeddings,0.614,0.514,0.479,0.1
+ProteinGym leaderboard,Sequence embedding,Tranception Embeddings,0.681,0.525,0.439,0.156
+ProteinGym leaderboard,One-hot Encoding,TranceptEVE + One-Hot Encodings,0.552,0.435,0.435,0.117
+ProteinGym leaderboard,One-hot Encoding,Tranception + One-Hot Encodings,0.55,0.413,0.415,0.137
+ProteinGym leaderboard,One-hot Encoding,MSA_Transformer + One-Hot Encodings,0.54,0.409,0.407,0.131
+ProteinGym leaderboard,One-hot Encoding,ESM-1v + One-Hot Encodings,0.565,0.394,0.396,0.171
+ProteinGym leaderboard,One-hot Encoding,DeepSequence + One-Hot Encodings,0.523,0.393,0.395,0.13
+This work,baseline,Chemistry ridge (this work),0.493,0.318,0.306,0.175
+This work,baseline,Residue identity (this work),0.455,0.269,0.26,0.186
+This work,baseline,BLOSUM62 (this work),0.209,0.202,0.201,0.007
+ProteinGym leaderboard,One-hot Encoding,One-Hot Encodings,0.582,0.022,0.059,0.56
+This work,baseline,Additive ridge (this work),0.22,0.0,0.0,0.22
+This work,baseline,Position mean (this work),0.63,0.0,0.0,0.63

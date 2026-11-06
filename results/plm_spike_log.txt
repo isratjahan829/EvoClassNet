@@ -1,3 +1,5 @@
 19:32:13 scoring RBD inside full spike: offset 330, spike length 1273
 19:32:13 model=facebook/esm2_t33_650M_UR50D  RBD length=201  offset=330
 Loading weights:   0%|          | 0/539 [00:00<?, ?it/s]Loading weights: 100%|██████████| 539/539 [00:00<00:00, 17482.62it/s]
+19:33:55 embeddings (201, 1280) -> esm2_t33_650M_UR50D_embeddings_spike.npz
+19:35:00 masked marginals 2/201

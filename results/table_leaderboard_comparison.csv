@@ -1,0 +1,49 @@
+source,model,model_type,scheme,spearman
+ProteinGym leaderboard,Kermut,Structure & sequence embedding,Random split,0.745
+ProteinGym leaderboard,Kermut,Structure & sequence embedding,fold_modulo_5,0.633
+ProteinGym leaderboard,Kermut,Structure & sequence embedding,fold_contiguous_5,0.593
+ProteinGym leaderboard,ProteinNPT,Sequence embedding,Random split,0.741
+ProteinGym leaderboard,ProteinNPT,Sequence embedding,fold_modulo_5,0.588
+ProteinGym leaderboard,ProteinNPT,Sequence embedding,fold_contiguous_5,0.529
+ProteinGym leaderboard,MSA Transformer Embeddings,Sequence embedding,Random split,0.67
+ProteinGym leaderboard,MSA Transformer Embeddings,Sequence embedding,fold_modulo_5,0.562
+ProteinGym leaderboard,MSA Transformer Embeddings,Sequence embedding,fold_contiguous_5,0.513
+ProteinGym leaderboard,Tranception Embeddings,Sequence embedding,Random split,0.681
+ProteinGym leaderboard,Tranception Embeddings,Sequence embedding,fold_modulo_5,0.525
+ProteinGym leaderboard,Tranception Embeddings,Sequence embedding,fold_contiguous_5,0.439
+ProteinGym leaderboard,ESM-1v Embeddings,Sequence embedding,Random split,0.614
+ProteinGym leaderboard,ESM-1v Embeddings,Sequence embedding,fold_modulo_5,0.514
+ProteinGym leaderboard,ESM-1v Embeddings,Sequence embedding,fold_contiguous_5,0.479
+ProteinGym leaderboard,TranceptEVE + One-Hot Encodings,One-hot Encoding,Random split,0.552
+ProteinGym leaderboard,TranceptEVE + One-Hot Encodings,One-hot Encoding,fold_modulo_5,0.435
+ProteinGym leaderboard,TranceptEVE + One-Hot Encodings,One-hot Encoding,fold_contiguous_5,0.435
+ProteinGym leaderboard,Tranception + One-Hot Encodings,One-hot Encoding,Random split,0.55
+ProteinGym leaderboard,Tranception + One-Hot Encodings,One-hot Encoding,fold_modulo_5,0.413
+ProteinGym leaderboard,Tranception + One-Hot Encodings,One-hot Encoding,fold_contiguous_5,0.415
+ProteinGym leaderboard,MSA_Transformer + One-Hot Encodings,One-hot Encoding,Random split,0.54
+ProteinGym leaderboard,MSA_Transformer + One-Hot Encodings,One-hot Encoding,fold_modulo_5,0.409
+ProteinGym leaderboard,MSA_Transformer + One-Hot Encodings,One-hot Encoding,fold_contiguous_5,0.407
+ProteinGym leaderboard,ESM-1v + One-Hot Encodings,One-hot Encoding,Random split,0.565
+ProteinGym leaderboard,ESM-1v + One-Hot Encodings,One-hot Encoding,fold_modulo_5,0.394
+ProteinGym leaderboard,ESM-1v + One-Hot Encodings,One-hot Encoding,fold_contiguous_5,0.396
+ProteinGym leaderboard,DeepSequence + One-Hot Encodings,One-hot Encoding,Random split,0.523
+ProteinGym leaderboard,DeepSequence + One-Hot Encodings,One-hot Encoding,fold_modulo_5,0.393
+ProteinGym leaderboard,DeepSequence + One-Hot Encodings,One-hot Encoding,fold_contiguous_5,0.395
+ProteinGym leaderboard,One-Hot Encodings,One-hot Encoding,Random split,0.582
+ProteinGym leaderboard,One-Hot Encodings,One-hot Encoding,fold_modulo_5,0.022
+ProteinGym leaderboard,One-Hot Encodings,One-hot Encoding,fold_contiguous_5,0.059
+This work,Position mean (this work),baseline,Random split,0.63
+This work,Position mean (this work),baseline,fold_modulo_5,0.0
+This work,Position mean (this work),baseline,fold_contiguous_5,0.0
+This work,Additive ridge (this work),baseline,Random split,0.22
+This work,Additive ridge (this work),baseline,fold_modulo_5,0.0
+This work,Additive ridge (this work),baseline,fold_contiguous_5,0.0
+This work,Chemistry ridge (this work),baseline,Random split,0.493
+This work,Chemistry ridge (this work),baseline,fold_modulo_5,0.318
+This work,Chemistry ridge (this work),baseline,fold_contiguous_5,0.306
+This work,Residue identity (this work),baseline,Random split,0.455
+This work,Residue identity (this work),baseline,fold_modulo_5,0.269
+This work,Residue identity (this work),baseline,fold_contiguous_5,0.26
+This work,BLOSUM62 (this work),baseline,Random split,0.209
+This work,BLOSUM62 (this work),baseline,fold_modulo_5,0.202
+This work,BLOSUM62 (this work),baseline,fold_contiguous_5,0.201
