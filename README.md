@@ -24,6 +24,31 @@ Held-out-position split, 10 seeds. Escape has no partial column: every escape-la
 
 Two things to note. **Structure carries most of it** (+0.554 ± 0.112 partial for binding against +0.371 ± 0.060 for chemistry), and it is not an artefact of knowing the receptor interface: the two descriptors derived from the ACE2-bound complex mark exactly the contact residues, which is nearly circular for binding, and dropping them leaves +0.518 ± 0.095. **ESM-2 contributes nothing on this protein** — its raw +0.340 ± 0.067 is the substitution-count effect in full, with -0.004 ± 0.091 surviving the control.
 
+## It is not one protein: 217 ProteinGym assays
+
+Two baselines make the point unambiguous. A **position-mean** model is a ridge regression on position indicators alone — it knows which position a variant mutates and nothing at all about which substitution is made. A **residue-identity** model is its mirror image.
+
+| Split | Family | Model | Assays | Median ρ | Q1 | Q3 | Frac ρ>0.2 | Frac ρ=0 |
+|---|---|---|---|---|---|---|---|---|
+| Random split | untrained | Mutation count | 216 | 0.0 | 0.0 | 0.178 | 0.245 | 0.681 |
+| Random split | untrained | BLOSUM62 | 216 | 0.22 | 0.134 | 0.284 | 0.546 | 0.0 |
+| Random split | position-indexed | Position mean | 216 | 0.665 | 0.564 | 0.732 | 0.968 | 0.0 |
+| Random split | position-indexed | Additive ridge | 216 | 0.0 | 0.0 | 0.546 | 0.319 | 0.681 |
+| Random split | transferable | Residue identity | 216 | 0.402 | 0.293 | 0.632 | 0.944 | 0.0 |
+| Random split | transferable | Chemistry ridge | 216 | 0.455 | 0.344 | 0.65 | 0.972 | 0.0 |
+| Held-out-position split | untrained | Mutation count | 212 | 0.0 | 0.0 | 0.0 | 0.042 | 0.83 |
+| Held-out-position split | untrained | BLOSUM62 | 212 | 0.198 | 0.123 | 0.27 | 0.486 | 0.0 |
+| Held-out-position split | position-indexed | Position mean | 212 | 0.0 | 0.0 | 0.0 | 0.0 | 1.0 |
+| Held-out-position split | position-indexed | Additive ridge | 212 | 0.0 | 0.0 | 0.0 | 0.0 | 1.0 |
+| Held-out-position split | transferable | Residue identity | 212 | 0.253 | 0.189 | 0.352 | 0.712 | 0.0 |
+| Held-out-position split | transferable | Chemistry ridge | 212 | 0.313 | 0.24 | 0.405 | 0.84 | 0.0 |
+
+Under a **random split** the position-mean model has a median per-assay ρ of **0.665**, against 0.455 for chemistry: knowing only *where* beats knowing only *what*. Under the **held-out-position split** it falls to **0.0** — not a degradation but an identity, since it holds no parameter for a position it never saw — while chemistry retains 0.313.
+
+The standard evaluation rewards memorising per-position means. That capability is worth exactly nothing at a position no experiment has probed.
+
+Worth noting: the mutation-count confound that dominates the RBD analysis is mostly *absent* here — only 69 of 217 assays contain any multi-substitution variant. So the separation between representations does not depend on the confound existing.
+
 ## Where the transfer comes from: positions, not substitutions
 
 A narrower question separates two components. Within a *single* withheld position, can the model order the nineteen substitutions available there?
