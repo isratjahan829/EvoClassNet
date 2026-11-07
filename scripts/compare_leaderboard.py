@@ -28,7 +28,8 @@ BENCH = ROOT / "data" / "raw" / "proteingym_bench" / "sup_summary.csv"
 SCHEMES = [("Average_Spearman_fold_random_5", "random", "Random split"),
            ("Average_Spearman_fold_modulo_5", "pg_modulo_5", "fold_modulo_5"),
            ("Average_Spearman_fold_contiguous_5", "pg_contiguous_5", "fold_contiguous_5")]
-OURS = [("position_mean", "Position mean (this work)"),
+OURS = [("chem_struct", "Chemistry + structure (this work)"),
+        ("position_mean", "Position mean (this work)"),
         ("ridge_additive", "Additive ridge (this work)"),
         ("physchem", "Chemistry ridge (this work)"),
         ("residue_only", "Residue identity (this work)"),

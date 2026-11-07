@@ -32,6 +32,9 @@ ProteinGym leaderboard,DeepSequence + One-Hot Encodings,One-hot Encoding,fold_co
 ProteinGym leaderboard,One-Hot Encodings,One-hot Encoding,Random split,0.582
 ProteinGym leaderboard,One-Hot Encodings,One-hot Encoding,fold_modulo_5,0.022
 ProteinGym leaderboard,One-Hot Encodings,One-hot Encoding,fold_contiguous_5,0.059
+This work,Chemistry + structure (this work),baseline,Random split,0.586
+This work,Chemistry + structure (this work),baseline,fold_modulo_5,0.449
+This work,Chemistry + structure (this work),baseline,fold_contiguous_5,0.416
 This work,Position mean (this work),baseline,Random split,0.63
 This work,Position mean (this work),baseline,fold_modulo_5,0.0
 This work,Position mean (this work),baseline,fold_contiguous_5,0.0

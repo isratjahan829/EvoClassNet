@@ -12,6 +12,7 @@
   "modulo": 0.633
  },
  "ours_under_modulo": {
+  "chem_struct": 0.449,
   "position_mean": 0.0,
   "ridge_additive": 0.0,
   "physchem": 0.318,

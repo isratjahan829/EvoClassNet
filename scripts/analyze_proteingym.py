@@ -30,7 +30,8 @@ MODELS = [("mutation_count", "Mutation count", "untrained"),
           ("position_mean", "Position mean", "position-indexed"),
           ("ridge_additive", "Additive ridge", "position-indexed"),
           ("residue_only", "Residue identity", "transferable"),
-          ("physchem", "Chemistry ridge", "transferable")]
+          ("physchem", "Chemistry ridge", "transferable"),
+          ("chem_struct", "Chemistry + structure", "transferable")]
 NAME = {k: n for k, n, _ in MODELS}
 FAM = {k: f for k, _, f in MODELS}
 COL = {"untrained": "#2e7d32", "position-indexed": "#d9541e", "transferable": "#8c62aa"}

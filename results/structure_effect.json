@@ -1,0 +1,58 @@
+[
+ {
+  "split": "Random split",
+  "n_assays": 135,
+  "median_physchem": 0.4547,
+  "median_chem_struct": 0.5904,
+  "median_gain": 0.0792,
+  "ci_lo": 0.0865,
+  "ci_hi": 0.1148,
+  "p": 8.027512336108847e-24,
+  "frac_assays_improved": 0.985,
+  "frac_gain_above_0_05": 0.644,
+  "gain_vs_plddt_rho": 0.132,
+  "gain_vs_plddt_p": 0.1265807914133188
+ },
+ {
+  "split": "Held-out positions",
+  "n_assays": 132,
+  "median_physchem": 0.3161,
+  "median_chem_struct": 0.4717,
+  "median_gain": 0.1138,
+  "ci_lo": 0.1038,
+  "ci_hi": 0.1418,
+  "p": 1.5073643982225537e-19,
+  "frac_assays_improved": 0.879,
+  "frac_gain_above_0_05": 0.712,
+  "gain_vs_plddt_rho": 0.102,
+  "gain_vs_plddt_p": 0.24376472388140388
+ },
+ {
+  "split": "fold_modulo_5",
+  "n_assays": 133,
+  "median_physchem": 0.3078,
+  "median_chem_struct": 0.4736,
+  "median_gain": 0.1243,
+  "ci_lo": 0.1135,
+  "ci_hi": 0.1549,
+  "p": 2.5088237709447893e-20,
+  "frac_assays_improved": 0.902,
+  "frac_gain_above_0_05": 0.707,
+  "gain_vs_plddt_rho": -0.047,
+  "gain_vs_plddt_p": 0.5899749516964522
+ },
+ {
+  "split": "fold_contiguous_5",
+  "n_assays": 116,
+  "median_physchem": 0.3146,
+  "median_chem_struct": 0.4295,
+  "median_gain": 0.1062,
+  "ci_lo": 0.0881,
+  "ci_hi": 0.127,
+  "p": 7.243378269256293e-16,
+  "frac_assays_improved": 0.853,
+  "frac_gain_above_0_05": 0.681,
+  "gain_vs_plddt_rho": -0.056,
+  "gain_vs_plddt_p": 0.5477572748036406
+ }
+]
