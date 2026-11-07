@@ -155,10 +155,12 @@ NSEED = SUM2.get("seeds", {}).get("heldout_sites", 10)
 
 # ================================================================= TITLE
 doc.add_heading(
-    "Most supervised models on ProteinGym do not beat a baseline that cannot tell amino acids "
-    "apart: a position-only control for deep mutational scanning benchmarks",
+    "Position is not prediction: an amino-acid-blind baseline for deep mutational scanning "
+    "benchmarks",
     0)
 P("[Author names and affiliations]", al=WD_ALIGN_PARAGRAPH.CENTER)
+P("Running title: An amino-acid-blind baseline for variant-effect benchmarks", it=True,
+  al=WD_ALIGN_PARAGRAPH.CENTER, size=9)
 
 # ================================================================= ABSTRACT
 H("Abstract")
