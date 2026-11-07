@@ -1,0 +1,7 @@
+02:43:45 124,197 genotypes; bind=105,526, expr=116,258, escape=2,029
+02:43:45 feature block (124197, 67), side info (201, 24), ESM loaded
+02:43:45 10 runs, 0 already cached
+/home/user/EvoClassNet/evoclassnet/metrics.py:83: NearConstantInputWarning: An input array is nearly constant; the computed correlation coefficient may be inaccurate.
+  out["pearson"] = float(pearsonr(yy, pp)[0])
+/home/user/EvoClassNet/evoclassnet/metrics.py:83: NearConstantInputWarning: An input array is nearly constant; the computed correlation coefficient may be inaccurate.
+  out["pearson"] = float(pearsonr(yy, pp)[0])

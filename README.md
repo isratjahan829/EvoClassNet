@@ -79,6 +79,22 @@ Escape runs the other way. BLOSUM62 is not merely uninformative there but anti-c
 
 ## Full metric panel
 
+**Random genotype split** — ACE2 binding (`results/table_panel.csv` has all phenotypes and metrics)
+
+| Family | Model | Seeds | Spearman ρ | Partial ρ | Pearson r | Kendall τ | R² | RMSE | AUROC | Prec@k | NDCG | Calib. | n |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| untrained | Mutation count | 5 | 0.478 ± 0.005 | -0.001 ± 0.001 | 0.470 ± 0.005 | 0.374 ± 0.005 | 0.151 ± 0.010 | 1.760 ± 0.012 | 0.735 ± 0.005 | 0.012 ± 0.018 | 0.770 ± 0.019 | 0.689 ± 0.015 | 10540 |
+| untrained | BLOSUM62 | 5 | 0.417 ± 0.007 | 0.234 ± 0.008 | 0.420 ± 0.006 | 0.306 ± 0.005 | -1.821 ± 0.047 | 3.206 ± 0.028 | 0.712 ± 0.002 | 0.040 ± 0.020 | 0.692 ± 0.028 | 0.253 ± 0.005 | 10540 |
+| untrained | ESM-2 zero-shot | 5 | 0.075 ± 0.004 | -0.005 ± 0.010 | 0.081 ± 0.004 | 0.051 ± 0.003 | -1.750 ± 0.041 | 3.166 ± 0.016 | 0.539 ± 0.003 | 0.012 ± 0.018 | 0.231 ± 0.027 | 0.110 ± 0.006 | 10540 |
+| transferable | Physicochemical ridge | 5 | 0.726 ± 0.004 | 0.622 ± 0.006 | 0.689 ± 0.005 | 0.539 ± 0.004 | 0.475 ± 0.007 | 1.383 ± 0.011 | 0.863 ± 0.004 | 0.048 ± 0.018 | 0.937 ± 0.004 | 1.001 ± 0.016 | 10540 |
+| transferable | k-NN (features) | 5 | 0.646 ± 0.007 | 0.533 ± 0.008 | 0.655 ± 0.006 | 0.471 ± 0.005 | 0.311 ± 0.008 | 1.585 ± 0.010 | 0.819 ± 0.005 | 0.036 ± 0.030 | 0.945 ± 0.007 | 1.162 ± 0.010 | 10540 |
+| transferable | Gradient boosting | 5 | 0.746 ± 0.004 | 0.653 ± 0.006 | 0.775 ± 0.003 | 0.559 ± 0.004 | 0.599 ± 0.004 | 1.208 ± 0.010 | 0.873 ± 0.004 | 0.044 ± 0.026 | 0.950 ± 0.004 | 1.031 ± 0.005 | 10540 |
+| transferable | Structure GNN | 5 | 0.733 ± 0.042 | 0.646 ± 0.052 | 0.760 ± 0.045 | 0.549 ± 0.039 | 0.459 ± 0.048 | 1.403 ± 0.063 | 0.864 ± 0.019 | 0.044 ± 0.033 | 0.930 ± 0.033 | 0.884 ± 0.027 | 10540 |
+| position-indexed | Additive ridge | 5 | 0.874 ± 0.004 | 0.834 ± 0.006 | 0.806 ± 0.005 | 0.714 ± 0.005 | 0.649 ± 0.008 | 1.131 ± 0.013 | 0.933 ± 0.004 | 0.204 ± 0.064 | 0.966 ± 0.003 | 0.984 ± 0.015 | 10540 |
+| position-indexed | Global epistasis | 5 | 0.887 ± 0.005 | 0.850 ± 0.006 | 0.935 ± 0.001 | 0.743 ± 0.006 | 0.875 ± 0.003 | 0.676 ± 0.007 | 0.939 ± 0.004 | 0.284 ± 0.075 | 0.975 ± 0.005 | 0.996 ± 0.005 | 10540 |
+| position-indexed | EvoClassNet | 5 | 0.890 ± 0.011 | 0.857 ± 0.013 | 0.958 ± 0.021 | 0.748 ± 0.022 | 0.909 ± 0.059 | 0.558 ± 0.161 | 0.944 ± 0.009 | 0.160 ± 0.042 | 0.971 ± 0.005 | 0.991 ± 0.005 | 10540 |
+| position-indexed | EvoClassNet + ESM/str | 5 | 0.895 ± 0.004 | 0.862 ± 0.005 | 0.967 ± 0.001 | 0.756 ± 0.004 | 0.934 ± 0.003 | 0.489 ± 0.011 | 0.947 ± 0.002 | 0.160 ± 0.037 | 0.971 ± 0.003 | 0.990 ± 0.004 | 10540 |
+
 **Held-out-position split** — ACE2 binding (`results/table_panel.csv` has all phenotypes and metrics)
 
 | Family | Model | Seeds | Spearman ρ | Partial ρ | Pearson r | Kendall τ | R² | RMSE | AUROC | Prec@k | NDCG | Calib. | n |
@@ -101,30 +117,30 @@ A non-significant difference is not evidence of no difference. Each trained mode
 
 | Phenotype | Model | Median Δρ | CI low | CI high | P (FDR) | TOST P | Equivalent | Cliff's δ | Effect |
 |---|---|---|---|---|---|---|---|---|---|
-| ACE2 binding | Physicochemical ridge | 0.3088 | 0.2797 | 0.3724 | 0.003 | 0.999999164248084 | False | 1.0 | large |
-| ACE2 binding | k-NN (features) | 0.2137 | 0.1723 | 0.2598 | 0.003 | 0.9999695051538248 | False | 1.0 | large |
-| ACE2 binding | Gradient boosting | 0.3081 | 0.2725 | 0.3544 | 0.003 | 0.9999995483930094 | False | 1.0 | large |
-| ACE2 binding | Structure GNN | -0.0264 | -0.1497 | 0.0347 | 0.35312 | 0.5313516250383241 | False | -0.16 | small |
-| ACE2 binding | Additive ridge | -0.3939 | -0.4118 | -0.3573 | 0.003 | 0.9999999985020248 | False | -1.0 | large |
-| ACE2 binding | Global epistasis | -0.7771 | -0.8013 | -0.7051 | 0.003 | 0.9999999996603752 | False | -1.0 | large |
-| ACE2 binding | EvoClassNet | -0.0217 | -0.1215 | 0.0207 | 0.31871 | 0.4462284048570662 | False | -0.22 | small |
-| ACE2 binding | EvoClassNet + ESM/str | 0.0703 | 0.0006 | 0.1199 | 0.10679 | 0.6569136834149025 | False | 0.48 | large |
-| Expression | Physicochemical ridge | 0.203 | 0.1706 | 0.2693 | 0.003 | 0.999928016037545 | False | 1.0 | large |
-| Expression | k-NN (features) | 0.1488 | 0.0945 | 0.2013 | 0.003 | 0.9956419163076456 | False | 0.96 | large |
-| Expression | Gradient boosting | 0.2363 | 0.2088 | 0.3023 | 0.003 | 0.9999897622022216 | False | 1.0 | large |
-| Expression | Structure GNN | 0.0732 | -0.0953 | 0.0965 | 0.40234 | 0.2555906965152575 | False | 0.36 | medium |
-| Expression | Additive ridge | -0.382 | -0.3938 | -0.3373 | 0.003 | 0.9999999963204804 | False | -1.0 | large |
-| Expression | Global epistasis | -0.7401 | -0.7779 | -0.6587 | 0.003 | 0.9999999966239258 | False | -1.0 | large |
-| Expression | EvoClassNet | -0.0177 | -0.0976 | 0.0052 | 0.35312 | 0.4250940411662657 | False | -0.4 | medium |
-| Expression | EvoClassNet + ESM/str | 0.0242 | -0.0594 | 0.0823 | 0.57334 | 0.1852968019775392 | False | 0.34 | medium |
-| Antibody escape | Physicochemical ridge | 0.5812 | 0.557 | 0.6414 | 0.003 | 0.9999999990092736 | False | 1.0 | large |
-| Antibody escape | k-NN (features) | 0.4058 | 0.3571 | 0.4569 | 0.003 | 0.9999998550819889 | False | 1.0 | large |
-| Antibody escape | Gradient boosting | 0.579 | 0.5204 | 0.6398 | 0.003 | 0.9999999744333672 | False | 1.0 | large |
-| Antibody escape | Structure GNN | 0.2542 | 0.1177 | 0.2848 | 0.00838 | 0.9972316420931856 | False | 0.8 | large |
+| ACE2 binding | Physicochemical ridge | 0.3088 | 0.2797 | 0.3724 | 0.00601 | 0.999999164248084 | False | 1.0 | large |
+| ACE2 binding | k-NN (features) | 0.2137 | 0.1723 | 0.2598 | 0.00601 | 0.9999695051538248 | False | 1.0 | large |
+| ACE2 binding | Gradient boosting | 0.3081 | 0.2725 | 0.3544 | 0.00601 | 0.9999995483930094 | False | 1.0 | large |
+| ACE2 binding | Structure GNN | -0.0264 | -0.1497 | 0.0347 | 0.33871 | 0.5313516250383241 | False | -0.16 | small |
+| ACE2 binding | Additive ridge | -0.3939 | -0.4118 | -0.3573 | 0.00601 | 0.9999999985020248 | False | -1.0 | large |
+| ACE2 binding | Global epistasis | -0.7771 | -0.8013 | -0.7051 | 0.00601 | 0.9999999996603752 | False | -1.0 | large |
+| ACE2 binding | EvoClassNet | -0.0217 | -0.1215 | 0.0207 | 0.29702 | 0.4462284048570662 | False | -0.22 | small |
+| ACE2 binding | EvoClassNet + ESM/str | 0.0703 | 0.0006 | 0.1199 | 0.09454 | 0.6569136834149025 | False | 0.48 | large |
+| Expression | Physicochemical ridge | 0.203 | 0.1706 | 0.2693 | 0.00601 | 0.999928016037545 | False | 1.0 | large |
+| Expression | k-NN (features) | 0.1488 | 0.0945 | 0.2013 | 0.00601 | 0.9956419163076456 | False | 0.96 | large |
+| Expression | Gradient boosting | 0.2363 | 0.2088 | 0.3023 | 0.00601 | 0.9999897622022216 | False | 1.0 | large |
+| Expression | Structure GNN | 0.0732 | -0.0953 | 0.0965 | 0.39015 | 0.2555906965152575 | False | 0.36 | medium |
+| Expression | Additive ridge | -0.382 | -0.3938 | -0.3373 | 0.00601 | 0.9999999963204804 | False | -1.0 | large |
+| Expression | Global epistasis | -0.7401 | -0.7779 | -0.6587 | 0.00601 | 0.9999999966239258 | False | -1.0 | large |
+| Expression | EvoClassNet | -0.0177 | -0.0976 | 0.0052 | 0.33871 | 0.4250940411662657 | False | -0.4 | medium |
+| Expression | EvoClassNet + ESM/str | 0.0242 | -0.0594 | 0.0823 | 0.56766 | 0.1852968019775392 | False | 0.34 | medium |
+| Antibody escape | Physicochemical ridge | 0.5812 | 0.557 | 0.6414 | 0.00601 | 0.9999999990092736 | False | 1.0 | large |
+| Antibody escape | k-NN (features) | 0.4058 | 0.3571 | 0.4569 | 0.00601 | 0.9999998550819889 | False | 1.0 | large |
+| Antibody escape | Gradient boosting | 0.579 | 0.5204 | 0.6398 | 0.00601 | 0.9999999744333672 | False | 1.0 | large |
+| Antibody escape | Structure GNN | 0.2542 | 0.1177 | 0.2848 | 0.01676 | 0.9972316420931856 | False | 0.8 | large |
 | Antibody escape | Additive ridge | 0.0 | 0.0 | 0.0 |  |  | False | 0.0 | negligible |
-| Antibody escape | Global epistasis | 0.0 | 0.0 | 0.0187 | 0.5202 | 7.399767135154628e-06 | True | 0.2 | small |
-| Antibody escape | EvoClassNet | 0.2414 | 0.0602 | 0.2948 | 0.03706 | 0.9675099975291984 | False | 0.6 | large |
-| Antibody escape | EvoClassNet + ESM/str | 0.3877 | 0.1304 | 0.4405 | 0.04964 | 0.9923486991895392 | False | 0.8 | large |
+| Antibody escape | Global epistasis | 0.0 | 0.0 | 0.0187 | 0.51244 | 7.399767135154628e-06 | True | 0.2 | small |
+| Antibody escape | EvoClassNet | 0.2414 | 0.0602 | 0.2948 | 0.07193 | 0.9675099975291984 | False | 0.6 | large |
+| Antibody escape | EvoClassNet + ESM/str | 0.3877 | 0.1304 | 0.4405 | 0.07193 | 0.9923486991895392 | False | 0.8 | large |
 
 ## Second task: coronavirus genus classification
 
@@ -200,4 +216,4 @@ scripts/build_readme2.py   this file, generated from results/
 ./run_all.sh
 ```
 
-The study is 10 cached runs in `results/jobs_v2/`, one JSON per run; re-running skips completed jobs.
+The study is 15 cached runs in `results/jobs_v2/`, one JSON per run; re-running skips completed jobs.

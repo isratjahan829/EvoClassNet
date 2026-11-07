@@ -5,3 +5,5 @@
 01:09:16 [2/5] main_random_s0 bind=0.893 expr=0.857 esca=0.667
 01:09:53 [3/5] main_random_s2 bind=0.892 expr=0.864 esca=0.787
 01:10:37 [4/5] main_random_s1 bind=0.897 expr=0.863 esca=0.649
+02:42:45 [5/5] main_random_s4 bind=0.900 expr=0.857 esca=0.719
+02:42:45 all runs finished
