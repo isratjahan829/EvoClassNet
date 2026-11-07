@@ -20,6 +20,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 ROOT = Path(__file__).resolve().parents[1]
 R = ROOT / "results"
 FIG = R / "figures"
+FIGF = R / "figures" / "final"
 
 J = lambda n: json.load(open(R / n)) if (R / n).exists() else {}
 C = lambda n: pd.read_csv(R / n) if (R / n).exists() else pd.DataFrame()
@@ -58,7 +59,8 @@ def H(t, lvl=1):
 
 
 def fig(name, caption, width=6.2):
-    f = FIG / name
+    """Prefer the publication-styled figure of the same name, if one exists."""
+    f = FIGF / name if (FIGF / name).exists() else FIG / name
     if not f.exists():
         return False
     doc.add_picture(str(f), width=Inches(width))
@@ -620,10 +622,14 @@ if len(PGT):
           f"of the signal in the receptor-binding domain, where the structure is a crystal of the "
           f"bound complex, so this is a weaker instrument than the one used in Section 3.4 "
           f"rather than a refutation of it.")
-fig("fig9_proteingym.png", "Figure 7. ProteinGym: distribution of per-assay Spearman ρ for each "
-    "model family under both evaluation designs. Each point is one assay.", 6.8)
-fig("fig10_proteingym_scatter.png", "Figure 8. The position-mean model against the chemistry "
-    "model, per assay. Which one wins is decided entirely by the split.", 6.0)
+fig("Figure1_protocol.png",
+    "Figure 1. What each evaluation protocol measures. (a) A random split withholds variants; a "
+    "position-based split withholds columns, and discards variants that span the boundary. "
+    "(b, c) Per-assay comparison of a model given only the mutated position against one given "
+    "only the chemistry of the substitution, under each protocol. (d) Median and spread of "
+    "per-assay Spearman ρ for six model families under three protocols, over every ProteinGym "
+    "substitution assay.", 6.9)
+
 
 H("3.2 Auditing the published leaderboard", 2)
 AUD = C("table_position_only_audit.csv")
@@ -679,9 +685,12 @@ if len(AUD):
           "model is favoured on assays where each position carries many measured substitutions, "
           "which is most of ProteinGym by design. Neither affects the position-based comparisons, "
           "where the baseline is identically zero.")
-fig("fig12_position_only_audit.png", "Figure 9. Fraction of assays on which each published "
-    "supervised model beats a baseline given only the mutated position, under each "
-    "cross-validation scheme.", 6.4)
+fig("Figure2_leaderboard.png",
+    "Figure 2. The published ProteinGym supervised leaderboard audited against a position-only "
+    "baseline. (a) Fraction of assays on which each published model scores above the baseline, "
+    "under each cross-validation scheme; the dashed line is half the assays. (b) Mean Spearman "
+    "ρ under the random split and under fold_modulo_5 for every published model and for the "
+    "baselines added here.", 6.9)
 
 H("3.3 Our own baselines on the same axes", 2)
 LBP = C("table_leaderboard_pivot.csv")
@@ -716,8 +725,7 @@ if len(LBP):
           f"representations — sequence embeddings, and structure in the case of the leading "
           f"model — which is the same account this paper gives, arrived at independently on the "
           f"receptor-binding domain and confirmed by their numbers rather than by ours.")
-fig("fig11_leaderboard.png", "Figure 10. Published ProteinGym supervised models and the baselines "
-    "added here, under the random split and under fold_modulo_5.", 6.4)
+
 
 
 H("3.4 Under random splits every trained model performs well", 2)
@@ -745,9 +753,12 @@ P("Two entries are zero by construction rather than by failure. The additive rid
   "collapses to the intercept. Mutation count scores zero on escape for the same reason: every "
   "labelled variant carries exactly one substitution, so the baseline is constant. This makes "
   "escape the one phenotype on which mutation count cannot masquerade as skill.")
-fig("fig1_panel_spearman.png", "Figure 1. Test Spearman ρ for every model family under both "
-    "evaluation designs. Bars are means over seeds, whiskers one standard deviation. Colour "
-    "denotes how a model represents a substitution.", 6.6)
+fig("Figure3_rbd_panel.png",
+    "Figure 3. The receptor-binding-domain panel. (a) Spearman ρ for ACE2 binding under both "
+    "splits; bars are means over seeds, whiskers one standard deviation. (b) The same models at "
+    "held-out positions after the substitution count is partialled out of prediction and "
+    "measurement; points are means over seeds with bootstrap intervals, filled where the "
+    "interval excludes zero.", 6.9)
 
 H("3.5 At held-out positions the position-indexed models fall to the untrained baseline", 2)
 if len(PANEL):
@@ -799,10 +810,7 @@ if len(COMPAR):
                   "median_diff": "Median Δρ", "ci_lo": "CI low", "ci_hi": "CI high",
                   "p_fdr": "P (FDR)", "tost_p": "TOST P", "equivalent": "Equivalent",
                   "cliffs_delta": "Cliff's δ", "effect": "Effect"})
-fig("fig2_panel_partial.png", "Figure 2. The same comparison in partial Spearman ρ, with "
-    "substitution count removed from both prediction and measurement. The untrained "
-    "mutation-count baseline sits at zero by construction, which is what makes this panel "
-    "readable.", 6.6)
+
 
 H("3.7 Extrapolation is possible; the earlier conclusion was about representations", 2)
 P("Our first analysis stopped here and concluded that none of the models extrapolates across "
@@ -956,9 +964,11 @@ if TBP:
         cs = sorted(v["rho_vs_structure"].items(), key=lambda kv: -abs(kv[1][0]))[:3]
         P(f"Per-position accuracy for {tn} is associated with " + ", ".join(
             f"{k} (ρ = {r:+.2f}, P = {pp:.2g})" for k, (r, pp) in cs) + ".")
-fig("fig8_transfer_by_position.png",
-    "Figure 6. Per-position rank accuracy at withheld positions against solvent accessibility and "
-    "distance to ACE2.", 6.6)
+fig("Figure4_decomposition.png",
+    "Figure 4. Where the transferable signal comes from. (a) Partial Spearman ρ for ACE2 binding "
+    "at held-out positions, by feature block; bars are means over ten seeds, whiskers one "
+    "standard deviation. (b) Median per-position rank accuracy within a single withheld position, "
+    "for the transferable model and for BLOSUM62 exchangeability on identical substitutions.", 6.9)
 
 H("3.9 The protein language model contributes nothing here", 2)
 if FEAT:
@@ -1002,8 +1012,7 @@ if len(ABL2):
       "representation is residue identity and its chemical correlates.")
 
 H("3.11 Withholding more positions", 2)
-fig("fig3_sweep_v2.png", "Figure 3. Performance against the fraction of positions withheld "
-    "(5–50 %). Points are means over seeds, whiskers one standard deviation.", 6.6)
+
 
 H("3.12 Run-to-run instability", 2)
 if STAB:
@@ -1100,9 +1109,14 @@ if len(GENC):
                   "n_seeds": "Seeds", "median_diff": "Median Δ", "ci_lo": "CI low",
                   "ci_hi": "CI high", "p_fdr": "P (FDR)", "tost_p": "TOST P",
                   "equivalent": "Equivalent", "cliffs_delta": "Cliff's δ"})
-fig("fig6_genomes.png", "Figure 11. Balanced accuracy on coronavirus genus classification under "
-    "both splits. The dotted line is chance for four classes.", 6.4)
-fig("fig7_genome_confusion.png", "Figure 12. Confusion matrices under the held-out-species split, "
+
+fig("Figure5_controls.png",
+    "Figure 5. Controls. (a) ESM-2 wild-type recovery and median top-token probability on a "
+    "protein it should find easy, on the receptor-binding domain alone, and on the same "
+    "domain scored inside the full spike protein. (b) Balanced accuracy on coronavirus "
+    "genus classification under a random split and a held-out-species split; the dashed "
+    "line is chance for four classes.", 6.9)
+fig("fig7_genome_confusion.png", "Figure 6. Confusion matrices under the held-out-species split, "
     "pooled over seeds and row-normalised.", 6.4)
 P("The original project proposal reported this task as a five-way classification at 99.92 % "
   "accuracy, with no baseline. The lesson here is not that such a number must be wrong, but that "

@@ -64,6 +64,17 @@ def main():
         else:
             manifest["missing"].append(name)
 
+    # Publication figures first, in their own folder, with the vector versions alongside.
+    final = FIG / "final"
+    if final.exists():
+        (OUT / "figures" / "publication").mkdir(parents=True, exist_ok=True)
+        for src in sorted(final.iterdir()):
+            if src.suffix.lower() not in (".png", ".pdf"):
+                continue
+            shutil.copy2(src, OUT / "figures" / "publication" / src.name)
+            manifest["figures"].append({"file": f"figures/publication/{src.name}",
+                                        "bytes": src.stat().st_size,
+                                        "note": "main manuscript figure, 600 dpi PNG and vector PDF"})
     for src in sorted(FIG.glob("*.png")):
         shutil.copy2(src, OUT / "figures" / src.name)
         manifest["figures"].append({"file": f"figures/{src.name}",
