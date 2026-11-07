@@ -222,4 +222,4 @@ scripts/build_readme2.py   this file, generated from results/
 ./run_all.sh
 ```
 
-The study is 15 cached runs in `results/jobs_v2/`, one JSON per run; re-running skips completed jobs.
+The study is 20 cached runs in `results/jobs_v2/`, one JSON per run; re-running skips completed jobs.

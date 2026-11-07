@@ -1067,10 +1067,18 @@ if len(ABL2):
                   "permuted": "Permuted", "delta": "Δ"})
     P("Permuting the alphabet independently at each position preserves every position's own "
       "information while destroying any correspondence between the same residue at different "
-      "positions. For the sequence models the manipulation changes little, which is what the "
+      "positions. The manipulation acts on the integer-encoded sequence, so it reaches the four "
+      "models that take that encoding as input; the untrained scorers and the feature-based "
+      "models are computed from the substitution list and are unaffected by construction, and "
+      "are omitted from the table rather than listed with a difference of exactly zero.")
+    P("For the plain sequence network the change is small against the between-seed spread "
+      "(binding -0.020 against a standard deviation of 0.118), which is what the "
       "mutation-count account predicts, since substitution count is invariant to relabelling. "
-      "The feature-based models are destroyed by it, as they must be: their entire "
-      "representation is residue identity and its chemical correlates.")
+      "The network given structural and language-model side information loses more "
+      "(-0.111 for binding, -0.152 for escape), which is the expected direction: that side "
+      "information is attached to positions, and permuting the alphabet severs the link between "
+      "a residue's identity and the structural context it sits in. The seed spreads are wide "
+      "enough that we would not rest an argument on the size of either number.")
 
 H("3.11 Withholding more positions", 2)
 

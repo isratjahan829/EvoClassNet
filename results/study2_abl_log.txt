@@ -5,3 +5,8 @@
   out["pearson"] = float(pearsonr(yy, pp)[0])
 /home/user/EvoClassNet/evoclassnet/metrics.py:83: NearConstantInputWarning: An input array is nearly constant; the computed correlation coefficient may be inaccurate.
   out["pearson"] = float(pearsonr(yy, pp)[0])
+03:07:41 [1/10] abl_perm_heldout_sites_s1 bind=0.261 expr=0.205 esca=0.056
+03:20:39 [2/10] abl_perm_heldout_sites_s3 bind=0.227 expr=0.167 esca=0.287
+03:23:21 [3/10] abl_perm_heldout_sites_s0 bind=0.235 expr=0.251 esca=0.457
+03:26:29 [4/10] abl_perm_heldout_sites_s2 bind=0.302 expr=0.252 esca=0.442
+03:36:15 [5/10] abl_perm_heldout_sites_s4 bind=0.273 expr=0.237 esca=-0.272

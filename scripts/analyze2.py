@@ -163,6 +163,12 @@ def main():
         zdf.to_csv(OUT / "table_partial_vs_zero.csv", index=False)
 
     # ---------------- Table 3: permutation ablation -----------------------------
+    # The permutation acts on the integer-encoded sequence, which is the input to the neural
+    # models only. The untrained scorers and the feature-based models are computed from the
+    # substitution list and are therefore untouched by construction; including them would show
+    # a delta of exactly zero and invite the reading that permuting had no effect on them.
+    PERMUTED_INPUT = {"Global epistasis", "EvoClassNet", "EvoClassNet + ESM/str",
+                      "Structure GNN"}
     arows = []
     for sp in ("random", "heldout_sites"):
         if not abl[sp]:
@@ -170,6 +176,8 @@ def main():
         seeds = {int(k.split("_s")[-1]) for k in abl[sp]}
         base = {k: v for k, v in main_runs[sp].items() if int(k.split("_s")[-1]) in seeds}
         for mdl, nm, fam in MODELS:
+            if nm not in PERMUTED_INPUT:
+                continue
             for t, tn in TASKS:
                 b, a = vals(base, mdl, t), vals(abl[sp], mdl, t)
                 if not (a and b):
