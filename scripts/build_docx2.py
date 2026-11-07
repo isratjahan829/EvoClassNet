@@ -156,7 +156,7 @@ NSEED = SUM2.get("seeds", {}).get("heldout_sites", 10)
 # ================================================================= TITLE
 doc.add_heading(
     "An amino-acid-blind baseline for variant-effect benchmarks: a systematic reassessment of "
-    "evaluation protocols across 217 deep mutational scanning assays",
+    "evaluation protocols across ProteinGym",
     0)
 P("[Author names and affiliations]", al=WD_ALIGN_PARAGRAPH.CENTER)
 P("Running title: A position-only baseline for variant-effect benchmarks", it=True,
