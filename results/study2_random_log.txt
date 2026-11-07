@@ -1,3 +1,7 @@
 23:27:19 124,197 genotypes; bind=105,526, expr=116,258, escape=2,029
 23:27:19 feature block (124197, 67), side info (201, 24), ESM loaded
 23:27:19 5 runs, 0 already cached
+01:00:07 [1/5] main_random_s3 bind=0.871 expr=0.804 esca=0.430
+01:09:16 [2/5] main_random_s0 bind=0.893 expr=0.857 esca=0.667
+01:09:53 [3/5] main_random_s2 bind=0.892 expr=0.864 esca=0.787
+01:10:37 [4/5] main_random_s1 bind=0.897 expr=0.863 esca=0.649
