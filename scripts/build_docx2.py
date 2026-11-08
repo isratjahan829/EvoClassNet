@@ -426,7 +426,7 @@ if _res:
       f"structural literature. Every one of these quantities is a property of the folded protein "
       f"and is available for a position whether or not it was ever assayed.")
 fig("schema4_structure_gnn.png",
-    "Figure M1. Structural pipeline and residue contact graph from PDB 6M0J. Descriptor names, "
+    "Figure 1. Structural pipeline and residue contact graph from PDB 6M0J. Descriptor names, "
     "edge count, mean degree and the recovered interface set are read from the computed features, "
     "not written by hand.", 6.6)
 
@@ -460,7 +460,7 @@ if ESMC:
       f"{rs.get('median_top_prob', float('nan')):.3f} respectively.")
 
 fig("schema3_plm.png",
-    "Figure M2. ESM-2 enters the study twice: as an untrained zero-shot scorer, and as "
+    "Figure 2. ESM-2 enters the study twice: as an untrained zero-shot scorer, and as "
     "per-position features for the supervised network.", 6.6)
 
 H("2.4 Evaluation designs", 2)
@@ -482,7 +482,7 @@ P("Held-out-position split. The 201 positions are partitioned at random into tra
   "comparison is paired.")
 
 fig("schema1_design.png",
-    "Figure M3. The two evaluation designs, and the untrained controls evaluated on the identical "
+    "Figure 3. The two evaluation designs, and the untrained controls evaluated on the identical "
     "partitions.", 6.6)
 
 H("2.5 Models", 2)
@@ -518,7 +518,7 @@ P("Hyper-parameters were selected by a genetic algorithm maximising mean validat
   "gradient clipping at global norm 1.0. All experiments ran on four CPU cores.")
 
 fig("schema2_backbone.png",
-    "Figure M4. EvoClassNet backbone. Channel counts, kernel sizes, pooling, hidden widths and "
+    "Figure 4. EvoClassNet backbone. Channel counts, kernel sizes, pooling, hidden widths and "
     "the parameter count are read from the trained configuration.", 6.8)
 
 H("2.6 Metrics", 2)
@@ -568,7 +568,7 @@ if GMETA:
       f"genome of a species on one side only, which is the genome-level analogue of withholding "
       f"positions.")
     fig("schema5_genome_task.png",
-        "Figure M5. The genome classification design, with class sizes and the untrained "
+        "Figure 5. The genome classification design, with class sizes and the untrained "
         "controls.", 6.6)
 
 # ================================================================= RESULTS
@@ -645,7 +645,7 @@ if len(PGT):
           f"bound complex, so this is a weaker instrument than the one used in Section 3.4 "
           f"rather than a refutation of it.")
 fig("Figure1_protocol.png",
-    "Figure 1. What each evaluation protocol measures. (a) A random split withholds variants; a "
+    "Figure 6. What each evaluation protocol measures. (a) A random split withholds variants; a "
     "position-based split withholds columns, and discards variants that span the boundary. "
     "(b, c) Per-assay comparison of a model given only the mutated position against one given "
     "only the chemistry of the substitution, under each protocol. (d) Median and spread of "
@@ -708,7 +708,7 @@ if len(AUD):
           "which is most of ProteinGym by design. Neither affects the position-based comparisons, "
           "where the baseline is identically zero.")
 fig("Figure2_leaderboard.png",
-    "Figure 2. The published ProteinGym supervised leaderboard audited against a position-only "
+    "Figure 7. The published ProteinGym supervised leaderboard audited against a position-only "
     "baseline. (a) Fraction of assays on which each published model scores above the baseline, "
     "under each cross-validation scheme; the dashed line is half the assays. (b) Mean Spearman "
     "ρ under the random split and under fold_modulo_5 for every published model and for the "
@@ -787,7 +787,7 @@ if len(_SE):
           f"This is the result that lifts the structural claim off a single protein with a "
           f"solved complex.")
 fig("FigureS1_structure_effect.png",
-    "Figure 6. Effect of adding AlphaFold descriptors. (a) Distribution across assays of the "
+    "Figure 8. Effect of adding AlphaFold descriptors. (a) Distribution across assays of the "
     "change in Spearman ρ at held-out positions; the vertical line is the median. (b) The same "
     "change against the model's global pLDDT.", 5.6)
 
@@ -817,7 +817,7 @@ P("Two entries are zero by construction rather than by failure. The additive rid
   "labelled variant carries exactly one substitution, so the baseline is constant. This makes "
   "escape the one phenotype on which mutation count cannot masquerade as skill.")
 fig("Figure3_rbd_panel.png",
-    "Figure 3. The receptor-binding-domain panel. (a) Spearman ρ for ACE2 binding under both "
+    "Figure 9. The receptor-binding-domain panel. (a) Spearman ρ for ACE2 binding under both "
     "splits; bars are means over seeds, whiskers one standard deviation. (b) The same models at "
     "held-out positions after the substitution count is partialled out of prediction and "
     "measurement; points are means over seeds with bootstrap intervals, filled where the "
@@ -1028,7 +1028,7 @@ if TBP:
         P(f"Per-position accuracy for {tn} is associated with " + ", ".join(
             f"{k} (ρ = {r:+.2f}, P = {pp:.2g})" for k, (r, pp) in cs) + ".")
 fig("Figure4_decomposition.png",
-    "Figure 4. Where the transferable signal comes from. (a) Partial Spearman ρ for ACE2 binding "
+    "Figure 10. Where the transferable signal comes from. (a) Partial Spearman ρ for ACE2 binding "
     "at held-out positions, by feature block; bars are means over ten seeds, whiskers one "
     "standard deviation. (b) Median per-position rank accuracy within a single withheld position, "
     "for the transferable model and for BLOSUM62 exchangeability on identical substitutions.", 6.9)
@@ -1182,12 +1182,12 @@ if len(GENC):
                   "equivalent": "Equivalent", "cliffs_delta": "Cliff's δ"})
 
 fig("Figure5_controls.png",
-    "Figure 5. Controls. (a) ESM-2 wild-type recovery and median top-token probability on a "
+    "Figure 11. Controls. (a) ESM-2 wild-type recovery and median top-token probability on a "
     "protein it should find easy, on the receptor-binding domain alone, and on the same "
     "domain scored inside the full spike protein. (b) Balanced accuracy on coronavirus "
     "genus classification under a random split and a held-out-species split; the dashed "
     "line is chance for four classes.", 6.9)
-fig("fig7_genome_confusion.png", "Figure 7. Confusion matrices under the held-out-species split, "
+fig("fig7_genome_confusion.png", "Figure 12. Confusion matrices under the held-out-species split, "
     "pooled over seeds and row-normalised.", 6.4)
 P("The original project proposal reported this task as a five-way classification at 99.92 % "
   "accuracy, with no baseline. The lesson here is not that such a number must be wrong, but that "

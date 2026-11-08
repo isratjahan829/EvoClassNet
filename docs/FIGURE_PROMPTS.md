@@ -1,6 +1,7 @@
 # Figure generation prompts
 
-Prompts for an AI figure generator or an illustrator, one per manuscript figure.
+Prompts for an AI figure generator or an illustrator, one per manuscript figure, numbered as
+they appear in the manuscript.
 
 **Every number below was measured by this repository.** Nothing is estimated. Do not let a
 generator add hardware names, runtimes, throughput, FLOPs, parameter counts or accuracy figures
@@ -8,7 +9,7 @@ that are not written here — the uploaded sample schematic that inspired these 
 such numbers (an A100 GPU, 8.7 ms inference, 115 structures per second, "+1.58 % accuracy",
 "73 % attention weight") and none of them were ever measured.
 
-**Method schematics (M1–M5) are the right use for a generator.** Result figures (1–7) are plots
+**Method schematics (Figures 1–5) are the right use for a generator.** Result figures (6–12) are plots
 of measured data; redrawing them is legitimate only if the exact values below are reproduced,
 and the vector PDFs in `deliverables/figures/publication/` are preferable for submission.
 
@@ -29,7 +30,7 @@ panel. Reproduce every label and number exactly as written; invent nothing.
 
 ---
 
-## Figure M1 — Structural pipeline and contact graph
+## Figure 1 — Structural pipeline and contact graph
 
 ```
 Left-to-right flow in four boxes.
@@ -54,7 +55,7 @@ Footer strip, bold, in teal green, titled "ACE2 interface positions recovered fr
 417  446  449  453  455  456  475  476  484  486  487  489  493  496  498  500  501  502  505
 ```
 
-## Figure M2 — ESM-2 in two roles
+## Figure 2 — ESM-2 in two roles
 
 ```
 One input box on the left, two output branches on the right.
@@ -76,7 +77,7 @@ Footer strip: "Control — wild-type recovery: 80.3 % on human ubiquitin, 11.8 %
 domain, 17.6 % on the same positions inside full spike."
 ```
 
-## Figure M3 — The two evaluation designs
+## Figure 3 — The two evaluation designs
 
 ```
 Two stacked matrix diagrams. Rows are variants, columns are positions. A filled cell means that
@@ -100,7 +101,7 @@ Side note: "ProteinGym also defines two position-based schemes, fold_modulo_5 an
 fold_contiguous_5, both reconstructed here."
 ```
 
-## Figure M4 — EvoClassNet backbone
+## Figure 4 — EvoClassNet backbone
 
 ```
 A left-to-right chain of blocks, then a branch down to three heads.
@@ -127,7 +128,7 @@ information: 8 structural descriptors and 16 ESM-2 PCA components, concatenated 
 first convolution."
 ```
 
-## Figure M5 — Genome classification design
+## Figure 5 — Genome classification design
 
 ```
 Left box "NCBI nucleotide": "806 complete genomes, 287 species, four genera".
@@ -148,7 +149,7 @@ model. They are the score any reported accuracy must be read against."
 
 ---
 
-## Figure 1 — What each evaluation protocol measures
+## Figure 6 — What each evaluation protocol measures
 
 ```
 Four panels. Panels a–c across the top, panel d full width below.
@@ -180,7 +181,7 @@ x axis "Spearman ρ per assay", range −0.12 to 1.0.
 Title: "Every ProteinGym substitution assay under three evaluation protocols".
 ```
 
-## Figure 2 — The published leaderboard audited
+## Figure 7 — The published leaderboard audited
 
 ```
 Two panels.
@@ -225,7 +226,7 @@ hairline leaders so none overlap.
   Position mean*                       0.630 → 0.000
 ```
 
-## Figure 3 — The receptor-binding-domain panel
+## Figure 9 — The receptor-binding-domain panel
 
 ```
 Two panels, shared model order top to bottom. Colour the labels by family: green for Mutation
@@ -265,7 +266,7 @@ not:
   Physicochemical ridge  +0.648  [+0.600, +0.690]  filled
 ```
 
-## Figure 4 — Where the transferable signal comes from
+## Figure 10 — Where the transferable signal comes from
 
 ```
 Two panels.
@@ -291,7 +292,7 @@ Steel blue = transferable model, green = BLOSUM62. Significance marks above each
 Note that the BLOSUM62 bar for escape is negative and drops below the zero line.
 ```
 
-## Figure 5 — Controls
+## Figure 11 — Controls
 
 ```
 Two panels.
@@ -318,7 +319,7 @@ b — horizontal grouped bars, "balanced accuracy", 0 to 1.05, dashed line at 0.
 Title: "Coronavirus genus classification".
 ```
 
-## Figure 6 — Effect of adding a predicted structure
+## Figure 8 — Effect of adding a predicted structure
 
 ```
 Two panels.
@@ -341,7 +342,7 @@ n assays / chemistry / chemistry+structure / median gain / fraction improved:
   fold_contiguous_5   116   0.315   0.430   +0.106   85.3 %
 ```
 
-## Figure 7 — Confusion matrices, held-out-species split
+## Figure 12 — Confusion matrices, held-out-species split
 
 ```
 Three square row-normalised confusion matrices side by side, sequential orange colour map from
