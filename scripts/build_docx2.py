@@ -787,7 +787,7 @@ if len(_SE):
           f"This is the result that lifts the structural claim off a single protein with a "
           f"solved complex.")
 fig("FigureS1_structure_effect.png",
-    "Figure 7. Effect of adding AlphaFold descriptors. (a) Distribution across assays of the "
+    "Figure 6. Effect of adding AlphaFold descriptors. (a) Distribution across assays of the "
     "change in Spearman ρ at held-out positions; the vertical line is the median. (b) The same "
     "change against the model's global pLDDT.", 5.6)
 
@@ -1187,7 +1187,7 @@ fig("Figure5_controls.png",
     "domain scored inside the full spike protein. (b) Balanced accuracy on coronavirus "
     "genus classification under a random split and a held-out-species split; the dashed "
     "line is chance for four classes.", 6.9)
-fig("fig7_genome_confusion.png", "Figure 8. Confusion matrices under the held-out-species split, "
+fig("fig7_genome_confusion.png", "Figure 7. Confusion matrices under the held-out-species split, "
     "pooled over seeds and row-normalised.", 6.4)
 P("The original project proposal reported this task as a five-way classification at 99.92 % "
   "accuracy, with no baseline. The lesson here is not that such a number must be wrong, but that "
