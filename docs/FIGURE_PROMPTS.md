@@ -226,6 +226,29 @@ hairline leaders so none overlap.
   Position mean*                       0.630 → 0.000
 ```
 
+## Figure 8 — Effect of adding a predicted structure
+
+```
+Two panels.
+
+a — histogram, steel blue, about 28 bins, of the per-assay change in Spearman ρ at held-out
+positions when AlphaFold descriptors are added to the chemistry block. x axis
+"Δ Spearman ρ from adding structure", y axis "assays". A hairline at zero and a vermillion
+vertical line at the median, +0.114. Title: "Per-assay effect of an AlphaFold model —
+132 assays, 88 % improved".
+
+b — scatter, x "AlphaFold pLDDT of the model", y "Δ Spearman ρ", steel blue points, a hairline
+at zero and a thin linear fit. Annotation: "ρ = +0.10, P = 0.24".
+Title: "Does the gain track prediction confidence?"
+
+Footer values for the caption, four splits as
+n assays / chemistry / chemistry+structure / median gain / fraction improved:
+  Random split        135   0.455   0.590   +0.079   98.5 %
+  Held-out positions  132   0.316   0.472   +0.114   87.9 %
+  fold_modulo_5       133   0.308   0.474   +0.124   90.2 %
+  fold_contiguous_5   116   0.315   0.430   +0.106   85.3 %
+```
+
 ## Figure 9 — The receptor-binding-domain panel
 
 ```
@@ -317,29 +340,6 @@ b — horizontal grouped bars, "balanced accuracy", 0 to 1.05, dashed line at 0.
   1D CNN on nucleotides              0.992 ± 0.009   0.988 ± 0.017
 
 Title: "Coronavirus genus classification".
-```
-
-## Figure 8 — Effect of adding a predicted structure
-
-```
-Two panels.
-
-a — histogram, steel blue, about 28 bins, of the per-assay change in Spearman ρ at held-out
-positions when AlphaFold descriptors are added to the chemistry block. x axis
-"Δ Spearman ρ from adding structure", y axis "assays". A hairline at zero and a vermillion
-vertical line at the median, +0.114. Title: "Per-assay effect of an AlphaFold model —
-132 assays, 88 % improved".
-
-b — scatter, x "AlphaFold pLDDT of the model", y "Δ Spearman ρ", steel blue points, a hairline
-at zero and a thin linear fit. Annotation: "ρ = +0.10, P = 0.24".
-Title: "Does the gain track prediction confidence?"
-
-Footer values for the caption, four splits as
-n assays / chemistry / chemistry+structure / median gain / fraction improved:
-  Random split        135   0.455   0.590   +0.079   98.5 %
-  Held-out positions  132   0.316   0.472   +0.114   87.9 %
-  fold_modulo_5       133   0.308   0.474   +0.124   90.2 %
-  fold_contiguous_5   116   0.315   0.430   +0.106   85.3 %
 ```
 
 ## Figure 12 — Confusion matrices, held-out-species split
