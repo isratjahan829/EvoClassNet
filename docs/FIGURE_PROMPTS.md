@@ -80,25 +80,80 @@ domain, 17.6 % on the same positions inside full spike."
 ## Figure 3 — The two evaluation designs
 
 ```
-Two stacked matrix diagrams. Rows are variants, columns are positions. A filled cell means that
-variant mutates that position; each variant has two filled cells.
+A three-panel landscape scientific figure, title "Two evaluation designs on one saturating
+mutational library". Panels a, b, c left to right, b the widest.
 
-Top, titled "Random split": three whole rows coloured vermillion (test), the rest sky blue
-(train).
+PANEL a — genomic context, drawn as a real annotated gene track.
+A horizontal SARS-CoV-2 spike track, residues 1 to 1273, drawn to scale, with domain blocks
+labelled exactly: "NTD 14-305", "RBD 331-531", "S1/S2 cleavage 685", "HR1", "CH",
+"TM 1214-1237". The RBD block filled steel blue #0072B2, every other block pale grey #D9D9D9.
+Two guide lines expand the RBD downward into a wider bar labelled
+"201 positions, Wuhan-Hu-1 background", carrying a residue ruler ticked every 20 residues from
+331 to 531 and small ticks marking 417, 453, 477, 484, 498, 501 labelled "sites mutated in
+Variants of Concern".
+Caption strip under panel a, small type:
+"124,197 unique amino-acid genotypes - 105,526 with ACE2 binding - 116,258 with expression -
+2,029 single substitutions with antibody escape".
 
-Bottom, titled "Held-out-position split": a dashed vermillion rectangle around the four
-rightmost columns labelled "withheld positions". Rows whose every filled cell lies inside the
-rectangle are vermillion. Rows with no cell inside are sky blue. One row with cells on both
-sides is drawn as an empty outlined cell, labelled "spans the split, discarded".
+PANEL b — the two designs as variant x position matrices, stacked vertically.
+Rows are variants, columns are positions; a filled cell means that variant mutates that
+position. Draw 14 rows and 16 columns, two filled cells per row. Column headers are a short
+residue ruler, row label on the left reads "variants", column label below reads "positions".
 
-Legend: train (sky blue), test (vermillion), discarded (outline).
-Axis note: "rows, variants — columns, positions".
+Top matrix, header bar "Random split - 80 / 10 / 15 % of variants":
+three whole rows filled vermillion #D55E00 (test), one row purple #CC79A7 (validation), the
+rest sky #56B4E9 (train). A bracket spanning all 16 columns, annotated
+"every column appears in training".
 
-Footer strip in green: "Untrained controls evaluated on the identical partitions:
-−n_substitutions · BLOSUM62 exchangeability · ESM-2 masked marginals".
+Bottom matrix, header bar "Held-out-position split - 75 / 10 / 15 % of positions":
+a dashed vermillion rectangle around the four rightmost columns, labelled
+"withheld positions". Rows whose both filled cells lie inside the rectangle are vermillion.
+Rows with neither cell inside are sky blue. Two rows with one cell on each side are drawn as
+hollow outlined cells with a diagonal hatch, labelled "spans the split, discarded".
+A bracket under the withheld columns annotated
+"no training variant mutates any withheld position - asserted in the test suite".
 
-Side note: "ProteinGym also defines two position-based schemes, fold_modulo_5 and
-fold_contiguous_5, both reconstructed here."
+Shared legend beneath both matrices: train (sky #56B4E9), validation (purple #CC79A7),
+test (vermillion #D55E00), discarded (hollow, hatched).
+
+PANEL c — the same two designs painted onto the folded domain.
+Two semi-transparent three-dimensional cartoon ribbons of the SARS-CoV-2 receptor-binding
+domain, both in the same orientation, soft depth shading and a faint ambient-occlusion edge, no
+hard specular highlight. Behind the upper right of each ribbon, a pale grey molecular surface
+labelled "ACE2".
+Upper ribbon, titled "Random split": residues coloured in a fine, evenly scattered mix of sky
+blue and vermillion so no contiguous region stands out. Annotation with a thin leader line:
+"every position is represented in training; a test variant differs only in which substitutions
+it combines".
+Lower ribbon, titled "Held-out-position split": the withheld 15 % of residues coloured
+vermillion, falling as three contiguous surface patches and a few isolated residues, the rest
+sky blue. Annotation: "a withheld position has no parameter in any position-indexed model".
+A small shared colour key: "sky, positions seen in training - vermillion, positions withheld".
+
+FOOTER STRIP, full width, pale green #009E73 outline, three compartments:
+Left, titled "ProteinGym's own position-based schemes, reconstructed here": two small
+sixteen-tooth combs over a position ruler. First comb labelled "fold_modulo_5 - fold = position
+mod 5" with every fifth tooth filled. Second labelled "fold_contiguous_5 - five consecutive
+blocks" with one contiguous fifth filled.
+Middle, titled "Untrained controls, evaluated on the identical partitions":
+"-n_substitutions", "position mean (no residue identity)", "BLOSUM62 exchangeability",
+"ESM-2 masked marginals".
+Right, titled "Replication": "10 seeds - every model within a seed sees the identical
+partition, so every comparison is paired".
+
+HARD CONSTRAINTS.
+Reproduce every label and number exactly as written and invent nothing.
+This figure shows experimental design only. It contains NO measured results, so do NOT add
+any of the following: a training or validation loss curve, an accuracy or correlation bar
+chart, a scatter plot, a precision-recall or ROC curve, a confusion matrix, a phylogenetic tree
+or bootstrap values, a PCA or UMAP embedding, a clustered or structure-based third split, a
+heat map of effects, a performance table, or any number not listed above.
+No decorative icons, no drop shadows, no photographic texture, no gradient backgrounds, no
+beaker or DNA-helix clip art. Colour is never the only cue: repeat it with a direct text label.
+Colour-blind-safe palette only: steel blue #0072B2, teal #009E73, vermillion #D55E00,
+purple #CC79A7, sky #56B4E9, grey #6E6E6E on white.
+Sans-serif labels (Arial or Helvetica), 7-9 pt, bold lower-case panel letters a, b, c at each
+panel's top left. Hairline axes, no top or right spines.
 ```
 
 ## Figure 4 — EvoClassNet backbone
@@ -131,20 +186,74 @@ first convolution."
 ## Figure 5 — Genome classification design
 
 ```
-Left box "NCBI nucleotide": "806 complete genomes, 287 species, four genera".
-Class sizes listed: Alphacoronavirus 285, Betacoronavirus 371, Gammacoronavirus 71,
-Deltacoronavirus 79. Note: "SARS-CoV-2 excluded from Betacoronavirus — its millions of
-deposited genomes would make the class a measure of one outbreak's sequencing effort."
+A four-panel landscape scientific figure, title "A second data type: coronavirus genus
+classification from whole genomes".
 
-Two branches: "Random split" (grey) and "Held-out-species split — no species on both sides"
-(steel blue).
+PANEL a — four real genome maps, drawn to scale against a shared nucleotide axis.
+Four horizontal genome tracks stacked, sharing one axis from 0 to 32 kb ticked every 5 kb. Each
+track drawn at its measured median length and labelled with that length:
+  "Alphacoronavirus - 285 genomes - median 28,141 nt"
+  "Betacoronavirus - 371 genomes - median 30,085 nt"
+  "Gammacoronavirus - 71 genomes - median 27,684 nt"
+  "Deltacoronavirus - 79 genomes - median 25,834 nt"
+On each track, gene blocks in the canonical coronavirus order, sized proportionally and
+labelled where they fit: "ORF1a", "ORF1b", "S", "E", "M", "N", with accessory ORFs as small
+unlabelled blocks. ORF1ab in grey #D9D9D9, S in steel blue #0072B2, the structural genes E, M,
+N in teal #009E73, accessory ORFs in pale purple. A 5' cap symbol at the left end and a
+"3' poly(A)" label at the right end of each track.
+A vertical dashed vermillion line at 4,000 nt across all four tracks, labelled
+"1D CNN input window: first 4,000 nt".
+Note beneath panel a: "SARS-CoV-2 excluded from Betacoronavirus - its millions of deposited
+genomes would make the class a measure of one outbreak's sequencing effort, not of a genus."
 
-Right box "Models": majority class; genome length + base composition (untrained);
-5-mer frequencies + logistic regression / gradient boosting / random forest;
-1D CNN over the first 4,000 nucleotides.
+PANEL b — how a genome becomes features.
+A left-to-right chain. First, a short stretch of real-looking nucleotide sequence in monospace,
+about 40 bases, with a 5-base sliding window outlined in vermillion shown at three successive
+offsets, labelled "k = 5, stride 1". Then an arrow to a 1,024-bin histogram sketch labelled
+"5-mer frequency vector, 4^5 = 1,024 features, normalised to the genome length". Below it, a
+second, much smaller branch: a two-element box labelled "untrained control: genome length +
+base composition (A, C, G, T fractions) - 5 features, no sequence model".
 
-Footer strip in green: "Genome length and base composition need no training and no sequence
-model. They are the score any reported accuracy must be read against."
+PANEL c — the two splits, drawn over a collapsed species tree.
+A compact ladder-style cladogram of coronavirus species with four labelled clades matching the
+genera above, 287 tips collapsed into triangles whose widths are proportional to the class
+sizes. No branch lengths, no support values, no scale bar - this is a schematic of the grouping
+structure, not an inferred phylogeny, and it should be labelled as such:
+"species grouping, schematic - 287 species".
+Upper copy, header "Random split": tips shaded in a fine mix of sky #56B4E9 and vermillion, so
+both colours occur inside every triangle. Annotation: "genomes of the same species fall on both
+sides".
+Lower copy, header "Held-out-species split": whole triangles are either sky blue or vermillion,
+never mixed. Annotation: "every genome of a species lies on one side only - the genome-level
+analogue of withholding positions".
+
+PANEL d — what is compared, with no results shown.
+A single column of model labels in evaluation order, each as a small box, grouped and bracketed:
+Bracket "untrained controls": "Majority class", "Genome length + base composition".
+Bracket "sequence models": "5-mer + logistic regression", "5-mer + gradient boosting",
+"5-mer + random forest", "1D CNN over the first 4,000 nt".
+To the right of the column, a vertical label: "balanced accuracy, macro F1, MCC, log loss -
+10 seeds, paired within seed".
+
+FOOTER STRIP, full width, teal #009E73 outline:
+"Genome length and base composition need no training and no sequence model. They are the score
+any reported accuracy must be read against."
+
+HARD CONSTRAINTS.
+Reproduce every label and number exactly as written and invent nothing.
+This figure shows experimental design only. It contains NO measured results, so do NOT add any
+of the following: an accuracy or balanced-accuracy bar chart, a confusion matrix, a
+precision-recall or ROC curve, a training or validation loss curve, a PCA, t-SNE or UMAP
+scatter of k-mer space, branch lengths or bootstrap support values on the cladogram, a
+per-class performance table, or any number not listed above. In particular do not label the
+cladogram with support values and do not draw it as a radial or circular tree.
+No decorative icons, no drop shadows, no photographic texture, no gradient backgrounds, no
+virus particle or DNA-helix clip art. Colour is never the only cue: repeat it with a direct
+text label.
+Colour-blind-safe palette only: steel blue #0072B2, teal #009E73, vermillion #D55E00,
+purple #CC79A7, sky #56B4E9, grey #6E6E6E on white.
+Sans-serif labels (Arial or Helvetica), 7-9 pt, bold lower-case panel letters a, b, c, d at
+each panel's top left. Hairline axes, no top or right spines.
 ```
 
 ---
