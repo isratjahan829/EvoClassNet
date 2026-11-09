@@ -47,7 +47,8 @@ def main():
     (OUT / "figures").mkdir(parents=True)
     manifest = {"documents": [], "tables": [], "figures": [], "missing": []}
 
-    for name in ("EvoClassNet_manuscript.docx", "EvoClassNet_report.ipynb", "README.md"):
+    for name in ("EvoClassNet_manuscript.docx", "EvoClassNet_manuscript_SciRep_order.docx",
+                 "EvoClassNet_report.ipynb", "README.md"):
         src = ROOT / name
         if src.exists():
             shutil.copy2(src, OUT / name)

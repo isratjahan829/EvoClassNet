@@ -18,4 +18,5 @@ python scripts/analyze2.py
 python scripts/analyze_genomes.py
 python scripts/make_schematics.py
 python scripts/build_docx2.py
+python scripts/make_srep_variant.py   # journal-order variant: unnumbered, methods last
 python scripts/build_readme2.py

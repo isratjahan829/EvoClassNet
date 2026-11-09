@@ -153,6 +153,225 @@ def feat_pm(arm, task, kind="partial"):
 
 NSEED = SUM2.get("seeds", {}).get("heldout_sites", 10)
 
+# Where the amino-acid-blind position-mean model stands on the combined leaderboard under the
+# random split. Computed rather than asserted: an earlier draft stated "third of sixteen", which
+# the data do not support. The pivot's "Random split" column is the mean per-assay Spearman, the
+# statistic ProteinGym itself reports, so the rank is on that scale.
+_PIV = C("table_leaderboard_pivot.csv")
+PM = {}
+if len(_PIV) and "Random split" in _PIV.columns:
+    _d = _PIV.sort_values("Random split", ascending=False).reset_index(drop=True)
+    _hit = _d.index[_d.model.astype(str).str.startswith("Position mean")]
+    if len(_hit):
+        _i = int(_hit[0])
+        _pub = _d[_d.source.astype(str).str.contains("leaderboard")]
+        PM = {"mean": float(_d.loc[_i, "Random split"]),
+              "rank": _i + 1,
+              "n": len(_d),
+              "n_pub": int(len(_pub)),
+              "beats_pub": int((_pub["Random split"] < _d.loc[_i, "Random split"]).sum())}
+_ORD = {1: "first", 2: "second", 3: "third", 4: "fourth", 5: "fifth", 6: "sixth", 7: "seventh",
+        8: "eighth", 9: "ninth", 10: "tenth"}
+_NUM = {11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen", 15: "fifteen",
+        16: "sixteen", 17: "seventeen", 18: "eighteen"}
+
+
+def pm_beats_clause():
+    """'seven of the eleven published supervised models', spelled out."""
+    if not PM:
+        return "several of the published supervised models"
+    b, n = PM["beats_pub"], PM["n_pub"]
+    _sm = {0: "none", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six",
+           7: "seven", 8: "eight", 9: "nine", 10: "ten"}
+    return (f"{_sm.get(b, b)} of the {_NUM.get(n, _sm.get(n, n))} published supervised models")
+
+
+def pm_rank_clause():
+    """'fifth of the seventeen models compared here' - or nothing if the table is absent."""
+    if not PM:
+        return ""
+    return (f"{_ORD.get(PM['rank'], PM['rank'])} of the "
+            f"{_NUM.get(PM['n'], PM['n'])} models compared here")
+
+# ---------------------------------------------------------------------------------------------
+# Bibliography. Entries 1-11 keep the numbering the earlier draft already used in the text, so
+# the in-text citations in the methods and results sections remain correct; everything added for
+# the literature review is appended from 12 onwards.
+REFERENCES = [
+    # --- 1-11: cited in the original methods and results text
+    "Starr TN, Greaney AJ, Hilton SK, et al. Deep mutational scanning of SARS-CoV-2 receptor "
+    "binding domain reveals constraints on folding and ACE2 binding. Cell 2020;182:1295-1310.",
+    "Greaney AJ, Starr TN, Bloom JD. An antibody-escape estimator for mutations to the "
+    "SARS-CoV-2 receptor-binding domain. Virus Evolution 2022;8:veac021.",
+    "Otwinowski J, McCandlish DM, Plotkin JB. Inferring the shape of global epistasis. "
+    "Proceedings of the National Academy of Sciences 2018;115:E7550-E7559.",
+    "Kendall A, Gal Y, Cipolla R. Multi-task learning using uncertainty to weigh losses for "
+    "scene geometry and semantics. IEEE Conference on Computer Vision and Pattern Recognition "
+    "2018:7482-7491.",
+    "Loshchilov I, Hutter F. Decoupled weight decay regularization. International Conference on "
+    "Learning Representations 2019.",
+    "Meier J, Rao R, Verkuil R, et al. Language models enable zero-shot prediction of the effects "
+    "of mutations on protein function. Advances in Neural Information Processing Systems 2021.",
+    "Lin Z, Akin H, Rao R, et al. Evolutionary-scale prediction of atomic-level protein structure "
+    "with a language model. Science 2023;379:1123-1130.",
+    "Lan J, Ge J, Yu J, et al. Structure of the SARS-CoV-2 spike receptor-binding domain bound "
+    "to the ACE2 receptor. Nature 2020;581:215-220.",
+    "Shrake A, Rupley JA. Environment and exposure to solvent of protein atoms. Lysozyme and "
+    "insulin. Journal of Molecular Biology 1973;79:351-371.",
+    "Notin P, Kollasch AW, Ritter D, et al. ProteinGym: large-scale benchmarks for protein "
+    "fitness prediction and design. Advances in Neural Information Processing Systems, Datasets "
+    "and Benchmarks Track 2023.",
+    "Notin P, Weitzman R, Marks DS, Gal Y. ProteinNPT: improving protein property prediction and "
+    "design with non-parametric transformers. Advances in Neural Information Processing Systems "
+    "2023. (Defines the fold_random_5, fold_contiguous_5 and fold_modulo_5 cross-validation "
+    "schemes used here.)",
+    # --- 12-17: deep mutational scanning
+    "Fowler DM, Fields S. Deep mutational scanning: a new style of protein science. Nature "
+    "Methods 2014;11:801-807.",
+    "Sarkisyan KS, Bolotin DA, Meer MV, et al. Local fitness landscape of the green fluorescent "
+    "protein. Nature 2016;533:397-401.",
+    "Tsuboyama K, Dauparas J, Chen J, et al. Mega-scale experimental analysis of protein folding "
+    "stability in biology and design. Nature 2023;620:434-444.",
+    "Livesey BJ, Marsh JA. Using deep mutational scanning to benchmark variant effect predictors "
+    "and identify disease mutations. Molecular Systems Biology 2020;16:e9380.",
+    "Dunham AS, Beltrao P. Exploring amino acid functions in a deep mutational landscape. "
+    "Molecular Systems Biology 2021;17:e10305.",
+    "Domingo J, Baeza-Centurion P, Lehner B. The causes and consequences of genetic interactions "
+    "(epistasis). Annual Review of Genomics and Human Genetics 2019;20:433-460.",
+    # --- 18-21: supervised sequence-function models
+    "Gelman S, Fahlberg SA, Heinzelman P, Romero PA, Gitter A. Neural networks to learn protein "
+    "sequence-function relationships from deep mutational scanning data. Proceedings of the "
+    "National Academy of Sciences 2021;118:e2104878118.",
+    "Hsu C, Nisonoff H, Fannjiang C, Listgarten J. Learning protein fitness models from "
+    "evolutionary and assay-labeled data. Nature Biotechnology 2022;40:1114-1122.",
+    "Yang KK, Wu Z, Arnold FH. Machine-learning-guided directed evolution for protein "
+    "engineering. Nature Methods 2019;16:687-694.",
+    "Luo Y, Jiang G, Yu T, et al. ECNet is an evolutionary context-integrated deep learning "
+    "framework for protein engineering. Nature Communications 2021;12:5743.",
+    # --- 22-31: zero-shot models, language models, hybrids
+    "Hopf TA, Ingraham JB, Poelwijk FJ, et al. Mutation effects predicted from sequence "
+    "co-variation. Nature Biotechnology 2017;35:128-135.",
+    "Riesselman AJ, Ingraham JB, Marks DS. Deep generative models of genetic variation capture "
+    "the effects of mutations. Nature Methods 2018;15:816-822.",
+    "Frazer J, Notin P, Dias M, et al. Disease variant prediction with deep generative models of "
+    "evolutionary data. Nature 2021;599:91-95.",
+    "Rives A, Meier J, Sercu T, et al. Biological structure and function emerge from scaling "
+    "unsupervised learning to 250 million protein sequences. Proceedings of the National Academy "
+    "of Sciences 2021;118:e2016239118.",
+    "Rao RM, Liu J, Verkuil R, et al. MSA Transformer. International Conference on Machine "
+    "Learning 2021:8844-8856.",
+    "Elnaggar A, Heinzinger M, Dallago C, et al. ProtTrans: toward understanding the language of "
+    "life through self-supervised learning. IEEE Transactions on Pattern Analysis and Machine "
+    "Intelligence 2022;44:7112-7127.",
+    "Brandes N, Ofer D, Peleg Y, Rappoport N, Linial M. ProteinBERT: a universal deep-learning "
+    "model of protein sequence and function. Bioinformatics 2022;38:2102-2110.",
+    "Notin P, Dias M, Frazer J, et al. Tranception: protein fitness prediction with "
+    "autoregressive transformers and inference-time retrieval. International Conference on "
+    "Machine Learning 2022:16990-17017.",
+    "Groth PM, Kerrn MH, Olsen L, Salomon J, Boomsma W. Kermut: composite kernel regression for "
+    "protein variant effects. Advances in Neural Information Processing Systems 2024.",
+    "Detlefsen NS, Hauberg S, Boomsma W. Learning meaningful representations of protein "
+    "sequences. Nature Communications 2022;13:1914.",
+    # --- 32-35: structure
+    "Jumper J, Evans R, Pritzel A, et al. Highly accurate protein structure prediction with "
+    "AlphaFold. Nature 2021;596:583-589.",
+    "Varadi M, Anyango S, Deshpande M, et al. AlphaFold Protein Structure Database: massively "
+    "expanding the structural coverage of protein-sequence space with high-accuracy models. "
+    "Nucleic Acids Research 2022;50:D439-D444.",
+    "Mirdita M, Schutze K, Moriwaki Y, et al. ColabFold: making protein folding accessible to "
+    "all. Nature Methods 2022;19:679-682.",
+    "Kipf TN, Welling M. Semi-supervised classification with graph convolutional networks. "
+    "International Conference on Learning Representations 2017.",
+    # --- 36-37: benchmarks
+    "Rao R, Bhattacharya N, Thomas N, et al. Evaluating protein transfer learning with TAPE. "
+    "Advances in Neural Information Processing Systems 2019.",
+    "Dallago C, Mou J, Johnston KE, et al. FLIP: benchmark tasks in fitness landscape inference "
+    "for proteins. Advances in Neural Information Processing Systems, Datasets and Benchmarks "
+    "Track 2021.",
+    # --- 38-41: evaluation methodology, circularity and leakage
+    "Grimm DG, Azencott CA, Aicheler F, et al. The evaluation of tools used to predict the impact "
+    "of missense variants is hindered by two types of circularity. Human Mutation "
+    "2015;36:513-523.",
+    "Walsh I, Fishman D, Garcia-Gasulla D, et al. DOME: recommendations for supervised machine "
+    "learning validation in biology. Nature Methods 2021;18:1122-1127.",
+    "Whalen S, Schreiber J, Noble WS, Pollard KS. Navigating the pitfalls of applying machine "
+    "learning in genomics. Nature Reviews Genetics 2022;23:169-181.",
+    "Kapoor S, Narayanan A. Leakage and the reproducibility crisis in machine-learning-based "
+    "science. Patterns 2023;4:100804.",
+    # --- 42-57: SARS-CoV-2
+    "Starr TN, Greaney AJ, Addetia A, et al. Prospective mapping of viral mutations that escape "
+    "antibodies used to treat COVID-19. Science 2021;371:850-854.",
+    "Greaney AJ, Starr TN, Gilchuk P, et al. Complete mapping of mutations to the SARS-CoV-2 "
+    "spike receptor-binding domain that escape antibody recognition. Cell Host and Microbe "
+    "2021;29:44-57.",
+    "Starr TN, Greaney AJ, Hannon WW, et al. Shifting mutational constraints in the SARS-CoV-2 "
+    "receptor-binding domain during viral evolution. Science 2022;377:420-424.",
+    "Harvey WT, Carabelli AM, Jackson B, et al. SARS-CoV-2 variants, spike mutations and immune "
+    "escape. Nature Reviews Microbiology 2021;19:409-424.",
+    "Zahradnik J, Marciano S, Shemesh M, et al. SARS-CoV-2 variant prediction and antiviral drug "
+    "design are enabled by RBD in vitro evolution. Nature Microbiology 2021;6:1188-1198.",
+    "Moulana A, Dupic T, Phillips AM, et al. Compensatory epistasis maintains ACE2 affinity in "
+    "SARS-CoV-2 Omicron BA.1. Nature Communications 2022;13:7011.",
+    "Taft JM, Weber CR, Gao B, et al. Deep mutational learning predicts ACE2 binding and antibody "
+    "escape to combinatorial mutations in the SARS-CoV-2 receptor-binding domain. Cell "
+    "2022;185:4008-4022.",
+    "Cao Y, Jian F, Wang J, et al. Imprinted SARS-CoV-2 humoral immunity induces convergent "
+    "Omicron RBD evolution. Nature 2023;614:521-529.",
+    "Thadani NN, Gurev S, Notin P, et al. Learning from prepandemic data to forecast viral "
+    "escape. Nature 2023;622:818-825.",
+    "Maher MC, Bartha I, Weaver S, et al. Predicting the mutational drivers of future SARS-CoV-2 "
+    "variants of concern. Science Translational Medicine 2022;14:eabk3445.",
+    "Hie B, Zhong ED, Berger B, Bryson B. Learning the language of viral evolution and escape. "
+    "Science 2021;371:284-288.",
+    "Obermeyer F, Jankowiak M, Barkas N, et al. Analysis of 6.4 million SARS-CoV-2 genomes "
+    "identifies mutations associated with fitness. Science 2022;376:1327-1332.",
+    "Bloom JD, Neher RA. Fitness effects of mutations to SARS-CoV-2 proteins. Virus Evolution "
+    "2023;9:vead055.",
+    "Hadfield J, Megill C, Bell SM, et al. Nextstrain: real-time tracking of pathogen evolution. "
+    "Bioinformatics 2018;34:4121-4123.",
+    "Rambaut A, Holmes EC, O'Toole A, et al. A dynamic nomenclature proposal for SARS-CoV-2 "
+    "lineages to assist genomic epidemiology. Nature Microbiology 2020;5:1403-1407.",
+    "Shu Y, McCauley J. GISAID: Global initiative on sharing all influenza data - from vision to "
+    "reality. Eurosurveillance 2017;22:30494.",
+    # --- 58-65: features and statistics
+    "Henikoff S, Henikoff JG. Amino acid substitution matrices from protein blocks. Proceedings "
+    "of the National Academy of Sciences 1992;89:10915-10919.",
+    "Kawashima S, Kanehisa M. AAindex: amino acid index database. Nucleic Acids Research "
+    "2000;28:374.",
+    "Tien MZ, Meyer AG, Sydykova DK, Spielman SJ, Wilke CO. Maximum allowed solvent "
+    "accessibility of residues in proteins. PLoS ONE 2013;8:e80635.",
+    "Benjamini Y, Hochberg Y. Controlling the false discovery rate: a practical and powerful "
+    "approach to multiple testing. Journal of the Royal Statistical Society B 1995;57:289-300.",
+    "Schuirmann DJ. A comparison of the two one-sided tests procedure and the power approach for "
+    "assessing the equivalence of average bioavailability. Journal of Pharmacokinetics and "
+    "Biopharmaceutics 1987;15:657-680.",
+    "Cliff N. Dominance statistics: ordinal analyses to answer ordinal questions. Psychological "
+    "Bulletin 1993;114:494-509.",
+    "Efron B, Tibshirani RJ. An Introduction to the Bootstrap. New York: Chapman and Hall, 1993.",
+    "Wilcoxon F. Individual comparisons by ranking methods. Biometrics Bulletin 1945;1:80-83.",
+    # --- 66-75: software
+    "Virtanen P, Gommers R, Oliphant TE, et al. SciPy 1.0: fundamental algorithms for scientific "
+    "computing in Python. Nature Methods 2020;17:261-272.",
+    "Harris CR, Millman KJ, van der Walt SJ, et al. Array programming with NumPy. Nature "
+    "2020;585:357-362.",
+    "Pedregosa F, Varoquaux G, Gramfort A, et al. Scikit-learn: machine learning in Python. "
+    "Journal of Machine Learning Research 2011;12:2825-2830.",
+    "Paszke A, Gross S, Massa F, et al. PyTorch: an imperative style, high-performance deep "
+    "learning library. Advances in Neural Information Processing Systems 2019.",
+    "Chen T, Guestrin C. XGBoost: a scalable tree boosting system. Proceedings of the 22nd ACM "
+    "SIGKDD International Conference on Knowledge Discovery and Data Mining 2016:785-794.",
+    "Breiman L. Random forests. Machine Learning 2001;45:5-32.",
+    "Cock PJA, Antao T, Chang JT, et al. Biopython: freely available Python tools for "
+    "computational molecular biology and bioinformatics. Bioinformatics 2009;25:1422-1423.",
+    "Wolf T, Debut L, Sanh V, et al. Transformers: state-of-the-art natural language processing. "
+    "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing: "
+    "System Demonstrations 2020:38-45.",
+    "Seabold S, Perktold J. statsmodels: econometric and statistical modeling with Python. "
+    "Proceedings of the 9th Python in Science Conference 2010:92-96.",
+    "Hunter JD. Matplotlib: a 2D graphics environment. Computing in Science and Engineering "
+    "2007;9:90-95.",
+]
+
 # ================================================================= TITLE
 doc.add_heading(
     "An amino-acid-blind baseline for variant-effect benchmarks: a systematic reassessment of "
@@ -232,9 +451,10 @@ if len(PGT0) and AUDJ0.get("Random split") and len(AUD0):
     _words = {6: "six", 5: "five", 7: "seven", 4: "four", 8: "eight"}
     abs_bits.append(
         f"Across {_na} ProteinGym assays a position-only model reached median \u03c1 {_pm_r:.3f} "
-        f"under random splitting and exactly {_pm_h:.3f} under both position-based schemes, "
-        f"ranking third of sixteen; {_words.get(_below, _below)} of eleven published models failed "
-        f"to beat it, and the median model won on {100*_r['median_frac_beats']:.1f}% of assays "
+        f"under random splitting and exactly {_pm_h:.3f} under both position-based schemes; it outscored "
+        f"{pm_beats_clause().replace(' published supervised models', '')} published models on the "
+        f"mean and {_words.get(_below, _below)} on the median; the median "
+        f"model won on {100*_r['median_frac_beats']:.1f}% of assays "
         f"versus {100*_m.get('median_frac_beats', float('nan')):.1f}% under fold_modulo_5.")
 
 if len(_SE0):
@@ -288,9 +508,10 @@ P("Neither the evaluation design nor the basic finding is new, and it is worth b
 P("What this paper adds is a diagnostic and a reading. The diagnostic is a position-mean model: "
   "a ridge regression on position indicators alone, which knows which position a variant mutates "
   "and nothing whatever about which substitution is made — not even the identity of the incoming "
-  "residue. It is a deliberately impoverished model, and under the random split it ranks third "
-  "of the sixteen models compared here, behind only Kermut and ProteinNPT. Its drop to zero "
-  "under both position-based schemes is the largest of any model, published or added here. A "
+  f"residue. It is a deliberately impoverished model, and under the random split its mean "
+f"per-assay correlation places it {pm_rank_clause()}, ahead of "
+f"{pm_beats_clause()}. Its drop to zero under both position-based schemes is the largest of any model, "
+f"published or added here. A "
   "model that cannot distinguish an alanine from a tryptophan should not be competitive on a "
   "benchmark of substitution effects, and the fact that it is tells you what the standard "
   "protocol is rewarding.")
@@ -345,10 +566,143 @@ else:
       "transferable representations; the argument is about what to measure rather than what to "
       "build.")
 
-# ================================================================= METHODS
-H("2. Materials and methods")
+# ================================================================= LITERATURE REVIEW
+H("2. Literature review")
+P("This section sets out what is established in the three literatures this paper sits between — "
+  "mutational-scanning assays as a source of supervised labels, models of sequence-to-function "
+  "relationships, and the methodology of evaluating such models — and identifies the gap the "
+  "study addresses. The gap is not a missing model or a missing split; both exist. It is a "
+  "missing control.")
 
-H("2.1 Phenotype data", 2)
+H("2.1 Deep mutational scanning as a source of supervised labels", 2)
+P("Deep mutational scanning couples saturating mutagenesis to a selection and a sequencing "
+  "readout, returning a quantitative phenotype for thousands of variants in one experiment "
+  "[12]. The method has been applied across scales, from the local landscape of green "
+  "fluorescent protein [13] to mega-scale measurement of folding stability for hundreds of "
+  "domains [14]. For the SARS-CoV-2 receptor-binding domain, Starr and colleagues measured ACE2 "
+  "binding affinity and expression for essentially all single substitutions in the Wuhan-Hu-1 "
+  "background [1], and the Bloom laboratory subsequently mapped escape from a large panel of "
+  "monoclonal antibodies [43], aggregated into the per-substitution escape estimator used here "
+  "[2] and extended to later lineages as the mutational constraints shifted [44].")
+P("Two features of such libraries matter for everything that follows, and both are properties "
+  "of the experiment rather than of any model. First, the libraries are saturating or close to "
+  "it: almost every position is mutated to almost every residue. Second, where variants carry "
+  "more than one substitution, phenotype declines on average with the number of substitutions, "
+  "a global non-linearity that global-epistasis models were introduced to absorb [3,17]. The "
+  "first property determines what a random train/test split can test; the second determines what "
+  "an uninformative model scores on any split. Analyses of these landscapes have repeatedly "
+  "found that the dominant axis of variation is positional — some sites tolerate substitution "
+  "and others do not — with the identity of the incoming residue a secondary effect [16]. That "
+  "observation is usually reported as biology. The present paper reads it as a statement about "
+  "benchmark difficulty.")
+
+H("2.2 Supervised models of sequence-to-function relationships", 2)
+P("Given assay labels, the standard approach is supervised regression on an encoding of the "
+  "variant. The simplest is an additive model on one-hot (position, residue) indicators, "
+  "optionally composed with a monotone link to capture global epistasis [3]. Neural networks "
+  "trained directly on scanning data improve on this where enough labels exist [18], and "
+  "architectures that inject evolutionary context, such as ECNet, improve further [21]; the "
+  "approach has become standard in machine-learning-guided protein engineering [20]. A "
+  "consistently informative negative result in this literature is that simple models combining "
+  "an evolutionary score with ridge regression on a one-hot encoding match or beat much larger "
+  "architectures across many assays [19], which is a warning that headline performance on these "
+  "data is not strongly architecture-limited.")
+P("What every model in this family shares is the representational commitment that the present "
+  "paper isolates: a substitution is identified by the position it occupies. A parameter learned "
+  "for position 501 says nothing about position 498, and no amount of training data at other "
+  "positions creates one. This is not a criticism of those models, which were built for the "
+  "interpolation problem they are evaluated on. It is the reason their behaviour at an unseen "
+  "position is uninformative about whether the phenotype is predictable there.")
+
+H("2.3 Zero-shot and structure-aware predictors", 2)
+P("A parallel literature predicts variant effects without assay labels. Coevolutionary models "
+  "fit to a multiple sequence alignment, from EVmutation [22] through DeepSequence [23] to EVE "
+  "[24], score a substitution by its plausibility under the evolutionary record. Protein "
+  "language models trained on unaligned sequence databases do the same with masked or "
+  "autoregressive likelihoods: ESM-1b [25], the MSA Transformer [26], ProtTrans [27], ProteinBERT "
+  "[28], Tranception [29] and ESM-2 [7], with the masked-marginal scoring convention of Meier "
+  "and colleagues [6] now standard. Because these scores are defined at every position of the "
+  "sequence, they are in principle exactly the transferable representation that a held-out-position "
+  "evaluation calls for, and the strongest supervised entries on current benchmarks are hybrids "
+  "that combine assay labels with such embeddings [11,30,31].")
+P("Structure supplies a second transferable description. Solvent accessibility, burial, contact "
+  "number and distance to a binding partner are defined for any position of a folded chain, and "
+  "are computed here by the Shrake-Rupley algorithm [9] against normalising maxima [60] from "
+  "either a crystal structure of the receptor complex [8] or, for the benchmark-wide analysis, "
+  "AlphaFold models [32] retrieved from the AlphaFold Protein Structure Database [33,34]. Graph "
+  "neural networks [35] propagate information over the resulting contact graph. The hypothesis "
+  "that structure should carry cross-position transfer is therefore not new; what has been "
+  "missing is a measurement of how much of the transfer it accounts for, separated from the "
+  "chemistry of the substitution itself.")
+
+H("2.4 Benchmarks and evaluation protocols", 2)
+P("Benchmarks have standardised this field. TAPE [36] and FLIP [37] established held-out "
+  "protocols for protein representation learning, and ProteinGym [10] has become the common "
+  "reference, with 217 substitution assays in the version used here and a public leaderboard for "
+  "both zero-shot and supervised regimes. Critically for this paper, the supervised arm does not "
+  "use a random split alone: ProteinNPT [11] defines three cross-validation schemes — "
+  "fold_random_5, fold_contiguous_5 and fold_modulo_5 — of which the latter two partition by "
+  "residue position, and ProteinGym publishes per-assay results under all three. The collapse of "
+  "position-indexed encodings under position-based folds is therefore already in the published "
+  "record: the benchmark's own one-hot baseline falls from a mean Spearman of 0.582 under the "
+  "random scheme to 0.022 under fold_modulo_5. Any claim to have discovered that collapse would "
+  "be false, and this paper makes no such claim.")
+P("Mutational-scanning data are also used in the opposite direction, as ground truth for "
+  "benchmarking clinical variant-effect predictors [15]. That literature is the natural home of "
+  "the concern raised here, because it is where the consequences of a mis-specified evaluation "
+  "are most direct.")
+
+H("2.5 Circularity, leakage and the role of untrained baselines", 2)
+P("The methodological literature on evaluating predictors in biology is explicit that a "
+  "performance number is interpretable only relative to what an uninformed procedure would "
+  "score. Grimm and colleagues showed that assessments of missense predictors are distorted by "
+  "two distinct forms of circularity, one of which is the reuse of the same variants or the same "
+  "proteins across training and evaluation [38]. The DOME recommendations ask, among other "
+  "things, for an explicitly reported baseline [39]. Reviews of machine learning in genomics "
+  "identify unrecognised data leakage and absent baselines as leading causes of irreproducible "
+  "performance claims [40], and a cross-disciplinary survey attributes a substantial body of "
+  "published results to leakage of exactly this kind [41].")
+P("What is absent from this literature, as applied to mutational scanning, is a baseline matched "
+  "to the specific structure of these data. The relevant uninformed procedures are two. One "
+  "ranks variants by how many substitutions they carry, which is predictive wherever "
+  "multi-substitution variants exist and requires no training at all. The other knows only which "
+  "position a variant mutates, and nothing about the substitution — not even the identity of the "
+  "incoming residue. Neither is a model anyone would propose. Both are trivial to compute. "
+  "Neither is reported alongside the benchmarks this field uses, and the central empirical "
+  "result of this paper is what happens when they are.")
+
+H("2.6 Variant-effect prediction for SARS-CoV-2", 2)
+P("The applied motivation is specific and well documented. Substitutions in the receptor-binding "
+  "domain drive both transmissibility and antibody escape [45], in vitro evolution and deep "
+  "mutational learning have mapped the accessible affinity landscape [46,48], and epistasis "
+  "within the domain shapes which combinations are viable [47]. Omicron-era work showed "
+  "convergent evolution at escape positions under imprinted population immunity [49], and "
+  "lineage fitness has been estimated directly from millions of sequenced genomes [53] and from "
+  "experimental fitness effects across the proteome [54]. Forecasting approaches range from "
+  "immune-escape scores built on pre-pandemic data [50] to combined fitness-and-antigenicity "
+  "models [51] and language-model notions of semantic escape [52]; prospective escape mapping "
+  "was used to anticipate resistance to therapeutic antibodies [42]. The surveillance "
+  "infrastructure that consumes such predictions — lineage nomenclature [56], real-time "
+  "phylogenetics [55] and shared sequence repositories [57] — operates on positions as they "
+  "first appear.")
+P("That last point is the reason the evaluation question is not academic here. A prediction is "
+  "needed for a position at the moment it is first observed in a genome, which is before any "
+  "assay has probed it. A model validated only on random held-out variants from a saturating "
+  "library has never been asked that question.")
+
+H("2.7 The gap addressed here", 2)
+P("Three things follow from the above. Position-based evaluation exists and is published, so it "
+  "needs no advocacy. The collapse of position-indexed models under it is documented, so it "
+  "needs no rediscovery. But no published comparison states how much of a conventional "
+  "random-split score survives the removal of all knowledge of the substitution, and without "
+  "that number the random-split results that dominate this literature cannot be read. Supplying "
+  "it, in two forms and on two data types, together with a decomposition of where transferable "
+  "signal actually comes from on one deeply characterised protein, is what this paper does.")
+
+# ================================================================= METHODS
+H("3. Materials and methods")
+
+H("3.1 Phenotype data", 2)
 try:
     from evoclassnet import data as _D
     _g = _D.load_genotypes()
@@ -369,7 +723,7 @@ P(f"Binding and expression come from the yeast-display RBD scan of Starr et al. 
   f"Wuhan-Hu-1 background and because the affected positions are exactly those used in the "
   f"Variant-of-Concern analysis.")
 
-H("2.2 Structural data", 2)
+H("3.2 Structural data", 2)
 try:
     from evoclassnet import structure as _S
     _f, _m, _adj, _names = _S.compute()
@@ -395,7 +749,7 @@ fig("Figure1_structure_pipeline.png",
     "edge count, mean degree and the recovered interface set are read from the computed features, "
     "not written by hand.", 6.6)
 
-H("2.3 Protein language model", 2)
+H("3.3 Protein language model", 2)
 try:
     from evoclassnet import plm as _plm
     _mm, _hid = _plm.load()
@@ -428,9 +782,9 @@ fig("Figure2_esm2.png",
     "Figure 2. ESM-2 enters the study twice: as an untrained zero-shot scorer, and as "
     "per-position features for the supervised network.", 6.6)
 
-H("2.4 Evaluation designs", 2)
+H("3.4 Evaluation designs", 2)
 P("Random split. Genotypes are divided 80/10/10 % into training, validation and test sets.")
-P("Two further designs, used for the ProteinGym analysis in Sections 3.1 to 3.3, are the position-based "
+P("Two further designs, used for the ProteinGym analysis in Sections 4.1 to 4.3, are the position-based "
   "cross-validation schemes the supervised ProteinGym benchmark already defines [10,11]: "
   "fold_modulo_5 assigns a position to fold p mod 5, and fold_contiguous_5 cuts the sequence "
   "into five consecutive blocks of positions. The published fold assignments are distributed in "
@@ -441,7 +795,7 @@ P("Held-out-position split. The 201 positions are partitioned at random into tra
   "validation (10 %) and test (15 %) sets. A genotype joins a partition only if every position it "
   "mutates lies in that partition's position set; genotypes spanning partitions are discarded. No "
   "training genotype therefore mutates any validation or test position, a property asserted "
-  "directly in the test suite rather than assumed. Section 3.11 repeats the design with 5, 15, 30 "
+  "directly in the test suite rather than assumed. Section 4.12 repeats the design with 5, 15, 30 "
   "and 50 % of positions withheld. Both designs were run over "
   f"{NSEED} seeds, and all models within a seed see the identical partition, so every model "
   "comparison is paired.")
@@ -450,7 +804,7 @@ fig("schema1_design.png",
     "Figure 3. The two evaluation designs, and the untrained controls evaluated on the identical "
     "partitions.", 6.6)
 
-H("2.5 Models", 2)
+H("3.5 Models", 2)
 P("Three untrained scorers. Mutation count ranks by the negative number of substitutions. "
   "BLOSUM62 sums substitution-matrix exchangeabilities. ESM-2 sums masked-marginal "
   "log-likelihood ratios. None is fitted to any measurement, so each is defined, unchanged, at "
@@ -467,7 +821,7 @@ P("Four models on a position-transferable feature block. Each substitution contr
   "k-nearest neighbours.")
 P("A structure graph network. Each of the 201 positions is a node carrying an embedding of the "
   "residue this variant places there together with the fixed structural descriptors of the "
-  "position; edges are the contact graph of Section 2.2. Three graph-convolution layers with "
+  "position; edges are the contact graph of Section 3.2. Three graph-convolution layers with "
   "symmetric normalisation are followed by attention pooling and three task heads.")
 P("Four position-indexed models. Additive ridge regression on one-hot (position, residue) "
   "indicators; a global-epistasis model fitting an additive latent phenotype per task through a "
@@ -486,7 +840,7 @@ fig("Figure4_backbone.png",
     "Figure 4. EvoClassNet backbone. Channel counts, kernel sizes, pooling, hidden widths and "
     "the parameter count are read from the trained configuration.", 6.8)
 
-H("2.6 Metrics", 2)
+H("3.6 Metrics", 2)
 P("The primary metric is Spearman's ρ on the test partition, computed per task over genotypes "
   "carrying that measurement; a model emitting a constant prediction conveys no rank information "
   "and is assigned ρ = 0. Because part of any rank correlation on a combinatorial library is "
@@ -498,7 +852,7 @@ P("The primary metric is Spearman's ρ on the test partition, computed per task 
   "ranking the lower measurement quartile, precision at k and NDCG for top-variant retrieval, "
   "the calibration slope, and correlations within fixed substitution-count strata.")
 
-H("2.7 Statistics", 2)
+H("3.7 Statistics", 2)
 P("A note on power before any of these are read. A two-sided Wilcoxon signed-rank test over n "
   "seeds cannot return a P value below 2^-n+1: with five seeds the floor is 0.031, and after "
   "false-discovery-rate correction across a family of twenty or more model-by-task comparisons "
@@ -517,7 +871,7 @@ P(f"Models are compared on per-seed paired differences with a two-sided Wilcoxon
   f"model over positions. Seed-level P values describe reproducibility across partitions of one "
   f"data set; they do not license inference to other proteins.")
 
-H("2.8 Genome classification task", 2)
+H("3.8 Genome classification task", 2)
 if GMETA:
     cc = GMETA.get("class_counts", {})
     P(f"Complete coronavirus genomes (25–35 kb) were retrieved from NCBI nucleotide and labelled "
@@ -536,16 +890,29 @@ if GMETA:
         "Figure 5. The genome classification design, with class sizes and the untrained "
         "controls.", 6.6)
 
+H("3.9 Software, statistical procedures and reproducibility", 2)
+P("Substitution chemistry is encoded from published amino-acid property indices [59] together "
+  "with BLOSUM62 exchangeabilities [58]; relative solvent accessibility is normalised by the "
+  "theoretical maxima of Tien and colleagues [60]. Confidence intervals are percentile bootstrap "
+  "intervals [64]; paired model comparisons across seeds use the Wilcoxon signed-rank test [65]; "
+  "effect sizes are reported as Cliff's delta [63]; equivalence between a model and an untrained "
+  "control is assessed by two one-sided tests [62]; and all families of P values are corrected by "
+  "the Benjamini-Hochberg procedure [61]. The implementation uses NumPy [67], SciPy [66], "
+  "scikit-learn [68], statsmodels [74], XGBoost [70], random forests [71], PyTorch [69], "
+  "Biopython [72], the Transformers library [73] and Matplotlib [75]. Every number, table and "
+  "figure in this manuscript is produced by a single script from cached per-run outputs, and "
+  "run_all.sh reproduces the entire study from raw data on four CPU cores.")
+
 # ================================================================= RESULTS
-H("3. Results")
+H("4. Result analysis and discussion")
 P("The benchmark-wide analysis comes first, because it is what the title claims and because it "
-  "bounds how the case study that follows should be read. Sections 3.1 to 3.3 cover all 217 "
-  "ProteinGym substitution assays and the published supervised leaderboard. Sections 3.4 to "
-  "3.13 are a case study on the SARS-CoV-2 receptor-binding domain, where the data are rich "
-  "enough to decompose where transferable signal comes from. Section 3.14 repeats the "
+  "bounds how the case study that follows should be read. Sections 4.1 to 4.3 cover all 217 "
+  "ProteinGym substitution assays and the published supervised leaderboard. Sections 4.5 to "
+  "4.14 are a case study on the SARS-CoV-2 receptor-binding domain, where the data are rich "
+  "enough to decompose where transferable signal comes from. Section 4.15 repeats the "
   "evaluation question on an unrelated data type.")
 
-H("3.1 A position-only control across 217 ProteinGym assays", 2)
+H("4.1 A position-only control across 217 ProteinGym assays", 2)
 PGT, PGC = C("table_proteingym.csv"), C("table_proteingym_comparisons.csv")
 PGA, PGCONF = C("proteingym_per_assay.csv"), J("proteingym_confound.json")
 if len(PGT):
@@ -607,7 +974,7 @@ if len(PGT):
           f"descriptors to the chemistry block moves the median held-out-position ρ from "
           f"{ch_h} to {cs_h}. Predicted monomers cannot supply the descriptors that carry most "
           f"of the signal in the receptor-binding domain, where the structure is a crystal of the "
-          f"bound complex, so this is a weaker instrument than the one used in Section 3.4 "
+          f"bound complex, so this is a weaker instrument than the one used in Section 4.5 "
           f"rather than a refutation of it.")
 fig("Figure1_protocol.png",
     "Figure 6. What each evaluation protocol measures. (a) A random split withholds variants; a "
@@ -618,7 +985,7 @@ fig("Figure1_protocol.png",
     "substitution assay.", 6.9)
 
 
-H("3.2 Auditing the published leaderboard", 2)
+H("4.2 Auditing the published leaderboard", 2)
 AUD = C("table_position_only_audit.csv")
 AUDJ = J("position_only_audit.json")
 if len(AUD):
@@ -679,7 +1046,7 @@ fig("Figure2_leaderboard.png",
     "ρ under the random split and under fold_modulo_5 for every published model and for the "
     "baselines added here.", 6.9)
 
-H("3.3 Our own baselines on the same axes", 2)
+H("4.3 Our own baselines on the same axes", 2)
 LBP = C("table_leaderboard_pivot.csv")
 LBJ = J("leaderboard_comparison.json")
 if len(LBP):
@@ -694,13 +1061,14 @@ if len(LBP):
           f"preceding sections are. ProteinGym's own one-hot encoding baseline falls from "
           f"{oh['random']:.3f} under fold_random_5 to {oh['modulo']:.3f} under fold_modulo_5 and "
           f"{oh['contiguous']:.3f} under fold_contiguous_5. The collapse of position-indexed "
-          f"models is therefore already in the published record, and nothing in Sections 3.1 to "
-          f"3.3 should be read as discovering it.")
+          f"models is therefore already in the published record, and nothing in Sections 4.1 to "
+          f"4.3 should be read as discovering it.")
     if ours and bm:
         P(f"Two things remain. First, the position-mean model is a sharper instrument than the "
           f"one-hot baseline: it is given no residue identity whatsoever, reaches "
-          f"{ours.get('position_mean_random', 0.630):.3f} under the random split — third of the "
-          f"sixteen models here — and is identically zero under both position-based schemes, a "
+          f"{ours.get('position_mean_random', 0.630):.3f} under the random split, which is "
+          f"{pm_rank_clause()} and ahead of {pm_beats_clause()}, and is identically zero under "
+          f"both position-based schemes, a "
           f"larger fall than any published model. The question it answers is not whether "
           f"position-indexed models transfer, which is settled, but how much of a random-split "
           f"score is available without knowing the substitution at all.")
@@ -719,7 +1087,7 @@ if len(LBP):
 
 
 
-H("3.3b How much does a predicted structure add?", 2)
+H("4.4 How much does a predicted structure add?", 2)
 _SE = C("table_structure_effect.csv")
 if len(_SE):
     table(_SE, "Table 11. Effect of adding AlphaFold descriptors to the chemistry block, per "
@@ -756,7 +1124,7 @@ fig("FigureS1_structure_effect.png",
     "change in Spearman ρ at held-out positions; the vertical line is the median. (b) The same "
     "change against the model's global pLDDT.", 5.6)
 
-H("3.4 Under random splits every trained model performs well", 2)
+H("4.5 Under random splits every trained model performs well", 2)
 if len(PANEL):
     rnd = PANEL[PANEL.split == "random"]
     table(rnd, "Table 1. Random genotype split: full metric panel, mean ± SD across seeds.",
@@ -788,7 +1156,7 @@ fig("Figure3_rbd_panel.png",
     "measurement; points are means over seeds with bootstrap intervals, filled where the "
     "interval excludes zero.", 6.9)
 
-H("3.5 At held-out positions the position-indexed models fall to the untrained baseline", 2)
+H("4.6 At held-out positions the position-indexed models fall to the untrained baseline", 2)
 if len(PANEL):
     hld = PANEL[PANEL.split == "heldout_sites"]
     table(hld, "Table 2. Held-out-position split: test variants mutate only positions absent from "
@@ -808,7 +1176,7 @@ P("When every test variant mutates positions never mutated in training, the addi
   "distribution. EvoClassNet stays positive. Read on its own, the table says the network "
   "extrapolates where the conventional models cannot.")
 
-H("3.6 The mutation-count control, and a metric that makes it unnecessary", 2)
+H("4.7 The mutation-count control, and a metric that makes it unnecessary", 2)
 mc_part = pv("heldout_sites", "ACE2 binding", "Mutation count", "spearman_partial")
 if HAVE_PANEL and hb_mc and hb_ec and mc_part:
   P(f"That reading is wrong, and the reason is visible in a single column. Ranking variants by the "
@@ -840,7 +1208,7 @@ if len(COMPAR):
                   "cliffs_delta": "Cliff's δ", "effect": "Effect"})
 
 
-H("3.7 Extrapolation is possible; the earlier conclusion was about representations", 2)
+H("4.8 Extrapolation is possible; the earlier conclusion was about representations", 2)
 P("Our first analysis stopped here and concluded that none of the models extrapolates across "
   "positions. That conclusion does not follow from the evidence, and it is wrong. Every model "
   "compared above encodes a substitution by the position it occupies: the additive model by a "
@@ -939,7 +1307,7 @@ if _gnn and _gbm:
       f"boosting on the transferable feature block, at {_gbm}. Neither is the architecture we "
       f"would have predicted, and we report them rather than the model we set out to build.")
 
-H("3.8 Where the transfer comes from: positions, not substitutions", 2)
+H("4.9 Where the transfer comes from: positions, not substitutions", 2)
 TBP = J("transfer_by_position.json")
 if TBP:
     rows = []
@@ -998,7 +1366,7 @@ fig("Figure4_decomposition.png",
     "standard deviation. (b) Median per-position rank accuracy within a single withheld position, "
     "for the transferable model and for BLOSUM62 exchangeability on identical substitutions.", 6.9)
 
-H("3.9 The protein language model contributes nothing here", 2)
+H("4.10 The protein language model contributes nothing here", 2)
 if FEAT:
     P(f"ESM-2 is the component most often expected to supply exactly this kind of "
       f"position-independent knowledge, and on this protein it does not. Its zero-shot scores "
@@ -1025,7 +1393,7 @@ if ESMC:
       f"with SARS-CoV-2 ranking among the harder entries in published zero-shot benchmarks, and "
       f"not as a general statement about protein language models.")
 
-H("3.10 Permuting the amino-acid alphabet", 2)
+H("4.11 Permuting the amino-acid alphabet", 2)
 if len(ABL2):
     table(ABL2, "Table 6. Amino-acid permutation ablation: an independent random permutation of "
           "the alphabet at every position, applied consistently to all partitions.",
@@ -1047,10 +1415,10 @@ if len(ABL2):
       "a residue's identity and the structural context it sits in. The seed spreads are wide "
       "enough that we would not rest an argument on the size of either number.")
 
-H("3.11 Withholding more positions", 2)
+H("4.12 Withholding more positions", 2)
 
 
-H("3.12 Run-to-run instability", 2)
+H("4.13 Run-to-run instability", 2)
 if STAB:
     byss = {}
     for r in STAB:
@@ -1065,7 +1433,7 @@ if STAB:
       f"spread exceeds the differences being discussed, so a single run on this benchmark is not "
       f"a measurement. Every table here reports a seed distribution for that reason.")
 
-H("3.13 Variant-of-Concern ranking without leakage", 2)
+H("4.14 Variant-of-Concern ranking without leakage", 2)
 if HO.get("voc"):
     rows = [dict(Score=k, AUROC=f"{v['auroc']:.3f}",
                  CI=f"{v['ci95'][0]:.3f}–{v['ci95'][1]:.3f}", n_positives=v["n_voc"])
@@ -1114,7 +1482,7 @@ if VA:
           f"samples of the same archive (permutation P = {v['perm_p']:.3f}). A learned fitness "
           f"surface is constrained only where it was fitted, and an optimiser leaves that region.")
 
-H("3.14 A second data type: coronavirus genomes", 2)
+H("4.15 A second data type: coronavirus genomes", 2)
 if len(GEN):
     table(GEN, "Table 13. Coronavirus genus classification under both splits, mean ± SD across "
           "seeds.",
@@ -1162,7 +1530,7 @@ P("The original project proposal reported this task as a five-way classification
   "the control is what makes the increment visible and worth reporting.")
 
 # ================================================================= DISCUSSION
-H("4. Discussion")
+H("4.16 Synthesis and interpretation", 2)
 _AJ, _AT = J("position_only_audit.json"), C("table_position_only_audit.csv")
 if _AJ.get("Random split") and len(_AT):
     _r = _AJ["Random split"]; _m = _AJ.get("fold_modulo_5", {})
@@ -1228,7 +1596,7 @@ P("The practical recommendations are narrow, and the first of them is already av
   "seed distribution: initialisation alone moved held-out binding ρ across a range wide enough "
   "to reverse conclusions.")
 
-H("4.1 Limitations", 2)
+H("4.17 Limitations", 2)
 for t in [
     "This is one protein, one genetic background (Wuhan-Hu-1) and two assay platforms. The "
     "evaluation lesson is general; the specific finding that structure carries the transfer is "
@@ -1256,39 +1624,118 @@ for t in [
 ]:
     doc.add_paragraph(t, style="List Bullet")
 
-H("5. Data and code availability")
-P("Phenotype data: Starr et al., SARS-CoV-2-RBD_DMS, and the aggregated escape maps at "
-  "jbloomlab/SARS2_RBD_Ab_escape_maps. Structure: PDB 6M0J. Reference sequence: UniProt P0DTC2. "
-  "Genomes: NCBI nucleotide. Language model: facebook/esm2_t33_650M_UR50D. All analysis code, "
-  "the retrieval scripts, every per-run output and the script that generates this manuscript "
-  "from them are in the accompanying repository; run_all.sh reproduces every table and figure "
-  "from raw data on four CPU cores.")
+# ================================================================= FUTURE WORK
+H("5. Future work")
+P("The study leaves four questions open that we regard as directly answerable, and we state them "
+  "as specifications rather than aspirations.")
+P("First, the position-only control should be adopted as a reported quantity rather than a "
+  "finding. It costs one ridge regression on a one-hot position matrix, it is defined for every "
+  "assay in every benchmark of this kind, and the natural next step is a leaderboard column: for "
+  "each assay and each split, the correlation achieved with no knowledge of the substitution. "
+  "The same applies to the partial correlation that removes the substitution-count confound, "
+  "which is preferable where multi-substitution variants exist because it needs no second model "
+  "and validates itself. Whether a margin over the position-only baseline, rather than a raw "
+  "correlation, is the better headline metric for supervised variant-effect benchmarks is an "
+  "empirical question that the per-assay data released here would let the community settle.")
+P("Second, the decomposition of transferable signal was performed on one protein with a crystal "
+  "structure of the receptor complex, and generalised only partially: AlphaFold descriptors "
+  "raised the chemistry-only median substantially across 132 ProteinGym assays, but a predicted "
+  "monomer cannot supply the interface descriptors that carry most of the receptor-binding signal. "
+  "The informative experiment is a systematic comparison of crystal, predicted-monomer and "
+  "predicted-complex descriptors on the subset of assays where a complex is available, which "
+  "would establish how much of the structural contribution survives the move from a solved "
+  "structure to a prediction.")
+P("Third, the language-model result is scoped to one protein, one model, one size and one scoring "
+  "convention. ESM-2 650M contributed nothing measurable to the receptor-binding domain, and the "
+  "positive control shows this is a property of the protein rather than of the pipeline: the same "
+  "scorer recovers the wild-type residue at most ubiquitin positions and at few receptor-binding "
+  "domain positions, because the domain is under immune selection and poorly described by the "
+  "evolutionary record the model was trained on. The experiment that would settle it is a sweep "
+  "over model scale and over scorers, together with fine-tuning on sarbecovirus sequences, "
+  "evaluated under the position-based schemes rather than under a random split. Our expectation, "
+  "stated so that it can be falsified, is that scale will not rescue this protein and that "
+  "lineage-specific fine-tuning will.")
+P("Fourth, the evaluation question should be asked in the setting it was motivated by. The "
+  "analyses here withhold positions at random or by a deterministic rule, which is a proxy for "
+  "the real task: predicting the effect of a substitution at a position the moment it first "
+  "appears in a sequenced genome. A prospective evaluation, in which models are frozen at a date "
+  "and scored on positions that first rose above a frequency threshold afterwards, would test "
+  "the capability directly. That design requires lineage-dated sequence data and a "
+  "data-access agreement for the repositories that hold it, which is why it is proposed here "
+  "rather than reported.")
+P("Two smaller extensions follow from the limitations above. Hyper-parameters were selected on "
+  "random-split validation, which plausibly understates the trained models at held-out "
+  "positions; selecting them within the held-out-position regime would bound that effect. And "
+  "the censoring of binding measurements at the assay floor was not modelled, which a censored "
+  "likelihood would address.")
+
+# ================================================================= CONCLUSION
+H("6. Conclusion")
+_cpm_r = _pg("Random split", "Position mean")
+_cpm_h = _pg("Held-out-position split", "Position mean")
+_crnd = AUD0[AUD0.scheme == "Random split"] if len(AUD0) else AUD0
+P("A supervised model of a mutational scan can score well on the protocol this field reports "
+  "against while holding no parameter that applies to a position no experiment has probed. We "
+  "quantified how much of such a score requires no knowledge of the substitution at all, using "
+  "two untrained controls: one that ranks variants by the number of substitutions they carry, "
+  "and one that knows only which position is mutated. "
+  + (f"Across {_na} ProteinGym substitution assays the position-only control reaches a median "
+     f"per-assay Spearman correlation of {_cpm_r:.3f} under a random split, which places it "
+     f"{pm_rank_clause()} on the benchmark's own mean-correlation scale and ahead of "
+     f"{pm_beats_clause()}; "
+     f"{int((_crnd.median_margin < 0).sum())} of eleven do not beat it on the median. Under both "
+     f"of the benchmark's position-based schemes it falls to {_cpm_h:.3f}, which is an identity "
+     f"rather than a degradation."
+     if (_cpm_r is not None and _cpm_h is not None and len(_crnd)) else
+     "Across the ProteinGym substitution assays the position-only control is competitive with "
+     "published supervised models under a random split and falls to exactly zero under both of "
+     "the benchmark's position-based schemes, which is an identity rather than a degradation."))
+P("On the SARS-CoV-2 receptor-binding domain the same controls overturn, and then restore, a "
+  "conclusion. A sequence network appears to extrapolate to held-out positions until an "
+  "untrained substitution-count baseline is computed on the same partition, at which point it "
+  "does not. But the inference that the phenotype is unpredictable at an unseen position does "
+  "not follow, because every model compared indexes substitutions by position and so cannot "
+  "transfer for representational reasons. Given features that remain defined at an unseen "
+  "position, extrapolation is substantial: structure selects which positions tolerate "
+  "substitution, chemistry orders substitutions within a position, the two are separable, and a "
+  "protein language model adds nothing on this protein.")
+P("The recommendations are cheap and specific. Report position-based cross-validation alongside "
+  "the random split rather than instead of it, because the two rank models differently. Report "
+  "an untrained baseline on every partition, or the partial correlation that removes the confound "
+  "outright. Include a model that uses only the position; if it beats the model under evaluation, "
+  "the evaluation is not measuring what the paper says it is. And before concluding that a "
+  "phenotype cannot be extrapolated, check whether the models tested hold any parameter that "
+  "applies to the held-out condition. Making a split harder does not by itself make the number "
+  "it produces meaningful.")
+
+# ================================================================= DECLARATIONS
+H("Data availability")
+P("All data analysed here are public. Phenotype measurements: Starr et al., SARS-CoV-2-RBD_DMS "
+  "(ACE2 binding and expression), and the aggregated antibody-escape maps at "
+  "jbloomlab/SARS2_RBD_Ab_escape_maps. Benchmark data: the ProteinGym v1.1 substitution "
+  "assays and the published supervised leaderboard. Structure: PDB 6M0J; predicted monomers "
+  "from the AlphaFold Protein Structure Database. Reference sequence: UniProt P0DTC2. Genome "
+  "sequences: NCBI Nucleotide, with accessions listed in the repository. Protein language model "
+  "weights: facebook/esm2_t33_650M_UR50D. Every per-run output, every result table and the "
+  "per-assay correlations underlying the leaderboard audit are released with the code.")
+
+H("Code availability")
+P("All analysis code, the data-retrieval scripts, the test suite asserting the "
+  "no-position-overlap property of the held-out-position split, and the script that generates "
+  "this manuscript and all its tables and figures from cached outputs are in the accompanying "
+  "repository under an open licence. run_all.sh reproduces every number from raw data on four "
+  "CPU cores.")
+
+H("Author contributions")
+P("[To be completed. Suggested form: A.B. designed the study, implemented the pipeline, "
+  "performed the analyses and wrote the manuscript. C.D. contributed to the structural analysis. "
+  "All authors reviewed and approved the final manuscript.]")
+
+H("Competing interests")
+P("The authors declare no competing interests.")
 
 H("References")
-for r in [
-    "Starr TN, Greaney AJ, Hilton SK, et al. Deep mutational scanning of SARS-CoV-2 receptor "
-    "binding domain reveals constraints on folding and ACE2 binding. Cell 2020;182:1295–1310.",
-    "Greaney AJ, Starr TN, Bloom JD. An antibody-escape estimator for mutations to the "
-    "SARS-CoV-2 receptor-binding domain. Virus Evolution 2022;8:veac021.",
-    "Otwinowski J, McCandlish DM, Plotkin JB. Inferring the shape of global epistasis. Proc Natl "
-    "Acad Sci USA 2018;115:E7550–E7559.",
-    "Kendall A, Gal Y, Cipolla R. Multi-task learning using uncertainty to weigh losses for scene "
-    "geometry and semantics. CVPR 2018:7482–7491.",
-    "Loshchilov I, Hutter F. Decoupled weight decay regularization. ICLR 2019.",
-    "Meier J, Rao R, Verkuil R, et al. Language models enable zero-shot prediction of the effects "
-    "of mutations on protein function. NeurIPS 2021.",
-    "Lin Z, Akin H, Rao R, et al. Evolutionary-scale prediction of atomic-level protein structure "
-    "with a language model. Science 2023;379:1123–1130.",
-    "Lan J, Ge J, Yu J, et al. Structure of the SARS-CoV-2 spike receptor-binding domain bound to "
-    "the ACE2 receptor. Nature 2020;581:215–220.",
-    "Shrake A, Rupley JA. Environment and exposure to solvent of protein atoms. Lysozyme and "
-    "insulin. J Mol Biol 1973;79:351–371.",
-    "Notin P, Kollasch AW, Ritter D, et al. ProteinGym: large-scale benchmarks for protein "
-    "fitness prediction and design. NeurIPS Datasets and Benchmarks 2023.",
-    "Notin P, Weitzman R, Marks DS, Gal Y. ProteinNPT: improving protein property prediction and "
-    "design with non-parametric transformers. NeurIPS 2023. (Defines the fold_random_5, "
-    "fold_contiguous_5 and fold_modulo_5 cross-validation schemes used here.)",
-]:
+for r in REFERENCES:
     doc.add_paragraph(r, style="List Number")
 
 out = ROOT / "EvoClassNet_manuscript.docx"
