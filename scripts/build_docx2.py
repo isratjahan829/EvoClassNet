@@ -425,7 +425,7 @@ if _res:
       ", ".join(str(s) for s in _iface) + ", which is the ACE2 contact set reported in the "
       f"structural literature. Every one of these quantities is a property of the folded protein "
       f"and is available for a position whether or not it was ever assayed.")
-fig("schema4_structure_gnn.png",
+fig("Figure1_structure_pipeline.png",
     "Figure 1. Structural pipeline and residue contact graph from PDB 6M0J. Descriptor names, "
     "edge count, mean degree and the recovered interface set are read from the computed features, "
     "not written by hand.", 6.6)
@@ -459,7 +459,7 @@ if ESMC:
       f"{rf.get('median_top_prob', float('nan')):.3f} and "
       f"{rs.get('median_top_prob', float('nan')):.3f} respectively.")
 
-fig("schema3_plm.png",
+fig("Figure2_esm2.png",
     "Figure 2. ESM-2 enters the study twice: as an untrained zero-shot scorer, and as "
     "per-position features for the supervised network.", 6.6)
 
@@ -517,7 +517,7 @@ P("Hyper-parameters were selected by a genetic algorithm maximising mean validat
   "AdamW [5] with a one-cycle schedule, batch size 256, up to 8 epochs with early stopping, "
   "gradient clipping at global norm 1.0. All experiments ran on four CPU cores.")
 
-fig("schema2_backbone.png",
+fig("Figure4_backbone.png",
     "Figure 4. EvoClassNet backbone. Channel counts, kernel sizes, pooling, hidden widths and "
     "the parameter count are read from the trained configuration.", 6.8)
 
