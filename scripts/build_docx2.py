@@ -168,129 +168,94 @@ hb_mc = pv("heldout_sites", "ACE2 binding", "Mutation count")
 hb_ec = pv("heldout_sites", "ACE2 binding", "EvoClassNet")
 rb_ec = pv("random", "ACE2 binding", "EvoClassNet")
 rb_ge = pv("random", "ACE2 binding", "Global epistasis")
-abs_bits = [
-    "Supervised models of deep mutational scanning data are normally validated by holding out "
-    "random variants. In a saturating library almost every position is mutated somewhere in the "
-    "training set, so this measures interpolation, not the case that matters for surveillance, "
-    "in which a lineage mutates a position no experiment has probed. We benchmarked eleven model "
-    "families on SARS-CoV-2 receptor-binding-domain variants with three measured phenotypes "
-    "under a conventional random split and under a held-out-position split in which no training "
-    "variant mutates any test position.",
-]
-_ab_p1 = pv('heldout_sites','ACE2 binding','EvoClassNet','spearman_partial')
-_ab_p2 = pv('heldout_sites','ACE2 binding','Mutation count','spearman_partial')
-if hb_mc and hb_ec and _ab_p1 and _ab_p2:
-    abs_bits.append(
-        f"Under the held-out-position split the sequence network reached Spearman ρ = {hb_ec} for "
-        f"binding, against {hb_mc} for an untrained baseline that ranks variants only by how many "
-        f"substitutions they carry. Reporting the rank correlation after substitution count is "
-        f"partialled out of both sides shows why: the network retains "
-        f"{_ab_p1} of genuine "
-        f"position-level signal, and the untrained baseline, as it must, retains "
-        f"{_ab_p2}.")
-if not (hb_mc and hb_ec and _ab_p1 and _ab_p2):
-    # The panel sentence above was skipped; without it the next one has no antecedent.
-    abs_bits.append(
-        "Under the held-out-position split the conventional models collapse: an additive model "
-        "has no applicable parameter and emits a constant, a global-epistasis fit becomes "
-        "anti-correlated with measurement, and a sequence network retains only what an untrained "
-        "baseline that counts substitutions already achieves.")
-if FEAT:
-    abs_bits.append(
-        f"That failure is a property of the representation rather than of the data. Every model "
-        f"in this class encodes a substitution by which position it occupies, so none holds a "
-        f"parameter applicable to a position absent from training. Given features that remain "
-        f"defined at unseen positions — how the residue changes chemically, and descriptors of "
-        f"the position taken from the crystal structure of the receptor complex — a ridge "
-        f"regression reaches a partial correlation of {feat_pm('chem+struct+esm','bind')} for "
-        f"binding and {feat_pm('chem+struct+esm','escape','spearman')} for antibody escape. "
-        f"Decomposing it, structure contributes {feat_pm('struct_only','bind')} and chemistry "
-        f"{feat_pm('chem_only','bind')}; removing the two descriptors that mark the receptor "
-        f"interface, and are therefore close to circular for binding, leaves "
-        f"{feat_pm('struct_nointerface','bind')}.")
-    abs_bits.append(
-        f"ESM-2 contributes nothing on this protein: its zero-shot scores reach "
-        f"{feat_pm('esm_only','bind','spearman')} for binding, of which "
-        f"{feat_pm('esm_only','bind')} survives the substitution-count control.")
-if len(GEN):
-    g_triv = GEN[(GEN.split == "heldout_species") & (GEN.model.str.startswith("Genome length"))]
-    g_seq = GEN[(GEN.split == "heldout_species") & (GEN.family == "sequence")]
-    if len(g_triv) and len(g_seq):
-        _t = num(g_triv.iloc[0].balanced_accuracy)
-        _bestrow = g_seq.loc[g_seq.balanced_accuracy.map(num).idxmax()]
-        _b = num(_bestrow.balanced_accuracy)
-        # Say what the numbers show, not what the first task showed.
-        if _b - _t < 0.03:
-            _verdict = ("the sequence models add nothing over it, so the same reading applies as "
-                        "for the assay data")
-        else:
-            _verdict = (f"the sequence models do add a real increment here ({_bestrow.model} "
-                        f"reaches {_bestrow.balanced_accuracy}), so on this task the control "
-                        f"bounds how much of a headline accuracy is informative rather than "
-                        f"explaining all of it")
-        abs_bits.append(
-            f"A second task on {GMETA.get('n_genomes','?')} coronavirus genomes from "
-            f"{GMETA.get('n_species','?')} species shows how much of a headline number a control "
-            f"can account for even when the models are genuinely good: under a held-out-species "
-            f"split, genome length and base composition alone reach balanced accuracy "
-            f"{g_triv.iloc[0].balanced_accuracy}, and {_verdict}.")
+_p1 = pv("heldout_sites", "ACE2 binding", "EvoClassNet", "spearman_partial")
+_p2 = pv("heldout_sites", "ACE2 binding", "Mutation count", "spearman_partial")
 PGT0 = C("table_proteingym.csv")
-if len(PGT0):
-    def _pg(split, model, col="median"):
-        r = PGT0[(PGT0.split == split) & (PGT0.model == model)]
-        return None if not len(r) else r.iloc[0][col]
-    _pm_r, _pm_h = _pg("Random split", "Position mean"), _pg("Held-out-position split", "Position mean")
-    _ch_r, _ch_h = _pg("Random split", "Chemistry ridge"), _pg("Held-out-position split", "Chemistry ridge")
-    _na = int(C("proteingym_per_assay.csv").dms_id.nunique()) if len(C("proteingym_per_assay.csv")) else 0
-    if None not in (_pm_r, _pm_h, _ch_r, _ch_h):
-        abs_bits.append(
-            f"Repeating the comparison over all {_na} substitution assays in ProteinGym shows "
-            f"this is a property of the benchmark and not of one protein. A model given only "
-            f"position indicators, which knows nothing about which substitution is made, has a "
-            f"median per-assay rho of {float(_pm_r):.3f} under a random split against {float(_ch_r):.3f} for a model "
-            f"given only the chemistry of the substitution; under a held-out-position split the "
-            f"first falls to {float(_pm_h):.3f}, which is an identity rather than a degradation, and "
-            f"the second retains {float(_ch_h):.3f}. The standard evaluation rewards memorising per-position "
-            f"means, and that capability is worth nothing at a position no experiment has probed.")
+
+
+def _pg(split, model, col="median"):
+    r = PGT0[(PGT0.split == split) & (PGT0.model == model)]
+    return None if not len(r) else float(r.iloc[0][col])
+
 
 AUDJ0 = J("position_only_audit.json")
 AUD0 = C("table_position_only_audit.csv")
-if AUDJ0.get("Random split") and len(AUD0):
+LBJ0 = J("leaderboard_comparison.json")
+_SE0 = C("table_structure_effect.csv")
+
+def _mo(v):
+    """Mean only, no SD, no leading plus: for the abstract's tight word budget."""
+    t = str(v).split(" \u00b1")[0].lstrip("+")
+    return "0.000" if t in ("-0.000", "\u22120.000") else t.replace("-", "\u2212")
+
+
+abs_bits = [
+    "Deep mutational scanning models are normally validated on held-out random variants, which "
+    "in a saturating library measures interpolation, not extrapolation to an unprobed position."]
+
+if LBJ0.get("one_hot"):
+    _oh = LBJ0["one_hot"]
+    abs_bits.append(
+        f"Position-based cross-validation is not new: ProteinGym defines fold_modulo_5 and "
+        f"fold_contiguous_5, where its own one-hot baseline falls from {_oh['random']:.3f} to "
+        f"{_oh['modulo']:.3f}. Missing is a control for how much of a random-split score needs no "
+        f"knowledge of the substitution.")
+
+if hb_mc and hb_ec and _p1 and _p2:
+    abs_bits.append(
+        f"Across eleven model families on SARS-CoV-2 receptor-binding-domain variants, "
+        f"EvoClassNet reached held-out-position Spearman \u03c1 {hb_ec.lstrip('+')} for binding "
+        f"against {hb_mc.lstrip('+')} for an untrained substitution-count baseline; partialling "
+        f"the count out left {_p1.lstrip('+')} and "
+        f"{_p2.replace('-0.000', '0.000').lstrip('+')}.")
+
+if FEAT:
+    abs_bits.append(
+        f"Features still defined at unseen positions \u2014 substitution chemistry plus "
+        f"receptor-complex descriptors \u2014 gave partial \u03c1 "
+        f"{_mo(feat_pm('chem+struct+esm','bind'))} for binding and raw \u03c1 "
+        f"{_mo(feat_pm('chem+struct+esm','escape','spearman'))} for escape; structure contributed "
+        f"{_mo(feat_pm('struct_only','bind'))}, chemistry {_mo(feat_pm('chem_only','bind'))}, "
+        f"without interface descriptors {_mo(feat_pm('struct_nointerface','bind'))}.")
+    if ESMC:
+        abs_bits.append(
+            f"ESM-2 added nothing ({_mo(feat_pm('esm_only','bind'))} partial), against a positive "
+            f"control recovering {100*ESMC['ubiquitin']['recovery']:.1f}% of wild-type residues on "
+            f"ubiquitin but {100*ESMC['rbd_fragment']['recovery']:.1f}% here.")
+
+_na = int(C("proteingym_per_assay.csv").dms_id.nunique()) if len(C("proteingym_per_assay.csv")) else 0
+if len(PGT0) and AUDJ0.get("Random split") and len(AUD0):
+    _pm_r, _pm_h = _pg("Random split", "Position mean"), _pg("Held-out-position split", "Position mean")
     _r, _m = AUDJ0["Random split"], AUDJ0.get("fold_modulo_5", {})
     _rnd = AUD0[AUD0.scheme == "Random split"]
     _below = int((_rnd.median_margin < 0).sum())
+    _words = {6: "six", 5: "five", 7: "seven", 4: "four", 8: "eight"}
     abs_bits.append(
-        f"Turning that baseline on the published leaderboard itself gives the sharpest statement. "
-        f"ProteinGym reports per-assay correlations for eleven supervised models under each "
-        f"scheme. Under the random split the position-only baseline reaches a median Spearman of "
-        f"{_rnd.position_only_median.iloc[0]:.3f}, and {_below} of the eleven published models "
-        f"have a median below it; the median model wins on only "
-        f"{100*_r['median_frac_beats']:.1f} % of assays, and the weakest is not beaten on "
-        f"{_r['worst']['n_not_beaten']} of 216. Under fold_modulo_5 the same models win on "
-        f"{100*_m.get('median_frac_beats', float('nan')):.1f} % of assays. The models are not "
-        f"weak; the conventional protocol simply does not show what separates them.")
+        f"Across {_na} ProteinGym assays a position-only model reached median \u03c1 {_pm_r:.3f} "
+        f"under random splitting and exactly {_pm_h:.3f} under both position-based schemes, "
+        f"ranking third of sixteen; {_words.get(_below, _below)} of eleven published models failed "
+        f"to beat it, and the median model won on {100*_r['median_frac_beats']:.1f}% of assays "
+        f"versus {100*_m.get('median_frac_beats', float('nan')):.1f}% under fold_modulo_5.")
 
-LBJ0 = J("leaderboard_comparison.json")
-if LBJ0.get("one_hot") and LBJ0.get("best_under_modulo"):
-    _oh, _bm = LBJ0["one_hot"], LBJ0["best_under_modulo"]
-    _ours = LBJ0.get("ours_under_modulo", {})
-    abs_bits.append(
-        f"Neither the position-based schemes nor the collapse itself is new: ProteinGym publishes "
-        f"results under all three, and its own one-hot baseline falls from {_oh['random']:.3f} to "
-        f"{_oh['modulo']:.3f}. The contribution is the diagnostic. A position-mean model given no "
-        f"residue identity at all ranks third of sixteen under the random split and falls further "
-        f"than any published model, which bounds how much of a conventional score needs no "
-        f"knowledge of the substitution. Our transferable baselines are deliberately simple and "
-        f"not competitive: the chemistry ridge averages {_ours.get('physchem', float('nan')):.3f} "
-        f"under fold_modulo_5 against {_bm['modulo']:.3f} for {_bm['model']}, whose advantage "
-        f"comes from exactly the transferable representation this analysis points to.")
+if len(_SE0):
+    _hp = _SE0[_SE0.split == "Held-out positions"]
+    if len(_hp):
+        _hp = _hp.iloc[0]
+        _gen = ""
+        if len(GEN):
+            _gt = GEN[(GEN.split == "heldout_species") & (GEN.model.str.startswith("Genome length"))]
+            if len(_gt):
+                _gen = (f"; on {GMETA.get('n_genomes','?')} coronavirus genomes, length and base "
+                        f"composition alone gave "
+                        f"{_mo(_gt.iloc[0].balanced_accuracy)} balanced accuracy")
+        abs_bits.append(
+            f"AlphaFold descriptors raised the chemistry median from "
+            f"{float(_hp.median_physchem):.3f} to {float(_hp.median_chem_struct):.3f} across "
+            f"{int(_hp.n_assays)} assays{_gen}.")
 
 abs_bits.append(
-    "We conclude that a hard evaluation split is interpretable only against an untrained "
-    "baseline computed on the same partition, that the apparent inability of sequence models to "
-    "extrapolate across positions is an artefact of how they index substitutions rather than a "
-    "limit of the measurements, and that before a phenotype is called unpredictable at an unseen "
-    "position one should check whether the models tested hold any parameter that applies there.")
+    "Hard splits are interpretable only against untrained baselines on the same partition; poor "
+    "cross-position extrapolation indicts the representation, not the measurements.")
 P(" ".join(abs_bits))
 P("Keywords: deep mutational scanning; SARS-CoV-2; model evaluation; generalisation; baselines; "
   "protein structure; protein language models; variant effect prediction.", it=True)
